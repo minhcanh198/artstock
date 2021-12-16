@@ -1,0 +1,259 @@
+
+/*@media only screen and (max-width:1400px){*/
+/*    .my-cate-style {*/
+/*        margin-top: 5px;*/
+/*        right: 365px;*/
+/*    }*/
+/*}*/
+
+/*@media only screen and (max-width:1200px){ */
+/*    .my-cate-style {*/
+/*        right: 287px;*/
+/*    }*/
+/*}*/
+
+
+/*@media only screen and (max-width:1160px){*/
+/*    .my-cate-style {*/
+/*        right: 262px!important;*/
+/*    }*/
+/*    .new {*/
+/*        right: 42%;*/
+/*    }*/
+/*}*/
+
+
+/* @media only screen and (max-width:991px){*/
+ 
+
+/*.inner-text {*/
+/*    padding: 85px 0 0 0px;*/
+/*}*/
+/*.inner-img img {*/
+
+/*    padding: 50px 0;*/
+/*}*/
+
+/*}*/
+
+@media (max-width: 1199.98px) {
+    
+    .dropdown.new.new2.dropdown-one-header a {
+        font-size: 12px;
+    }
+    
+    .home ul li a {
+        font-size: 12px!important;
+    }
+    
+    .home ul li {
+        padding: 32px 6px;
+    }
+    .destination-location-box .content .action a {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+    .choose-photographer.banner-section p {
+        font-size: 16px;
+    }
+    .flex-images .item {
+        margin: 1px!important;
+    }
+    .social-icons .dropdown.new {
+        right: 66%;
+    }
+}
+
+@media (max-width: 991.98px) {
+    
+	/*RESPONSIVE NAVIGATION*/
+   .mobile-menu{
+        display: block;
+    }
+      
+    .home-menu{
+          display:none;
+      }
+      
+    section.banner {
+        height: 350px;
+    }
+    .inner-text {
+        padding: 40px 0 0 40px;
+    }
+    .text h1 {
+        font-size: 20px;
+      
+    }
+    
+    .choose-photographer-title {
+        font-size: 24px;
+    }
+    .choose-photographer.banner-section p {
+        font-size: 12px;
+    }
+    .last-section-photographer-title {
+        font-size: 24px;
+    }
+    .box-div h4 {
+        font-size: 22px;
+    }
+    .box-div.box-div-2 {
+        padding: 0px 0px 36px 177px;
+    }
+    .tabs__navigation a {
+        font-size: 10px;
+        margin: 0 4px;     
+    }
+    .joinfb .fab.fa-facebook-f {
+        right: 0;
+    }
+    
+}
+
+@media (max-width: 767.98px) {
+     .tabs__navigation button {
+        font-size: 12px;
+        padding: 0 !important;
+        margin: 0 5px;
+        height: 70px;
+        width: 70px;
+    }
+    
+    .tabs__navigation {
+
+        flex-wrap: wrap;
+    }
+    .box-new {
+        padding: 0px 0;
+    }
+    .theme-btn {
+        padding: 15px 14px;
+        font-size: 12px;
+    }
+    .inner-text p {
+        font-size: 20px;
+    }
+    .inner-text2 p {
+        font-size: 20px;
+    }
+    .inner-text {
+        padding: 0 0 0 0px;
+    }
+    .social-icons ul li {
+        padding: 0px 0px 24px 0px;
+    }
+    .main-search-bar .btn.btn-secondary {
+        padding: 0 12px;
+        font-size: 15px;
+        border-radius: 0;
+    }
+    .text h1 {
+        font-size: 18px;
+    }
+    section.banner {
+        height: 400px;
+    }
+    .inner-text2 {
+        padding: 85px 0 50px 5px;
+    }
+    
+   .jumbotron.index-header.jumbotron_set.jumbotron-cover {
+        height: 60%!important;
+    }
+    .popular-title {
+        font-size: 24px;
+    }
+    
+    .img-video-fix-width {
+        width: 100%;
+    }
+    
+    #DivImageFlex .hover-content {
+        display: block;
+    }
+    .choose-photographer-box .bottom .btn-portfolio-one {
+
+        margin-bottom: 10px;
+    }
+    .destination.banner-section {
+        padding: 100px 0 !important;
+    }
+    .destination-title {
+        font-size: 20px;
+    }
+    .country-destination-button.custom {
+        left: 0;
+    }
+    .country-destination-button .btn-destination-search {
+        padding: 6px 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .destination-btns ul li a {
+        margin: 0 6px;
+        height: 60px;
+        width: 60px;
+        font-size: 10px;
+        margin-bottom: 6px;
+    }
+    .locations-list {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+    .footer h1 {
+        font-size: 12px;
+    }
+    .destination-s4-title {
+        font-size: 16px;
+    }
+    .set-padding-col {
+        padding: 30px 16px 0 16px;
+    }
+    .choose-photographer-title {
+        margin-top: 20px;
+    }
+    .box-div h4 {
+        font-size: 24px;
+    }
+    .div-container {
+        width: 100%;
+    }
+    .license-img-new {
+        float: none;
+        border-radius: 14%;
+        width: 100%;
+    }
+    .box-div.box-div-2 {
+        padding: 20px 0;
+    }
+    
+    .flex-images .item {
+        margin: 1px;
+    }
+    
+    .btn-joinfb,
+    .btn-jointwitter{
+        font-size: 16px;
+        width: 100%;
+        height: 40px;
+    }
+    .joinfb .fab.fa-facebook-f {
+        right: 0;
+    }
+}
+
+@media (max-width: 575.98px) {
+}
+
+
+
+
+
+
