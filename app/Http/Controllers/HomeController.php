@@ -35,7 +35,6 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 	public function index() {
-		dd('haha');
 		$homePageData = HomePageSettings::first();
 		// dd($homePageData);
 		// $categories = Categories::where('mode','on')->orderBy('name')->paginate(12);
