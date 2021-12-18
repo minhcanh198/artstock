@@ -35,15 +35,15 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 	public function index() {
-		dd('artstock');
+		dd('haha');
 		$homePageData = HomePageSettings::first();
 		// dd($homePageData);
 		// $categories = Categories::where('mode','on')->orderBy('name')->paginate(12);
 		$categories = Categories::where('mode','on')->orderBy('name')->paginate(12);
-		
+
 		$images     = Query::latestImages();
 		// $images     = Query::RecentImages();
-		
+
 		$featured   = Query::featuredImages();
 		$popularCategories = Categories::withCount('images')->latest('images_count')->has('images')->take(5)->with('images')->get();
 		if ($popularCategories->count() != 0) {
@@ -54,8 +54,8 @@ class HomeController extends Controller
 		} else {
 			$categoryPopular = false;
 		}
-	
-		
+
+
 		$getCategoriesList = Categories::where('slug', '!=', 'uncategorized')->where('parent_id','=','0')->limit('8')->get();
 
 		$totalArtistCount = 0;
@@ -170,7 +170,7 @@ class HomeController extends Controller
 	}// End Method
 
 	public function getSearchNew() {
-		
+
 
 		$q = request()->get('txt_search');
 
@@ -272,7 +272,7 @@ class HomeController extends Controller
 	}// End Method
 
 	public function getSubCategoryByCategory($CatId){
-		
+
 		$subCategory = Categories::where('parent_id','=', $CatId)->get();
 
 		if(count($subCategory) > 0){
@@ -290,10 +290,10 @@ class HomeController extends Controller
 		// dd($categorySlug);
 		$getCategoryDetails = Categories::where('slug','=', $categorySlug)->first();
 
-		$user = Auth::user();        
-        
+		$user = Auth::user();
+
         if($user != null){
-			
+
 			$query = "SELECT
 			users.*, types.type_name,
 			(case when (images.is_type = 'image' and images.`status`= 'active') then images.thumbnail else 0 end) as img,
@@ -325,11 +325,11 @@ class HomeController extends Controller
 		}
 
 		$getUsersByCategory =  \DB::select($query);
-      
+
         return response()->json([
             'getUserArtistList' => $getUsersByCategory
 		], 200);
-		
+
 	}
 
 	public function category($slug) {
@@ -342,11 +342,11 @@ class HomeController extends Controller
 			$images = Query::categoryMusic($slug);
 
 		}
-		
+
 // 		echo '<pre>';
 // 		dd($images);
 // 		die;
-		
+
 
 		if(strpos($slug, '-') !== false){
 			// echo "Word Found!";
@@ -364,25 +364,25 @@ class HomeController extends Controller
 		}
 
 	}// End Method
-	
+
 	public function getLimitImagesByUserId($userId)
 	{
-        $getLimitImages = Images::where(['is_type' => 'image', 'user_id' => $userId])->limit(4)->get(); 
-        
+        $getLimitImages = Images::where(['is_type' => 'image', 'user_id' => $userId])->limit(4)->get();
+
         echo json_encode($getLimitImages);
 	}
-	
+
 	public function getLimitVideosByUserId($userId)
 	{
-        $getLimitImages = Images::where(['is_type' => 'video', 'user_id' => $userId])->limit(4)->get(); 
-        
+        $getLimitImages = Images::where(['is_type' => 'video', 'user_id' => $userId])->limit(4)->get();
+
         echo json_encode($getLimitImages);
 	}
-	
+
 // 	public function getLimitVideosByUserId($userId)
 // 	{
-// 	    $getLimitImages = Images::where(['is_type' => 'video', 'user_id' => $userId])->limit(4)->get(); 
-        
+// 	    $getLimitImages = Images::where(['is_type' => 'video', 'user_id' => $userId])->limit(4)->get();
+
 //         echo json_encode($getLimitImages);
 // 	}
 
@@ -438,7 +438,7 @@ class HomeController extends Controller
 		}else{
 			$q = '';
 		}
-		
+
 		$typeId = $request->searchArtistTypeId;
 
 		$images = Query::searchArtistData($q, $typeId);
@@ -461,7 +461,7 @@ class HomeController extends Controller
 		}else{
 			$q = '';
 		}
-		
+
 		// $industryId = $request->searchIndustryId;
 		$industryId = $request->txt_search_industry_id;
 		// dd($industryId);
@@ -491,7 +491,7 @@ class HomeController extends Controller
 		}else{
 			$q = '';
 		}
-		
+
 		// $industryId = $request->searchIndustryId;
 		$industryId = $request->txt_search_industry_id;
 		// dd($industryId);
@@ -508,7 +508,7 @@ class HomeController extends Controller
 		}else{
 			$q = '';
 		}
-		
+
 		// $industryId = $request->searchIndustryId;
 		$industryId = $request->txt_search_industry_id;
 		// dd($industryId);
@@ -602,7 +602,7 @@ class HomeController extends Controller
   		return view('index.premium', ['images' => $images]);
 
 	  }// End Method
-	  
+
 	  public function stockData($id)
 	  {
 		$stock = \App\Models\Stock::whereImagesId($id)->whereType('small')->select('name')->first();
