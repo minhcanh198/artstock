@@ -1,7 +1,7 @@
 @extends('dashboard.layout')
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -119,7 +119,7 @@
 @section('javascript')
 
 	<!-- icheck -->
-	<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
 
 	<script type="text/javascript">
 		//Flat red color scheme for iCheck

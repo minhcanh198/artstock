@@ -68,7 +68,7 @@
 								@endphp
 								@foreach($VideosData as $vidData)
 									@php
-						
+
 										$getFileName = explode(".",$vidData->thumbnail);
 										$screenShotVideoPath = 'public/uploads/video/screen_shot/'. 'screen-shot-'.$getFileName[0].'.png';
 									@endphp
@@ -82,7 +82,7 @@
 								@endphp
 								@foreach($VideosData as $vidData)
 									@php
-							
+
 										$getFileName = explode(".",$vidData->thumbnail);
 										$screenShotVideoPath = 'public/uploads/video/screen_shot/'. 'screen-shot-'.$getFileName[0].'.png';
 									@endphp
@@ -102,7 +102,7 @@
 									<div>
 										<audio controls class="audio-one">
 											<source src="https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"  type="audio/mp3">
-										</audio> 
+										</audio>
 									</div>
 								@endforeach
 							@else
@@ -111,18 +111,18 @@
 						<div class="box-conten text-center">
 							<div class="d-flex flex-column">
 								<div class="round-image-box ">
-									<img src="{{ asset('public/avatar').'/'.$usersData->avatar }}" alt="" class="img-fluid">
+									<img src="{{ asset('avatar').'/'.$usersData->avatar }}" alt="" class="img-fluid">
 								</div>
 								<div class="">
-									
+
 									<h3 class="title ">{{ ($usersData->name != "") ? $usersData->name : $usersData->username }}</h3>
 									<a href="" class="text-decoration-none">Lets Chat</a>
 								</div>
-								
+
 								<!-- <div class="round-image-box">
-									<img src="{{ asset('public/avatar').'/'.$usersData->avatar }}" alt="" class="img-fluid">
+									<img src="{{ asset('avatar').'/'.$usersData->avatar }}" alt="" class="img-fluid">
 								</div> -->
-								
+
 							</div>
 							<p class="mb-4 mt-3">
 									{{ $usersData->bio }}
@@ -130,7 +130,7 @@
 							<div class="box-buttons">
 								<a href="{{ url('/') . '/request-to-book?photographerId=' . $usersData->id . '&cityId=' . $getCityDetails->id }}" class="d-block w-100 btn-box-one">Request to Book {{ ($usersData->name != "") ? $usersData->name : $usersData->username }}</a>
 								<a href="{{ url('/') . '/artist/' . $usersData->id }}" class="d-block w-100 btn-box-two">View Photos and Reviews</a>
-								
+
 							</div>
 						</div>
 						<!-- <div class="box-buttons">
@@ -156,7 +156,7 @@
 					<div class="destinations-city-s3-box">
 						<!-- <p class="flag">Iconic Sights</p> -->
 						<div class="img-box">
-							<img src="{{ url('/').'/public/img-route/'.$routesData->route_img }}" alt="" class="img-fluid"> 
+							<img src="{{ url('/').'/public/img-route/'.$routesData->route_img }}" alt="" class="img-fluid">
 						</div>
 						<div class="content-box">
 							<h3 class="title text-center">
@@ -187,7 +187,7 @@
   <div class="msg_body">
    <div class="msg-left">What is up ? </div>
    <div class="msg-right">Playing video game, you say</div>
-   <div class="msg-left">can i join you ? </div> 
+   <div class="msg-left">can i join you ? </div>
    <div class="msg_push"></div>
   </div>
   <div class="msg_footer"><textarea class="msg_input" rows="4"></textarea></div>
@@ -202,7 +202,7 @@
   <div class="msg_body">
    <div class="msg-left">What is up ? </div>
    <div class="msg-right">Playing video game, you say</div>
-   <div class="msg-left">can i join you ? </div> 
+   <div class="msg-left">can i join you ? </div>
    <div class="msg_push"></div>
   </div>
   <div class="msg_footer"><textarea class="msg_input" rows="4"></textarea></div>
@@ -218,7 +218,7 @@
   <div class="msg_body">
    <div class="msg-left">What is up ? </div>
    <div class="msg-right">Playing video game, you say</div>
-   <div class="msg-left">can i join you ? </div> 
+   <div class="msg-left">can i join you ? </div>
    <div class="msg_push"></div>
   </div>
   <div class="msg_footer"><textarea class="msg_input" rows="4"></textarea></div>
@@ -235,7 +235,7 @@
   <div class="msg_body">
    <div class="msg-left">What is up ? </div>
    <div class="msg-right">Playing video game, you say</div>
-   <div class="msg-left">can i join you ? </div> 
+   <div class="msg-left">can i join you ? </div>
    <div class="msg_push"></div>
   </div>
   <div class="msg_footer"><textarea class="msg_input" rows="4"></textarea></div>
@@ -251,7 +251,7 @@
   <div class="msg_body">
    <div class="msg-left">What is up ? </div>
    <div class="msg-right">Playing video game, you say</div>
-   <div class="msg-left">can i join you ? </div> 
+   <div class="msg-left">can i join you ? </div>
    <div class="msg_push"></div>
   </div>
   <div class="msg_footer"><textarea class="msg_input" rows="4"></textarea></div>

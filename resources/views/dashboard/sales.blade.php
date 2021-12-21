@@ -48,7 +48,7 @@
 
                     if(null !== $purchase->images()) {
 
-                      $image_photo = asset('public/uploads/thumbnail').'/'.$purchase->images()->thumbnail;
+                      $image_photo = asset('uploads/thumbnail').'/'.$purchase->images()->thumbnail;
                       $image_title = $purchase->images()->title;
                       $image_url   = url('photo', $purchase->images()->id);
 

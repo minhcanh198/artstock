@@ -14,7 +14,7 @@
             <div class="filters-head-area row">
                 <div class="col-6 align-self-center" id="filterBtnDiv">
                     <h6 class="toggleFiltersBtn">
-                        <img src="{{ asset('public/search-page-img/filters.png') }}" alt="" class="set-filter-icon">
+                        <img src="{{ asset('search-page-img/filters.png') }}" alt="" class="set-filter-icon">
                         <span>Filters</span>
                     </h6>
                 </div>
@@ -247,7 +247,7 @@
                             <div id="faq4" class="collapse show" aria-labelledby="faqhead4" data-parent="#faq44">
                                 <div class="card-body">
                                     <select class="select2-icon2" name="select_sub_category" id="select_sub_category">
-                                        
+
                                         <?php
                                             if(\Request::query("sub_category") == ""){
                                         ?>
@@ -260,7 +260,7 @@
                                                 if(\Request::query('sub_category') == $subCat->id){
                                         ?>
                                                     <option selected value="{{ $subCat->id }}">{{ $subCat->name }}</option>
-                                                
+
                                         <?php
                                                 }else{
                                         ?>
@@ -269,7 +269,7 @@
                                                 }
                                             }
                                         ?>
-                                        
+
                                     </select>
                                 </div>
                             </div>
@@ -340,12 +340,12 @@
                             <!-- <li><a href="">«</a></li>
                             <li><a href="" class="active">1</a></li>
                             <li><a href="">»</a></li> -->
-                          
-                            
+
+
                         <!-- </ul> -->
-                        
+
                         {{ $images['images']->appends(request()->query())->links() }}
-                            
+
                     </div>
                 </div>
                 <div class="tags-search mt-3">
@@ -470,12 +470,12 @@
             $("#sort").val(idSortOption);
             const baseUrl = '<?php echo url("/") ?>';
             console.log(baseUrl);
-            
-            
+
+
             $("#formSearch").find(":input").filter(function() {
                 return !this.value;
             }).attr("disabled", "disabled");
-            
+
             var data = $("#formSearch").serialize();
 
             window.location.href = baseUrl + '/search?' + data;
@@ -490,12 +490,12 @@
 
             const baseUrl = '<?php echo url("/") ?>';
             console.log(baseUrl);
-            
-            
+
+
             $("#formSearch").find(":input").filter(function() {
                 return !this.value;
             }).attr("disabled", "disabled");
-            
+
             var data = $("#formSearch").serialize();
 
             window.location.href = baseUrl + '/search?' + data;
@@ -511,12 +511,12 @@
 
             const baseUrl = '<?php echo url("/") ?>';
             console.log(baseUrl);
-            
-            
+
+
             $("#formSearch").find(":input").filter(function() {
                 return !this.value;
             }).attr("disabled", "disabled");
-            
+
             var data = $("#formSearch").serialize();
 
             window.location.href = baseUrl + '/search?' + data;
@@ -532,12 +532,12 @@
 
             const baseUrl = '<?php echo url("/") ?>';
             console.log(baseUrl);
-            
-            
+
+
             $("#formSearch").find(":input").filter(function() {
                 return !this.value;
             }).attr("disabled", "disabled");
-            
+
             var data = $("#formSearch").serialize();
 
             window.location.href = baseUrl + '/search?' + data;
@@ -554,7 +554,7 @@
             $("#formSearch").find(":input").filter(function() {
                 return !this.value;
             }).attr("disabled", "disabled");
-            
+
             var data = $("#formSearch").serialize();
 
             window.location.href = baseUrl + '/search?' + data;

@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <title>Title</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="icon" href="{{{ asset('public/new_template/images/favicon.png') }}}" />
+<link rel="icon" href="{{{ asset('new_template/images/favicon.png') }}}" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="{{{ asset('public/new_template/css/bootstrap.min.css') }}}" />
-<link rel="stylesheet" href="{{{ asset('public/new_template/css/font-awesome.css') }}}">
-<link rel="stylesheet" href="{{{ asset('public/new_template/css/owl.carousel.min.css') }}}">
-<link rel="stylesheet" href="{{{ asset('public/new_template/css/style.css') }}}" />
-<link rel="stylesheet" href="{{{ asset('public/new_template/css/responsive.css') }}}" />
-<link rel="stylesheet" href="{{{ asset('public/new_template/css/baguetteBox.min.css') }}}" />
-<link rel="stylesheet" href="{{{ asset('public/new_template/css/aos.css') }}}" />
+<link rel="stylesheet" href="{{{ asset('new_template/css/bootstrap.min.css') }}}" />
+<link rel="stylesheet" href="{{{ asset('new_template/css/font-awesome.css') }}}">
+<link rel="stylesheet" href="{{{ asset('new_template/css/owl.carousel.min.css') }}}">
+<link rel="stylesheet" href="{{{ asset('new_template/css/style.css') }}}" />
+<link rel="stylesheet" href="{{{ asset('new_template/css/responsive.css') }}}" />
+<link rel="stylesheet" href="{{{ asset('new_template/css/baguetteBox.min.css') }}}" />
+<link rel="stylesheet" href="{{{ asset('new_template/css/aos.css') }}}" />
 </head>
 <body>
 	<header>
@@ -20,7 +20,7 @@
 			<div class="circle" id="navbar"><i class="fa fa-bars" aria-hidden="true"></i></div>
 			<div class="nveMenu text-left">
 				<div>
-					<img src="{{{ asset('public/new_template/images/logo.png') }}}" class="img-fluid">
+					<img src="{{{ asset('new_template/images/logo.png') }}}" class="img-fluid">
 				</div>
 				<ul class="navlinks p-0 mt-4">
 					<li><a href="#">Get In Touch</a></li>
@@ -53,10 +53,10 @@
 		<div class="col-md-2">
 			<div class="social-icons">
 				<ul>
-					<li><img src="{{{ asset('public/new_template/images/insta.png') }}}"></li>
-					<li><img src="{{{ asset('public/new_template/images/fb.png') }}}"></li>
-					<li><img src="{{{ asset('public/new_template/images/twitter.png') }}}"></li>
-					<li><img src="{{{ asset('public/new_template/images/whats-app.png') }}}"></li>
+					<li><img src="{{{ asset('new_template/images/insta.png') }}}"></li>
+					<li><img src="{{{ asset('new_template/images/fb.png') }}}"></li>
+					<li><img src="{{{ asset('new_template/images/twitter.png') }}}"></li>
+					<li><img src="{{{ asset('new_template/images/whats-app.png') }}}"></li>
 
 
 				</ul>
@@ -77,22 +77,22 @@
                         <div class="logo">
                             <h1>LOGO</h1>
                             <p>
-        Lorem ipsum dolor sit amet, consectetur 
-        adipiscing elit. Nunc felis libero, 
+        Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Nunc felis libero,
         feugiat ac pulvinar in</p>
         <div class="social-icons">
                         <ul>
-                            <li><a href="#"><img src="{{{ asset('public/new_template/images/insta.png') }}}"></a></li>
-                            <li><a href="#"><img src="{{{ asset('public/new_template/images/fb.png') }}}"></a></li>
-                            <li><a href="#"><img src="{{{ asset('public/new_template/images/twitter.png') }}}"></a></li>
-                            <li><a href="#"><img src="{{{ asset('public/new_template/images/whats-app.png') }}}"></a></li>
-        
-        
+                            <li><a href="#"><img src="{{{ asset('new_template/images/insta.png') }}}"></a></li>
+                            <li><a href="#"><img src="{{{ asset('new_template/images/fb.png') }}}"></a></li>
+                            <li><a href="#"><img src="{{{ asset('new_template/images/twitter.png') }}}"></a></li>
+                            <li><a href="#"><img src="{{{ asset('new_template/images/whats-app.png') }}}"></a></li>
+
+
                         </ul>
-        
+
                     </div>
                         </div>
-        
+
                     </div>
         <div class="col-md-6">
             <div class="row">
@@ -104,7 +104,7 @@
                 <li><a href="#">Ethic</a></li>
             <li><a href="#">Goals</a></li>
         </ul>
-        
+
             </div></div>
             <div class="col-md-4">
                 <div class="about">
@@ -114,7 +114,7 @@
                 <li><a href="#">Ethic</a></li>
             <li><a href="#">Goals</a></li>
         </ul>
-        
+
             </div></div>
             <div class="col-md-4">
                 <div class="about">
@@ -124,14 +124,14 @@
                 <li><a href="#">Ethic</a></li>
             <li><a href="#">Goals</a></li>
         </ul>
-        
+
             </div></div>
         </div>
                 </div>
             </div>
         </div>
-        
-        
+
+
             </footer>
         <div class="bootom-bar">
             <div class="container">
@@ -139,21 +139,21 @@
                     <div class="footer">
                         <h1>2020  All Rights Reserved</h1>
                     </div>
-        
+
                 </div>
             </div>
         </div>
-        
-        
-        
-        
-        <script src="{{{ asset('public/new_template/js/jquery-3.3.1.min.js') }}}"></script>
-        <script src="{{{ asset('public/new_template/js/popper-min.js') }}}"></script>
-        <script src="{{{ asset('public/new_template/js/bootstrap.min.js') }}}"></script> 
-        <script src="{{{ asset('public/new_template/js/owl.carousel.min.js') }}}"></script>
-        <script src="{{{ asset('public/new_template/js/custom.js') }}}"></script> 
-        <script src="{{{ asset('public/new_template/js/baguetteBox.min.js') }}}"></script>
-        <script src="{{{ asset('public/new_template/js/aos.js') }}}"></script>
+
+
+
+
+        <script src="{{{ asset('new_template/js/jquery-3.3.1.min.js') }}}"></script>
+        <script src="{{{ asset('new_template/js/popper-min.js') }}}"></script>
+        <script src="{{{ asset('new_template/js/bootstrap.min.js') }}}"></script>
+        <script src="{{{ asset('new_template/js/owl.carousel.min.js') }}}"></script>
+        <script src="{{{ asset('new_template/js/custom.js') }}}"></script>
+        <script src="{{{ asset('new_template/js/baguetteBox.min.js') }}}"></script>
+        <script src="{{{ asset('new_template/js/aos.js') }}}"></script>
         <script>
           AOS.init();
             const baseUrl = "<?php echo url('/') ?>";
@@ -169,13 +169,13 @@
                             // $("#loaderDiv").show();
                             var html ='<div class="col-md-4"></div>'+
                                     '<div class="col-md-4"><div id="loaderDiv">'+
-                                        '<img src="{{{ asset('public/loader/loader.gif')}}}">'+
+                                        '<img src="{{{ asset('loader/loader.gif')}}}">'+
                                         '</div></div>'+
                                     '<div class="col-md-4"></div>';
                                     $("#inside-content-"+CategorySlug).html(html);
                         },
                         success: function(response){
-                            
+
                             // console.log(response);
                             $("#inside-content-"+CategorySlug).html(response);
                         },
@@ -189,4 +189,3 @@
         </script>
         </body>
         </html>
-        

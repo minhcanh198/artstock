@@ -1,8 +1,8 @@
 @extends('admin.layout')
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -55,7 +55,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Suggest A City Thank You Page Heading</label>
                             <div class="col-sm-10">
-                                <input type="text" name="request_heading" id="request_heading" class="form-control" value="{{ ($suggestCityPageSettings != null && $suggestCityPageSettings->request_heading != '') ? $suggestCityPageSettings->request_heading : '' }}">                        
+                                <input type="text" name="request_heading" id="request_heading" class="form-control" value="{{ ($suggestCityPageSettings != null && $suggestCityPageSettings->request_heading != '') ? $suggestCityPageSettings->request_heading : '' }}">
                             </div>
                         </div>
                     </div><!-- /.box-body -->
@@ -65,7 +65,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Suggest A City Thank You Page Message</label>
                             <div class="col-sm-10">
-                                <input type="text" name="request_message" id="request_message" class="form-control" value="{{ ($suggestCityPageSettings != null && $suggestCityPageSettings->request_message != '') ? $suggestCityPageSettings->request_message : '' }}">                        
+                                <input type="text" name="request_message" id="request_message" class="form-control" value="{{ ($suggestCityPageSettings != null && $suggestCityPageSettings->request_message != '') ? $suggestCityPageSettings->request_message : '' }}">
                             </div>
                         </div>
                     </div><!-- /.box-body -->
@@ -92,7 +92,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- /.box-body -->  
+                    </div><!-- /.box-body -->
                     <!-- Start Box Body -->
                     <div class="box-body">
                         <div class="form-group">
@@ -115,7 +115,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- /.box-body -->  
+                    </div><!-- /.box-body -->
 
                     <div class="box-footer">
                         <button type="submit" class="btn btn-success">{{ trans('admin.save') }}</button>
@@ -136,10 +136,10 @@
 @section('javascript')
 
 	<!-- icheck -->
-	<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
 
-    <script src="{{{ asset('public/plugins/ckeditor/ckeditor.js') }}}" type="text/javascript"></script>
+    <script src="{{{ asset('plugins/ckeditor/ckeditor.js') }}}" type="text/javascript"></script>
 
     <script type="text/javascript">
 		$(function () {

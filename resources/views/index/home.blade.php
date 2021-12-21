@@ -50,7 +50,7 @@
         		</a>
         </div>
       @endif
-	  
+
       @if($settings->show_images_index == 'latest' || $settings->show_images_index == 'both')
 			<div class="col-md-12 btn-block margin-bottom-40">
 				<h1 class="btn-block text-center class-montserrat margin-bottom-zero none-overflow highlight-word-color">@lang('misc.recent_photos')</h1>
@@ -76,7 +76,7 @@
 	    		<h3 class="margin-top-none text-center no-result no-result-mg">
 	    		{{ trans('misc.no_images_published') }}
 	    	</h3>
-	  @endif 
+	  @endif
 
 		</div><!-- row -->
 
@@ -108,7 +108,7 @@
 		</div>
 
 	</div><!-- container wrap-ui -->
-	
+
 	<div class="jumbotron jumbotron-bottom margin-bottom-zero jumbotron-cover">
       <div class="container wrap-jumbotron position-relative">
         <h1 class="title-site">{{trans('misc.title_2_index')}}</h1>
@@ -179,8 +179,8 @@
 @endsection
 
 @section('javascript')
-	<script src="{{ asset('public/plugins/jquery.counterup/jquery.counterup.min.js') }}"></script>
-	<script src="{{ asset('public/plugins/jquery.counterup/waypoints.min.js') }}"></script>
+	<script src="{{ asset('plugins/jquery.counterup/jquery.counterup.min.js') }}"></script>
+	<script src="{{ asset('plugins/jquery.counterup/waypoints.min.js') }}"></script>
 
 		<script type="text/javascript">
 		 $('#imagesFlex').flexImages({ rowHeight: 320, maxRows: 8, truncate: true });

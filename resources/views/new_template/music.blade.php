@@ -1,14 +1,14 @@
 @extends('new_template.layouts.app')
 @section('content')
 
-	<section class="banner" style="background-image: url(<?php echo asset('public/home_page/header_assets/').'/' .$homePageSettings->header_main_image; ?>) ">
+	<section class="banner" style="background-image: url(<?php echo asset('home_page/header_assets/').'/' .$homePageSettings->header_main_image; ?>) ">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<div>
 						<div class="text" data-aos="fade-right">
 							<h1>{{ $homePageSettings->header_description }}</h1>
-							<!-- <div class="icon-play"><img src="{{ asset('public/custom-css/images/play-icon.png') }}"></div> -->
+							<!-- <div class="icon-play"><img src="{{ asset('custom-css/images/play-icon.png') }}"></div> -->
 							<div class="form-group width">
 								<input class="form-control" id="" name="" placeholder="Search Here" type="">
 								<p>Suggested: love, harmony, r&b, pop, nature</p>
@@ -24,7 +24,7 @@
 				<div class="row">
 					<div class="tabs">
 						<div class="tabs__navigation" data-aos="fade-down">
-						<button data-target="first" class="active">Recent</button> 
+						<button data-target="first" class="active">Recent</button>
 						@foreach($categoriesList as $category)
 							<button  id="buttonCategories|{{ $category->slug }}" data-target="{{ $category->slug }}">{{ $category->name }}</button>
 						@endforeach
@@ -47,7 +47,7 @@
 										</div>
 									</div>
 									<div class="row">
-										
+
 									<div class="col-12">
 					<div class="audio-song-box">
 						<div class="audio-head d-flex">
@@ -60,8 +60,8 @@
 						</div>
 						<audio controls class="audio-one">
 							<source src="https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"  type="audio/mp3">
-						</audio> 
-						
+						</audio>
+
 					</div>
 
 						<div class="audio-song-box">
@@ -75,7 +75,7 @@
 						</div>
 						<audio controls class="audio-one">
 							<source src="https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"  type="audio/mp3">
-						</audio> 
+						</audio>
 					</div>
 
 						<div class="audio-song-box">
@@ -89,7 +89,7 @@
 						</div>
 						<audio controls class="audio-one">
 							<source src="https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"  type="audio/mp3">
-						</audio> 
+						</audio>
 					</div>
 
 						<div class="audio-song-box">
@@ -103,10 +103,10 @@
 						</div>
 						<audio controls class="audio-one">
 							<source src="https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"  type="audio/mp3">
-						</audio> 
+						</audio>
 					</div>
 				</div>
-										
+
 									</div>
 								</div>
 							</div>
@@ -1219,7 +1219,7 @@
 						</div>
 						<audio controls class="audio-one">
 							<source src="https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"  type="audio/mp3">
-						</audio> 
+						</audio>
 					</div>
 
 						<div class="audio-song-box">
@@ -1233,7 +1233,7 @@
 						</div>
 						<audio controls class="audio-one">
 							<source src="https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"  type="audio/mp3">
-						</audio> 
+						</audio>
 					</div>
 
 						<div class="audio-song-box">
@@ -1247,7 +1247,7 @@
 						</div>
 						<audio controls class="audio-one">
 							<source src="https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"  type="audio/mp3">
-						</audio> 
+						</audio>
 					</div>
 
 						<div class="audio-song-box">
@@ -1261,13 +1261,13 @@
 						</div>
 						<audio controls class="audio-one">
 							<source src="https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"  type="audio/mp3">
-						</audio> 
+						</audio>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section> -->
-	
+
 	<section class="third">
 		<div class="container">
 			<div class="box-new">
@@ -1276,7 +1276,7 @@
 		    			<div class="owl-carousel slide owl-theme">
     						<div class="item">
 								<div class="inner-img">
-									<!-- <img src="{{ asset('public/custom-css/images/p-3.png') }}" class="img-fluid"> -->
+									<!-- <img src="{{ asset('custom-css/images/p-3.png') }}" class="img-fluid"> -->
 									<img src="{{ url('/') }}/public/home_page/sections_assets/{{ $homePageSettings->section1_image }}" class="img-fluid">
 								</div>
 							</div>
@@ -1301,11 +1301,11 @@
 						</div>
 					</div>
 					<div class="col-md-5">
-				
+
 		    			<div class="owl-carousel slide owl-theme">
 							<div class="item">
 								<div class="inner-img aos-init" >
-									<!-- <img src="{{ asset('public/custom-css/images/p-2.png') }}" class="img-fluid"> -->
+									<!-- <img src="{{ asset('custom-css/images/p-2.png') }}" class="img-fluid"> -->
 									<img src="{{ url('/') }}/public/home_page/sections_assets/{{ $homePageSettings->section2_image }}" class="img-fluid">
 								</div>
 							</div>
@@ -1319,7 +1319,7 @@
 		    			<div class="owl-carousel slide owl-theme">
     						<div class="item">
 								<div class="inner-img">
-									<!-- <img src="{{ asset('public/custom-css/images/p-3.png') }}" class="img-fluid"> -->
+									<!-- <img src="{{ asset('custom-css/images/p-3.png') }}" class="img-fluid"> -->
 									<img src="{{ url('/') }}/public/home_page/sections_assets/{{ $homePageSettings->section3_image }}" class="img-fluid">
 								</div>
 							</div>
@@ -1347,7 +1347,7 @@
 		    			<div class="owl-carousel slide owl-theme">
     						<div class="item">
 								<div class="inner-img aos-init">
-									<!-- <img src="{{ asset('public/custom-css/images/p-4.png') }}" class="img-fluid"> -->
+									<!-- <img src="{{ asset('custom-css/images/p-4.png') }}" class="img-fluid"> -->
 									<img src="{{ url('/') }}/public/home_page/sections_assets/{{ $homePageSettings->section4_image }}" class="img-fluid">
 								</div>
 							</div>
@@ -1375,9 +1375,9 @@
 			<div class="row slider-home">
 				<div class="col-md-4 photographer-box">
 					<div class="">
-						<div class="photographer-img"><img alt="" class="img-fluid" src="{{ asset('public/custom-css/images/img-1.png') }}"></div>
+						<div class="photographer-img"><img alt="" class="img-fluid" src="{{ asset('custom-css/images/img-1.png') }}"></div>
 						<div class="d-flex justify-content-center">
-							<div class="photographer-person-img text-center"><img alt="" src="{{ asset('public/custom-css/images/img-2.png') }}"></div>
+							<div class="photographer-person-img text-center"><img alt="" src="{{ asset('custom-css/images/img-2.png') }}"></div>
 							<div class="icon-photo">
 								<i class="far fa-images"></i> <small class="photos-count">1.5k</small>
 							</div>
@@ -1394,9 +1394,9 @@
 				</div>
 				<div class="col-md-4 photographer-box">
 					<div class="">
-						<div class="photographer-img"><img alt="" class="img-fluid" src="{{ asset('public/custom-css/images/img-1.png') }}"></div>
+						<div class="photographer-img"><img alt="" class="img-fluid" src="{{ asset('custom-css/images/img-1.png') }}"></div>
 						<div class="d-flex justify-content-center">
-							<div class="photographer-person-img text-center"><img alt="" src="{{ asset('public/custom-css/images/img-2.png') }}"></div>
+							<div class="photographer-person-img text-center"><img alt="" src="{{ asset('custom-css/images/img-2.png') }}"></div>
 							<div class="icon-photo">
 								<i class="far fa-images"></i> <small class="photos-count">1.5k</small>
 							</div>
@@ -1413,9 +1413,9 @@
 				</div>
 				<div class="col-md-4 photographer-box">
 					<div class="">
-						<div class="photographer-img"><img alt="" class="img-fluid" src="{{ asset('public/custom-css/images/img-1.png') }}"></div>
+						<div class="photographer-img"><img alt="" class="img-fluid" src="{{ asset('custom-css/images/img-1.png') }}"></div>
 						<div class="d-flex justify-content-center">
-							<div class="photographer-person-img text-center"><img alt="" src="{{ asset('public/custom-css/images/img-2.png') }}"></div>
+							<div class="photographer-person-img text-center"><img alt="" src="{{ asset('custom-css/images/img-2.png') }}"></div>
 							<div class="icon-photo">
 								<i class="far fa-images"></i> <small class="photos-count">1.5k</small>
 							</div>
@@ -1432,9 +1432,9 @@
 				</div>
 				<div class="col-md-4 photographer-box">
 					<div class="">
-						<div class="photographer-img"><img alt="" class="img-fluid" src="{{ asset('public/custom-css/images/img-1.png') }}"></div>
+						<div class="photographer-img"><img alt="" class="img-fluid" src="{{ asset('custom-css/images/img-1.png') }}"></div>
 						<div class="d-flex justify-content-center">
-							<div class="photographer-person-img text-center"><img alt="" src="{{ asset('public/custom-css/images/img-2.png') }}"></div>
+							<div class="photographer-person-img text-center"><img alt="" src="{{ asset('custom-css/images/img-2.png') }}"></div>
 							<div class="icon-photo">
 								<i class="far fa-images"></i> <small class="photos-count">1.5k</small>
 							</div>
@@ -1451,9 +1451,9 @@
 				</div>
 				<div class="col-md-4 photographer-box">
 					<div class="">
-						<div class="photographer-img"><img alt="" class="img-fluid" src="{{ asset('public/custom-css/images/img-1.png') }}"></div>
+						<div class="photographer-img"><img alt="" class="img-fluid" src="{{ asset('custom-css/images/img-1.png') }}"></div>
 						<div class="d-flex justify-content-center">
-							<div class="photographer-person-img text-center"><img alt="" src="{{ asset('public/custom-css/images/img-2.png') }}"></div>
+							<div class="photographer-person-img text-center"><img alt="" src="{{ asset('custom-css/images/img-2.png') }}"></div>
 							<div class="icon-photo">
 								<i class="far fa-images"></i> <small class="photos-count">1.5k</small>
 							</div>

@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -85,7 +85,7 @@
                           @foreach($types as $type)
                             @if($data->user_type_id == $type->types_id)
                             <option selected value="{{ $type->types_id }}">{{ $type->type_name }}</option>
-                            @else 
+                            @else
                             <option value="{{ $type->types_id }}">{{ $type->type_name }}</option>
                             @endif
                           @endforeach
@@ -202,7 +202,7 @@
         <div class="col-md-3">
 
         	<div class="block-block text-center">
-        		<img src="{{asset('public/avatar').'/'.$data->avatar}}" class="thumbnail img-responsive">
+        		<img src="{{asset('avatar').'/'.$data->avatar}}" class="thumbnail img-responsive">
         	</div>
 
         	<a href="{{ url($data->username) }}" target="_blank" class="btn btn-lg btn-success btn-block margin-bottom-10">{{ trans('admin.view') }} <i class="fa fa-external-link-square"></i> </a>
@@ -210,7 +210,7 @@
         	<ol class="list-group">
 			<li class="list-group-item"> {{trans('admin.registered')}} <span class="pull-right color-strong">{{ App\Helper::formatDate($data->date) }}</span></li>
 
-      
+
 			<li class="list-group-item"> {{trans('misc.country')}} <span class="pull-right color-strong">@if( $data->countries_id != '' ) {{ $data->country()->country_name }} @else {{ trans('admin.not_established') }} @endif</span></li>
 
 			<li class="list-group-item"> {{trans_choice('misc.images_plural', 0)}} <strong class="pull-right color-strong">{{ App\Helper::formatNumber( $data->images()->count() ) }}</strong></li>
@@ -248,7 +248,7 @@
 @section('javascript')
 
 	<!-- icheck -->
-	<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
 
 	<script type="text/javascript">
 

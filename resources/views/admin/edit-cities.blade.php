@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('css')
-<link href="{{{ asset('public/plugins/iCheck/all.css') }}}" rel="stylesheet" type="text/css" />
+<link href="{{{ asset('plugins/iCheck/all.css') }}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -10,10 +10,10 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h4>
-            {{{ trans('admin.admin') }}} 
-            	<i class="fa fa-angle-right margin-separator"></i> 
+            {{{ trans('admin.admin') }}}
+            	<i class="fa fa-angle-right margin-separator"></i>
             		{{{ 'Cities' }}}
-            			<i class="fa fa-angle-right margin-separator"></i> 
+            			<i class="fa fa-angle-right margin-separator"></i>
             				{{{ trans('misc.add_new') }}}
           </h4>
 
@@ -23,24 +23,24 @@
         <section class="content">
 
         	<div class="content">
-        		
+
         		<div class="row">
-    
+
         	<div class="box box-danger">
                 <div class="box-header with-border">
                   <h3 class="box-title">{{{ trans('misc.add_new') }}}</h3>
                 </div><!-- /.box-header -->
-               
-               
-               
+
+
+
                 <!-- form start -->
                 <form class="form-horizontal" method="post" action="{{{ url('panel/admin/destinations/cities/update') }}}" enctype="multipart/form-data">
-                	
-                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}">	
-                    <input type="hidden" name="id" value="{{{ $cities->id }}}">	
-			
+
+                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}">
+                    <input type="hidden" name="id" value="{{{ $cities->id }}}">
+
 					@include('errors.errors-forms')
-									
+
                  <!-- Start Box Body -->
                   <div class="box-body">
                     <div class="form-group">
@@ -69,7 +69,7 @@
                             </div>
                         </div>
                     </div><!-- /.box-body -->
-                  
+
                     <!-- Start Box Body -->
                     <div class="box-body">
                         <div class="form-group">
@@ -106,7 +106,7 @@
                                 </select>
                             </div>
                         </div>
-                    </div> --> 
+                    </div> -->
                     <!-- /.box-body -->
 
                     <!-- Start Box Body -->
@@ -114,36 +114,36 @@
                     <div class="form-group">
                       <label class="col-sm-2 control-label">{{ "City Description" }}</label>
                       <div class="col-sm-10">
-                      	
+
                       	<textarea name="city_description" rows="5" cols="40" id="content" class="form-control" placeholder="{{ trans('admin.content') }}">{{ $cities->description }}</textarea>
                       </div>
                     </div>
                   </div><!-- /.box-body -->
-                  
+
                   <!-- Start Box Body -->
                   <div class="box-body">
                     <div class="form-group">
                       <label class="col-sm-2 control-label">{{{ trans('admin.status') }}}</label>
                       <div class="col-sm-10">
-                      	
+
                       	<div class="radio">
                         <label class="padding-zero">
                           <input type="radio" name="city_status" value="1" @if( $cities->is_active == '1' ) checked @endif>
                           {{{ trans('admin.active') }}}
                         </label>
                       </div>
-                      
+
                       <div class="radio">
                         <label class="padding-zero">
                           <input type="radio" name="city_status" value="0" @if( $cities->is_active == '0' ) checked @endif>
                           {{{ trans('admin.disabled') }}}
                         </label>
                       </div>
-                      
+
                       </div>
                     </div>
                   </div><!-- /.box-body -->
-                  
+
                   <!-- Start Box Body -->
                   <div class="box-body">
                     <div class="form-group">
@@ -158,9 +158,9 @@
                                 <input type="file" accept="image/*" name="city_img" class="filePhoto" />
                                 <i class="glyphicon glyphicon-cloud-upload myicon-right"></i> {{ trans('misc.upload') }}
                             </div>
-                            
+
                             <!-- <p class="help-block">{{ trans('admin.thumbnail_desc') }}</p> -->
-                        
+
                             <div class="btn-default btn-lg btn-border btn-block pull-left text-left display-none fileContainer">
                                 <i class="glyphicon glyphicon-paperclip myicon-right"></i>
                                 <small class="myicon-right file-name-file"></small> <i class="icon-cancel-circle delete-attach-file-2 pull-right" title="{{ trans('misc.delete') }}"></i>
@@ -168,18 +168,18 @@
                         </div>
                     </div>
                   </div><!-- /.box-body -->
-                  
+
                   <div class="box-footer">
                     <a href="{{{ url('panel/admin/destinations/cities') }}}" class="btn btn-default">{{{ trans('admin.cancel') }}}</a>
                     <button type="submit" class="btn btn-success pull-right">{{{ trans('admin.save') }}}</button>
                   </div><!-- /.box-footer -->
                 </form>
               </div>
-        			        		
+
         		</div><!-- /.row -->
-        		
+
         	</div><!-- /.content -->
-        	
+
           <!-- Your Page Content Here -->
 
         </section><!-- /.content -->
@@ -187,10 +187,10 @@
 @endsection
 
 @section('javascript')
-	
+
 	<!-- icheck -->
-	<script src="{{{ asset('public/plugins/iCheck/icheck.min.js') }}}" type="text/javascript"></script>
-	
+	<script src="{{{ asset('plugins/iCheck/icheck.min.js') }}}" type="text/javascript"></script>
+
 	<script type="text/javascript">
 		//Flat red color scheme for iCheck
         $('input[type="radio"]').iCheck({
@@ -218,7 +218,7 @@
                         success:function(res){
                             console.log(res);
                             $("#country_id").empty();
-                            
+
                             countryOption += "<option value='selected'>Select Country</option>";
                             $.each( res, function( key, value ) {
                               countryOption +='<option value="'+ value.id +'">'+ value.country_name + '</option>';
@@ -248,7 +248,7 @@
                         success:function(res){
                             console.log(res);
                             $("#state_id").empty();
-                            
+
                             stateOption += "<option value='selected'>Select State</option>";
                             $.each( res, function( key, value ) {
                                 stateOption +='<option value="'+ value.id +'">'+ value.state_name + '</option>';
@@ -323,8 +323,8 @@ $('.delete-image').click(function(){
     element.parents('.box-body').find('.file-name-file').html('');
     element.parents('.box-body').find('.filePhoto').val('');
 });
-        
+
 	</script>
-	
+
 
 @endsection

@@ -2,8 +2,8 @@
 {{-- @extends('app') --}}
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -200,8 +200,8 @@
 @endsection
 
 @section('javascript')
-	<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
 
 	<script type="text/javascript">
 

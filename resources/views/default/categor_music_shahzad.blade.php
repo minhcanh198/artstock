@@ -7,7 +7,7 @@
 <style>
 .color-black {
     color: #000;
-} 
+}
 </style>
     <div class="jumbotron md index-header jumbotron_set jumbotron-cover" style="height:50%;">
 		<div class="container wrap-jumbotron position-relative">
@@ -17,13 +17,13 @@
 			@else
 				<p class="subtitle-site"><strong>{{$settings->title}}</strong></p>
 			@endif
-			
+
 			<?php
-			
+
 			$categorySlug = $category->name;
 			if($categorySlug == "Music" ){
 		?>
-				<p class="text-center" style=" color: #fff;">Need content to enhance your prototype, presentation, mockup, website or video? ArtStock is a platform where you can find free music samples to enhance your project and bring out the best. 
+				<p class="text-center" style=" color: #fff;">Need content to enhance your prototype, presentation, mockup, website or video? ArtStock is a platform where you can find free music samples to enhance your project and bring out the best.
                 </p>
 		<?php
 			}
@@ -52,7 +52,7 @@
                                     Clear Search  <i class="fa fa-refresh"></i>
                                 </a>
                                 @endif
-                                
+
                             </div>
 					    </div>
                     </form>
@@ -60,7 +60,7 @@
 				<div class="col-lg-2">
 				</div>
 			</div>
-			
+
 		</div>
     </div>
 
@@ -82,15 +82,15 @@
     </div>
     <div class="row">
         <div class="col-12">
-            
+
             <?php
-            
+
                 if($images->total() != 0){
                     foreach($images as $imge){
                         $userDetails = App\Models\User::where('id','=', $imge->user_id)->first();
             ?>
                         <div class="audio-song-box Bigwave" data-path="<?php echo url('/public/uploads/audio/large/').'/' . $imge->thumbnail; ?>">
-                            
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <span class="d-block">
@@ -114,9 +114,9 @@
                                 </div>
                             </div>
                     	    <!--<button type="button">Play / Pause</button>-->
-                    	    
+
                     	    <div class="row music-main-page-home">
-                    	        
+
                     	        <!--<div class="col-md-12">
                         	        <audio controls>
                                       <source src="horse.ogg" type="audio/ogg">
@@ -124,7 +124,7 @@
                                       Your browser does not support the audio element.
                                     </audio>
                                 </div>-->
-                    	        
+
                         	    <div class="align-self-center col-md-1 text-center">
                                     <a href="javascript:;" class="btn-music-play" id="Bigbaton-playMusic#{{ $userDetails->thumbnail}}">
                                         <i class="fas fa-play"></i>
@@ -134,10 +134,10 @@
                                     </a>
                                 </div>
                     	        <div class="wave-container col-md-10 p-0"></div>
-                    	        
+
                 	        </div>
-                
-                            
+
+
                         </div>
             <?php
                     }
@@ -206,43 +206,43 @@
 			<!--<userslidercategory categorySlug=<?php //echo $category->slug; ?> sessionUser=<?php //echo (\Auth::user()) ? \Auth::user()->id : ''; ?>></userslidercategory>-->
 			@php
 			$categorySlug = $category->slug;
-			
+
 			if($categorySlug == "animation" ){
-				$cateSlug = "animator"; 
+				$cateSlug = "animator";
 			}else if($categorySlug == "photo" ){
-				$cateSlug = "photographer"; 
+				$cateSlug = "photographer";
 			}else if($categorySlug == "video" ){
-				$cateSlug = "videographer"; 
+				$cateSlug = "videographer";
 			}else if($categorySlug == "music" ){
-				$cateSlug = "musician"; 
+				$cateSlug = "musician";
 			}
 			$allUsersCount = App\Models\User::join('types','types.types_id','=', 'users.user_type_id')->where('user_type_id','!=', '')->where('types.type_name','=',$cateSlug)->get();
 			@endphp
 
 			<!--<div class="row slider-home <?php //echo (count($allUsersCount) < 3 ) ? 'new12' : '' ?>">-->
-			
+
 			<carousel >
     		     <div class="owl-carousel owl-theme slider-artist-new">
 				<?php
 					$categorySlug = $category->slug;
 					if($categorySlug == "animation"){
-						$cateSlug = "animator"; 
+						$cateSlug = "animator";
 						$allUsers = App\Models\User::join('types','types.types_id','=', 'users.user_type_id')->where('user_type_id','!=', '')->where('types.type_name','=',$cateSlug)->get();
 						// dd($allUsers[0]->id);
 						// var_dump($allUsers[0]->id);
 						if(count($allUsers) > 0){
 							for($UA = 0; $UA < count($allUsers); $UA++){
 								$users = App\Models\User::join('types', 'types.types_id','=','users.user_type_id')->find($allUsers[$UA]->id);
-								
+
 								// dd($users->types()->type_name);
 
-								$categorySlug = $category->slug;			
+								$categorySlug = $category->slug;
 				?>
-				
+
 								<div class="">
-								    
-								    
-            		             
+
+
+
                                     <div class="mb-4-cutom">
                                         <!--<div class="choose-photographer-box" style="margin:10px;">-->
                                         <!--    <div class="header-photographer">-->
@@ -253,7 +253,7 @@
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
                                         <!--                    <p class="tag-one">{{ $users->type_name }}</p>-->
-                                                        
+
                                                         <!-- <p class="tag-two">Available</p> -->
                                         <!--            </div>-->
                                         <!--        </div>-->
@@ -275,7 +275,7 @@
                                         //       }
                                             ?>
                                         <!--</div>-->
-                                        
+
                                         <div class="choose-photographer-box">
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
@@ -288,8 +288,8 @@
                                                             // var_dump($userAnimator->id);
                                                             // dd(count($queryAnimationsGetDataById));
                                                             if(count($queryAnimationsGetDataById) > 0){
-                                                                
-                                                            
+
+
                                                         ?>
                                         			        @foreach($queryAnimationsGetDataById as $dataUserAnimations)
                                             			        @php
@@ -299,9 +299,9 @@
                                         								$stockImage = App\Models\Stock::whereImagesId($dataUserAnimations->id)->whereType('small')->select('name')->first();
                                         								$thumbnail = 'public/uploads/small/'.$stockImage->name;
                                     								}
-                                    								
+
                                     								$watermarkedVideoPath = 'public/uploads/video/screen_shot/';
-                                    								
+
                                     								$AnimationFileScreenShotName = explode('.', $dataUserAnimations->thumbnail)[0];
                                 								@endphp
                                         					    <img src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">
@@ -312,27 +312,27 @@
                                         					<?php
                                                             }else{
                                                         ?>
-                                                        <p class="dummy-text-when-another-div-empty"> 
-                                                                    No Animation Available        
+                                                        <p class="dummy-text-when-another-div-empty">
+                                                                    No Animation Available
                                                                 </p>
                                                         <?php
                                                             }
                                     					?>
                                 					</div>
                                 			    </div>
-                                		    </div>    
+                                		    </div>
                                 			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
                                 				<div class="">
                                 					<div class="d-md-flex">
                                 						<a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
                                 						<a href="<?php echo url('/')?>/request-to-book?photographerId=<?php echo $users->id ;?>&cityId=<?php echo $users->city_id; ?>" class="button-book-one w-100">Book artist</a>
-                                						
+
                                 					</div>
                                 				</div>
                                 			</div>
                                 	    </div>
-                                    </div>  
-                                
+                                    </div>
+
                 		         </div>
 				<?php
 							}
@@ -347,7 +347,7 @@
 				<?php
 						}
 					}else if($categorySlug == "photo"){
-						$cateSlug = "photographer"; 
+						$cateSlug = "photographer";
 						$allUsers = App\Models\User::join('types','types.types_id','=', 'users.user_type_id')->where('user_type_id','!=', '')->where('types.type_name','=',$cateSlug)->get();
 						// dd($allUsers[0]->id);
 						// var_dump($allUsers[0]->id);
@@ -359,12 +359,12 @@
 								// dd($users);
 								// dd($users->types()->type_name);
 
-								$categorySlug = $category->slug;			
+								$categorySlug = $category->slug;
 				?>
-								
-								
+
+
 								<div class="">
-            		             
+
                                     <div class="mb-4-cutom">
                                         <!--<div class="choose-photographer-box" style="margin:10px;">-->
                                         <!--    <div class="header-photographer">-->
@@ -375,7 +375,7 @@
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
                                         <!--                    <p class="tag-one">{{ $users->type_name }}</p>-->
-                                                        
+
                                                         <!-- <p class="tag-two">Available</p> -->
                                         <!--            </div>-->
                                         <!--        </div>-->
@@ -397,7 +397,7 @@
                                         //   }
                                             ?>
                                         <!--</div>-->
-                                        
+
                                         <div class="choose-photographer-box">
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
@@ -410,8 +410,8 @@
                                                             // var_dump($userPhotographer->id);
                                                             // dd(count($queryGetDataById));
                                                             if(count($queryGetDataById) > 0){
-                                                                
-                                                            
+
+
                                                         ?>
                                         			        @foreach($queryGetDataById as $dataUserImages)
                                             			        @php
@@ -427,27 +427,27 @@
                                         				<?php
                                                             }else{
                                                         ?>
-                                                        <p class="dummy-text-when-another-div-empty"> 
-                                                                    No Photo Available        
+                                                        <p class="dummy-text-when-another-div-empty">
+                                                                    No Photo Available
                                                                 </p>
                                                         <?php
                                                             }
                                     					?>
                                 					</div>
                                 			    </div>
-                                		    </div>    
+                                		    </div>
                                 			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
                                 				<div class="">
                                 					<div class="d-md-flex">
                                 						<a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
                                 						<a href="<?php echo url('/')?>/request-to-book?photographerId=<?php echo $users->id ;?>&cityId=<?php echo $users->city_id; ?>" class="button-book-one w-100">Book artist</a>
-                                						
+
                                 					</div>
                                 				</div>
                                 			</div>
                                 	    </div>
-                                    </div>  
-                                
+                                    </div>
+
                 		         </div>
 				<?php
 							}
@@ -462,7 +462,7 @@
 				<?php
 						}
 					}else if($categorySlug == "video"){
-						$cateSlug = "videographer"; 
+						$cateSlug = "videographer";
 						$allUsers = App\Models\User::join('types','types.types_id','=', 'users.user_type_id')->where('user_type_id','!=', '')->where('types.type_name','=',$cateSlug)->get();
 						// dd($allUsers[0]->id);
 						// var_dump($allUsers[0]->id);
@@ -471,10 +471,10 @@
 								$users = App\Models\User::join('types', 'types.types_id','=','users.user_type_id')->find($allUsers[$UA]->id);
 								// dd($users->types()->type_name);
 
-								$categorySlug = $category->slug;			
+								$categorySlug = $category->slug;
 				?>
 								<div class="">
-            		             
+
                                     <div class="mb-4-cutom">
                                         <!--<div class="choose-photographer-box" style="margin:10px;">-->
                                         <!--    <div class="header-photographer">-->
@@ -485,7 +485,7 @@
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
                                         <!--                    <p class="tag-one">{{ $users->type_name }}</p>-->
-                                                        
+
                                                         <!-- <p class="tag-two">Available</p> -->
                                         <!--            </div>-->
                                         <!--        </div>-->
@@ -519,8 +519,8 @@
                                                             // var_dump($userVideographer->id);
                                                             // dd(count($queryVideosGetDataById));
                                                             if(count($queryVideosGetDataById) > 0){
-                                                                    
-                                                                
+
+
                                                         ?>
                                         			        @foreach($queryVideosGetDataById as $dataUserVideos)
                                             			        @php
@@ -530,9 +530,9 @@
                                         								$stockImage = App\Models\Stock::whereImagesId($dataUserVideos->id)->whereType('small')->select('name')->first();
                                         								$thumbnail = 'public/uploads/small/'.$stockImage->name;
                                     								}
-                                    								
+
                                     								$watermarkedVideoPath = 'public/uploads/video/screen_shot/';
-                                    								
+
                                     								$VideoFileScreenShotName = explode('.', $dataUserVideos->thumbnail)[0];
                                 								@endphp
                                         					    <img src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" alt="" class="set-img-size">
@@ -540,27 +540,27 @@
                                     				<?php
                                                             }else{
                                                         ?>
-                                                        <p class="dummy-text-when-another-div-empty"> 
-                                                                    No Video Available        
+                                                        <p class="dummy-text-when-another-div-empty">
+                                                                    No Video Available
                                                                 </p>
                                                         <?php
                                                             }
                                     					?>
                                 					</div>
                                 			    </div>
-                                		    </div>    
+                                		    </div>
                                 			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
                                 				<div class="">
                                 					<div class="d-md-flex">
                                 						<a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
                                 						<a href="<?php echo url('/')?>/request-to-book?photographerId=<?php echo $users->id ;?>&cityId=<?php echo $users->city_id; ?>" class="button-book-one w-100">Book artist</a>
-                                						
+
                                 					</div>
                                 				</div>
                                 			</div>
                                 	    </div>
-                                    </div>  
-                                
+                                    </div>
+
                 		         </div>
 				<?php
 							}
@@ -575,7 +575,7 @@
 				<?php
 						}
 					}else if($categorySlug == "music"){
-						$cateSlug = "musician"; 
+						$cateSlug = "musician";
 						$allUsers = App\Models\User::join('types','types.types_id','=', 'users.user_type_id')->where('user_type_id','!=', '')->where('types.type_name','=',$cateSlug)->get();
 						// dd($allUsers[0]->id);
 						// var_dump($allUsers[0]->id);
@@ -585,10 +585,10 @@
 								$users = App\Models\User::select('users.*','types.type_name','new_countries.name AS CountryName')->join('types', 'types.types_id','=','users.user_type_id')->join('new_countries','new_countries.id','=', 'users.country_id')->find($allUsers[$UA]->id);
 								// dd($users->types()->type_name);
 
-								$categorySlug = $category->slug;		
+								$categorySlug = $category->slug;
 				?>
 								<div class="">
-            		             
+
                                     <div class="mb-4-cutom">
                                         <!--<div class="choose-photographer-box" style="margin:10px;">-->
                                         <!--    <div class="header-photographer">-->
@@ -599,7 +599,7 @@
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
                                         <!--                    <p class="tag-one">{{ $users->type_name }}</p>-->
-                                                        
+
                                                         <!-- <p class="tag-two">Available</p> -->
                                         <!--            </div>-->
                                         <!--        </div>-->
@@ -634,8 +634,8 @@
                                                                 // var_dump($userMusician->id);
                                                                 // dd(count($queryMusiciansGetDataById));
                                                                 if(count($queryMusiciansGetDataById) > 0){
-                                                                    
-                                                                
+
+
                                                             ?>
                                                     			        @foreach($queryMusiciansGetDataById as $dataUserMusicians)
                                                         			        @php
@@ -645,14 +645,14 @@
                                                     								$stockImage = App\Models\Stock::whereImagesId($dataUserMusicians->id)->whereType('small')->select('name')->first();
                                                     								$thumbnail = 'public/uploads/small/'.$stockImage->name;
                                                 								}
-                                                								
+
                                                 								$watermarkedMusicPath = 'public/uploads/audio/large/';
-                                                								
+
                                             								@endphp
                                                     					    <!--<audio controls class="audio-one" controlsList="nodownload" oncontextmenu="return false;">-->
                                                              {{-- <!--                   <source src="{{ asset($watermarkedMusicPath).'/'. $dataUserMusicians->thumbnail }}"  type="audio/mp3">--> --}}
                                                              <!--               </audio> -->
-                                                                            <div class="wave d-flex" data-path="{{ asset('public/uploads/audio/large'). '/'. $dataUserMusicians->thumbnail }}">
+                                                                            <div class="wave d-flex" data-path="{{ asset('uploads/audio/large'). '/'. $dataUserMusicians->thumbnail }}">
                                                                                 <div class="align-self-center music-col-2">
                                                                                     <a href="javascript:;" class="btn-music-play" id="baton-playMusic#{{ $dataUserMusicians->thumbnail}}">
                                                                                         <i class="fas fa-play"></i>
@@ -661,35 +661,35 @@
                                                                                         <i class="fas fa-pause"></i>
                                                                                     </a>
                                                                                 </div>
-                                                                                
+
                                                                                 <div class="wave-container music-col-10"></div>
                                                                             </div>
                                                     					@endforeach
                                                     					<?php
                                                                 }else{
                                                                     ?>
-                                                                    <p class="dummy-text-when-another-div-empty"> 
-                                                                        No Music Available        
+                                                                    <p class="dummy-text-when-another-div-empty">
+                                                                        No Music Available
                                                                     </p>
-                                                                    
+
                                                                     <?php
                                                                 }
                                         					?>
                                 					</div>
                                 			    </div>
-                                		    </div>    
+                                		    </div>
                                 			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
                                 				<div class="">
                                 					<div class="d-md-flex">
                                 						<a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
                                 						<a href="<?php echo url('/')?>/request-to-book?photographerId=<?php echo $users->id ;?>&cityId=<?php echo $users->city_id; ?>" class="button-book-one w-100">Book artist</a>
-                                						
+
                                 					</div>
                                 				</div>
                                 			</div>
                                 	    </div>
-                                    </div>  
-                                
+                                    </div>
+
                 		         </div>
 				<?php
 							}
@@ -705,12 +705,12 @@
 						}
 					}
 				?>
-	
+
 			<!--</div>-->
 			    </div>
-            
-                
-                
+
+
+
             </carousel>
 		</div>
 	</section>
@@ -729,7 +729,7 @@ $(document).on('click', '#btnClearSearch', function(){
 				dataType: 'json',
 				success: function(res){
 					console.log(res);
-					
+
 				},
 				error: function(){
 					console.log('error while getting search result of search Music');

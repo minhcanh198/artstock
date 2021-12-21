@@ -11,38 +11,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
-    <link href="{{ asset('public/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
-    <link href="{{ asset('public/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
-    <link href="{{ asset('public/fonts/ionicons/css/ionicons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('fonts/ionicons/css/ionicons.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- App css -->
-    <link href="{{ asset('public/admin/css/app.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/css/app.css')}}" rel="stylesheet" type="text/css" />
     <!-- IcoMoon CSS -->
-    <link href="{{ asset('public/css/icomoon.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icomoon.css') }}" rel="stylesheet">
     <!-- Stroke  CSS -->
-    <link href="{{ asset('public/css/strokeicons.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/strokeicons.css') }}" rel="stylesheet">
 
      <!-- Theme style -->
-    <link href="{{ asset('public/admin/css/AdminLTE.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/css/AdminLTE.min.css')}}" rel="stylesheet" type="text/css" />
 
     <!-- AdminLTE Skins. Choose a skin from the css/skins
         folder instead of downloading all of them to reduce the load. -->
-    <link href="{{ asset('public/admin/css/skins/skin-blue.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('public/admin/css/skins/skin-black.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('public/admin/css/skins/skin-purple.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('public/admin/css/skins/skin-yellow.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('public/admin/css/skins/skin-red.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('public/admin/css/skins/skin-green.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('public/emojionearea-master/dist/emojionearea.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('admin/css/skins/skin-blue.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/css/skins/skin-black.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/css/skins/skin-purple.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/css/skins/skin-yellow.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/css/skins/skin-red.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/css/skins/skin-green.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('emojionearea-master/dist/emojionearea.min.css') }}" rel="stylesheet" type="text/css">
 
-    <link rel="shortcut icon" href="{{ URL::asset('public/img/favicon.png') }}" />
-    
+    <link rel="shortcut icon" href="{{ URL::asset('img/favicon.png') }}" />
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 
     <link href='//fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
 
-    <link href="{{ asset('public/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('plugins/sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -52,8 +52,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <![endif]-->
 
     @yield('css')
-    
-    
+
+
     <script type="text/javascript">
 
     // URL BASE
@@ -171,7 +171,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   }
   .emojionearea .emojionearea-picker.emojionearea-picker-position-bottom {
       left: 0px;
-      
+
   }
   .chat-main-area {
       height: 300px;
@@ -239,21 +239,21 @@ button.enter-chat {
     border-radius: 30px;
 }
 
-.loader { 
-            width: 100%; 
+.loader {
+            width: 100%;
             /* margin: 150px auto 70px;  */
-            position: relative; 
-        } 
-  
-        .loader .loading_1 { 
-            position: relative; 
-            width: 100%; 
-            height: 10px; 
+            position: relative;
+        }
+
+        .loader .loading_1 {
+            position: relative;
+            width: 100%;
+            height: 10px;
             /* border: 1px solid yellowgreen;  */
-            border-radius: 10px; 
-            animation: turn 4s linear 1.75s infinite; 
-        } 
-  
+            border-radius: 10px;
+            animation: turn 4s linear 1.75s infinite;
+        }
+
         .loader .loading_1:before {
             content: "";
             display: block;
@@ -264,25 +264,25 @@ button.enter-chat {
             /* box-shadow: 10px 0px 15px 0px yellowgreen; */
             animation: load 3s linear infinite;
         }
-  
-        .loader .loading_2 { 
-            position: absolute; 
-            width: 100%; 
-            top: 10px; 
-            color: green; 
-            font-size: 22px; 
-            text-align: center; 
-            animation: bounce 3s linear infinite; 
-        } 
-  
-        @keyframes load { 
-            0% { 
-                width: 0%; 
-            } 
-  
-            87.5% { 
-                width: 100%; 
-            } 
+
+        .loader .loading_2 {
+            position: absolute;
+            width: 100%;
+            top: 10px;
+            color: green;
+            font-size: 22px;
+            text-align: center;
+            animation: bounce 3s linear infinite;
+        }
+
+        @keyframes load {
+            0% {
+                width: 0%;
+            }
+
+            87.5% {
+                width: 100%;
+            }
         }
 
         .download-btn {
@@ -399,7 +399,7 @@ button.enter-chat {
           <!-- Navbar Right Menu -->
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-                
+
                 <?php /* Commented by shahzad?>
             	<li>
             		<!-- <a href="{{ url('/') }}"><i class="glyphicon glyphicon-home myicon-right"></i> {{ trans('misc.go_back_site') }}</a> -->
@@ -417,14 +417,14 @@ button.enter-chat {
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!-- The user image in the navbar-->
-                  <img src="{{ asset('public/avatar').'/'.Auth::user()->avatar }}" class="user-image" alt="User Image" />
+                  <img src="{{ asset('avatar').'/'.Auth::user()->avatar }}" class="user-image" alt="User Image" />
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
                   <span class="hidden-xs">{{ Auth::user()->username }}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
-                    <img src="{{ asset('public/avatar').'/'.Auth::user()->avatar }}" class="img-circle" alt="User Image" />
+                    <img src="{{ asset('avatar').'/'.Auth::user()->avatar }}" class="img-circle" alt="User Image" />
                     <p>
                       <small>{{ Auth::user()->username }}</small>
                     </p>
@@ -455,7 +455,7 @@ button.enter-chat {
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="{{ asset('public/avatar').'/'.Auth::user()->avatar }}" class="img-circle" alt="User Image" />
+              <img src="{{ asset('avatar').'/'.Auth::user()->avatar }}" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
               <p class="text-overflow">{{ Auth::user()->username }}</p>
@@ -483,7 +483,7 @@ button.enter-chat {
            <li @if(Request::is('user/dashboard/my-bookings')) class="active" @endif>
             <a href="{{ url('user/dashboard/my-bookings') }}"><i class="fa fa-list"></i> <span>{{ trans_choice('misc.my_clients_requests',0) }}</span></a>
            </li><!-- ./Links -->
-           
+
            <!-- Links -->
            {{-- <!--<li @if(Request::is('user/dashboard/package')) class="active" @endif>--> --}}
            {{-- <!--    <a href="{{ url('user/dashboard/package') }}"><i class="fa fa-circle-o"></i>My Packages</a>--> --}}
@@ -651,7 +651,7 @@ button.enter-chat {
           </div>
         </div>
       </div>
-    </div> 
+    </div>
 
     <!--Modal single chat  -->
     <div class="modal fade" id="messageMainModal2" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="messageMainModal2Label" aria-hidden="true">
@@ -664,13 +664,13 @@ button.enter-chat {
               <input type="text" id="textCurrentUserId" name="textCurrentUserId" hidden >
 
               <div class="" id="messageMainModal2DivUserNameHeading">
-                
+
               </div>
               <div class="" style="margin-left: auto; margin-right: 10px;">
                 <!-- <div class="dropdown">
                   <button class="dropdown-toggle" type="button" data-toggle="dropdown" style="background-color: transparent; border: 0;     background-color: transparent; border: 0; border-radius: 50%; width: 36px; height: 36px; background-color: rgba(0, 0, 0, .05);
                   opacity: 1; border: 0; display: flex; justify-content: center; align-items: center;"><img src="{{ url('/') }}/public/img/icons8-menu-vertical-30.png" alt="">
-                
+
                   <ul class="dropdown-menu dropdown-modal-messenger">
                     <li><a href="#">HTML</a></li>
                     <li><a href="#">CSS</a></li>
@@ -688,18 +688,18 @@ button.enter-chat {
           <div class="modal-body">
             <div class="chat-main-area">
               <div class="row" id="singleChatUserDiv">
-                
-              
+
+
               </div>
             </div>
           </div>
           <div class="modal-footer" style="text-align: left; position: relative; padding: 0;">
             <div class="" id="msgSendLoader" style="position: absolute; width:95%; top: 0; left: 0; display:none;">
-              <div class="loader"> 
-                <div class="loading_1"></div> 
+              <div class="loader">
+                <div class="loading_1"></div>
                     <!-- <div class="loading_2">Loading GfG...</div>  -->
                 </div>
-              </div> 
+              </div>
             </div>
             <div class="error-chat" id="errorChat" style="display:none">
               <p id="errorChatP" style="color: #ef595f; font-weight:900;">Something went wrong</p>
@@ -707,7 +707,7 @@ button.enter-chat {
 
             <div class="row" style="margin-top: 20px;">
               <div class="col-sm-1"></div>
-              
+
               <div class="col-sm-9" style="padding-left: 0;padding-right: 0;">
                 <div class="span6">
                   <input type="text" id="emojionearea4" name="textboc" value=""/>
@@ -719,7 +719,7 @@ button.enter-chat {
                   <input id="file-input" name="chat_file-input" type="file" />
                 </div>
               </div>
-              
+
               <div class="col-sm-1" style="">
                 <button id="sendMsgChat" class="enter-chat"><img src="{{ url('/') }}/public/img/email.png" alt="" class="img-responsive" style="width: 17px;"></button>
               </div>
@@ -732,11 +732,11 @@ button.enter-chat {
 
     <!-- REQUIRED JS SCRIPTS -->
     @include('includes.javascript_general')
-    
+
 
     <!-- FastClick -->
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
-    <script src="{{ asset('public/emojionearea-master/dist/emojionearea.min.js') }}"></script>
+    <script src="{{ asset('emojionearea-master/dist/emojionearea.min.js') }}"></script>
     <script type="text/javascript">
       $(document).ready(function() {
         $("#emojionearea4").emojioneArea({
@@ -824,11 +824,11 @@ button.enter-chat {
 
     </script>
     <script type="text/javascript" src="http://mervick.github.io/lib/google-code-prettify/prettify.js"></script>
-    <script src="{{ asset('public/plugins/fastclick/fastclick.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('plugins/fastclick/fastclick.min.js')}}" type="text/javascript"></script>
     <!-- AdminLTE App -->
-    <script src="{{ asset('public/admin/js/app.min.js')}}" type="text/javascript"></script>
-    <script src="{{ asset('public/admin/js/functions.js')}}" type="text/javascript"></script>
-    <script src="{{ asset('public/js/moment.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('admin/js/app.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('admin/js/functions.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('js/moment.min.js')}}" type="text/javascript"></script>
 
     @yield('javascript')
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
@@ -845,39 +845,39 @@ button.enter-chat {
                         $('.fancybox-content img').css('mozTransform', 'rotate(-' + n + 'deg)');
                     });
             });
-            
-            
+
+
         </script>
     <script>
-    
+
         $(document).ready(function(){
             $('.BigwaveCustomer').each(function(){
                       //Generate unic ud
                       var id = '_' + Math.random().toString(36).substr(2, 9);
                       var path = $(this).attr('data-path');
-                      
+
                       //Set id to container
                       $(this).find(".wave-container").attr("id", id);
-                    
+
                       //Initialize WaveSurfer
                       var wavesurfer = WaveSurfer.create({
                           container: '#' + id,
                         //   waveColor: 'violet',
                            waveColor: '#ef595f',
-                            progressColor: '#3A3A3A', 
+                            progressColor: '#3A3A3A',
                              backgroundColor: 'transparent',
-                                   
+
                                     cursorWidth: 2,
                                     height: 70
                       });
-                      
-                       
-                                  
-                               
-                                  
+
+
+
+
+
                       //Load audio file
                       wavesurfer.load(path);
-                      
+
                       //Add button event
                     //   $(this).find("button").click(function(){
                     //   	wavesurfer.playPause();
@@ -900,12 +900,12 @@ button.enter-chat {
                             $(this).hide();
                             $('a[id^="BigbatonCustomer-playMusic#'+ dataGet +'"]').css('display','inline');
                         });
-                        
+
                         wavesurfer.on('finish', function () {
                             $('a[id^="BigbatonCustomer-pauseMusic#'+ BigMainWaveCustomerData +'"]').css('display','none');
                             $('a[id^="BigbatonCustomer-playMusic#'+ BigMainWaveCustomerData +'"]').css('display','inline');
                         });
-                    });   
+                    });
         });
 
       $("#openModalMessageChat").click(function(){
@@ -917,7 +917,7 @@ button.enter-chat {
             type:'GET',
             dataType: 'json',
             success: function(respo){
-              
+
               $("#chatListDiv").empty();
               var htmlChatList = '';
               if(respo == "empty"){
@@ -964,8 +964,8 @@ button.enter-chat {
                             htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverName +'</p>';
                           }else{
                             htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverUserName +'</p>';
-                          } 
-                          
+                          }
+
                         }else{
                           if(value.senderName != ""){
                             htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.senderName +'</p>';
@@ -985,7 +985,7 @@ button.enter-chat {
                             htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/public/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
                           }
                         }
-                        htmlChatList += '</div>'+ 
+                        htmlChatList += '</div>'+
                       '<div class="col-md-2" style="margin-top: 17px;">'+
                         '<span style="font-size:12px;">'+ relative_time +'</span>'+
                        '</div>'+
@@ -1029,8 +1029,8 @@ button.enter-chat {
                             htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverName +'</p>';
                           }else{
                             htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverUserName +'</p>';
-                          } 
-                          
+                          }
+
                         }else{
                           if(value.senderName != ""){
                             htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.senderName +'</p>';
@@ -1050,7 +1050,7 @@ button.enter-chat {
                             htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/public/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
                           }
                         }
-                        htmlChatList += '</div>'+ 
+                        htmlChatList += '</div>'+
                       '<div class="col-md-2" style="margin-top: 17px;">'+
                         '<span style="font-size:12px;">'+ relative_time +'</span>'+
                        '</div>'+
@@ -1085,18 +1085,18 @@ button.enter-chat {
             $("#textChatId").val(resp[0].chat_id);
             $("#textUserId").val('');
             if(resp[0].senderId == sessionUserId2){
-                htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].receiverAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> '; 
+                htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].receiverAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
                 if(resp[0].receiverName !== ""){
-              
+
                   htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].receiverName +'</span>';
                 }else{
-                
+
                   htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].receiverUserName +'</span>';
                 }
               htmlHeadhingUserName +='</h5>';
               $("#textUserId").val(resp[0].receiverId);
             }else{
-              htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].senderAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> '; 
+              htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].senderAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
               if(resp[0].senderName !== ""){
                 htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].senderName +'</span>';
               }else{
@@ -1218,7 +1218,7 @@ button.enter-chat {
                 });
               }
 
-            
+
           },error:function(){
             console.log('error while getting single user chat details');
           }
@@ -1234,7 +1234,7 @@ button.enter-chat {
             type:'GET',
             dataType: 'json',
             success: function(respo){
-              
+
               $("#chatListDiv").empty();
               var htmlChatList = '';
               if(respo == "empty"){
@@ -1279,8 +1279,8 @@ button.enter-chat {
                                       htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverName +'</p>';
                                     }else{
                                       htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverUserName +'</p>';
-                                    } 
-                                    
+                                    }
+
                                   }else{
                                     if(value.senderName != ""){
                                       htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.senderName +'</p>';
@@ -1346,8 +1346,8 @@ button.enter-chat {
                                         htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverName +'</p>';
                                       }else{
                                         htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverUserName +'</p>';
-                                      } 
-                                      
+                                      }
+
                                     }else{
                                       if(value.senderName != ""){
                                         htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.senderName +'</p>';
@@ -1396,7 +1396,7 @@ button.enter-chat {
         var txtCurrentUserId = $("#textCurrentUserId").val();
         var txtUserId = $("#textUserId").val();
         if(textValue == "" || textValue == null){
-            
+
         }else{
             $.ajax({
           url: baseUrl + '/send-text-msg',
@@ -1515,7 +1515,7 @@ button.enter-chat {
             type:'GET',
             dataType: 'json',
             success: function(respo){
-              
+
               $("#chatListDiv").empty();
               var htmlChatList = '';
               if(respo == "empty"){
@@ -1561,8 +1561,8 @@ button.enter-chat {
                                   htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverName +'</p>';
                                 }else{
                                   htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverUserName +'</p>';
-                                } 
-                                
+                                }
+
                               }else{
                                 if(value.senderName != ""){
                                   htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.senderName +'</p>';
@@ -1628,8 +1628,8 @@ button.enter-chat {
                                   htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverName +'</p>';
                                 }else{
                                   htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverUserName +'</p>';
-                                } 
-                                
+                                }
+
                               }else{
                                 if(value.senderName != ""){
                                   htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.senderName +'</p>';
@@ -1688,18 +1688,18 @@ button.enter-chat {
               $("#textChatId").val(resp[0].chat_id);
               $("#textUserId").val('');
               if(resp[0].senderId == sessionUserId2){
-                  htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].receiverAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> '; 
+                  htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].receiverAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
                   if(resp[0].receiverName !== ""){
-                
+
                     htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].receiverName +'</span>';
                   }else{
-                  
+
                     htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].receiverUserName +'</span>';
                   }
                 htmlHeadhingUserName +='</h5>';
                 $("#textUserId").val(resp[0].receiverId);
               }else{
-                htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].senderAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> '; 
+                htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].senderAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
                 if(resp[0].senderName !== ""){
                   htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].senderName +'</span>';
                 }else{
@@ -1720,7 +1720,7 @@ button.enter-chat {
                   $("#messageMainModal2 modal-body #singleChatUserDiv").append(htmlSingleChatList);
                 }else{
                   var sessionUserId = '<?php echo \Auth::user()->id;?>';
-                  
+
                   $.each(resp, function( index, value ) {
                     var msgTime = moment(value.created_at).format('LT');
                     // console.log(value.message_file);
@@ -1820,10 +1820,10 @@ button.enter-chat {
 
                   }
                 });
-                  
+
                 }
 
-              
+
             },error:function(){
               console.log('error while getting single user chat details');
             }
@@ -1855,12 +1855,12 @@ button.enter-chat {
           }
         });
       }
-      
+
       window.myVar = setInterval(getAllMessageList, 5000);
       setInterval(getMessageDetails, 5000);
-      setInterval(getMessageCounters, 5000);     
-      
-      
+      setInterval(getMessageCounters, 5000);
+
+
       function myStopFunction() {
         clearInterval(myVar);
       }
@@ -1877,14 +1877,14 @@ button.enter-chat {
         var txtChatId = $("#textChatId").val();
         var txtCurrentUserId = $("#textCurrentUserId").val();
         var txtUserId = $("#textUserId").val();
-        
+
         var fd = new FormData();
         var files = $('#file-input')[0].files;
 
         // Check file selected or not
         if(files.length > 0 ){
           var token = '<?php echo csrf_token() ?>';
-          
+
            fd.append('file',files[0]);
            fd.append('_token',token);
            fd.append('txtChatId',txtChatId);

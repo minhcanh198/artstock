@@ -1,34 +1,34 @@
 <!-- Bootstrap core CSS -->
-    <link href="{{ asset('public/bootstrap/css/bootstrap.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('bootstrap/css/bootstrap.css')}}" rel="stylesheet" type="text/css" />
 
     <!-- Custom styles for this template -->
-    <link href="{{ asset('public/css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
     <!-- FONT Awesome CSS -->
-    <link href="{{ asset('public/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
 
      <!-- IcoMoon CSS -->
-    <link href="{{ asset('public/css/icomoon.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icomoon.css') }}" rel="stylesheet">
 
     <!-- stroke icons CSS -->
-    <link href="{{ asset('public/css/strokeicons.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/strokeicons.css') }}" rel="stylesheet">
 
     <!-- IcoMoon CSS -->
-    <link href="{{ asset('public/plugins/fleximages/jquery.flex-images.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/fleximages/jquery.flex-images.css') }}" rel="stylesheet">
 
     <!-- Ionicons -->
-    <link href="{{ asset('public/fonts/ionicons/css/ionicons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('fonts/ionicons/css/ionicons.min.css')}}" rel="stylesheet" type="text/css" />
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="{{ asset('public/js/ie10-viewport-bug-workaround.js') }}"></script>
+    <script src="{{ asset('js/ie10-viewport-bug-workaround.js') }}"></script>
 
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css' />
 
     <!-- Sweet Alert -->
-    <link href="{{ asset('public/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('plugins/sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css" />
 
-    <link href="{{ asset('public/css/vivify.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/vivify.min.css') }}" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 

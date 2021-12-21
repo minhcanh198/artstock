@@ -1,6 +1,6 @@
 @extends('new_template.layouts.app')
 @section('content')
-    <section class="form-main-section" style="background: url(<?php echo asset('public/destination_page_new/destination-1.jpg') ?>)">
+    <section class="form-main-section" style="background: url(<?php echo asset('destination_page_new/destination-1.jpg') ?>)">
         <div class="form-area-box">
             <div class="container">
                 <div class="row">
@@ -30,7 +30,7 @@
                         <input type="text" id="countryId" name="countryId" hidden value="{{ $countryId }}">
                         <input type="text" id="cityId" name="cityId" hidden value="{{ $cityId }}">
                         <!-- comming from before step one Data End -->
-                        
+
                         <!-- comming from before step two (meaning comming from step one) Data Start -->
                         <input type="text" id="DatePrefered" name="DatePrefered" hidden value="{{ $datePrefered }}">
                         <input type="text" id="timeOfDay" name="timeOfDay" hidden value="{{ $timeDay }}">
@@ -58,16 +58,16 @@
                                     <h2 class="title-form">You are requesting to book a music work with {{ ($getUserData->name != "") ? $getUserData->name : $getUserData->username }} in {{ $getCityAndCountry->name }}, {{ $getCityAndCountry->countryName }}.</h2>
                                 @else
                                 @endif
-                                
+
                                 <div class="form-disc-one">
                                     <p>We just need a few more details to complete your request so {{ ($getUserData->name != "") ? $getUserData->name : $getUserData->username }} can get back to you within 24 - 48 hours to confirm your booking.</p>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row padding-top-20">
                             <div class="col-sm-12">
-                                
+
                                 @if($getTypeDetails->type_name == "Photographer")
                                     <div class="row justify-content-center" id="scrollDivRoute">
                                         @foreach($getRoutes as $routes)
@@ -75,7 +75,7 @@
                                                 <div class="rout-box " id="box-route-custom_{{ $routes->id }}">
                                                     <!-- <p class="flag-two">Iconic Sights</p> -->
                                                     <div class="box-img" id="rout-box-img_{{ $routes->id }}">
-                                                        
+
                                                         @if($routes->route_img != null)
                                                             <img src="./public/imran_images_dummy/barcelona-solo-adventure-solo-plants_500.jpeg" alt="" class="img-fluid">
                                                         @else
@@ -101,7 +101,7 @@
                                                     <div class="box-rout-detail" id="box-rout-closebtn_{{ $routes->id }}" style="display:none;">
                                                         <i class="fas fa-times"></i> <span>Close Details</span>
                                                     </div>
-                                                </div>	
+                                                </div>
                                             </div>
                                         @endforeach
                                         <div class="col-md-3 mb-4">
@@ -129,7 +129,7 @@
                                                 <div class="box-rout-detail" id="box-rout-closebtn_Custom" style="display:none;">
                                                     <i class="fas fa-times"></i> <span>Close Details</span>
                                                 </div>
-                                            </div>	
+                                            </div>
                                         </div>
                                     </div>
                                     <div id="errorRouteDiv"></div>
@@ -150,7 +150,7 @@
                                         </div>
                                     </div>
                                 @elseif($getTypeDetails->type_name == "Animator")
-                                    
+
                                 @elseif($getTypeDetails->type_name == "Videographer")
                                     <div class="row justify-content-center" id="scrollDivRoute">
                                             @foreach($getRoutes as $routes)
@@ -158,7 +158,7 @@
                                                     <div class="rout-box " id="box-route-custom_{{ $routes->id }}">
                                                         <!-- <p class="flag-two">Iconic Sights</p> -->
                                                         <div class="box-img" id="rout-box-img_{{ $routes->id }}">
-                                                            
+
                                                             @if($routes->route_img != null)
                                                                 <img src="./public/imran_images_dummy/barcelona-solo-adventure-solo-plants_500.jpeg" alt="" class="img-fluid">
                                                             @else
@@ -184,7 +184,7 @@
                                                         <div class="box-rout-detail" id="box-rout-closebtn_{{ $routes->id }}" style="display:none;">
                                                             <i class="fas fa-times"></i> <span>Close Details</span>
                                                         </div>
-                                                    </div>	
+                                                    </div>
                                                 </div>
                                             @endforeach
                                             <div class="col-md-3 mb-4">
@@ -212,7 +212,7 @@
                                                     <div class="box-rout-detail" id="box-rout-closebtn_Custom" style="display:none;">
                                                         <i class="fas fa-times"></i> <span>Close Details</span>
                                                     </div>
-                                                </div>	
+                                                </div>
                                             </div>
                                         </div>
                                         <div id="errorRouteDiv"></div>
@@ -233,18 +233,18 @@
                                             </div>
                                         </div>
                                 @elseif($getTypeDetails->type_name == "Musician")
-                                    
+
                                 @else
                                 @endif
-                                
+
                                 <div class="row">
                                     @if($getTypeDetails->type_name == "Photographer")
                                         <div class="col-md-8 offset-md-2">
                                             <div class="form-group" id="scrollDivImportantInformation">
                                                 <label for="txtAreaImportantInformation" class="label-form-photo-shoot mb-14">Please tell us any ideas of what you would like to see for your photo shoot or important information that would be helpful for your photographer to know.</label>
-                                                <textarea class="form-control" id="txtAreaImportantInformation" name="important_information_for_artist" rows="6" placeholder="Examples include: 
-                                                1) any specific landmarks or location elements you would like in the background 
-                                                2) photo style, such as romantic, fun, playful, etc. 
+                                                <textarea class="form-control" id="txtAreaImportantInformation" name="important_information_for_artist" rows="6" placeholder="Examples include:
+                                                1) any specific landmarks or location elements you would like in the background
+                                                2) photo style, such as romantic, fun, playful, etc.
                                                 3) must-have shots"></textarea>
                                             </div>
                                             <div id="errorImportantInformationDiv"></div>
@@ -253,9 +253,9 @@
                                         <div class="col-md-8 offset-md-2">
                                             <div class="form-group" id="scrollDivImportantInformation">
                                                 <label for="txtAreaImportantInformation" class="label-form-photo-shoot mb-14">Please tell us any ideas of what you would like to see for your work or important information that would be helpful for your animator to know.</label>
-                                                <textarea class="form-control" id="txtAreaImportantInformation" name="important_information_for_artist" rows="6" placeholder="Examples include: 
-                                                1) any specific landmarks or location elements you would like in the background 
-                                                2) photo style, such as romantic, fun, playful, etc. 
+                                                <textarea class="form-control" id="txtAreaImportantInformation" name="important_information_for_artist" rows="6" placeholder="Examples include:
+                                                1) any specific landmarks or location elements you would like in the background
+                                                2) photo style, such as romantic, fun, playful, etc.
                                                 3) must-have shots"></textarea>
                                             </div>
                                             <div id="errorImportantInformationDiv"></div>
@@ -264,9 +264,9 @@
                                         <div class="col-md-8 offset-md-2">
                                             <div class="form-group" id="scrollDivImportantInformation">
                                                 <label for="txtAreaImportantInformation" class="label-form-photo-shoot mb-14">Please tell us any ideas of what you would like to see for your video shoot or important information that would be helpful for your videographer to know.</label>
-                                                <textarea class="form-control" id="txtAreaImportantInformation" name="important_information_for_artist" rows="6" placeholder="Examples include: 
-                                                1) any specific landmarks or location elements you would like in the background 
-                                                2) photo style, such as romantic, fun, playful, etc. 
+                                                <textarea class="form-control" id="txtAreaImportantInformation" name="important_information_for_artist" rows="6" placeholder="Examples include:
+                                                1) any specific landmarks or location elements you would like in the background
+                                                2) photo style, such as romantic, fun, playful, etc.
                                                 3) must-have shots"></textarea>
                                             </div>
                                             <div id="errorImportantInformationDiv"></div>
@@ -275,18 +275,18 @@
                                         <div class="col-md-8 offset-md-2">
                                             <div class="form-group" id="scrollDivImportantInformation">
                                                 <label for="txtAreaImportantInformation" class="label-form-photo-shoot mb-14">Please tell us any ideas of what you would like to see for your work or important information that would be helpful for your musician to know.</label>
-                                                <textarea class="form-control" id="txtAreaImportantInformation" name="important_information_for_artist" rows="6" placeholder="Examples include: 
-                                                1) any specific landmarks or location elements you would like in the background 
-                                                2) photo style, such as romantic, fun, playful, etc. 
+                                                <textarea class="form-control" id="txtAreaImportantInformation" name="important_information_for_artist" rows="6" placeholder="Examples include:
+                                                1) any specific landmarks or location elements you would like in the background
+                                                2) photo style, such as romantic, fun, playful, etc.
                                                 3) must-have shots"></textarea>
                                             </div>
                                             <div id="errorImportantInformationDiv"></div>
                                         </div>
                                     @else
                                     @endif
-                                    
+
                                     @if($getTypeDetails->type_name == "Photographer")
-                               
+
                                         <div class="col-md-8 offset-md-2">
                                             <div class="form-group" id="scrollDivPreferredStylePhoto">
                                                 <label for="tripReason" class="label-form-photo-shoot mb-14">Choose your preferred style of photos </label>
@@ -300,11 +300,11 @@
                                             <div id="errorPreferredStylePhotoDiv"></div>
                                         </div>
                                     @elseif($getTypeDetails->type_name == "Animator")
-                                    
+
                                     @elseif($getTypeDetails->type_name == "Videographer")
 
                                     @elseif($getTypeDetails->type_name == "Musician")
-                                        
+
                                     @else
                                     @endif
                                     <!--<div class="col-md-8 offset-md-2">-->

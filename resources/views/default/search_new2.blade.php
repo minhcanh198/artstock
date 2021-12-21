@@ -15,7 +15,7 @@
             <div class="filters-head-area row">
                 <div class="col-6 align-self-center" id="filterBtnDiv">
                     <h6 class="toggleFiltersBtn">
-                        <img src="{{ asset('public/search-page-img/filters.png') }}" alt="" class="set-filter-icon">
+                        <img src="{{ asset('search-page-img/filters.png') }}" alt="" class="set-filter-icon">
                         <span>Filters</span>
                     </h6>
                 </div>
@@ -205,7 +205,7 @@
                                         $getArtistTypes = \App\Models\Types::get();
 
                                         foreach ($getArtistTypes as $type) {
-                                            
+
                                             if ($type->types_id == \Request::query('artist')) {
                                         ?>
 
@@ -248,7 +248,7 @@
                             <div id="faq4" class="collapse show" aria-labelledby="faqhead4" data-parent="#faq44">
                                 <div class="card-body">
                                     <select class="select2-icon2" name="select_sub_category" id="select_sub_category">
-                                        
+
                                         <?php
                                             if(\Request::query("sub_category") == ""){
                                         ?>
@@ -261,7 +261,7 @@
                                                 if(\Request::query('sub_category') == $subCat->id){
                                         ?>
                                                     <option selected value="{{ $subCat->id }}">{{ $subCat->name }}</option>
-                                                
+
                                         <?php
                                                 }else{
                                         ?>
@@ -270,26 +270,26 @@
                                                 }
                                             }
                                         ?>
-                                        
+
                                     </select>
                                 </div>
                             </div>
                         </div>
                     </div>
-         
+
                     <div class="accordion" id="faq44s" style="<?php echo (\Request::query('type') != 4) ? 'display:none;' : 'display:block;' ?>">
 
                         <?php
-                        
+
                         foreach($getParentMusicTypes as $pmt){ ?>
 
                         <?php
-                            
+
                             $getChildMusicTypes = \App\Models\MusicType::where('parent_id','=', $pmt->id)->where('is_deleted','=','0')->get();
-                            
-                            
-                        
-                        
+
+
+
+
                             if(count($getChildMusicTypes) > 0){
                         ?>
                             <div class="card">
@@ -327,7 +327,7 @@
                                                     }
                                                 }
                                             ?>
-                                            
+
                                         </select>
                                     </div>
                                 </div>
@@ -393,21 +393,21 @@
                 <div class="row">
                     <div class="col-md-8">
                         <h2>
-                            
+
                             @if($images['type'] !== null)
-                            
+
                                 {{ 'Stock' }}
                             @else
-                            
+
                                 {{ 'Artist' }}
                             @endif
-                        
+
                         </h2>
                         <p>
                         @if(isset($images['type']) != NULL && $images['type'] != "4")
                             {{ $images['images']->total() }} {{ ($images['type'] !== null) ? 'Stock' : 'Artist' }} photos, vectors, and illustrations are available royalty-free.
                         @elseif(isset($images['type']) != NULL && $images['type'] == "4")
-                        
+
                             {{ $images['images']->total() }} {{ ($images['type'] !== null) ? 'Stock' : 'Artist' }} music files are available royalty-free.
                         @else
                         {{ $images['images']->total() }} {{ ($images['type'] !== null) ? 'Stock' : 'Artist' }} photographers, videographers, musicians and animators are available royalty-free.
@@ -419,12 +419,12 @@
                             <!-- <li><a href="">«</a></li>
                             <li><a href="" class="active">1</a></li>
                             <li><a href="">»</a></li> -->
-                          
-                            
+
+
                         <!-- </ul> -->
-                        
+
                         {{ $images['images']->appends(request()->query())->links() }}
-                            
+
                     </div>
                 </div>
                 <div class="tags-search mt-3" style="<?php echo (\Request::query('artist') != null) ? 'display:none;' : 'display:block;' ?>">
@@ -440,14 +440,14 @@
                 </div>
             </div>
             </form>
-            
-            @if(isset($images['type']) != NULL)     
-                
+
+            @if(isset($images['type']) != NULL)
+
                 @if($images['type'] == 4)
                     <div class="row">
                         <div class="col-12">
                         <?php
-                    
+
                             if($images['images']->total() != 0){
                                 foreach($images['images'] as $imge){
                         ?>
@@ -462,7 +462,7 @@
                                         </div>
                                         <audio controls class="audio-one">
                                             <source src="<?php echo url('/public/uploads/audio/large/').'/' . $imge->thumbnail; ?>"  type="audio/mp3">
-                                        </audio> 
+                                        </audio>
                                     </div>
                         <?php
                                 }
@@ -542,7 +542,7 @@
                         @else
 
                             @php
-                                $i = 0;    
+                                $i = 0;
                             @endphp
                             @if($images['images']->total() > 0)
                                 <div class="row">
@@ -564,8 +564,8 @@
                                                                 // var_dump($userPhotographer->id);
                                                                 // dd(count($queryGetDataById));
                                                                 if(count($queryGetDataById) > 0){
-                                                                    
-                                                                
+
+
                                                             ?>
                                             			        @foreach($queryGetDataById as $dataUserImages)
                                                 			        @php
@@ -577,7 +577,7 @@
                                         								}
                                     								@endphp
                                     								<a data-fancybox href="{{ asset($thumbnail) }}">
-                                                					    
+
                                                 					    <img src="{{ asset($thumbnail) }}" alt="" class="set-img-size">
                                                     			    </a>
                                             					@endforeach
@@ -587,7 +587,7 @@
                                             					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
                                             					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
                                             					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
-                                        					</div>  
+                                        					</div>
                                                         <?php
                                                             }else if($image->user_type_id == "3"){
                                                         ?>
@@ -597,8 +597,8 @@
                                                                         // var_dump($userVideographer->id);
                                                                         // dd(count($queryVideosGetDataById));
                                                                         if(count($queryVideosGetDataById) > 0){
-                                                                            
-                                                                        
+
+
                                                                     ?>
                                                     			        @foreach($queryVideosGetDataById as $dataUserVideos)
                                                         			        @php
@@ -608,12 +608,12 @@
                                                     								$stockImage = App\Models\Stock::whereImagesId($dataUserVideos->id)->whereType('small')->select('name')->first();
                                                     								$thumbnail = 'public/uploads/small/'.$stockImage->name;
                                                 								}
-                                                								
+
                                                 								$watermarkedVideoPathScreenShot = 'public/uploads/video/screen_shot/';
                                                 								$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
-                                                								
+
                                                 								$VideoFileScreenShotName = explode('.', $dataUserVideos->thumbnail)[0];
-                                                								
+
                                                 								$realVideoFileName = $dataUserVideos->thumbnail;
                                             								@endphp
                                             								<a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$realVideoFileName }}">
@@ -626,7 +626,7 @@
                                             					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
                                             					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
                                             					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
-                                        					   </div> 
+                                        					   </div>
                                                         <?php
                                                             }else if($image->user_type_id == "2"){
                                                         ?>
@@ -634,8 +634,8 @@
                                                     			        <?php
                                                                         $queryAnimationsGetDataById = App\Models\Images::where(['is_type' => 'video', 'user_id' => $image->id])->limit(4)->get();
                                                                         if(count($queryAnimationsGetDataById) > 0){
-                                                                            
-                                                                        
+
+
                                                                     ?>
                                                     			        @foreach($queryAnimationsGetDataById as $dataUserAnimations)
                                                         			        @php
@@ -645,13 +645,13 @@
                                                     								$stockImage = App\Models\Stock::whereImagesId($dataUserAnimations->id)->whereType('small')->select('name')->first();
                                                     								$thumbnail = 'public/uploads/small/'.$stockImage->name;
                                                 								}
-                                                								
+
 					                        									$watermarkedVideoPathScreenShot = 'public/uploads/video/screen_shot/';
-                            								
+
                                                 								$AnimationFileScreenShotName = explode('.', $dataUserAnimations->thumbnail)[0];
-                                                								
+
                                                 								$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
-                                                								
+
                                                 								$realVideoFileName = $dataUserAnimations->thumbnail;
                                             								@endphp
                                             								<a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$realVideoFileName }}">
@@ -664,8 +664,8 @@
                                                     					<?php
                                                                         }else{
                                                                     ?>
-                                                                    <p class="dummy-text-when-another-div-empty"> 
-                                                                                No Animation Available        
+                                                                    <p class="dummy-text-when-another-div-empty">
+                                                                                No Animation Available
                                                                             </p>
                                                                     <?php
                                                                         }
@@ -687,9 +687,9 @@
                                                         				<!--				$stockImage = App\Models\Stock::whereImagesId($dataUserMusicians->id)->whereType('small')->select('name')->first();-->
                                                         				<!--				$thumbnail = 'public/uploads/small/'.$stockImage->name;-->
                                                     								<!--}-->
-                                                    								
+
                                                     								$watermarkedMusicPath = 'public/uploads/audio/large/';
-                                                    								
+
                                                 								{{-- @endphp --}}
                                                 								<!--<div class="row">-->
                                                         <!--								<div class="col-2 align-self-center">-->
@@ -701,12 +701,12 @@
                                                         <!--                                    </a>-->
                                                         <!--                                </div>-->
                                                         <!--								<div class="col-10">-->
-                                                                                            
+
                                                         <!--                                  <div id="waveform"></div>-->
                                                                                             <!--<wavesurfer-->
                                                                                             <!--    data-url="http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3"-->
                                                                                             <!--    data-plugins="minimap,timeline"-->
-                                                                                                
+
                                                                                             <!--    data-minimap-height="30"-->
                                                                                             <!--    data-minimap-wave-color="#ddd"-->
                                                                                             <!--    data-minimap-progress-color="#999"-->
@@ -717,8 +717,8 @@
                                                                                             <!--<div id="timeline"></div>-->
                                                         <!--                                </div>-->
                                                     				<!--				</div>-->
-                                                    				
-                                                                    				<div class="wave d-flex" data-path="{{ asset('public/uploads/audio/large'). '/'. $dataUserMusicians->thumbnail }}">
+
+                                                                    				<div class="wave d-flex" data-path="{{ asset('uploads/audio/large'). '/'. $dataUserMusicians->thumbnail }}">
                                                                                                 <div class="align-self-center music-col-2">
                                                                                                     <a href="javascript:;" class="btn-music-play" id="baton-playMusic#{{ $dataUserMusicians->thumbnail}}">
                                                                                                         <i class="fas fa-play"></i>
@@ -727,42 +727,42 @@
                                                                                                         <i class="fas fa-pause"></i>
                                                                                                     </a>
                                                                                                 </div>
-                                                                                                
+
                                                                                                 <div class="wave-container music-col-10"></div>
                                                                                             </div>
-                                                            					    
-                                                                                    
+
+
                                                             					@endforeach
                                                 					<?php
                                                                         }else{
                                                                     ?>
-                                                                            <p class="dummy-text-when-another-div-empty"> 
-                                                                                No Music Available        
+                                                                            <p class="dummy-text-when-another-div-empty">
+                                                                                No Music Available
                                                                             </p>
-                                                                            
+
                                                                     <?php
                                                                         }
                                                 					?>
-                                    					        </div> 
+                                    					        </div>
                                                         <?php
                                                             }
                                                         ?>
 
-                            					
+
                             			    </div>
-                            		    </div>    
+                            		    </div>
                             			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
                             				<div class="">
                             					<div class="d-md-flex">
                             						<a href="<?php echo url('/')?>/artist/<?php echo $image->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
                             						<a href="<?php echo url('/')?>/request-to-book?photographerId=<?php echo $image->id ;?>&amp;cityId=<?php echo $image->city_id; ?>" class="button-book-one w-100">Book artist</a>
-                            						
+
                             					</div>
                             				</div>
                             			</div>
                                 	</div>
                                 	</div>
-                                    @endforeach 
+                                    @endforeach
                                 </div>
                             @else
                                 <div class="row">
@@ -841,7 +841,7 @@
                     @else
 
                         @php
-                            $i = 0;    
+                            $i = 0;
                         @endphp
                         @if($images['images']->total() > 0)
                             <div class="row">
@@ -863,8 +863,8 @@
                                                                 // var_dump($userPhotographer->id);
                                                                 // dd(count($queryGetDataById));
                                                                 if(count($queryGetDataById) > 0){
-                                                                    
-                                                                
+
+
                                                             ?>
                                             			        @foreach($queryGetDataById as $dataUserImages)
                                                 			        @php
@@ -876,7 +876,7 @@
                                         								}
                                     								@endphp
                                     								<a data-fancybox href="{{ asset($thumbnail) }}">
-                                                					    
+
                                                 					    <img src="{{ asset($thumbnail) }}" alt="" class="set-img-size">
                                                     			    </a>
                                             					@endforeach
@@ -886,7 +886,7 @@
                                             					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
                                             					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
                                             					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
-                                        					</div>  
+                                        					</div>
                                                         <?php
                                                             }else if($image->user_type_id == "3"){
                                                         ?>
@@ -896,8 +896,8 @@
                                                                         // var_dump($userVideographer->id);
                                                                         // dd(count($queryVideosGetDataById));
                                                                         if(count($queryVideosGetDataById) > 0){
-                                                                            
-                                                                        
+
+
                                                                     ?>
                                                     			        @foreach($queryVideosGetDataById as $dataUserVideos)
                                                         			        @php
@@ -907,12 +907,12 @@
                                                     								$stockImage = App\Models\Stock::whereImagesId($dataUserVideos->id)->whereType('small')->select('name')->first();
                                                     								$thumbnail = 'public/uploads/small/'.$stockImage->name;
                                                 								}
-                                                								
+
                                                 								$watermarkedVideoPathScreenShot = 'public/uploads/video/screen_shot/';
                                                 								$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
-                                                								
+
                                                 								$VideoFileScreenShotName = explode('.', $dataUserVideos->thumbnail)[0];
-                                                								
+
                                                 								$realVideoFileName = $dataUserVideos->thumbnail;
                                             								@endphp
                                             								<a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$realVideoFileName }}">
@@ -925,7 +925,7 @@
                                             					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
                                             					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
                                             					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
-                                        					   </div> 
+                                        					   </div>
                                                         <?php
                                                             }else if($image->user_type_id == "2"){
                                                         ?>
@@ -935,8 +935,8 @@
                                                                         // var_dump($userAnimator->id);
                                                                         // dd(count($queryAnimationsGetDataById));
                                                                         if(count($queryAnimationsGetDataById) > 0){
-                                                                            
-                                                                        
+
+
                                                                     ?>
                                                     			        @foreach($queryAnimationsGetDataById as $dataUserAnimations)
                                                         			        @php
@@ -946,13 +946,13 @@
                                                     								$stockImage = App\Models\Stock::whereImagesId($dataUserAnimations->id)->whereType('small')->select('name')->first();
                                                     								$thumbnail = 'public/uploads/small/'.$stockImage->name;
                                                 								}
-                                                								
+
 					                        									$watermarkedVideoPathScreenShot = 'public/uploads/video/screen_shot/';
-                            								
+
                                                 								$AnimationFileScreenShotName = explode('.', $dataUserAnimations->thumbnail)[0];
-                                                								
+
                                                 								$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
-                                                								
+
                                                 								$realVideoFileName = $dataUserAnimations->thumbnail;
                                             								@endphp
                                             								<a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$realVideoFileName }}">
@@ -965,8 +965,8 @@
                                                     					<?php
                                                                         }else{
                                                                     ?>
-                                                                    <p class="dummy-text-when-another-div-empty"> 
-                                                                                No Animation Available        
+                                                                    <p class="dummy-text-when-another-div-empty">
+                                                                                No Animation Available
                                                                             </p>
                                                                     <?php
                                                                         }
@@ -988,9 +988,9 @@
                                                         				<!--				$stockImage = App\Models\Stock::whereImagesId($dataUserMusicians->id)->whereType('small')->select('name')->first();-->
                                                         				<!--				$thumbnail = 'public/uploads/small/'.$stockImage->name;-->
                                                     								<!--}-->
-                                                    								
+
                                                     								$watermarkedMusicPath = 'public/uploads/audio/large/';
-                                                    								
+
                                                 								{{-- @endphp --}}
                                                 								<!--<div class="row">-->
                                                         <!--								<div class="col-2 align-self-center">-->
@@ -1002,12 +1002,12 @@
                                                         <!--                                    </a>-->
                                                         <!--                                </div>-->
                                                         <!--								<div class="col-10">-->
-                                                                                            
+
                                                         <!--                                  <div id="waveform"></div>-->
                                                                                             <!--<wavesurfer-->
                                                                                             <!--    data-url="http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3"-->
                                                                                             <!--    data-plugins="minimap,timeline"-->
-                                                                                                
+
                                                                                             <!--    data-minimap-height="30"-->
                                                                                             <!--    data-minimap-wave-color="#ddd"-->
                                                                                             <!--    data-minimap-progress-color="#999"-->
@@ -1018,8 +1018,8 @@
                                                                                             <!--<div id="timeline"></div>-->
                                                         <!--                                </div>-->
                                                     				<!--				</div>-->
-                                                    				
-                                                    				<div class="wave d-flex" data-path="{{ asset('public/uploads/audio/large'). '/'. $dataUserMusicians->thumbnail }}">
+
+                                                    				<div class="wave d-flex" data-path="{{ asset('uploads/audio/large'). '/'. $dataUserMusicians->thumbnail }}">
                                                                                                 <div class="align-self-center music-col-2">
                                                                                                     <a href="javascript:;" class="btn-music-play" id="baton-playMusic#{{ $dataUserMusicians->thumbnail}}">
                                                                                                         <i class="fas fa-play"></i>
@@ -1028,42 +1028,42 @@
                                                                                                         <i class="fas fa-pause"></i>
                                                                                                     </a>
                                                                                                 </div>
-                                                                                                
+
                                                                                                 <div class="wave-container music-col-10"></div>
                                                                                             </div>
-                                                            					    
-                                                                                    
+
+
                                                             					@endforeach
                                                 					<?php
                                                                         }else{
                                                                     ?>
-                                                                            <p class="dummy-text-when-another-div-empty"> 
-                                                                                No Music Available        
+                                                                            <p class="dummy-text-when-another-div-empty">
+                                                                                No Music Available
                                                                             </p>
-                                                                            
+
                                                                     <?php
                                                                         }
                                                 					?>
-                                    					        </div> 
+                                    					        </div>
                                                         <?php
                                                             }
                                                         ?>
 
-                            					
+
                             			    </div>
-                            		    </div>    
+                            		    </div>
                             			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
                             				<div class="">
                             					<div class="d-md-flex">
                             						<a href="<?php echo url('/')?>/artist/<?php echo $image->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
                             						<a href="<?php echo url('/')?>/request-to-book?photographerId=<?php echo $image->id ;?>&amp;cityId=<?php echo $image->city_id; ?>" class="button-book-one w-100">Book artist</a>
-                            						
+
                             					</div>
                             				</div>
                             			</div>
                                 	</div>
                                 	</div>
-                                @endforeach 
+                                @endforeach
                             </div>
                         @else
                             <div class="row">
@@ -1122,14 +1122,14 @@
 
 		});
 
-        $("#txt_search").keyup(function(event) { 
-            if (event.keyCode === 13) { 
+        $("#txt_search").keyup(function(event) {
+            if (event.keyCode === 13) {
                 // alert('herer');
                 $("#formSearch").find(":input").filter(function() {
 				return !this.value;
 			}).attr("disabled", "disabled");
 			$("#formSearch").submit();
-            } 
+            }
         });
 
         $('input[id^="sortOption-"]').click(function(){
@@ -1140,12 +1140,12 @@
             $("#sort").val(idSortOption);
             const baseUrl = '<?php echo url("/") ?>';
             console.log(baseUrl);
-            
-            
+
+
             $("#formSearch").find(":input").filter(function() {
                 return !this.value;
             }).attr("disabled", "disabled");
-            
+
             var data = $("#formSearch").serialize();
 
             window.location.href = baseUrl + '/search?' + data;
@@ -1160,12 +1160,12 @@
 
             const baseUrl = '<?php echo url("/") ?>';
             console.log(baseUrl);
-            
-            
+
+
             $("#formSearch").find(":input").filter(function() {
                 return !this.value;
             }).attr("disabled", "disabled");
-            
+
             var data = $("#formSearch").serialize();
 
             window.location.href = baseUrl + '/search?' + data;
@@ -1181,12 +1181,12 @@
 
             const baseUrl = '<?php echo url("/") ?>';
             console.log(baseUrl);
-            
-            
+
+
             $("#formSearch").find(":input").filter(function() {
                 return !this.value;
             }).attr("disabled", "disabled");
-            
+
             var data = $("#formSearch").serialize();
 
             window.location.href = baseUrl + '/search?' + data;
@@ -1202,12 +1202,12 @@
 
             const baseUrl = '<?php echo url("/") ?>';
             console.log(baseUrl);
-            
-            
+
+
             $("#formSearch").find(":input").filter(function() {
                 return !this.value;
             }).attr("disabled", "disabled");
-            
+
             var data = $("#formSearch").serialize();
 
             window.location.href = baseUrl + '/search?' + data;
@@ -1224,7 +1224,7 @@
             $("#formSearch").find(":input").filter(function() {
                 return !this.value;
             }).attr("disabled", "disabled");
-            
+
             var data = $("#formSearch").serialize();
 
             window.location.href = baseUrl + '/search?' + data;
@@ -1237,7 +1237,7 @@
             $("#formSearch").find(":input").filter(function() {
                 return !this.value;
             }).attr("disabled", "disabled");
-            
+
             var data = $("#formSearch").serialize();
 
             window.location.href = baseUrl + '/search?' + data;

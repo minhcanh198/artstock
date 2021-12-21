@@ -28,8 +28,8 @@
 @extends('admin.layout')
 
 @section('css')
-<link href="{{ asset('public/plugins/morris/morris.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('public/plugins/jvectormap/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/morris/morris.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/jvectormap/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -215,7 +215,7 @@
 
                   <li class="item">
                     <div class="product-img">
-                      <img src="{{ asset('public/avatar').'/'.$user->avatar }}" style="height: auto !important;" />
+                      <img src="{{ asset('avatar').'/'.$user->avatar }}" style="height: auto !important;" />
                     </div>
                     <div class="product-info">
                       <a href="{{ url($user->username) }}" target="_blank" class="product-title">@if($user->name !='' ) {{ $user->name }} @else {{ $user->username }} @endif
@@ -265,7 +265,7 @@
                       ?>
                       <li class="item">
                         <div class="product-img">
-                          <img src="{{ asset('public/uploads/thumbnail/').'/'.$image->thumbnail }}" style="height: auto !important;" />
+                          <img src="{{ asset('uploads/thumbnail/').'/'.$image->thumbnail }}" style="height: auto !important;" />
                         </div>
                         <div class="product-info">
                           <a href="{{ url('photo') }}/{{$image->id}}" target="_blank" class="product-title">{{ $image->title }}
@@ -326,7 +326,7 @@
                       ?>
                   <li class="item">
                     <div class="product-img">
-                      <img src="{{ asset('public/uploads/video/screen_shot/').'/screen-shot-'.$explodeVideoThumbnail }}" style="height: auto !important;" />
+                      <img src="{{ asset('uploads/video/screen_shot/').'/screen-shot-'.$explodeVideoThumbnail }}" style="height: auto !important;" />
                     </div>
                     <div class="product-info">
                       <a href="{{ url('video', $video->id ) }}/{{str_slug($video->title)}}" target="_blank" class="product-title">{{ $video->title }}
@@ -367,13 +367,13 @@
 @section('javascript')
 
 	<!-- Morris -->
-	<script src="{{ asset('public/plugins/morris/raphael-min.js')}}" type="text/javascript"></script>
-	<script src="{{ asset('public/plugins/morris/morris.min.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/morris/raphael-min.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/morris/morris.min.js')}}" type="text/javascript"></script>
 
 	<!-- knob -->
-	<script src="{{ asset('public/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}" type="text/javascript"></script>
-	<script src="{{ asset('public/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}" type="text/javascript"></script>
-	<script src="{{ asset('public/plugins/knob/jquery.knob.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/knob/jquery.knob.js')}}" type="text/javascript"></script>
 
 	<script type="text/javascript">
 

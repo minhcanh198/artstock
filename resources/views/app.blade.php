@@ -29,7 +29,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('description_custom'){{ $settings->description }}">
     <meta name="keywords" content="@yield('keywords_custom'){{ $settings->keywords }}" />
-    <link rel="shortcut icon" href="{{ asset('public/img/favicon.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}" />
 
 	<title>{{$totalNotifications}}@section('title')@show @if( isset( $settings->title ) ){{$settings->title}}@endif</title>
 
@@ -168,10 +168,10 @@ $(document).ready(function(){
 			return false;
 		}
 	});
-	
+
 	$('.js-example-basic-multiple-route').select2();
 
-    
+
 });
 
 </script>

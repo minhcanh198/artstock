@@ -36,80 +36,80 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="@yield('description_custom'){{ $settings->description }}">
 		<meta name="keywords" content="@yield('keywords_custom'){{ $settings->keywords }}" />
-		<link rel="shortcut icon" href="{{ asset('public/img/favicon.png') }}" />
+		<link rel="shortcut icon" href="{{ asset('img/favicon.png') }}" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 		<meta name="api-base-url" content="{{ url('/') }}" />
 		<title>{{$totalNotifications}}@section('title')@show @if( isset( $settings->title ) ){{$settings->title}}@endif</title>
-        
+
 		<!--<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" />-->
 		@yield('css')
-		<link rel="stylesheet" href="{{ asset('public/custom-css/css/bootstrap.min.css') }}" />
-		<link href="{{ asset('public/css/app.css') }}" rel="stylesheet" />
+		<link rel="stylesheet" href="{{ asset('custom-css/css/bootstrap.min.css') }}" />
+		<link href="{{ asset('css/app.css') }}" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        
-        <link rel="stylesheet" href="{{ asset('public/css/croppie.css')}}">
-<!--<script src="{{ asset('public/js/custom_cropzee.js')}}" defer></script>-->
 
-		<link rel="stylesheet" href="{{ asset('public/custom-css/fontawesome/css/all.min.css') }}">
-		<link rel="stylesheet" href="{{ asset('public/custom-css/css/owl.carousel.min.css') }}">
-		<link rel="stylesheet" href="{{ asset('public/custom-css/slick/slick.css') }}">
-		<link rel="stylesheet" href="{{ asset('public/custom-css/slick/slick-theme.css') }}">
-		<link rel="stylesheet" href="{{ asset('public/custom-css/css/style.css') }}" />
-		<link rel="stylesheet" href="{{ asset('public/custom-css/css/simple-calendar.css') }}">
-		<link rel="stylesheet" href="{{ asset('public/custom-css/css/simple-calendar2.css') }}">
-		<link rel="stylesheet" href="{{ asset('public/css/main.css') }}" />
-		<link rel="stylesheet" href="{{ asset('public/custom-css/css/responsive.css') }}" />
-		<link rel="stylesheet" href="{{ asset('public/custom-css/css/baguetteBox.min.css') }}" />
-		<!-- <link rel="stylesheet" href="{{ asset('public/custom-css/css/aos.css') }}"/> -->
+        <link rel="stylesheet" href="{{ asset('css/croppie.css')}}">
+<!--<script src="{{ asset('js/custom_cropzee.js')}}" defer></script>-->
+
+		<link rel="stylesheet" href="{{ asset('custom-css/fontawesome/css/all.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('custom-css/css/owl.carousel.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('custom-css/slick/slick.css') }}">
+		<link rel="stylesheet" href="{{ asset('custom-css/slick/slick-theme.css') }}">
+		<link rel="stylesheet" href="{{ asset('custom-css/css/style.css') }}" />
+		<link rel="stylesheet" href="{{ asset('custom-css/css/simple-calendar.css') }}">
+		<link rel="stylesheet" href="{{ asset('custom-css/css/simple-calendar2.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+		<link rel="stylesheet" href="{{ asset('custom-css/css/responsive.css') }}" />
+		<link rel="stylesheet" href="{{ asset('custom-css/css/baguetteBox.min.css') }}" />
+		<!-- <link rel="stylesheet" href="{{ asset('custom-css/css/aos.css') }}"/> -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-         
+
 		<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
 		<!-- stroke icons CSS -->
-		<link href="{{ asset('public/css/strokeicons.css') }}" rel="stylesheet">
-		<link href="{{ asset('public/plugins/fleximages/jquery.flex-images.css') }}" rel="stylesheet">
-		<!-- <link href="{{ asset('public/bootstrap/css/bootstrap.css')}}" rel="stylesheet" type="text/css" /> -->
+		<link href="{{ asset('css/strokeicons.css') }}" rel="stylesheet">
+		<link href="{{ asset('plugins/fleximages/jquery.flex-images.css') }}" rel="stylesheet">
+		<!-- <link href="{{ asset('bootstrap/css/bootstrap.css')}}" rel="stylesheet" type="text/css" /> -->
 		<!-- IcoMoon CSS -->
-		<!-- <link href="{{ asset('public/css/icomoon.css') }}" rel="stylesheet"> -->
+		<!-- <link href="{{ asset('css/icomoon.css') }}" rel="stylesheet"> -->
 		<!-- FONT Awesome CSS -->
-		<link href="{{ asset('public/css/font-awesome.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
 		<!-- Sweet Alert -->
-		<link href="{{ asset('public/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('plugins/sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css" />
 		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-		<link href="{{ asset('public/emojionearea-master/dist/emojionearea.min.css') }}" rel="stylesheet" type="text/css">
+		<link href="{{ asset('emojionearea-master/dist/emojionearea.min.css') }}" rel="stylesheet" type="text/css">
 
 		<style>
-		
-		
+
+
 		.new-music-box>a {
             color: #ef595f;
             margin-right: 10px;
             transition: 0.5s;
         }
-        
+
         .new-music-box>a:hover {
             text-decoration: underline;
         }
-        
+
         .new-music-box p a {
             color: #888;
         }
-        
+
         .new-music-box h3 a {
             color: #000;
             transition: 0.5s;
         }
-        
+
         .new-music-box h3 a:hover {
             color: #ef595f;
         }
-        
+
         .new-music-box p {
             margin: 4px 0 10px;
         }
-        
+
         .btn-music-play {
             color: #ef595f;
             border: 1px solid #ef595f;
@@ -119,33 +119,33 @@
             /*left: -50px;*/
             /*top: 30%; */
         }
-        
+
         .btn-music-play:hover {
             border-color: #000;
             color: #000;
         }
-        
+
         .buttons-music-box a {
             font-size: 20px;
             color: #000;
             transition: 0.5s;
             margin-right: 10px;
         }
-        
+
         .buttons-music-box a:hover {
             color: #ef595f;
         }
-        
+
         .dzsap-sticktobottom.dzsap-sticktobottom-for-skin-wave {
             bottom: 0;
             opacity: 1;
-            
+
         }
-		
+
 		.main-search-bar .btn.btn-secondary {
     font-size: 14px;
 }
-        
+
         .add-font {
             font-size: 14px;
             margin-left: 6px;
@@ -153,7 +153,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-        
+
 #messageMainModal .modal-dialog {
 				max-width: 600px;
 			}
@@ -186,7 +186,7 @@
 				background-color: #0000006b;
 			}
 			img.img-responsive {
-				max-width: 100%;	
+				max-width: 100%;
 				height: auto;
 			}
 
@@ -274,7 +274,7 @@
   }
   .emojionearea .emojionearea-picker.emojionearea-picker-position-bottom {
       left: 0px;
-      
+
   }
   .chat-main-area {
       height: 300px;
@@ -342,21 +342,21 @@ button.enter-chat {
     border-radius: 30px;
 }
 
-.loader { 
-            width: 100%; 
+.loader {
+            width: 100%;
             /* margin: 150px auto 70px;  */
-            position: relative; 
-        } 
-  
-        .loader .loading_1 { 
-            position: relative; 
-            width: 100%; 
-            height: 10px; 
+            position: relative;
+        }
+
+        .loader .loading_1 {
+            position: relative;
+            width: 100%;
+            height: 10px;
             /* border: 1px solid yellowgreen;  */
-            border-radius: 10px; 
-            animation: turn 4s linear 1.75s infinite; 
-        } 
-  
+            border-radius: 10px;
+            animation: turn 4s linear 1.75s infinite;
+        }
+
         .loader .loading_1:before {
             content: "";
             display: block;
@@ -367,25 +367,25 @@ button.enter-chat {
             /* box-shadow: 10px 0px 15px 0px yellowgreen; */
             animation: load 3s linear infinite;
         }
-  
-        .loader .loading_2 { 
-            position: absolute; 
-            width: 100%; 
-            top: 10px; 
-            color: green; 
-            font-size: 22px; 
-            text-align: center; 
-            animation: bounce 3s linear infinite; 
-        } 
-  
-        @keyframes load { 
-            0% { 
-                width: 0%; 
-            } 
-  
-            87.5% { 
-                width: 100%; 
-            } 
+
+        .loader .loading_2 {
+            position: absolute;
+            width: 100%;
+            top: 10px;
+            color: green;
+            font-size: 22px;
+            text-align: center;
+            animation: bounce 3s linear infinite;
+        }
+
+        @keyframes load {
+            0% {
+                width: 0%;
+            }
+
+            87.5% {
+                width: 100%;
+            }
         }
 
         .download-btn {
@@ -523,7 +523,7 @@ a:hover {
 		<script>
 			window.auth_user = {!! json_encode(Auth::user());  !!};
 		</script>
-		
+
 	</head>
 
 	<body >
@@ -534,7 +534,7 @@ a:hover {
 			    <div class="container">
     				<div class="row">
     					<div class="col-6">
-    					   <a href="{{ url('/') }}"> <img src="{{ asset('public/img/logo.svg') }}" class="img-fluid"></a>
+    					   <a href="{{ url('/') }}"> <img src="{{ asset('img/logo.svg') }}" class="img-fluid"></a>
     					</div>
     					<div class="col-6 align-self-center text-right">
             				<div class="circle" id="navbar">
@@ -546,7 +546,7 @@ a:hover {
             						<li><a href="{{ url('/') }}">Home</a></li>
             						<li>
             						    <a href="javascript:void(0);">Categories</a>
-            						    
+
             					        <h3>By Profession</h3>
             						    <ul class="mobile-nav-cate-ul">
             						        @foreach(  App\Models\Types::where('mode','on')->orderBy('type_name')->get() as $type )
@@ -596,14 +596,14 @@ a:hover {
 					<div class="row">
 						<div class="col-md-2">
 							<div class="logo">
-								<a href="{{ url('/') }}"><img src="{{ asset('public/img/logo.svg') }}" style="width: 200px;"></a>
+								<a href="{{ url('/') }}"><img src="{{ asset('img/logo.svg') }}" style="width: 200px;"></a>
 							</div>
 						</div>
 						<div class="col-md-6 d-flex justify-content-center m-auto">
 							<div class="home">
 								<ul>
 									<li><a href="{{ url('/') }}">Home</a></li>
-									<li class="dropdown new new2 dropdown-one-header "> 
+									<li class="dropdown new new2 dropdown-one-header ">
 										<a href="javascript:void(0);" data-toggle="dropdown" class=" " style="    color: #fff;
 											letter-spacing: 2px;
 											text-transform: uppercase;
@@ -614,7 +614,7 @@ a:hover {
 										<!-- DROPDOWN MENU -->
 										<ul class="dropdown-menu new-drop dd-close arrow-up nav-session" dir="RTL" role="menu" aria-labelledby="dropdownMenu4">
 											<div class="row">
-												
+
 												<div class="col-6">
 													<h2 class="dropdown-heading-catogaries mb-2">By Profession</h2>
 													@foreach(  App\Models\Types::where('mode','on')->orderBy('type_name')->get() as $type )
@@ -638,14 +638,14 @@ a:hover {
 									<li><a href="{{ url('/about')}}">About</a></li>
 									<!-- <li><a href="">Contact</a></li> -->
 									<!-- <li class="dropdown new dropdown-one-header" style="    margin-top: 5px;">  -->
-									
+
 								</ul>
 							</div>
 						</div>
 						<div class="col-md-3 m-auto">
 							<div class="social-icons ">
 								@if( Auth::check() )
-						        
+
 						        <?php /* Commented by shahzad ?>
 								<li class="notifations-item notification-icon">
                                     <a href="{{ url('notifications') }}" title="{{ trans('users.notifications') }}" class="font-default text-uppercase">
@@ -659,9 +659,9 @@ a:hover {
                                         <div class="row">
                                             <div class="col-md-12">
                                     		<div class="wrap-center center-block noti-scroll-ne-index">
-                                    
+
                                     			<dl class="margin-zero">
-                                    
+
                                     								<!-- Start -->
                                     				<div class="media li-group noty-media">
                                     					<div class="pull-left">
@@ -672,17 +672,17 @@ a:hover {
                                     							<span class="timestamp timeAgo" data="2021-06-01T01:53:20-04:00">6 days ago</span>
                                     						</div>
                                     						<h5 class="media-heading"><a href="http://projects.paragonlogo.com/darquise-nantel/Frank"> <strong> Frank </strong> </a></h5>
-                                    
+
                                     						<p class="list-grid-block p-text" style="height: auto; padding: 0 2px;">
                                     							<i class="icon-heart ico-btn-like"></i> like you photo
-                                    
+
                                     														<a href="http://projects.paragonlogo.com/darquise-nantel/photo/220"> <strong>TshirtImages1</strong> </a>
-                                    							
+
                                     						</p>
                                     					</div>
                                     				</div>
                                     				<!-- End -->
-                                    
+
                                     								<!-- Start -->
                                     				<div class="media li-group noty-media">
                                     					<div class="pull-left">
@@ -693,17 +693,17 @@ a:hover {
                                     							<span class="timestamp timeAgo" data="2021-04-07T13:53:26-04:00">2 months ago</span>
                                     						</div>
                                     						<h5 class="media-heading"><a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <strong> Darquise Nantel </strong> </a></h5>
-                                    
+
                                     						<p class="list-grid-block p-text" style="height: auto; padding: 0 2px;">
                                     							<i class="icon-bubble"></i> comment you photo
-                                    
+
                                     														<a href="http://projects.paragonlogo.com/darquise-nantel/photo/188"> <strong>winter</strong> </a>
-                                    							
+
                                     						</p>
                                     					</div>
                                     				</div>
                                     				<!-- End -->
-                                    				
+
                                     									<!-- Start -->
                                     				<div class="media li-group noty-media">
                                     					<div class="pull-left">
@@ -714,17 +714,17 @@ a:hover {
                                     							<span class="timestamp timeAgo" data="2021-04-07T13:53:26-04:00">2 months ago</span>
                                     						</div>
                                     						<h5 class="media-heading"><a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <strong> Darquise Nantel </strong> </a></h5>
-                                    
+
                                     						<p class="list-grid-block p-text" style="height: auto; padding: 0 2px;">
                                     							<i class="icon-bubble"></i> comment you photo
-                                    
+
                                     														<a href="http://projects.paragonlogo.com/darquise-nantel/photo/188"> <strong>winter</strong> </a>
-                                    							
+
                                     						</p>
                                     					</div>
                                     				</div>
                                     				<!-- End -->
-                                    				
+
                                     									<!-- Start -->
                                     				<div class="media li-group noty-media">
                                     					<div class="pull-left">
@@ -735,17 +735,17 @@ a:hover {
                                     							<span class="timestamp timeAgo" data="2021-04-07T13:53:26-04:00">2 months ago</span>
                                     						</div>
                                     						<h5 class="media-heading"><a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <strong> Darquise Nantel </strong> </a></h5>
-                                    
+
                                     						<p class="list-grid-block p-text" style="height: auto; padding: 0 2px;">
                                     							<i class="icon-bubble"></i> comment you photo
-                                    
+
                                     														<a href="http://projects.paragonlogo.com/darquise-nantel/photo/188"> <strong>winter</strong> </a>
-                                    							
+
                                     						</p>
                                     					</div>
                                     				</div>
                                     				<!-- End -->
-                                    				
+
                                     									<!-- Start -->
                                     				<div class="media li-group noty-media">
                                     					<div class="pull-left">
@@ -756,17 +756,17 @@ a:hover {
                                     							<span class="timestamp timeAgo" data="2021-04-07T13:53:26-04:00">2 months ago</span>
                                     						</div>
                                     						<h5 class="media-heading"><a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <strong> Darquise Nantel </strong> </a></h5>
-                                    
+
                                     						<p class="list-grid-block p-text" style="height: auto; padding: 0 2px;">
                                     							<i class="icon-bubble"></i> comment you photo
-                                    
+
                                     														<a href="http://projects.paragonlogo.com/darquise-nantel/photo/188"> <strong>winter</strong> </a>
-                                    							
+
                                     						</p>
                                     					</div>
                                     				</div>
                                     				<!-- End -->
-                                    				
+
                                     									<!-- Start -->
                                     				<div class="media li-group noty-media">
                                     					<div class="pull-left">
@@ -777,26 +777,26 @@ a:hover {
                                     							<span class="timestamp timeAgo" data="2021-04-07T13:53:26-04:00">2 months ago</span>
                                     						</div>
                                     						<h5 class="media-heading"><a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <strong> Darquise Nantel </strong> </a></h5>
-                                    
+
                                     						<p class="list-grid-block p-text" style="height: auto; padding: 0 2px;">
                                     							<i class="icon-bubble"></i> comment you photo
-                                    
+
                                     														<a href="http://projects.paragonlogo.com/darquise-nantel/photo/188"> <strong>winter</strong> </a>
-                                    							
+
                                     						</p>
                                     					</div>
                                     				</div>
                                     				<!-- End -->
-                                    
-                                    				
-                                    				
+
+
+
                                     			</dl>
-                                    
-                                    			
+
+
                                     		</div><!-- wrap center -->
                                     	</div>
                                         </div>
-                                        
+
                                         <div class="addon-btn-noti-nw">
                                             <a href="javascript:;">Show all notification</a>
                                         </div>
@@ -820,10 +820,10 @@ a:hover {
         <!--                            </div>-->
 								<!--</li>-->
 								<!--<li><a href="javascript:;" id="openModalMessageChat" class="chat-btn-home"><i class="fas fa-comments"></i><span id="spanMessageCounter" class="chat-icon-notification">0</span></a></li>--> <!-- Commented by shahzad-->
-									
+
 									<li class="dropdown new">
 										<a href="javascript:void(0);" data-toggle="dropdown" class="userAvatar myprofile dropdown-toggle font-default text-uppercase">
-											<img src="{{ asset('public/avatar').'/'.$userAuth->avatar }}" alt="User" class="img-circle avatarUser" width="25" height="25">
+											<img src="{{ asset('avatar').'/'.$userAuth->avatar }}" alt="User" class="img-circle avatarUser" width="25" height="25">
 											<span class="title-dropdown">My Profile</span>
 											<i class="ion-chevron-down margin-lft5"></i>
 										</a>
@@ -869,7 +869,7 @@ a:hover {
 												</li>
 
 												<li role="separator" class="divider"></li>
-											@endif	
+											@endif
 											<li>
 												<a href="{{ url($userAuth->username) }}" class="myprofile text-overflow">
 													<i class="icon icon-User myicon-right"></i> {{ trans('users.my_profile') }}
@@ -880,7 +880,7 @@ a:hover {
 													<i class="fa fa-folder-open-o myicon-right"></i> {{ trans('misc.collections') }}
 												</a>
 											</li>
-											
+
 											<li>
 												<a href="{{ url('likes') }}" class="text-overflow">
 													<i class="icon icon-Heart myicon-right"></i> {{ trans('users.likes') }}
@@ -898,8 +898,8 @@ a:hover {
 											</li>
 										</ul><!-- DROPDOWN MENU -->
 									</li>
-							
-									
+
+
 									@if(\Request::segment(1) != "destinations")
 
 										@if( Auth::user()->authorized_to_upload == 'yes' )
@@ -1000,7 +1000,7 @@ a:hover {
           </div>
         </div>
       </div>
-    </div> 
+    </div>
 
     <!--Modal single chat  -->
     <div class="modal" id="messageMainModal2" tabindex="-1" role="dialog" >
@@ -1013,13 +1013,13 @@ a:hover {
               <input type="text" id="textCurrentUserId" name="textCurrentUserId" hidden >
 
               <div class="" id="messageMainModal2DivUserNameHeading">
-                
+
               </div>
               <div class="" style="margin-left: auto; margin-right: 10px;">
                 <!-- <div class="dropdown">
                   <button class="dropdown-toggle" type="button" data-toggle="dropdown" style="background-color: transparent; border: 0;     background-color: transparent; border: 0; border-radius: 50%; width: 36px; height: 36px; background-color: rgba(0, 0, 0, .05);
                   opacity: 1; border: 0; display: flex; justify-content: center; align-items: center;"><img src="{{ url('/') }}/public/img/icons8-menu-vertical-30.png" alt="">
-                
+
                   <ul class="dropdown-menu dropdown-modal-messenger">
                     <li><a href="#">HTML</a></li>
                     <li><a href="#">CSS</a></li>
@@ -1037,18 +1037,18 @@ a:hover {
           <div class="modal-body">
             <div class="chat-main-area">
               <div class="row" id="singleChatUserDiv">
-                
-              
+
+
               </div>
             </div>
           </div>
           <div class="modal-footer" style="text-align: left; position: relative; padding: 0;">
             <div class="" id="msgSendLoader" style="position: absolute; width:95%; top: 0; left: 0; display:none;">
-              <div class="loader"> 
-                <div class="loading_1"></div> 
+              <div class="loader">
+                <div class="loading_1"></div>
                     <!-- <div class="loading_2">Loading GfG...</div>  -->
                 </div>
-              </div> 
+              </div>
             </div>
             <div class="error-chat" id="errorChat" style="display:none">
               <p id="errorChatP" style="color: #ef595f; font-weight:900;">Something went wrong</p>
@@ -1056,7 +1056,7 @@ a:hover {
 
             <div class="row" style="margin-top: 20px;">
               <div class="col-md-1"></div>
-              
+
               <div class="col-md-9" style="padding-left: 0;padding-right: 0;">
                 <div class="span6">
                   <input type="text" id="emojionearea4" name="textboc" value=""/>
@@ -1068,7 +1068,7 @@ a:hover {
                   <input id="file-input" name="chat_file-input" type="file" />
                 </div>
               </div>
-              
+
               <div class="col-md-1" style="">
                 <button id="sendMsgChat" class="enter-chat"><img src="{{ url('/') }}/public/img/email.png" alt="" class="img-responsive" style="width: 17px;"></button>
               </div>
@@ -1078,27 +1078,27 @@ a:hover {
         </div>
       </div>
     </div>
-    
-    
 
-		
+
+
+
 		@yield('content')
-		
-		
+
+
 		<footer>
-			
+
 				@if(Auth::user() != null)
 					<stream-chat :autheduser="{{ (Auth::user() != null) ? Auth::user() : '' }}"></stream-chat>
 				@endif
-				
-			
-	
+
+
+
 			<div class="footer-new">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="logo">
-								<img src="{{ asset('public/img/footer_logo.png') }}" alt="" class="img-fluid">
+								<img src="{{ asset('img/footer_logo.png') }}" alt="" class="img-fluid">
 								<p class="mt-4">{{ $settings->description }}</p>
 								<div class="social-icons">
 									<ul>
@@ -1169,47 +1169,47 @@ a:hover {
 		</div>
 		@include('includes.javascript_general')
 		@yield('javascript')
-		<script src="{{ asset('public/custom-css/slick/slick.min.js') }}"></script>
+		<script src="{{ asset('custom-css/slick/slick.min.js') }}"></script>
 		<!-- <script src="audiojs/audio.min.js"></script> -->
-		
-		<script src="{{ asset('public/custom-css/js/owl.carousel.min.js') }}"></script>
-		<script src="{{ asset('public/custom-css/js/custom.js') }}"></script> 
-		<script src="{{ asset('public/custom-css/js/baguetteBox.min.js') }}"></script>
-		<script src="{{ asset('public/custom-css/js/jquery.simple-calendar.js') }}"></script>
-		<script src="{{ asset('public/custom-css/js/jquery.simple-calendar2.js') }}"></script>
-		<script src="{{ asset('public/custom-css/js/sun.js') }}"></script>
-		<script src="{{ asset('public/js/moment.min.js')}}" type="text/javascript"></script>
+
+		<script src="{{ asset('custom-css/js/owl.carousel.min.js') }}"></script>
+		<script src="{{ asset('custom-css/js/custom.js') }}"></script>
+		<script src="{{ asset('custom-css/js/baguetteBox.min.js') }}"></script>
+		<script src="{{ asset('custom-css/js/jquery.simple-calendar.js') }}"></script>
+		<script src="{{ asset('custom-css/js/jquery.simple-calendar2.js') }}"></script>
+		<script src="{{ asset('custom-css/js/sun.js') }}"></script>
+		<script src="{{ asset('js/moment.min.js')}}" type="text/javascript"></script>
 		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-		<script src="{{ asset('public/emojionearea-master/dist/emojionearea.min.js') }}"></script>
+		<script src="{{ asset('emojionearea-master/dist/emojionearea.min.js') }}"></script>
 		<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 		<script src="https://unpkg.com/wavesurfer.js"></script>
 		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.1.1/wavesurfer.min.js"></script>-->
 		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.1.1/plugin/wavesurfer.timeline.min.js"></script>-->
 		<!--<script src="https://cdn.jsdelivr.net/gh/BossBele/cropzee@latest/dist/cropzee.js" defer></script>-->
-		
+
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <!-- Bootstrap JavaScript -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-		
-		<!--<script src="{{ asset('public/js/custom_cropzee.js')}}" defer></script>-->
-		<script src="{{asset('public/js/croppie.min.js')}}"></script>
 
-        <!--<script src="{{asset('public/js/imguploader.minify.js')}}"></script>-->
-        
+		<!--<script src="{{ asset('js/custom_cropzee.js')}}" defer></script>-->
+		<script src="{{asset('js/croppie.min.js')}}"></script>
+
+        <!--<script src="{{asset('js/imguploader.minify.js')}}"></script>-->
+
         <!-- For Bootstrap Project -->
-        
-        <script src="{{asset('public/js/imguploader.bs.js')}}"></script>
 
-		
+        <script src="{{asset('js/imguploader.bs.js')}}"></script>
+
+
 		<!--<script src="https://cdn.jsdelivr.net/gh/BossBele/cropzee@v2.0/dist/cropzee.js" defer></script>-->
 		<script src="https://cdn.jsdelivr.net/gh/cowboy/jquery-throttle-debounce/jquery.ba-throttle-debounce.js" defer></script>
-		
-		
+
+
         <script>
-         
+
         $(document).ready(function(){
 		  //  $("#filePhoto").cropzee({
-		        
+
 		        //// custom aspect radio
                 //           aspectRatio:null,
                 //           // min/max sizes
@@ -1218,7 +1218,7 @@ a:hover {
                 //           // start size of crop region
                 //           startSize: { width: 100, height: 100, unit:'%' }
 
-               
+
 		  //  });
 		     $.each($("input[name='enable']"), function(){
 				   		if ($(this).is(":checked")) {
@@ -1307,7 +1307,7 @@ a:hover {
 					        returnImageMode: returnImageMode,
 			            }
 					    // alert(JSON.stringify(options));
-					    
+
 						console.log('qweqweqwe');
 						console.log(options);
 					   // $("#filePhoto").cropzee(options);
@@ -1350,38 +1350,38 @@ a:hover {
 		}
 	</style>
 				<script>
-				
-			
-				
-				
+
+
+
+
 				/* Commented by shahzad start */
 				$(document).ready(function(){
-				    
+
 				    $('.Bigwave').each(function(){
                       //Generate unic ud
                       var id = '_' + Math.random().toString(36).substr(2, 9);
                       var path = $(this).attr('data-path');
-                      
+
                       //Set id to container
                       $(this).find(".wave-container").attr("id", id);
-                      
-                    
+
+
                       //Initialize WaveSurfer
                       var wavesurfer = WaveSurfer.create({
                           container: '#' + id,
                         //   waveColor: 'violet',
                            waveColor: '#ef595f',
-                            progressColor: '#3A3A3A', 
+                            progressColor: '#3A3A3A',
                              backgroundColor: 'transparent',
-                                   
+
                                     cursorWidth: 2,
                                     height: 70
                       });
-                      
-                       
-                                  
-                               
-                                  
+
+
+
+
+
                       //Load audio file
                       wavesurfer.load(path);
                     //   console.log(wavesurfer.load(path));
@@ -1389,11 +1389,11 @@ a:hover {
                     //   $(this).find("button").click(function(){
                     //   	wavesurfer.playPause();
                     //   });
-                    
-                    
+
+
                     $(this).data('wavesurfer', wavesurfer);
-                    
-                    
+
+
                         var BigMainWaveData = '';
                         $(document).on('click', 'a[id^="Bigbaton-playMusic#"]', function(){
                             var dataGet = $(this).attr('id').split('#')[1]; //console.log(dataGet);
@@ -1414,41 +1414,41 @@ a:hover {
                             $(this).hide();
                             $('a[id^="Bigbaton-playMusic#'+ dataGet +'"]').css('display','inline');
                         });
-                        
+
                         wavesurfer.on('finish', function () {
                             $('a[id^="Bigbaton-pauseMusic#'+ BigMainWaveData +'"]').css('display','none');
                             $('a[id^="Bigbaton-playMusic#'+ BigMainWaveData +'"]').css('display','inline');
                         });
-                    });  
-                    
-                    
+                    });
+
+
                     $('.wave').each(function(){
                       //Generate unic ud
                       var id = '_' + Math.random().toString(36).substr(2, 9);
                       var path = $(this).attr('data-path');
-                      
+
                       //Set id to container
                       $(this).find(".wave-container").attr("id", id);
-                    
+
                       //Initialize WaveSurfer
                       var wavesurfer = WaveSurfer.create({
                           container: '#' + id,
                         //   waveColor: 'violet',
                            waveColor: '#ef595f',
-                            progressColor: '#3A3A3A', 
+                            progressColor: '#3A3A3A',
                              backgroundColor: 'transparent',
-                                   
+
                                     cursorWidth: 2,
                                     height: 70
                       });
-                      
-                       
-                                  
-                               
-                                  
+
+
+
+
+
                       //Load audio file
                       wavesurfer.load(path);
-                      
+
                       //Add button event
                     //   $(this).find("button").click(function(){
                     //   	wavesurfer.playPause();
@@ -1471,16 +1471,16 @@ a:hover {
                             $(this).hide();
                             $('a[id^="baton-playMusic#'+ dataGet +'"]').css('display','inline');
                         });
-                        
+
                         wavesurfer.on('finish', function () {
                             $('a[id^="baton-pauseMusic#'+ MainWaveData +'"]').css('display','none');
                             $('a[id^="baton-playMusic#'+ MainWaveData +'"]').css('display','inline');
                         });
-                    });  
-                    
+                    });
+
 				});
 				/* Commented by shahzad end */
-				
+
 
             // var wavesurfer = WaveSurfer.create({
             //     container: '#waveform',
@@ -1493,7 +1493,7 @@ a:hover {
             //     height: 100
             // });
             // wavesurfer.load('http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3');
-        
+
             // var onMusic = wavesurfer.on('ready', function() {
             // wavesurfer.play();
             // });
@@ -1509,15 +1509,15 @@ a:hover {
             //         $("#playMusic").show();
             //     });
             // });
-            
-            
-            
-            
+
+
+
+
             /*--- [ER] mod-preset ---*/
 
-  
-   
-            
+
+
+
         </script>
 		<script>
             $(document).on('onInit.fb', function (e, instance) {
@@ -1534,8 +1534,8 @@ a:hover {
                     $('.fancybox-content img').css('webkitTransform', 'rotate(-' + n + 'deg)');
                     $('.fancybox-content img').css('mozTransform', 'rotate(-' + n + 'deg)');
                 });
-            
-                
+
+
             });
         </script>
         <script src="https://checkout.stripe.com/v2/checkout.js"></script>
@@ -1561,17 +1561,17 @@ a:hover {
                                fileType="audio" ;
                             }
                             var fileUrl = '{{ url("/")  }}/'+fileType+'/'+fileId+'/'+slug;
-                            
+
                             console.log("Price of element clicked is: "+filePrice);
-                            
+
                             //$(".fancybox-toolbar").prepend('<form action="{{url('instant_buy')}}" method="post"><input type="hidden" name="_token" value="{{ csrf_token() }}" /><input type="hidden" name="fileId" value="'+fileId+'"><input type="hidden" name="fileTitle" value="'+fileTitle+'"><input type="hidden" name="fileDesc" value="'+fileDesc+'"><input type="hidden" name="filePrice" value="'+filePrice+'"><button id="buy_button" class="btn btn-success btn-buy instantBuyBtn">$'+filePrice+' Buy</button></form>');
                             $(".fancybox-toolbar").prepend('<a href="'+fileUrl+'" id="buy_button" class="btn btn-success btn-buy instantBuyBtn">$'+filePrice+' Buy</a>');
                             $('.fancybox-toolbar').prepend('<button id="rotate_button" class="fancybox-button" title="Rotate Image"><i class="fa fa-repeat"></i></button>');
-                          
+
                        }
                     });
                 });
-                
+
                 /*<!-- Stripe Checkout Added by Shahzad -->*/
                 var handler = StripeCheckout.configure({
                   key: '{{env("STRIPE_KEY")}}',
@@ -1592,7 +1592,7 @@ a:hover {
                   	$(".instantBuyBtn").prop("disabled", false);
                   }
                 });
-                
+
                 $(document).on("click", ".instantBuyBtnn", function () {
                   //e.preventDefault();
                   $(this).prop("disabled", true);
@@ -1604,15 +1604,15 @@ a:hover {
                   });
                   e.preventDefault();
                 });
-                
+
                 // Close Checkout on page navigation:
                 $(window).on('popstate', function() {
                   handler.close();
                 });
 
                 /*<!-- Stripe Checkout addedd by shahzad -->*/
-                
-                
+
+
                 $("#emojionearea4").emojioneArea({
 					pickerPosition: "bottom",
 					filtersPosition: "bottom",
@@ -1689,26 +1689,26 @@ a:hover {
 					$(this).parent().parent().parent().siblings("#change-col-class").removeClass("chat-col-md-9");
 					$(this).parent().parent().parent().siblings("#change-col-class").addClass("chat-col-md-11");
 				});
-			
+
 			});
-			
+
 		</script>
 		<script>
-			
-			
+
+
 			$("#openModalMessageChat").click(function(){
 				// var checkSession = "<?php //echo (\Auth::user() != null) ? \Auth::user()->id : '';?>";
-				
+
 				// console.log(checkSession);
 				const baseUrl = '<?php echo url("/")?>';
-				
+
 				var sessionUserId = '<?php echo (\Auth::user() != null) ? \Auth::user()->id : '';?>';
 				$.ajax({
 					url: baseUrl + '/get-chat-list/' + sessionUserId,
 					type:'GET',
 					dataType: 'json',
 					success: function(respo){
-						
+
 						$("#chatListDiv").empty();
 						var htmlChatList = '';
 						if(respo == "empty"){
@@ -1755,8 +1755,8 @@ a:hover {
 									htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverName +'</p>';
 									}else{
 									htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverUserName +'</p>';
-									} 
-									
+									}
+
 								}else{
 									if(value.senderName != ""){
 									htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.senderName +'</p>';
@@ -1776,7 +1776,7 @@ a:hover {
 									htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/public/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
 									}
 								}
-								htmlChatList += '</div>'+ 
+								htmlChatList += '</div>'+
 								'<div class="col-md-3" style="margin-top: 17px;">'+
 								'<span style="font-size:12px;">'+ relative_time +'</span>'+
 								'</div>'+
@@ -1820,8 +1820,8 @@ a:hover {
 									htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverName +'</p>';
 									}else{
 									htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverUserName +'</p>';
-									} 
-									
+									}
+
 								}else{
 									if(value.senderName != ""){
 									htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.senderName +'</p>';
@@ -1841,7 +1841,7 @@ a:hover {
 									htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/public/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
 									}
 								}
-								htmlChatList += '</div>'+ 
+								htmlChatList += '</div>'+
 								'<div class="col-md-3" style="margin-top: 17px;">'+
 								'<span style="font-size:12px;">'+ relative_time +'</span>'+
 								'</div>'+
@@ -1876,18 +1876,18 @@ a:hover {
 					$("#textChatId").val(resp[0].chat_id);
 					$("#textUserId").val('');
 					if(resp[0].senderId == sessionUserId2){
-						htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].receiverAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> '; 
+						htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].receiverAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
 						if(resp[0].receiverName !== ""){
-						
+
 							htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].receiverName +'</span>';
 						}else{
-						
+
 							htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].receiverUserName +'</span>';
 						}
 						htmlHeadhingUserName +='</h5>';
 						$("#textUserId").val(resp[0].receiverId);
 					}else{
-						htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].senderAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> '; 
+						htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].senderAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
 						if(resp[0].senderName !== ""){
 						htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].senderName +'</span>';
 						}else{
@@ -2008,7 +2008,7 @@ a:hover {
 						});
 						}
 
-					
+
 					},error:function(){
 					console.log('error while getting single user chat details');
 					}
@@ -2024,7 +2024,7 @@ a:hover {
 				type:'GET',
 				dataType: 'json',
 				success: function(respo){
-					
+
 					$("#chatListDiv").empty();
 					var htmlChatList = '';
 					if(respo == "empty"){
@@ -2069,8 +2069,8 @@ a:hover {
 											htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverName +'</p>';
 										}else{
 											htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverUserName +'</p>';
-										} 
-										
+										}
+
 										}else{
 										if(value.senderName != ""){
 											htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.senderName +'</p>';
@@ -2136,8 +2136,8 @@ a:hover {
 											htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverName +'</p>';
 											}else{
 											htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverUserName +'</p>';
-											} 
-											
+											}
+
 										}else{
 											if(value.senderName != ""){
 											htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.senderName +'</p>';
@@ -2186,7 +2186,7 @@ a:hover {
 				var txtCurrentUserId = $("#textCurrentUserId").val();
 				var txtUserId = $("#textUserId").val();
 				if(textValue == "" || textValue == null){
-					
+
 				}else{
 					$.ajax({
 						url: baseUrl + '/send-text-msg',
@@ -2305,7 +2305,7 @@ a:hover {
 						type:'GET',
 						dataType: 'json',
 						success: function(respo){
-							
+
 							$("#chatListDiv").empty();
 							var htmlChatList = '';
 							if(respo == "empty"){
@@ -2351,8 +2351,8 @@ a:hover {
 													htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverName +'</p>';
 												}else{
 													htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverUserName +'</p>';
-												} 
-												
+												}
+
 												}else{
 												if(value.senderName != ""){
 													htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.senderName +'</p>';
@@ -2418,8 +2418,8 @@ a:hover {
 													htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverName +'</p>';
 												}else{
 													htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.receiverUserName +'</p>';
-												} 
-												
+												}
+
 												}else{
 												if(value.senderName != ""){
 													htmlChatList += '<p style="font-weight: bolder;letter-spacing: 1px;">'+ value.senderName +'</p>';
@@ -2478,18 +2478,18 @@ a:hover {
 							$("#textChatId").val(resp[0].chat_id);
 							$("#textUserId").val('');
 							if(resp[0].senderId == sessionUserId2){
-								htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].receiverAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> '; 
+								htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].receiverAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
 								if(resp[0].receiverName !== ""){
-							
+
 								htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].receiverName +'</span>';
 								}else{
-								
+
 								htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].receiverUserName +'</span>';
 								}
 							htmlHeadhingUserName +='</h5>';
 							$("#textUserId").val(resp[0].receiverId);
 							}else{
-							htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].senderAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> '; 
+							htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].senderAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
 							if(resp[0].senderName !== ""){
 								htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].senderName +'</span>';
 							}else{
@@ -2510,7 +2510,7 @@ a:hover {
 								$("#messageMainModal2 modal-body #singleChatUserDiv").append(htmlSingleChatList);
 							}else{
 								var sessionUserId = '<?php echo (\Auth::user() != null) ? \Auth::user()->id : '';?>';
-								
+
 								$.each(resp, function( index, value ) {
 								var msgTime = moment(value.created_at).format('LT');
 								// console.log(value.message_file);
@@ -2610,10 +2610,10 @@ a:hover {
 
 								}
 							});
-								
+
 							}
 
-							
+
 						},error:function(){
 							console.log('error while getting single user chat details');
 						}
@@ -2648,7 +2648,7 @@ a:hover {
 
 			window.myVar = setInterval(getAllMessageList, 5000);
 			setInterval(getMessageDetails, 5000);
-			setInterval(getMessageCounters, 5000);     
+			setInterval(getMessageCounters, 5000);
 
 
 			function myStopFunction() {
@@ -2666,14 +2666,14 @@ a:hover {
 				var txtChatId = $("#textChatId").val();
 				var txtCurrentUserId = $("#textCurrentUserId").val();
 				var txtUserId = $("#textUserId").val();
-				
+
 				var fd = new FormData();
 				var files = $('#file-input')[0].files;
 
 				// Check file selected or not
 				if(files.length > 0 ){
 					var token = '<?php echo csrf_token() ?>';
-					
+
 					fd.append('file',files[0]);
 					fd.append('_token',token);
 					fd.append('txtChatId',txtChatId);
@@ -2755,7 +2755,7 @@ a:hover {
 											'</div>';
 										}else{
 											htmlSingleChatList += '<div class="col-md-12" >';
-											if(value.message_file.split('.')[1] == "pdf"){ 
+											if(value.message_file.split('.')[1] == "pdf"){
 											htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto; margin-bottom: 14px"><span><img src="'+ baseUrl +'/public/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 											}else{
 											htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img src="'+ baseUrl +'/public/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
@@ -2793,19 +2793,19 @@ a:hover {
 				}
 			});
 
-			
-			
+
+
 		</script>
 
 		<script>
-			
+
 			$(document).ready(function(){
-			 
-			     
-			    
-    		    
-			    
-			     
+
+
+
+
+
+
                 $("#countryIdbooking").change(function(){
                     console.log('ello');
                     console.log($(this).val());
@@ -2833,8 +2833,8 @@ a:hover {
                       }
                     });
                 });
-            
-			    
+
+
 				const baseUrl = "<?php echo url('/') ?>";
 				$("#cityId").change(function(){
                 console.log('city Id ====> ' + $(this).val());
@@ -2881,7 +2881,7 @@ a:hover {
                         $('#cityId').css('border-color','#ced4da');
                         $('#errorCityIdDiv').text('');
                     }, 2000);
-                    
+
                 }else if(photographerId == ""){
                     $("#photographerId").css('border-color','red');
                     $("#errorPhotographerIdDiv").text('This field is required');
@@ -2911,7 +2911,7 @@ a:hover {
                 }
 
 			});
-			
+
 			$("#btnSecondStepTwo").click(function(){
                 let adultsCount 	= $("#adultsCounter").val();
                 let childrenCount 	= $("#childrenCounter").val();
@@ -2934,7 +2934,7 @@ a:hover {
                         $('#infantsCounter').css('border-color','#ced4da');
                         $('#errorParticipantsDiv').text('');
                     }, 3000);
-                    
+
                 }else if(tripReason == ""){
 
                     $("#trip_reason").css('border-color','red');
@@ -2961,7 +2961,7 @@ a:hover {
                     $("#formStepTwo").submit();
                 }
 			});
-			
+
 			$("#btnThirdStepThree").click(function(){
                 let routeId 	            = $("#getRouteId").val();
                 let describeRoute           = $("textarea#txtAreaDescribeRoute").val();
@@ -2979,7 +2979,7 @@ a:hover {
                     setTimeout(function(){
                         $('#errorRouteDiv').text('');
                     }, 3000);
-                    
+
                 }else if(checkRouteDiv !=0 && routeId == "Custom" && describeRoute == ""){
                     $("#errorDescribeRouteDiv").text('This field is required');
                     $("#errorDescribeRouteDiv").css('color','red');
@@ -3044,11 +3044,11 @@ a:hover {
 					placeholder: "Select Music Type",
 					allowClear: true
 				});
-	
+
 				$("#containerCalendar").simpleCalendar({
 
 					// called after init
-					onInit: function (calendar) {}, 
+					onInit: function (calendar) {},
 
 					// called on month change
 					onMonthChange: function (month, year) {},
@@ -3060,7 +3060,7 @@ a:hover {
 				$("#containerCalendar2").simpleCalendar2({
 
 					// called after init
-					onInit: function (calendar) {}, 
+					onInit: function (calendar) {},
 
 					// called on month change
 					onMonthChange: function (month, year) {},
@@ -3100,7 +3100,7 @@ a:hover {
 					console.log(valueDiv);
 					$("#box_photoshoot_type-"+valueDiv).addClass("hire-more-active");
 					$("#btnGetStarted").removeClass("button-disabled-custom");
-					
+
 					$("#photoshootId").val(valueDiv);
 				});
 
@@ -3110,7 +3110,7 @@ a:hover {
 				});
 			});
 
-			
+
 
 			$('.owl-carousel-photographer').owlCarousel({
 				loop:false,
@@ -3130,7 +3130,7 @@ a:hover {
 					}
 				}
 			});
-        
+
 
 			$("#DatePrefered").click(function(){
 				$("#Calender2").show();
@@ -3153,16 +3153,16 @@ a:hover {
 			function goBack() {
 				window.history.back();
 			}
-	
+
 			function Scroll(id) {
 				$('html, body').animate({
 					scrollTop: $("#" + id).offset().top
 				}, 1000);
-			} 
+			}
 			// request to book step three page functionality start
 			//click event of route detail button click start
 			$('div[id^="box-rout-click_"]').click(function(){
-				let getId = $(this).attr('id').split('_')[1];	
+				let getId = $(this).attr('id').split('_')[1];
 				$(this).hide();
 				$("#rout-box-img_"+getId).hide();
 				$("#box-content-hidden_"+getId).show();
@@ -3180,7 +3180,7 @@ a:hover {
 				$("#box-rout-click_"+getIdCloseBtn).show();
 			});
 			//click event of close route detail button click end
-	
+
 			//selecting route on click start
 			$('div[id^="box-route-custom_"]').click(function(){
 				let valueDiv = $(this).attr('id').split('_')[1];
@@ -3191,7 +3191,7 @@ a:hover {
 					$("#describeSpecificLocationRouteDiv").hide();
 					$("#addressMeetArtistDiv").hide();
 				}
-				
+
 				$('div[id^="box-route-custom_"]').removeClass("hire-more-active-one");
 				$("#getRouteId").val("");
 				$("#box-route-custom_"+valueDiv).addClass("hire-more-active-one");
@@ -3204,10 +3204,10 @@ a:hover {
 			// AOS.init();
 			const baseUrl = "<?php echo url('/') ?>";
 			$(document).ready(function(){
-			    
+
 			    $('.js-example-basic-multiple-route').select2();
-			    
-			    
+
+
 				$('button[id^="buttonCategories|"]').click(function(){
 					var getAttrId = $(this).attr('id');
 					var CategorySlug = getAttrId.split('|')[1];
@@ -3218,7 +3218,7 @@ a:hover {
 						beforeSend: function(){
 							var html ='<div class="col-md-4"></div>'+
 							'<div class="col-md-4"><div id="loaderDiv">'+
-							'<img src="{{{ asset('public/loader/loader.gif')}}}">'+
+							'<img src="{{{ asset('loader/loader.gif')}}}">'+
 							'</div></div>'+
 							'<div class="col-md-4"></div>';
 							$(".innr-content-"+CategorySlug).html(html);
@@ -3243,7 +3243,7 @@ a:hover {
 						alert('You refreshed!');
 					}
 				}
-				
+
 
 				$("#by").change(function(){
 					console.log($(this).val());
@@ -3255,7 +3255,7 @@ a:hover {
 						$("#type").attr("name","type");
 						$("#artist").removeAttr("name");
 
-						$(".select222-icon").select2('destroy'); 
+						$(".select222-icon").select2('destroy');
 
 						$('.select22-icon').select2({
 							minimumResultsForSearch: Infinity,
@@ -3272,7 +3272,7 @@ a:hover {
 						$("#type").removeAttr("name");
 						$("#type").hide();
 
-						$(".select22-icon").select2('destroy'); 
+						$(".select22-icon").select2('destroy');
 						$('.select222-icon').select2({
 							minimumResultsForSearch: Infinity,
 							// width: "50%",
@@ -3294,7 +3294,7 @@ a:hover {
 			});
 		</script>
 		<script>
-			/* When the user clicks on the button, 
+			/* When the user clicks on the button,
 			toggle between hiding and showing the dropdown content */
 			function myFunction() {
 			document.getElementById("myDropdown-one-one").classList.toggle("show-one-one");
@@ -3352,9 +3352,9 @@ a:hover {
 			$("#btnFindSearchDestination").click(function(){
 				var countryDest = $("#countryDestination").val();
 				var cityDest = $("#cityDestination").val();
-				
+
 				const baseUrl = "<?php echo url('/') ?>";
-				
+
 				$.ajax({
 					url: baseUrl + '/search-destinations',
 					type: 'POST',
@@ -3365,7 +3365,7 @@ a:hover {
 						$("#getRoutesDivDest").empty();
 						var htmlDiv = "";
 						if(resp.length > 0){
-							
+
 							$.each(resp, function(index, value){
 							 //   console.log('ider hu =====> ' +value);
 							    htmlDiv += '<div class="col-lg-4 col-md-6 mb-4-cutom">'+
@@ -3378,7 +3378,7 @@ a:hover {
                                             			    '<h4 class="title-this-photographer">' + value[0].username + '</h4>'+
                                                             '<p class="tag-one-photographer">' + value[0].type_name + '</p>'+
                                                             '<p class="tag-one-photographer" style="    margin-left: 77px;">'+ value[0].CountryName + '</p>';
-                                                            
+
                                                             if(value[0].user_type_id == "1"){//1 user type photographer
                                                 			    htmlDiv +='<div class="mt-4" style="text-align: center;">';
                                                 			    if(value[0].img != null){
@@ -3418,7 +3418,7 @@ a:hover {
                                                 			        //   for(var i=0; i < splitImgs.length; i++){
                                                 			        for(var i=0; i < 4; i++){
                                                 			            if(splitAnis[i] != undefined){
-                                                			                
+
                                                 			                    var realFileNameAni = splitAnis[i];
                                                         			         //   console.log(realFileNameAni);
                                                         			            var getFileNameScreenShotAni = splitAnis[i].split('.')[0] + '.png';
@@ -3442,7 +3442,7 @@ a:hover {
                                                     //     					   // '<img src="' + baseUrl + '/public/uploads/audio/large/' + splitMus[i] +'" alt="" class="set-img-size">'+
                                                     //     					    '<div class="wave-container"></div>'+
                                                     //         			    '</div>';
-                                                            			    
+
                                                             			    htmlDiv += '<div class="qwewave d-flex" data-path="' + baseUrl + '/public/uploads/audio/large/' + splitMus[i] +'">'+
                                                                                 '<div class="align-self-center music-col-2">'+
                                                                                     '<a href="javascript:;" class="btn-music-play" id="baton-playMusic#'+ splitMus[i] +'">'+
@@ -3452,7 +3452,7 @@ a:hover {
                                                                                         '<i class="fas fa-pause"></i>'+
                                                                                     '</a>'+
                                                                                 '</div>'+
-                                                                                
+
                                                                                 '<div class="wave-container music-col-10"></div>'+
                                                                             '</div>';
                                                 			            }
@@ -3474,8 +3474,8 @@ a:hover {
                                         			'</div>'+
                                             	'</div>'+
                                 	        '</div>';
-							    
-							    
+
+
 				// 			htmlDiv += '<div class="col-md-4 mb-4-cutom">'+
 				// 						'<div class="choose-photographer-box">'+
 				// 							'<div class="header-photographer">'+
@@ -3489,7 +3489,7 @@ a:hover {
 				// 									'</div>'+
 				// 								'</div>'+
 				// 							'</div>';
-													
+
 				// 							if(value[0].user_type_id == "1"){
 				// 								htmlDiv +='<div class="bottom" style="background-image: url(' + baseUrl + '/public/uploads/thumbnail/' + value[0].img + ')">'+
 				// 									'<div class="row">'+
@@ -3535,23 +3535,23 @@ a:hover {
 				// 							}
 				// 						htmlDiv += '</div>'+
 				// 					'</div>';
-				
+
 									// '</div>';
 							});
 							$("#getRoutesDivDest").append(htmlDiv);
 							$('html, body').animate({
 								scrollTop: $("#getRoutesDivDest").offset().top
 							}, 1000);
-							
+
 							$('.qwewave').each(function(){
         			              //Generate unic ud
                                   var id = '_' + Math.random().toString(36).substr(2, 9);
                                   var path = $(this).attr('data-path');
         						    console.log($(this).find(".wave-container"));
-                                  
+
                                   //Set id to container
                                   $(this).find(".wave-container").attr("id", id);
-                                
+
                                   //Initialize WaveSurfer
                                   var wavesurfer = WaveSurfer.create({
                                       container: '#' + id,
@@ -3559,7 +3559,7 @@ a:hover {
                                     waveColor: '#ef595f',
                                     progressColor: '#3A3A3A',
                                     backgroundColor: 'transparent',
-                                  
+
                                     cursorWidth: 2,
                                     height: 70
                                     //   waveColor: '#ef595f',
@@ -3570,15 +3570,15 @@ a:hover {
                                     //   barWidth: 5,
                                     //   cursorWidth: 5
                                   });
-                                  
+
                                   //Load audio file
                                   wavesurfer.load(path);
-                                  
+
                                   //Add button event
                                 //   $(this).find("button").click(function(){
                                 //   	wavesurfer.playPause();
                                 //   });
-                                
+
                                 // $('button[id^="baton#"]').click(function(){
                                 //     wavesurfer.playPause();
                                 // });
@@ -3607,12 +3607,12 @@ a:hover {
                                     $(this).hide();
                                     $('a[id^="baton-playMusic#'+ dataGet +'"]').css('display','inline');
                                 });
-                                
+
                                 wavesurfer.on('finish', function () {
                                     $('a[id^="baton-pauseMusic#'+ mainDataGet +'"]').css('display','none');
                                     $('a[id^="baton-playMusic#'+ mainDataGet +'"]').css('display','inline');
                                 });
-                            });  
+                            });
 						}else{
 							htmlDiv +='<div class="col-md-12" style="padding: 30px;font-size: 25px;text-align: center;border-radius: 12px;color: #ef595f;font-weight: 800;text-transform: uppercase;">Search result not found.</div>';
 										$("#getRoutesDivDest").append(htmlDiv);
@@ -3626,8 +3626,8 @@ a:hover {
 					}
 				});
 			});
-			
-			
+
+
 			$("#account_country_id").change(function(){
 			var countryId = $(this).val();
 			const baseUrl = "<?php echo url('/') ?>";
@@ -3656,7 +3656,7 @@ a:hover {
 				$("#account_city_id").prop("disabled", true);
 			}
 		});
-		
+
 // 		$("#account_city_id").change(function(){
 // 			var cityId = $(this).val();
 // 			console.log(cityId);
@@ -3697,8 +3697,8 @@ a:hover {
             }).prop('selected', true);
             $( "#btnFindSearchDestination" ).trigger( "click" );
         });
-        
+
 		</script>
-		
+
 	</body>
 </html>

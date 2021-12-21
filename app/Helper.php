@@ -13,329 +13,351 @@ use PHPImageWorkshop\ImageWorkshop;
 
 class Helper
 {
-	// spaces
-	public static function spacesUrlFiles($string) {
-	  return ( preg_replace('/(\s+)/u','_',$string ) );
+    // spaces
+    public static function spacesUrlFiles($string)
+    {
+        return (preg_replace('/(\s+)/u', '_', $string));
 
-	}
+    }
 
-	public static function spacesUrl($string) {
-	  return ( preg_replace('/(\s+)/u','+',trim( $string ) ) );
+    public static function spacesUrl($string)
+    {
+        return (preg_replace('/(\s+)/u', '+', trim($string)));
 
-	}
+    }
 
-	public static function removeLineBreak( $string )  {
-		return str_replace(array("\r\n", "\r"), "", $string);
-	}
+    public static function removeLineBreak($string)
+    {
+        return str_replace(array("\r\n", "\r"), "", $string);
+    }
 
     public static function hyphenated($url)
     {
         $url = strtolower($url);
         //Rememplazamos caracteres especiales latinos
-        $find = array('á','é','í','ó','ú','ñ');
-        $repl = array('a','e','i','o','u','n');
-        $url = str_replace($find,$repl,$url);
+        $find = array('á', 'é', 'í', 'ó', 'ú', 'ñ');
+        $repl = array('a', 'e', 'i', 'o', 'u', 'n');
+        $url = str_replace($find, $repl, $url);
         // Añaadimos los guiones
         $find = array(' ', '&', '\r\n', '\n', '+');
-                $url = str_replace ($find, '-', $url);
+        $url = str_replace($find, '-', $url);
         // Eliminamos y Reemplazamos demás caracteres especiales
         $find = array('/[^a-z0-9\-<>]/', '/[\-]+/', '/<[^>]*>/');
         $repl = array('', '-', '');
-        $url = preg_replace ($find, $repl, $url);
+        $url = preg_replace($find, $repl, $url);
         //$palabra=trim($palabra);
         //$palabra=str_replace(" ","-",$palabra);
         return $url;
+    }
+
+    // Text With (2) line break
+    public static function checkTextDb($str)
+    {
+
+        //$str = trim( self::spaces( $str ) );
+        if (mb_strlen($str, 'utf8') < 1) {
+            return false;
+        }
+        $str = preg_replace('/(?:(?:\r\n|\r|\n)\s*){3}/s', "\r\n\r\n", $str);
+        $str = trim($str, "\r\n");
+
+        return $str;
+    }
+
+    public static function checkText($str)
+    {
+
+        //$str = trim( self::spaces( $str ) );
+        if (mb_strlen($str, 'utf8') < 1) {
+            return false;
         }
 
-	// Text With (2) line break
-	public static function checkTextDb( $str ) {
+        $str = nl2br(e($str));
+        $str = str_replace(array(chr(10), chr(13)), '', $str);
 
-		//$str = trim( self::spaces( $str ) );
-		if( mb_strlen( $str, 'utf8' ) < 1 ) {
-			return false;
-		}
-		$str = preg_replace('/(?:(?:\r\n|\r|\n)\s*){3}/s', "\r\n\r\n", $str);
-		$str = trim($str,"\r\n");
+        $str = stripslashes($str);
 
-		return $str;
-	}
-
-	public static function checkText( $str ) {
-
-		//$str = trim( self::spaces( $str ) );
-		if( mb_strlen( $str, 'utf8' ) < 1 ) {
-			return false;
-		}
-
-		$str = nl2br( e( $str ) );
-		$str = str_replace( array( chr( 10 ), chr( 13 ) ), '' , $str );
-
-		$str = stripslashes( $str );
-
-		return $str;
-	}
-
-	public static function formatNumber( $number ) {
-    if( $number >= 1000 &&  $number < 1000000 ) {
-
-       return number_format( $number/1000, 1 ). "k";
-    } else if( $number >= 1000000 ) {
-		return number_format( $number/1000000, 1 ). "M";
-	} else {
-        return $number;
+        return $str;
     }
-   }//<<<<--- End Function
 
-   public static function formatNumbersStats( $number ) {
+    public static function formatNumber($number)
+    {
+        if ($number >= 1000 && $number < 1000000) {
 
-    if( $number >= 100000000 ) {
-		return '<span class=".numbers-with-commas counter">'.number_format( $number/1000000, 0 ). "</span>M";
-	} else {
-        return '<span class=".numbers-with-commas counter">'.number_format( $number ).'</span>';
+            return number_format($number / 1000, 1) . "k";
+        } else if ($number >= 1000000) {
+            return number_format($number / 1000000, 1) . "M";
+        } else {
+            return $number;
+        }
+    }//<<<<--- End Function
+
+    public static function formatNumbersStats($number)
+    {
+
+        if ($number >= 100000000) {
+            return '<span class=".numbers-with-commas counter">' . number_format($number / 1000000, 0) . "</span>M";
+        } else {
+            return '<span class=".numbers-with-commas counter">' . number_format($number) . '</span>';
+        }
+    }//<<<<--- End Function
+
+    public static function spaces($string)
+    {
+        return (preg_replace('/(\s+)/u', ' ', $string));
+
     }
-   }//<<<<--- End Function
 
-   public static function spaces($string) {
-	  return ( preg_replace('/(\s+)/u',' ',$string ) );
+    public static function resizeImage($image, $width, $height, $scale, $imageNew = null)
+    {
+        list($imagewidth, $imageheight, $imageType) = getimagesize($image);
+        $imageType = image_type_to_mime_type($imageType);
+        $newImageWidth = ceil($width * $scale);
+        $newImageHeight = ceil($height * $scale);
+        $newImage = imagecreatetruecolor($newImageWidth, $newImageHeight);
+        switch ($imageType) {
+            case "image/gif":
+                $source = imagecreatefromgif($image);
+                imagefill($newImage, 0, 0, imagecolorallocate($newImage, 255, 255, 255));
+                imagealphablending($newImage, TRUE);
+                break;
+            case "image/pjpeg":
+            case "image/jpeg":
+            case "image/jpg":
+                $source = imagecreatefromjpeg($image);
+                break;
+            case "image/png":
+            case "image/x-png":
+                $source = imagecreatefrompng($image);
+                imagealphablending($newImage, false);
+                imagesavealpha($newImage, true);
 
-	}
+                //imagefill( $newImage, 0, 0, imagecolorallocate( $newImage, 255, 255, 255 ) );
+                //imagealphablending( $newImage, TRUE );
+                break;
+        }
+        imagecopyresampled($newImage, $source, 0, 0, 0, 0, $newImageWidth, $newImageHeight, $width, $height);
 
-	public static function resizeImage( $image, $width, $height, $scale, $imageNew = null ) {
-		list($imagewidth, $imageheight, $imageType) = getimagesize($image);
-	$imageType = image_type_to_mime_type($imageType);
-	$newImageWidth = ceil($width * $scale);
-	$newImageHeight = ceil($height * $scale);
-	$newImage = imagecreatetruecolor($newImageWidth,$newImageHeight);
-	switch($imageType) {
-		case "image/gif":
-			$source=imagecreatefromgif($image);
-			imagefill( $newImage, 0, 0, imagecolorallocate( $newImage, 255, 255, 255 ) );
-			imagealphablending( $newImage, TRUE );
-			break;
-	    case "image/pjpeg":
-		case "image/jpeg":
-		case "image/jpg":
-			$source=imagecreatefromjpeg($image);
-			break;
-	    case "image/png":
-		case "image/x-png":
-			$source=imagecreatefrompng($image);
-			imagealphablending( $newImage, false );
-			imagesavealpha( $newImage, true );
-
-			//imagefill( $newImage, 0, 0, imagecolorallocate( $newImage, 255, 255, 255 ) );
-			//imagealphablending( $newImage, TRUE );
-			break;
-  	}
-	imagecopyresampled($newImage,$source,0,0,0,0,$newImageWidth,$newImageHeight,$width,$height);
-
-	switch($imageType) {
-		case "image/gif":
-	  	// 	imagegif( $newImage, $imageNew );
-	  	    $gifPath=$image;
-	  	    if (GifFrameExtractor::isAnimatedGif($gifPath)) {
-                $gfe = new GifFrameExtractor();
-                $frames = $gfe->extract($gifPath);
-                $retouchedFrames = array();
-                foreach ($frames as $frame) {
-                    $frameLayer = ImageWorkshop::initFromResourceVar($frame['image']);
-                    $frameLayer->resizeInPixel($newImageWidth, $newImageHeight, true);
-                    $retouchedFrames[] = $frameLayer->getResult();
+        switch ($imageType) {
+            case "image/gif":
+                // 	imagegif( $newImage, $imageNew );
+                $gifPath = $image;
+                if (GifFrameExtractor::isAnimatedGif($gifPath)) {
+                    $gfe = new GifFrameExtractor();
+                    $frames = $gfe->extract($gifPath);
+                    $retouchedFrames = array();
+                    foreach ($frames as $frame) {
+                        $frameLayer = ImageWorkshop::initFromResourceVar($frame['image']);
+                        $frameLayer->resizeInPixel($newImageWidth, $newImageHeight, true);
+                        $retouchedFrames[] = $frameLayer->getResult();
+                    }
+                    $gc = new GifCreator();
+                    $gc->create($retouchedFrames, $gfe->getFrameDurations(), 0);
+                    file_put_contents($imageNew, $gc->getGif());
                 }
-                $gc = new GifCreator();
-                $gc->create($retouchedFrames, $gfe->getFrameDurations(), 0);
-                file_put_contents($imageNew, $gc->getGif());
-            }
-			break;
-      	case "image/pjpeg":
-		case "image/jpeg":
-		case "image/jpg":
-	  		imagejpeg( $newImage, $imageNew ,90 );
-			break;
-		case "image/png":
-		case "image/x-png":
-			imagepng( $newImage, $imageNew );
-			break;
+                break;
+            case "image/pjpeg":
+            case "image/jpeg":
+            case "image/jpg":
+                imagejpeg($newImage, $imageNew, 90);
+                break;
+            case "image/png":
+            case "image/x-png":
+                imagepng($newImage, $imageNew);
+                break;
+        }
+
+        chmod($image, 0777);
+        return $image;
     }
 
-	chmod($image, 0777);
-	return $image;
-	}
+    public static function resizeImageFixed($image, $width, $height, $imageNew = null)
+    {
 
-public static function resizeImageFixed( $image, $width, $height, $imageNew = null ) {
+        list($imagewidth, $imageheight, $imageType) = getimagesize($image);
+        $imageType = image_type_to_mime_type($imageType);
+        $newImage = imagecreatetruecolor($width, $height);
 
-	list($imagewidth, $imageheight, $imageType) = getimagesize($image);
-	$imageType = image_type_to_mime_type($imageType);
-	$newImage = imagecreatetruecolor($width,$height);
+        switch ($imageType) {
+            case "image/gif":
+                $source = imagecreatefromgif($image);
+                imagefill($newImage, 0, 0, imagecolorallocate($newImage, 255, 255, 255));
+                imagealphablending($newImage, TRUE);
+                break;
+            case "image/pjpeg":
+            case "image/jpeg":
+            case "image/jpg":
+                $source = imagecreatefromjpeg($image);
+                break;
+            case "image/png":
+            case "image/x-png":
+                $source = imagecreatefrompng($image);
+                imagealphablending($newImage, false);
+                imagesavealpha($newImage, true);
 
-	switch($imageType) {
-		case "image/gif":
-			$source=imagecreatefromgif($image);
-			imagefill( $newImage, 0, 0, imagecolorallocate( $newImage, 255, 255, 255 ) );
-			imagealphablending( $newImage, TRUE );
-			break;
-	    case "image/pjpeg":
-		case "image/jpeg":
-		case "image/jpg":
-			$source=imagecreatefromjpeg($image);
-			break;
-	    case "image/png":
-		case "image/x-png":
-			$source=imagecreatefrompng($image);
-			imagealphablending( $newImage, false );
-			imagesavealpha( $newImage, true );
+                /*imagefill( $newImage, 0, 0, imagecolorallocate( $newImage, 255, 255, 255 ) );
+                imagealphablending( $newImage, TRUE );*/
+                break;
+        }
+        if ($width / $imagewidth > $height / $imageheight) {
+            $nw = $width;
+            $nh = ($imageheight * $nw) / $imagewidth;
+            $px = 0;
+            $py = ($height - $nh) / 2;
+        } else {
+            $nh = $height;
+            $nw = ($imagewidth * $nh) / $imageheight;
+            $py = 0;
+            $px = ($width - $nw) / 2;
+        }
 
-			/*imagefill( $newImage, 0, 0, imagecolorallocate( $newImage, 255, 255, 255 ) );
-			imagealphablending( $newImage, TRUE );*/
-			break;
-  	}
-	if( $width/$imagewidth > $height/$imageheight ){
-        $nw = $width;
-        $nh = ($imageheight * $nw) / $imagewidth;
-        $px = 0;
-        $py = ($height - $nh) / 2;
-    } else {
-        $nh = $height;
-        $nw = ($imagewidth * $nh) / $imageheight;
-        $py = 0;
-        $px = ($width - $nw) / 2;
+        imagecopyresampled($newImage, $source, $px, $py, 0, 0, $nw, $nh, $imagewidth, $imageheight);
+
+        switch ($imageType) {
+            case "image/gif":
+                imagegif($newImage, $imageNew);
+                break;
+            case "image/pjpeg":
+            case "image/jpeg":
+            case "image/jpg":
+                imagejpeg($newImage, $imageNew, 90);
+                break;
+            case "image/png":
+            case "image/x-png":
+                imagepng($newImage, $imageNew);
+                break;
+        }
+
+        chmod($image, 0777);
+        return $image;
     }
 
-	imagecopyresampled($newImage,$source,$px, $py, 0, 0, $nw, $nh, $imagewidth, $imageheight);
-
-	switch($imageType) {
-		case "image/gif":
-	  		imagegif($newImage,$imageNew);
-			break;
-      	case "image/pjpeg":
-		case "image/jpeg":
-		case "image/jpg":
-	  		imagejpeg($newImage,$imageNew,90);
-			break;
-		case "image/png":
-		case "image/x-png":
-			imagepng($newImage,$imageNew);
-			break;
+    public static function getHeight($image)
+    {
+        if (!file_exists(base_path($image))) {
+            return 0;
+        }
+        $size = getimagesize($image);
+        $height = $size[1];
+        return $height;
     }
 
-		chmod($image, 0777);
-		return $image;
-	}
+    public static function getWidth($image)
+    {
+        if (!file_exists(base_path($image))) {
+            return 0;
+        }
+        $size = getimagesize($image);
+        $width = $size[0];
+        return $width;
+    }
 
-	public static function getHeight( $image ) {
-	    if (!file_exists(base_path($image))) {
-	        return 0;
-	    }
-		$size   = getimagesize( $image );
-		$height = $size[1];
-		return $height;
-	}
+    public static function formatBytes($size, $precision = 2)
+    {
+        $base = log($size, 1024);
+        $suffixes = array('', 'kB', 'MB', 'GB', 'TB');
 
-	public static function getWidth( $image ) {
-	    if (!file_exists(base_path($image))) {
-	        return 0;
-	    }
-		$size  = getimagesize($image);
-		$width = $size[0];
-		return $width;
-	}
-	public static function formatBytes($size, $precision = 2) {
-    $base = log($size, 1024);
-    $suffixes = array('', 'kB', 'MB', 'GB', 'TB');
+        return round(pow(1024, $base - floor($base)), $precision) . $suffixes[floor($base)];
+    }
 
-    return round(pow(1024, $base - floor($base)), $precision) . $suffixes[floor($base)];
-  }
+    public static function removeHTPP($string)
+    {
+        $string = preg_replace('#^https?://#', '', $string);
+        return $string;
+    }
 
-	public static function removeHTPP($string){
-		$string = preg_replace('#^https?://#', '', $string);
-		return $string;
-	}
+    public static function Array2Str($kvsep, $entrysep, $a)
+    {
+        $str = "";
+        foreach ($a as $k => $v) {
+            $str .= "{$k}{$kvsep}{$v}{$entrysep}";
+        }
+        return $str;
+    }
 
-	public static function Array2Str( $kvsep, $entrysep, $a ){
-		$str = "";
-			foreach ( $a as $k => $v ){
-				$str .= "{$k}{$kvsep}{$v}{$entrysep}";
-				}
-		return $str;
-	}
+    public static function removeBR($string)
+    {
+        $html = preg_replace('[^(<br( \/)?>)*|(<br( \/)?>)*$]', '', $string);
+        $output = preg_replace('~(?:<br\b[^>]*>|\R){3,}~i', '<br /><br />', $html);
+        return $output;
+    }
 
-	public static function removeBR($string) {
-		$html    = preg_replace( '[^(<br( \/)?>)*|(<br( \/)?>)*$]', '', $string );
-		$output = preg_replace('~(?:<br\b[^>]*>|\R){3,}~i', '<br /><br />', $html);
-		return $output;
-	}
+    public static function removeTagScript($html)
+    {
 
-	public static function removeTagScript( $html ){
+        //parsing begins here:
+        $doc = new \DOMDocument();
+        @$doc->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
+        $nodes = $doc->getElementsByTagName('script');
 
-			  	//parsing begins here:
-				$doc = new \DOMDocument();
-				@$doc->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
-				$nodes = $doc->getElementsByTagName('script');
+        $remove = [];
 
-				$remove = [];
+        foreach ($nodes as $item) {
+            $remove[] = $item;
+        }
 
-				foreach ($nodes as $item) {
-					$remove[] = $item;
-				}
+        foreach ($remove as $item) {
+            $item->parentNode->removeChild($item);
+        }
 
-				foreach ($remove as $item) {
-					$item->parentNode->removeChild($item);
-				}
+        return preg_replace(
+            '/^<!DOCTYPE.+?>/', '',
+            str_replace(
+                array('<html>', '</html>', '<body>', '</body>', '<head>', '</head>', '<p>', '</p>', '&nbsp;'),
+                array('', '', '', '', '', ' '),
+                $doc->saveHtml()));
+    }// End Method
 
-				return preg_replace(
-					'/^<!DOCTYPE.+?>/', '',
-					str_replace(
-					array('<html>', '</html>', '<body>', '</body>', '<head>', '</head>', '<p>', '</p>', '&nbsp;' ),
-					array('','','','','',' '),
-					$doc->saveHtml() ));
-	}// End Method
+    public static function removeTagIframe($html)
+    {
 
-	public static function removeTagIframe( $html ){
+        //parsing begins here:
+        $doc = new \DOMDocument();
+        @$doc->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
+        $nodes = $doc->getElementsByTagName('iframe');
 
-			  	//parsing begins here:
-				$doc = new \DOMDocument();
-				@$doc->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
-				$nodes = $doc->getElementsByTagName('iframe');
+        $remove = [];
 
-				$remove = [];
+        foreach ($nodes as $item) {
+            $remove[] = $item;
+        }
 
-				foreach ($nodes as $item) {
-					$remove[] = $item;
-				}
+        foreach ($remove as $item) {
+            $item->parentNode->removeChild($item);
+        }
 
-				foreach ($remove as $item) {
-					$item->parentNode->removeChild($item);
-				}
+        return preg_replace(
+            '/^<!DOCTYPE.+?>/', '',
+            str_replace(
+                array('<html>', '</html>', '<body>', '</body>', '<head>', '</head>', '<p>', '</p>', '&nbsp;'),
+                array('', '', '', '', '', ' '),
+                $doc->saveHtml()));
+    }// End Method
 
-				return preg_replace(
-					'/^<!DOCTYPE.+?>/', '',
-					str_replace(
-					array('<html>', '</html>', '<body>', '</body>', '<head>', '</head>', '<p>', '</p>', '&nbsp;' ),
-					array('','','','','',' '),
-					$doc->saveHtml() ));
-	}// End Method
+    public static function fileNameOriginal($string)
+    {
+        return pathinfo($string, PATHINFO_FILENAME);
+    }
 
-	public static function fileNameOriginal($string){
-		return pathinfo($string, PATHINFO_FILENAME);
-	}
+    public static function formatDate($date)
+    {
 
-	public static function formatDate( $date ){
+        $day = date('d', strtotime($date));
+        $_month = date('m', strtotime($date));
+        $month = trans("months.$_month");
+        $year = date('Y', strtotime($date));
 
-		$day    = date('d', strtotime($date));
-		$_month = date('m', strtotime($date));
-		$month  = trans("months.$_month");
-		$year   = date('Y', strtotime($date));
+        $dateFormat = $month . ' ' . $day . ', ' . $year;
 
-		$dateFormat = $month.' '.$day.', '.$year;
+        return $dateFormat;
+    }
 
-		return $dateFormat;
-	}
-
-	public static function watermark( $name, $watermarkSource ) {
-	    list($imagewidth, $imageheight, $imageType) = getimagesize($name);
-	    $imageType = image_type_to_mime_type($imageType);
-	    if ($imageType=="image/gif" && GifFrameExtractor::isAnimatedGif($name)) {
-	        $watermarkSource=base_path($watermarkSource);
+    public static function watermark($name, $watermarkSource)
+    {
+        list($imagewidth, $imageheight, $imageType) = getimagesize($name);
+        $imageType = image_type_to_mime_type($imageType);
+        if ($imageType == "image/gif" && GifFrameExtractor::isAnimatedGif($name)) {
+            $watermarkSource = base_path($watermarkSource);
             $gfe = new GifFrameExtractor();
             $frames = $gfe->extract($name);
             $watermarkLayer = ImageWorkshop::initFromPath($watermarkSource);
@@ -345,14 +367,14 @@ public static function resizeImageFixed( $image, $width, $height, $imageNew = nu
                 $frameLayer->resizeInPixel($imagewidth, $imageheight, true);
                 list($waterwidth, $waterheight, $waterType) = getimagesize($watermarkSource);
                 $x = 0;
-        		while ($x < $imagewidth) {
-        		    $y = 0;
-        		    while($y < $imageheight) {
-        		        $frameLayer->addLayerOnTop($watermarkLayer, $x, $y, 'LT');
-        		        $y += $waterheight;
-        		    }
-        		    $x += $waterwidth;
-        		}
+                while ($x < $imagewidth) {
+                    $y = 0;
+                    while ($y < $imageheight) {
+                        $frameLayer->addLayerOnTop($watermarkLayer, $x, $y, 'LT');
+                        $y += $waterheight;
+                    }
+                    $x += $waterwidth;
+                }
                 $retouchedFrames[] = $frameLayer->getResult();
             }
             $gc = new GifCreator();
@@ -360,100 +382,105 @@ public static function resizeImageFixed( $image, $width, $height, $imageNew = nu
             \File::delete($name);
             file_put_contents($name, $gc->getGif());
         } else {
-    		$thumbnail = Image::make($name);
-    		$watermark = Image::make($watermarkSource);
-    		$x = 0;
-    
-    		while ($x < $thumbnail->width()) {
-    		    $y = 0;
-    
-    		    while($y < $thumbnail->height()) {
-    		        $thumbnail->insert($watermarkSource, 'top-left', $x, $y);
-    		        $y += $watermark->height();
-    		    }
-    
-    		    $x += $watermark->width();
-    		}
-    
-    		$thumbnail->save($name)->destroy();
+            $thumbnail = Image::make($name);
+            $watermark = Image::make($watermarkSource);
+            $x = 0;
+
+            while ($x < $thumbnail->width()) {
+                $y = 0;
+
+                while ($y < $thumbnail->height()) {
+                    $thumbnail->insert($watermarkSource, 'top-left', $x, $y);
+                    $y += $watermark->height();
+                }
+
+                $x += $watermark->width();
+            }
+
+            $thumbnail->save($name)->destroy();
         }
-	}
-
-	public static function strRandom() {
-		return substr( strtolower( md5( time() . mt_rand( 1000, 9999 ) ) ), 0, 8 );
-	}// End method
-
-	public static function validateImageUploaded($image) {
-
-		$finfo = new \finfo(FILEINFO_MIME_TYPE);
-    if (false === $ext = array_search(
-        $finfo->file($image),
-        array(
-					'jpg' => 'image/jpeg',
-					'png' => 'image/png',
-					'gif' => 'image/gif'
-        ),
-        true
-    )) {
-        throw new \Exception('Invalid file format.');
     }
 
-	}// End method
+    public static function strRandom()
+    {
+        return substr(strtolower(md5(time() . mt_rand(1000, 9999))), 0, 8);
+    }// End method
 
-	public static function amountFormat($value) {
+    public static function validateImageUploaded($image)
+    {
 
-		$settings = AdminSettings::first();
+        $finfo = new \finfo(FILEINFO_MIME_TYPE);
+        if (false === $ext = array_search(
+                $finfo->file($image),
+                array(
+                    'jpg' => 'image/jpeg',
+                    'png' => 'image/png',
+                    'gif' => 'image/gif'
+                ),
+                true
+            )) {
+            throw new \Exception('Invalid file format.');
+        }
 
-		if($settings->currency_position == 'left') {
-			$amount = $settings->currency_symbol.number_format($value);
-		} elseif($settings->currency_position == 'right') {
-			$amount = number_format($value).$settings->currency_symbol;
-		} else {
-			$amount = $settings->currency_symbol.number_format($value);
-		}
+    }// End method
 
-	 return $amount;
+    public static function amountFormat($value)
+    {
 
- }// END
+        $settings = AdminSettings::first();
 
- public static function amountFormatDecimal($value) {
+        if ($settings->currency_position == 'left') {
+            $amount = $settings->currency_symbol . number_format($value);
+        } elseif ($settings->currency_position == 'right') {
+            $amount = number_format($value) . $settings->currency_symbol;
+        } else {
+            $amount = $settings->currency_symbol . number_format($value);
+        }
 
-	 $settings = AdminSettings::first();
+        return $amount;
 
-	 if ($settings->decimal_format == 'dot') {
-		 $decimalDot = '.';
-		 $decimalComma = ',';
-	 } else {
-		 $decimalDot = ',';
-		 $decimalComma = '.';
-	 }
+    }// END
 
-	 if($settings->currency_position == 'left') {
-		 $amount = $settings->currency_symbol.number_format($value, 2, $decimalDot, $decimalComma);
-	 } elseif($settings->currency_position == 'right') {
-		 $amount = number_format($value, 2, $decimalDot, $decimalComma).$settings->currency_symbol;
-	 } else {
-		 $amount = $settings->currency_symbol.number_format($value, 2, $decimalDot, $decimalComma);
-	 }
+    public static function amountFormatDecimal($value)
+    {
 
-	return $amount;
+        $settings = AdminSettings::first();
 
-}// END
+        if ($settings->decimal_format == 'dot') {
+            $decimalDot = '.';
+            $decimalComma = ',';
+        } else {
+            $decimalDot = ',';
+            $decimalComma = '.';
+        }
 
- public static function amountWithoutFormat($value) {
+        if ($settings->currency_position == 'left') {
+            $amount = $settings->currency_symbol . number_format($value, 2, $decimalDot, $decimalComma);
+        } elseif ($settings->currency_position == 'right') {
+            $amount = number_format($value, 2, $decimalDot, $decimalComma) . $settings->currency_symbol;
+        } else {
+            $amount = $settings->currency_symbol . number_format($value, 2, $decimalDot, $decimalComma);
+        }
 
-	 $settings = AdminSettings::first();
+        return $amount;
 
-	 if($settings->currency_position == 'left') {
-		 $amount = $settings->currency_symbol.$value;
-	 } elseif($settings->currency_position == 'right') {
-		 $amount = $value.$settings->currency_symbol;
-	 } else {
-		 $amount = $settings->currency_symbol.$value;
-	 }
+    }// END
 
-	return $amount;
+    public static function amountWithoutFormat($value)
+    {
 
- }// END
+        $settings = AdminSettings::first();
+
+        if ($settings->currency_position == 'left') {
+            $amount = $settings->currency_symbol . $value;
+        } elseif ($settings->currency_position == 'right') {
+            $amount = $value . $settings->currency_symbol;
+        } else {
+            $amount = $settings->currency_symbol . $value;
+        }
+
+        return $amount;
+
+    }// END
 
 }//<--- End Class

@@ -1,8 +1,8 @@
 @extends('admin.layout')
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -71,7 +71,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- /.box-body -->      
+                  <!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -99,7 +99,7 @@
 					     </div>
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -127,7 +127,7 @@
 					     </div>
                       </div>
                     </div>
-                  </div><!-- /.box-body -->    
+                  </div><!-- /.box-body -->
 
 
                   <!-- Start Box Body -->
@@ -152,7 +152,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- /.box-body -->  
+                  <!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -163,8 +163,8 @@
                         <input type="text" value="{{ $homePageSettings->section1_button_text }}" name="section1_button_text" class="form-control" placeholder="Section1 Button Text">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->    
-                  
+                  </div><!-- /.box-body -->
+
                   <!-- Start Box Body -->
                   <div class="box-body">
                     <div class="form-group">
@@ -174,7 +174,7 @@
                         <input type="text" value="{{ $homePageSettings->section1_button_link }}" name="section1_button_link" class="form-control" placeholder="Section1 Button Link">
                       </div>
                     </div>
-                  </div><!-- /.box-body --> 
+                  </div><!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -202,7 +202,7 @@
 					     </div>
                       </div>
                     </div>
-                  </div><!-- /.box-body -->    
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -226,7 +226,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- /.box-body -->  
+                  <!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -237,8 +237,8 @@
                         <input type="text" value="{{ $homePageSettings->section2_button_text }}" name="section2_button_text" class="form-control" placeholder="Section2 Button Text">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->    
-                  
+                  </div><!-- /.box-body -->
+
                   <!-- Start Box Body -->
                   <div class="box-body">
                     <div class="form-group">
@@ -248,7 +248,7 @@
                         <input type="text" value="{{ $homePageSettings->section2_button_link }}" name="section2_button_link" class="form-control" placeholder="Section2 Button Link">
                       </div>
                     </div>
-                  </div><!-- /.box-body --> 
+                  </div><!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -276,7 +276,7 @@
 					     </div>
                       </div>
                     </div>
-                  </div><!-- /.box-body -->    
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -300,7 +300,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- /.box-body -->  
+                  <!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -311,8 +311,8 @@
                         <input type="text" value="{{ $homePageSettings->section3_button_text }}" name="section3_button_text" class="form-control" placeholder="Section3 Button Text">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->    
-                  
+                  </div><!-- /.box-body -->
+
                   <!-- Start Box Body -->
                   <div class="box-body">
                     <div class="form-group">
@@ -322,7 +322,7 @@
                         <input type="text" value="{{ $homePageSettings->section3_button_link }}" name="section3_button_link" class="form-control" placeholder="Section3 Button Link">
                       </div>
                     </div>
-                  </div><!-- /.box-body --> 
+                  </div><!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -350,7 +350,7 @@
 					     </div>
                       </div>
                     </div>
-                  </div><!-- /.box-body -->    
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -374,7 +374,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- /.box-body -->  
+                  <!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -385,8 +385,8 @@
                         <input type="text" value="{{ $homePageSettings->section4_button_text }}" name="section4_button_text" class="form-control" placeholder="Section4 Button Text">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->    
-                  
+                  </div><!-- /.box-body -->
+
                   <!-- Start Box Body -->
                   <div class="box-body">
                     <div class="form-group">
@@ -396,7 +396,7 @@
                         <input type="text" value="{{ $homePageSettings->section4_button_link }}" name="section4_button_link" class="form-control" placeholder="Section4 Button Link">
                       </div>
                     </div>
-                  </div><!-- /.box-body --> 
+                  </div><!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -424,9 +424,9 @@
 					     </div>
                       </div>
                     </div>
-                  </div><!-- /.box-body -->      
+                  </div><!-- /.box-body -->
 
-                    
+
                   <!-- Start Box Body -->
                   <!-- <div class="box-body">
                     <div class="form-group"> -->
@@ -450,7 +450,7 @@
                       </div>
                     </div>
                   </div> -->
-                  <!-- /.box-body -->  
+                  <!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <!-- <div class="box-body">
@@ -462,8 +462,8 @@
                       </div>
                     </div>
                   </div> -->
-                  <!-- /.box-body -->    
-                  
+                  <!-- /.box-body -->
+
                   <!-- Start Box Body -->
                   <!-- <div class="box-body">
                     <div class="form-group"> -->
@@ -474,7 +474,7 @@
                       </div>
                     </div>
                   </div> -->
-                  <!-- /.box-body --> 
+                  <!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <!-- <div class="box-body">
@@ -503,7 +503,7 @@
                       </div>
                     </div>
                   </div> -->
-                  <!-- /.box-body -->   
+                  <!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <!-- <div class="box-body">
@@ -528,7 +528,7 @@
                       </div>
                     </div>
                   </div> -->
-                  <!-- /.box-body -->  
+                  <!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <!-- <div class="box-body">
@@ -540,8 +540,8 @@
                       </div>
                     </div>
                   </div> -->
-                  <!-- /.box-body -->    
-                  
+                  <!-- /.box-body -->
+
                   <!-- Start Box Body -->
                   <!-- <div class="box-body">
                     <div class="form-group"> -->
@@ -552,7 +552,7 @@
                       </div>
                     </div>
                   </div> -->
-                  <!-- /.box-body --> 
+                  <!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <!-- <div class="box-body">
@@ -581,7 +581,7 @@
                       </div>
                     </div>
                   </div> -->
-                  <!-- /.box-body -->    
+                  <!-- /.box-body -->
 
                   <div class="box-footer">
                     <button type="submit" class="btn btn-success">{{ trans('admin.save') }}</button>
@@ -602,8 +602,8 @@
 @section('javascript')
 
 	<!-- icheck -->
-	<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
 
 	<script type="text/javascript">
 		//Flat red color scheme for iCheck

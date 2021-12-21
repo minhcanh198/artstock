@@ -22,7 +22,7 @@ if( Auth::check() ) {
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="{{ url('/') }}">
-          	<img src="{{ asset('public/img/logo.png') }}" class="logo" />
+          	<img src="{{ asset('img/logo.png') }}" class="logo" />
           	</a>
         </div><!-- navbar-header -->
 
@@ -113,7 +113,7 @@ if( Auth::check() ) {
 
         			<li class="dropdown">
 			          <a href="javascript:void(0);" data-toggle="dropdown" class="userAvatar myprofile dropdown-toggle font-default text-uppercase">
-			          		<img src="{{ asset('public/avatar').'/'.$userAuth->avatar }}" alt="User" class="img-circle avatarUser" width="21" height="21">
+			          		<img src="{{ asset('avatar').'/'.$userAuth->avatar }}" alt="User" class="img-circle avatarUser" width="21" height="21">
 			          		<span class="title-dropdown">{{ trans('users.my_profile') }}</span>
 			          		<i class="ion-chevron-down margin-lft5"></i>
 			          	</a>

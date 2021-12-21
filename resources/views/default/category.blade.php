@@ -17,7 +17,7 @@
 			@else
 				<p class="subtitle-site"><strong>{{$settings->title}}</strong></p>
 			@endif
-			
+
 				<?php
 					$categorySlug = $category->slug;
 					if($categorySlug == "animation" ){
@@ -61,7 +61,7 @@
 								Clear Search  <i class="fa fa-refresh"></i>
 							</a>
 							@endif
-							
+
 						</div>
 					</div>
 				</div>
@@ -89,7 +89,7 @@
 		</div>
 <!-- Col MD -->
 <div class="col-md-12 margin-top-20 margin-bottom-20" id="DivImageFlex">
-    
+
 	@if( $images->total() != 0 )
 
 	<div id="imagesFlex" class="flex-images btn-block margin-bottom-40 dataResult">
@@ -156,42 +156,42 @@
 			<!--<userslidercategory categorySlug=<?php //echo $category->slug; ?> sessionUser=<?php //echo (\Auth::user()) ? \Auth::user()->id : ''; ?>></userslidercategory>-->
 			@php
 			$categorySlug = $category->slug;
-			
+
 			if($categorySlug == "animation" ){
-				$cateSlug = "animator"; 
+				$cateSlug = "animator";
 			}else if($categorySlug == "photo" ){
-				$cateSlug = "photographer"; 
+				$cateSlug = "photographer";
 			}else if($categorySlug == "video" ){
-				$cateSlug = "videographer"; 
+				$cateSlug = "videographer";
 			}else if($categorySlug == "music" ){
-				$cateSlug = "musician"; 
+				$cateSlug = "musician";
 			}
 			$allUsersCount = App\Models\User::join('types','types.types_id','=', 'users.user_type_id')->where('user_type_id','!=', '')->where('types.type_name','=',$cateSlug)->get();
 			@endphp
 
 			<!--<div class="row slider-home <?php //echo (count($allUsersCount) < 3 ) ? 'new12' : '' ?>">-->
-			
+
 			<carousel >
     		     <div class="owl-carousel owl-theme slider-artist-new">
 				<?php
 					$categorySlug = $category->slug;
 					if($categorySlug == "animation"){
-						$cateSlug = "animator"; 
+						$cateSlug = "animator";
 						$allUsers = App\Models\User::join('types','types.types_id','=', 'users.user_type_id')->where('user_type_id','!=', '')->where('types.type_name','=',$cateSlug)->get();
 				// 		dd($allUsers[0]);
 						// var_dump($allUsers[0]->id);
 						if(count($allUsers) > 0){
 							for($UA = 0; $UA < count($allUsers); $UA++){
 								$users = App\Models\User::select('users.*','types.type_name','new_countries.name AS CountryName')->join('types', 'types.types_id','=','users.user_type_id')->join('new_countries','new_countries.id','=', 'users.country_id')->find($allUsers[$UA]->id);
-								
+
 								// dd($users->types()->type_name);
 
 								$categorySlug = $category->slug;
 								// dd($categorySlug);
 				?>
-				
+
 								<div class="">
-            		             
+
                                     <div class="mb-4-cutom">
                                         <!--<div class="choose-photographer-box" style="margin:10px;">-->
                                         <!--    <div class="header-photographer">-->
@@ -202,7 +202,7 @@
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
                                         <!--                    <p class="tag-one">{{ $users->type_name }}</p>-->
-                                                        
+
                                                         <!-- <p class="tag-two">Available</p> -->
                                         <!--            </div>-->
                                         <!--        </div>-->
@@ -239,8 +239,8 @@
                                                             // var_dump($userAnimator->id);
                                                             // dd(count($queryAnimationsGetDataById));
                                                             if(count($queryAnimationsGetDataById) > 0){
-                                                                
-                                                            
+
+
                                                         ?>
                                         			        @foreach($queryAnimationsGetDataById as $dataUserAnimations)
                                             			        @php
@@ -250,15 +250,15 @@
                                         								$stockImage = App\Models\Stock::whereImagesId($dataUserAnimations->id)->whereType('small')->select('name')->first();
                                         								$thumbnail = 'public/uploads/small/'.$stockImage->name;
                                     								}
-                                    								
-                                    								
-                                    									
+
+
+
                         									$watermarkedVideoPathScreenShot = 'public/uploads/video/screen_shot/';
-                            								
+
                             								$AnimationFileScreenShotName = explode('.', $dataUserAnimations->thumbnail)[0];
-                            								
+
                             								$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
-                            								
+
                             								$realVideoFileName = $dataUserAnimations->thumbnail;
                                 								@endphp
                                         					    {{-- <!--<img src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">--> --}}
@@ -272,27 +272,27 @@
                                         					<?php
                                                             }else{
                                                         ?>
-                                                        <p class="dummy-text-when-another-div-empty"> 
-                                                                    No Animation Available        
+                                                        <p class="dummy-text-when-another-div-empty">
+                                                                    No Animation Available
                                                                 </p>
                                                         <?php
                                                             }
                                     					?>
                                 					</div>
                                 			    </div>
-                                		    </div>    
+                                		    </div>
                                 			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
                                 				<div class="">
                                 					<div class="d-md-flex">
                                 						<a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
                                 						<a href="<?php echo url('/')?>/request-to-book?photographerId=<?php echo $users->id ;?>&cityId=<?php echo $users->city_id; ?>" class="button-book-one w-100">Book artist</a>
-                                						
+
                                 					</div>
                                 				</div>
                                 			</div>
                                 	    </div>
-                                    </div>  
-                                
+                                    </div>
+
                 		         </div>
 				<?php
 							}
@@ -307,7 +307,7 @@
 				<?php
 						}
 					}else if($categorySlug == "photo"){
-						$cateSlug = "photographer"; 
+						$cateSlug = "photographer";
 						$allUsers = App\Models\User::join('types','types.types_id','=', 'users.user_type_id')->where('user_type_id','!=', '')->where('types.type_name','=',$cateSlug)->get();
 						// dd($allUsers[0]->id);
 						// var_dump($allUsers[0]->id);
@@ -319,12 +319,12 @@
 								// dd($users);
 								// dd($users->types()->type_name);
 
-								$categorySlug = $category->slug;			
+								$categorySlug = $category->slug;
 				?>
-								
-								
+
+
 								<div class="">
-            		             
+
                                     <div class="mb-4-cutom">
                                         <!--<div class="choose-photographer-box" style="margin:10px;">-->
                                         <!--    <div class="header-photographer">-->
@@ -335,7 +335,7 @@
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
                                         <!--                    <p class="tag-one">{{ $users->type_name }}</p>-->
-                                                        
+
                                                         <!-- <p class="tag-two">Available</p> -->
                                         <!--            </div>-->
                                         <!--        </div>-->
@@ -372,8 +372,8 @@
                                                             // var_dump($userPhotographer->id);
                                                             // dd(count($queryGetDataById));
                                                             if(count($queryGetDataById) > 0){
-                                                                
-                                                            
+
+
                                                         ?>
                                         			        @foreach($queryGetDataById as $dataUserImages)
                                             			        @php
@@ -386,34 +386,34 @@
                                 								@endphp
                                         					    {{-- <!--<img src="{{ asset($thumbnail) }}" alt="" class="set-img-size">--> --}}
                                         					    	<a data-fancybox href="{{ asset($thumbnail) }}" data-id="{{$dataUserImages->id}}" data-title="{{$dataUserImages->title}}" data-description="{{$dataUserImages->description}}" data-price="{{$dataUserImages->price}}" data-typee="photo">
-                                    					    
+
                                     					    <img src="{{ asset($thumbnail) }}" alt="" class="set-img-size">
                                         			    </a>
                                         					@endforeach
                                         					<?php
                                                             }else{
                                                         ?>
-                                                        <p class="dummy-text-when-another-div-empty"> 
-                                                                    No Photo Available        
+                                                        <p class="dummy-text-when-another-div-empty">
+                                                                    No Photo Available
                                                                 </p>
                                                         <?php
                                                             }
                                     					?>
                                 					</div>
                                 			    </div>
-                                		    </div>    
+                                		    </div>
                                 			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
                                 				<div class="">
                                 					<div class="d-md-flex">
                                 						<a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
                                 						<a href="<?php echo url('/')?>/request-to-book?photographerId=<?php echo $users->id ;?>&cityId=<?php echo $users->city_id; ?>" class="button-book-one w-100">Book artist</a>
-                                						
+
                                 					</div>
                                 				</div>
                                 			</div>
                                 	    </div>
-                                    </div>  
-                                
+                                    </div>
+
                 		         </div>
 				<?php
 							}
@@ -428,26 +428,26 @@
 				<?php
 						}
 					}else if($categorySlug == "video"){
-						$cateSlug = "videographer"; 
+						$cateSlug = "videographer";
 						$allUsers = App\Models\User::join('types','types.types_id','=', 'users.user_type_id')->where('user_type_id','!=', '')->where('types.type_name','=',$cateSlug)->get();
 						//dd($allUsers[0]->id);
 						// var_dump($allUsers[0]->id);
-						
+
 						//dd($allUsers->count());
-						
+
 						if(count($allUsers) > 0){
 							for($UA = 0; $UA < count($allUsers); $UA++){
 								$users = App\Models\User::select('users.*','types.type_name','new_countries.name AS CountryName')->join('types', 'types.types_id','=','users.user_type_id')->join('new_countries','new_countries.id','=', 'users.country_id')->find($allUsers[$UA]->id);
 								// dd($users->types()->type_name);
 								//dd($users);
 
-								$categorySlug = $category->slug;			
-				                
-				                
+								$categorySlug = $category->slug;
+
+
 				                if($users){     // Created by shahzad
 				?>
 								<div class="">
-            		             
+
                                     <div class="mb-4-cutom">
                                         <?php /* ?>  <!-- Big Comment By Shahzad -->
                                         <!--<div class="choose-photographer-box" style="margin:10px;">-->
@@ -459,7 +459,7 @@
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
                                         <!--                    <p class="tag-one">{{ $users->type_name }}</p>-->
-                                                        
+
                                                         <!-- <p class="tag-two">Available</p> -->
                                         <!--            </div>-->
                                         <!--        </div>-->
@@ -481,11 +481,11 @@
                                                 // }
                                             ?>
                                         <!--</div>-->
-                                        
+
                                         <?php */ ?>
-                                        
+
                                         <?php //dd($users); ?>
-                                        
+
                                         <div class="choose-photographer-box">
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
@@ -501,8 +501,8 @@
                                                             // var_dump($userVideographer->id);
                                                             // dd(count($queryVideosGetDataById));
                                                             if(count($queryVideosGetDataById) > 0){
-                                                                    
-                                                                
+
+
                                                         ?>
                                         			        @foreach($queryVideosGetDataById as $dataUserVideos)
                                             			        @php
@@ -512,18 +512,18 @@
                                         								$stockImage = App\Models\Stock::whereImagesId($dataUserVideos->id)->whereType('small')->select('name')->first();
                                         								$thumbnail = 'public/uploads/small/'.$stockImage->name;
                                     								}
-                                    								
-                                    								
-                                    								
+
+
+
                                     									$watermarkedVideoPathScreenShot = 'public/uploads/video/screen_shot/';
                                         								$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
-                                        								
+
                                         								$VideoFileScreenShotName = explode('.', $dataUserVideos->thumbnail)[0];
-                                        								
+
                                         								$realVideoFileName = $dataUserVideos->thumbnail;
                                 								@endphp
                                         					    {{-- <!--<img src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" alt="" class="set-img-size">--> --}}
-                                        					    
+
                                         					    <a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$realVideoFileName }}" data-id="{{$dataUserVideos->id}}" data-title="{{$dataUserVideos->title}}" data-description="{{$dataUserVideos->description}}" data-price="{{$dataUserVideos->price}}" data-typee="video">
                                             					        <img src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" alt="" class="set-img-size">
                                             					    </a>
@@ -531,27 +531,27 @@
                                     					<?php
                                                             }else{
                                                         ?>
-                                                        <p class="dummy-text-when-another-div-empty"> 
-                                                                    No Video Available        
+                                                        <p class="dummy-text-when-another-div-empty">
+                                                                    No Video Available
                                                                 </p>
                                                         <?php
                                                             }
                                     					?>
                                 					</div>
                                 			    </div>
-                                		    </div>    
+                                		    </div>
                                 			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
                                 				<div class="">
                                 					<div class="d-md-flex">
                                 						<a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
                                 						<a href="<?php echo url('/')?>/request-to-book?photographerId=<?php echo $users->id ;?>&cityId=<?php echo $users->city_id; ?>" class="button-book-one w-100">Book artist</a>
-                                						
+
                                 					</div>
                                 				</div>
                                 			</div>
                                 	    </div>
-                                    </div>  
-                                
+                                    </div>
+
                 		         </div>
 				<?php
 				                }
@@ -567,17 +567,17 @@
 				<?php
 						}
 					} elseif($categorySlug == "music"){
-						$cateSlug = "musician"; 
+						$cateSlug = "musician";
 						$allUsers = App\Models\User::join('types','types.types_id','=', 'users.user_type_id')->where('user_type_id','!=', '')->where('types.type_name','=',$cateSlug)->get();
 						if(count($allUsers) > 0){
 							for($UA = 0; $UA < count($allUsers); $UA++){
 								$users = App\Models\User::select('users.*','types.type_name','new_countries.name AS CountryName')->join('types', 'types.types_id','=','users.user_type_id')->join('new_countries','new_countries.id','=', 'users.country_id')->find($allUsers[$UA]->id);
 								// dd($users->types()->type_name);
 
-								$categorySlug = $category->slug;		
+								$categorySlug = $category->slug;
 				?>
 								<div class="">
-            		             
+
                                     <div class="mb-4-cutom">
                                         <!--<div class="choose-photographer-box" style="margin:10px;">-->
                                         <!--    <div class="header-photographer">-->
@@ -588,7 +588,7 @@
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
                                         <!--                    <p class="tag-one">{{ $users->type_name }}</p>-->
-                                                        
+
                                                         <!-- <p class="tag-two">Available</p> -->
                                         <!--            </div>-->
                                         <!--        </div>-->
@@ -625,8 +625,8 @@
                                                                 // var_dump($userMusician->id);
                                                                 // dd(count($queryMusiciansGetDataById));
                                                                 if(count($queryMusiciansGetDataById) > 0){
-                                                                    
-                                                                
+
+
                                                             ?>
                                                     			        @foreach($queryMusiciansGetDataById as $dataUserMusicians)
                                                         			        @php
@@ -636,14 +636,14 @@
                                                     								$stockImage = App\Models\Stock::whereImagesId($dataUserMusicians->id)->whereType('small')->select('name')->first();
                                                     								$thumbnail = 'public/uploads/small/'.$stockImage->name;
                                                 								}
-                                                								
+
                                                 								$watermarkedMusicPath = 'public/uploads/audio/large/';
-                                                								
+
                                             								@endphp
                                                     					    <!--<audio controls class="audio-one" controlsList="nodownload" oncontextmenu="return false;">-->
                                                              {{-- <!--                   <source src="{{ asset($watermarkedMusicPath).'/'. $dataUserMusicians->thumbnail }}"  type="audio/mp3">--> --}}
                                                              <!--               </audio> -->
-                                                                            <div class="wave d-flex" data-path="{{ asset('public/uploads/audio/large'). '/'. $dataUserMusicians->thumbnail }}">
+                                                                            <div class="wave d-flex" data-path="{{ asset('uploads/audio/large'). '/'. $dataUserMusicians->thumbnail }}">
                                                                                 <div class="align-self-center music-col-2">
                                                                                     <a href="javascript:;" class="btn-music-play" id="baton-playMusic#{{ $dataUserMusicians->thumbnail}}">
                                                                                         <i class="fas fa-play"></i>
@@ -652,35 +652,35 @@
                                                                                         <i class="fas fa-pause"></i>
                                                                                     </a>
                                                                                 </div>
-                                                                                
+
                                                                                 <div class="wave-container music-col-10"></div>
                                                                             </div>
                                                     					@endforeach
                                                     					<?php
                                                                 }else{
                                                                     ?>
-                                                                    <p class="dummy-text-when-another-div-empty"> 
-                                                                        No Music Available        
+                                                                    <p class="dummy-text-when-another-div-empty">
+                                                                        No Music Available
                                                                     </p>
-                                                                    
+
                                                                     <?php
                                                                 }
                                         					?>
                                 					</div>
                                 			    </div>
-                                		    </div>    
+                                		    </div>
                                 			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
                                 				<div class="">
                                 					<div class="d-md-flex">
                                 						<a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
                                 						<a href="<?php echo url('/')?>/request-to-book?photographerId=<?php echo $users->id ;?>&cityId=<?php echo $users->city_id; ?>" class="button-book-one w-100">Book artist</a>
-                                						
+
                                 					</div>
                                 				</div>
                                 			</div>
                                 	    </div>
-                                    </div>  
-                                
+                                    </div>
+
                 		         </div>
 				<?php
 							}
@@ -696,12 +696,12 @@
 						}
 					}
 				?>
-	
+
 			<!--</div>-->
 			    </div>
-            
-                
-                
+
+
+
             </carousel>
 		</div>
 	</section>
@@ -731,20 +731,20 @@ $("#btnSubmitTxtIndustrySearch").click(function(){
 
 						html += '<div id="imagesFlex" class="flex-images btn-block margin-bottom-40 dataResult">';
 						$.each(res.images , function( index, value ) {
-							
+
 							var imgColor = value.colors;
 							var color = imgColor.split(",")[0];
-							
+
 							if(value.extension == "png"){
 								var background = 'background : url('+ baseUrl + 'public/img/pixel.gif' + ') repeat center center #e4e4e4;';
 							}else{
 								var background = 'background-color : #'+ color ;
 							}
-						
+
 							if(res.settings.show_watermark == '1'){
 								var thumbnail = 'public/uploads/preview/'+ value.preview;
 							}else{
-								
+
 								var imageId = value.id;
 								$.ajax({
 									url: baseUrl + '/get-stockdata/' + imageId,
@@ -763,7 +763,7 @@ $("#btnSubmitTxtIndustrySearch").click(function(){
 										console.log('fail to get stockdata');
 									}
 								})
-								
+
 							}
 
 							var watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
@@ -777,14 +777,14 @@ $("#btnSubmitTxtIndustrySearch").click(function(){
 										}
 									html += '</video>'+
 								'</a>';
-							
+
 							}else{
 								var $thumbnail  = thumbnail;
 								html += '<a href="' + baseUrl + '/photo/' + value.id + '/' + value.title.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-') + '" class="item hovercard"  style="'+ background +';     width: 397px; height: 254px;">'+
 									'<img src="'+ baseUrl +'/'+ thumbnail +'" class="previewImage" />'+
 								'</a>';
 							}
-							
+
 
 						});
 							html += '</div>';
@@ -859,20 +859,20 @@ $("#btnSubmitTxtIndustrySearch").click(function(){
 
 						html += '<div id="imagesFlex" class="flex-images btn-block margin-bottom-40 dataResult">';
 						$.each(res.images , function( index, value ) {
-							
+
 							var imgColor = value.colors;
 							var color = imgColor.split(",")[0];
-							
+
 							if(value.extension == "png"){
 								var background = 'background : url('+ baseUrl + 'public/img/pixel.gif' + ') repeat center center #e4e4e4;';
 							}else{
 								var background = 'background-color : #'+ color ;
 							}
-						
+
 							if(res.settings.show_watermark == '1'){
 								var thumbnail = 'public/uploads/preview/'+ value.preview;
 							}else{
-								
+
 								var imageId = value.id;
 								$.ajax({
 									url: baseUrl + '/get-stockdata/' + imageId,
@@ -891,7 +891,7 @@ $("#btnSubmitTxtIndustrySearch").click(function(){
 										console.log('fail to get stockdata');
 									}
 								})
-								
+
 							}
 
 							var watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
@@ -905,13 +905,13 @@ $("#btnSubmitTxtIndustrySearch").click(function(){
 										}
 									html += '</video>'+
 								'</a>';
-							
+
 							}else{
 								html += '<a href="' + baseUrl + '/photo/' + value.id + '/' + value.title.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-') + '" class="item hovercard" style="'+ background +'; ">'+
 									'<img src="'+ baseUrl +'/'+ thumbnail +'" class="previewImage" />'+
 								'</a>';
 							}
-							
+
 
 						});
 							html += '</div>';

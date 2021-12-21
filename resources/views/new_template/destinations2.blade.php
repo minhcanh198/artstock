@@ -13,7 +13,7 @@
 	}
 </style>
 @section('content')
-<section class="destination-banner" style="background: url(<?php echo asset('public/destination_page/assets/'). '/' . $destinationPageSettings->header_main_image; ?>); background-size: cover; background-position: bottom;">
+<section class="destination-banner" style="background: url(<?php echo asset('destination_page/assets/'). '/' . $destinationPageSettings->header_main_image; ?>); background-size: cover; background-position: bottom;">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -67,7 +67,7 @@
 		</div>
 	</div>
 </section>
-<section class="destination-s2"> 
+<section class="destination-s2">
 	<div class="container">
 		<div class="row mb-4">
 			<div class="col-12">
@@ -137,13 +137,13 @@
 		</div>
 	</section>
 @endforeach
-<section class="destination-s4" style="background: url(<?php echo asset('public/destination_page/assets/'). '/' . $destinationPageSettings->third_section_main_image; ?>); background-size: cover;">
+<section class="destination-s4" style="background: url(<?php echo asset('destination_page/assets/'). '/' . $destinationPageSettings->third_section_main_image; ?>); background-size: cover;">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
 				<h2 class="destination-s4-title">
 				{{ $destinationPageSettings->third_section_content }}
-				
+
 				</h2>
 				<div class="mt-4">
 					<a href="{{ url('/').'/destinations/forms/suggest-a-city/' }}" target="_blank" class="request-city">{{ $destinationPageSettings->third_section_button_text }}</a>

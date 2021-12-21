@@ -66,11 +66,11 @@
 									@endphp
 									@foreach($VideosData as $vidData)
 										@php
-							
+
 											$getFileName = explode(".",$vidData->thumbnail);
 											$screenShotVideoPath = 'public/uploads/video/screen_shot/'. 'screen-shot-'.$getFileName[0].'.png';
 										@endphp
-									
+
 										<div>
 											<img src="{{ asset($screenShotVideoPath) }}" alt="" class="img-fluid destinations-city-s2-slider-img">
 										</div>
@@ -81,11 +81,11 @@
 									@endphp
 									@foreach($VideosData as $vidData)
 										@php
-								
+
 											$getFileName = explode(".",$vidData->thumbnail);
 											$screenShotVideoPath = 'public/uploads/video/screen_shot/'. 'screen-shot-'.$getFileName[0].'.png';
 										@endphp
-									
+
 										<div>
 											<img src="{{ asset($screenShotVideoPath) }}" alt="" class="img-fluid destinations-city-s2-slider-img">
 										</div>
@@ -96,15 +96,15 @@
 									@endphp
 									@foreach($VideosData as $vidData)
 										@php
-								
+
 											$getFileName = explode(".",$vidData->thumbnail);
 											$screenShotVideoPath = 'public/uploads/video/screen_shot/'. 'screen-shot-'.$getFileName[0].'.png';
 										@endphp
-									
+
 										<div>
 											<audio controls class="audio-one">
 												<source src="https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"  type="audio/mp3">
-											</audio> 
+											</audio>
 										</div>
 									@endforeach
 								@else
@@ -113,7 +113,7 @@
 							<div class="box-conten">
 								<h3 class="title mt-4 mb-4">{{ ($usersData->name != "") ? $usersData->name : $usersData->username }}</h3>
 								<div class="round-image-box">
-									<img src="{{ asset('public/avatar').'/'.$usersData->avatar }}" alt="" class="img-fluid">
+									<img src="{{ asset('avatar').'/'.$usersData->avatar }}" alt="" class="img-fluid">
 								</div>
 								<p class="mb-4">
 								{{ $usersData->bio }}
@@ -143,7 +143,7 @@
 				<div class="mt-5">
 					<a href="" class="btn-view-photographers">View Photographers in London</a>
 				</div>
-			</div>			
+			</div>
 		</div>
 	</div>
 </section>

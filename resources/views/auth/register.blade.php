@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <title>{{ trans('auth.sign_up').' - ' }}@section('title')@show @if( isset( $settings->title ) ){{$settings->title}}@endif</title>
 @section('css')
-  <link href="{{ asset('public/plugins/iCheck/all.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('plugins/iCheck/all.css')}}" rel="stylesheet" type="text/css" />
   @endsection
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="shortcut icon" href="{{ asset('public/img/favicon.png') }}" />
+<link rel="shortcut icon" href="{{ asset('img/favicon.png') }}" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="{{ asset('public/custom-css/css/bootstrap.min.css') }}" />
-<link rel="stylesheet" href="{{ asset('public/custom-css/fontawesome/css/all.min.css') }}">
-<link rel="stylesheet" href="{{ asset('public/custom-css/css/owl.carousel.min.css') }}">
-<link rel="stylesheet" href="{{ asset('public/custom-css/slick/slick.css') }}">
-<link rel="stylesheet" href="{{ asset('public/custom-css/slick/slick-theme.css') }}">
-<link rel="stylesheet" href="{{ asset('public/custom-css/css/style.css') }}" />
-<link rel="stylesheet" href="{{ asset('public/custom-css/css/responsive.css') }}" />
-<link rel="stylesheet" href="{{ asset('public/custom-css/css/baguetteBox.min.css') }}" />
-<link rel="stylesheet" href="{{ asset('public/custom-css/css/aos.css') }}"/>
+<link rel="stylesheet" href="{{ asset('custom-css/css/bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('custom-css/fontawesome/css/all.min.css') }}">
+<link rel="stylesheet" href="{{ asset('custom-css/css/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('custom-css/slick/slick.css') }}">
+<link rel="stylesheet" href="{{ asset('custom-css/slick/slick-theme.css') }}">
+<link rel="stylesheet" href="{{ asset('custom-css/css/style.css') }}" />
+<link rel="stylesheet" href="{{ asset('custom-css/css/responsive.css') }}" />
+<link rel="stylesheet" href="{{ asset('custom-css/css/baguetteBox.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('custom-css/css/aos.css') }}"/>
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 
 <style>
@@ -80,7 +80,7 @@
 		<div class="row">
 			<div class="col-md-10 offset-md-1">
 				<div class="login-logo text-center">
-					<a href="{{ url('/') }}"><img src="{{ asset('public/custom-css/images/logosvg.svg') }}" width="500" height="100" alt="" class="img-fluid"></a>
+					<a href="{{ url('/') }}"><img src="{{ asset('custom-css/images/logosvg.svg') }}" width="500" height="100" alt="" class="img-fluid"></a>
 				</div>
 				<h1 class="login-title text-center mt-4">Welcome To ArtStock United</h1>
 				{{-- <div class="text-center mt-4 joinfb">
@@ -119,7 +119,7 @@
                             <input type="text" class="form-control login-field custom-rounded" value="{{{ old('username') }}}" id="username" name="username" placeholder="{{{ trans('auth.username') }}}" title="{{{ trans('auth.username') }}}" autocomplete="off">
                             <div id="errorUsernameDiv"></div>
                         </div>
-                        
+
                         <div class="mb-3 col" id="emailDivv">
                             <input type="text" class="form-control login-field custom-rounded" value="{{{ old('email') }}}" id="email" name="email" placeholder="{{{ trans('auth.email') }}}" title="{{{ trans('auth.email') }}}" autocomplete="off">
                             <div id="errorEmailDiv"></div>
@@ -219,7 +219,7 @@
 
 @section('javascript')
 
-  <script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}"></script>
+  <script src="{{ asset('plugins/iCheck/icheck.min.js') }}"></script>
 
 	<script type="text/javascript">
 
@@ -236,23 +236,23 @@
             checkboxClass: 'icheckbox_square-red',
         });
     });
-    
-    
+
+
 </script>
 
 
 @endsection
-	
+
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script src="{{ asset('public/custom-css/js/jquery-3.3.1.min.js') }}"></script>
-<script src="{{ asset('public/custom-css/js/popper-min.js') }}"></script>
-<script src="{{ asset('public/custom-css/js/bootstrap.min.js') }}"></script> 
-<script src="{{ asset('public/custom-css/slick/slick.min.js') }}"></script>
+<script src="{{ asset('custom-css/js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('custom-css/js/popper-min.js') }}"></script>
+<script src="{{ asset('custom-css/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('custom-css/slick/slick.min.js') }}"></script>
 <!-- <script src="audiojs/audio.min.js"></script> -->
-<script src="{{ asset('public/custom-css/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('public/custom-css/js/custom.js') }}"></script> 
-<script src="{{ asset('public/custom-css/js/baguetteBox.min.js') }}"></script>
-<script src="{{ asset('public/custom-css/js/aos.js') }}"></script>
+<script src="{{ asset('custom-css/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('custom-css/js/custom.js') }}"></script>
+<script src="{{ asset('custom-css/js/baguetteBox.min.js') }}"></script>
+<script src="{{ asset('custom-css/js/aos.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script>
   AOS.init();
@@ -268,7 +268,7 @@
        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     }
 
-    
+
     $("#buttonSubmitRegister").click(function(){
         let userName = $("#username").val();
         let email = $("#email").val();
@@ -298,7 +298,7 @@
                 $('#username').css('border-color','#ced4da');
                 $('#errorUsernameDiv').text('');
             }, 2000);
-            
+
         }else if(email == ""){
             $("#email").css('border-color','red');
             $("#errorEmailDiv").text('This field is required');
@@ -370,7 +370,7 @@
         }
     });
 
-    
+
 
     $("#user_type").change(function(){
         let getVal = $(this).val();
@@ -411,7 +411,7 @@
                         cityOption +='<option value="'+ value.id +'">'+ value.name + '</option>';
                     });
                     $("#city_id").append(cityOption);
-                    
+
                 },
                 error:function()
                 {
@@ -447,7 +447,7 @@
     //                 //     routeOption +='<option value="'+ value.id +'">'+ value.route_name + '</option>';
     //                 // });
     //                 // $("#route_id").append(routeOption);
-                    
+
     //             },
     //             error:function()
     //             {

@@ -3,7 +3,7 @@
 @section('title'){{ trans('auth.sign_up').' - ' }}@endsection
 
   @section('css')
-  <link href="{{ asset('public/plugins/iCheck/all.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('plugins/iCheck/all.css')}}" rel="stylesheet" type="text/css" />
   @endsection
 
 @section('content')
@@ -130,7 +130,7 @@
 
 @section('javascript')
 
-  <script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}"></script>
+  <script src="{{ asset('plugins/iCheck/icheck.min.js') }}"></script>
 
 	<script type="text/javascript">
 

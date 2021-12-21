@@ -52,8 +52,8 @@
 @extends('dashboard.layout')
 
 @section('css')
-<link href="{{ asset('public/plugins/morris/morris.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('public/plugins/jvectormap/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/morris/morris.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/jvectormap/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -324,8 +324,8 @@
 @section('javascript')
 
 	<!-- Morris -->
-	<script src="{{ asset('public/plugins/morris/raphael-min.js')}}" type="text/javascript"></script>
-	<script src="{{ asset('public/plugins/morris/morris.min.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/morris/raphael-min.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/morris/morris.min.js')}}" type="text/javascript"></script>
 
 	<!-- knob -->
 

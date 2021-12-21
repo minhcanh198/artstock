@@ -1,8 +1,8 @@
 @extends('admin.layout')
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -58,9 +58,9 @@
                         <input type="text" value="{{ $faqPageSettings->header_heading }}" name="header_heading" class="form-control" placeholder="Header Heading">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
-                  <!-- Start Box Body --> 
+                  <!-- Start Box Body -->
                   <div class="box-body">
                     <div class="form-group">
                       <!-- <label class="col-sm-2 control-label">{{ trans('admin.name_site') }}</label> -->
@@ -69,7 +69,7 @@
                         <textarea name="header_description" class="form-control" placeholder="Header Description">{{ $faqPageSettings->header_description }}</textarea>
                       </div>
                     </div>
-                  </div><!-- /.box-body -->   
+                  </div><!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -97,7 +97,7 @@
                         </div>
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                   <div class="box-footer">
                     <button type="submit" class="btn btn-success">{{ trans('admin.save') }}</button>
@@ -118,10 +118,10 @@
 @section('javascript')
 
 	<!-- icheck -->
-	<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
 
-    <script src="{{{ asset('public/plugins/ckeditor/ckeditor.js') }}}" type="text/javascript"></script>
+    <script src="{{{ asset('plugins/ckeditor/ckeditor.js') }}}" type="text/javascript"></script>
 
     <script type="text/javascript">
 		$(function () {

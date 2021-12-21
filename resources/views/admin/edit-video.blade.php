@@ -1,8 +1,8 @@
 @extends('admin.layout')
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -147,7 +147,7 @@
                 <?php
                     $explodeVideoThumbnail = explode(".", $data->thumbnail)[0] . '.png';
                 ?>
-        		<img src="{{ asset('public/uploads/video/screen_shot/').'/screen-shot-'.$explodeVideoThumbnail }}" class="thumbnail img-responsive">
+        		<img src="{{ asset('uploads/video/screen_shot/').'/screen-shot-'.$explodeVideoThumbnail }}" class="thumbnail img-responsive">
         	</div>
 
         	<a href="{{ url('photo',$data->id) }}" target="_blank" class="btn btn-lg btn-success btn-block margin-bottom-10">{{ trans('admin.view') }} <i class="fa fa-external-link-square"></i> </a>
@@ -187,8 +187,8 @@
 @section('javascript')
 
 	<!-- icheck -->
-	<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
 
 	<script type="text/javascript">
 

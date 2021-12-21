@@ -40,11 +40,11 @@
 					</div>
 				</div>
 				<!-- <div class="row margin-top-destination-location-box"> -->
-        
+
                 <artistcard citySlug=<?php echo $getCityDetails->city_slug ?> cityRoute=<?php echo 'city'; ?> sessionUser=<?php echo (\Auth::user()) ? \Auth::user()->id : ''; ?>></artistcard>
-                    
-                 
-                    
+
+
+
                     <!-- <div class="col-sm-12 text-center mt-4-custom">
                         <a href="" class="load-more-one">
                             Load More
@@ -53,7 +53,7 @@
 				<!-- </div> -->
 			</div>
         </section>
-        <section class="last-section-photographer" style="background: url(<?php echo asset('public/destination_page_new/destination-1.jpg') ?>)">
+        <section class="last-section-photographer" style="background: url(<?php echo asset('destination_page_new/destination-1.jpg') ?>)">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6 set-padding-col">
@@ -105,6 +105,6 @@
                 </div>
             </div>
         </section>
-		
-        
+
+
         @endsection

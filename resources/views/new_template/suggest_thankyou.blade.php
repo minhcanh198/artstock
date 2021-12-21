@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="col-md-6 offset-md-3 bg-suggest-city-form">
 				<div class="suggest-city-logo mb-5 text-center">
-					<img src="{{ asset('public/img/footer_logo.png') }}" alt="" class="img-fluid"> 
+					<img src="{{ asset('img/footer_logo.png') }}" alt="" class="img-fluid">
 				</div>
 				<div class="">
 					<h2>

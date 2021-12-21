@@ -71,7 +71,7 @@
                   <table class="table table-hover">
                <tbody>
 
-               
+
 
                	@if( $data->total() !=  0 && $data->count() != 0 )
                    <tr>
@@ -93,7 +93,7 @@
                     ?>
                     <tr>
                       <td>{{ $video->id }}</td>
-                      <td><img src="{{ asset('public/uploads/video/screen_shot/').'/screen-shot-'.$explodeVideoThumbnail }}" width="50" /></td>
+                      <td><img src="{{ asset('uploads/video/screen_shot/').'/screen-shot-'.$explodeVideoThumbnail }}" width="50" /></td>
                       <td><a href="{{ url('video', $video->id ) }}/{{str_slug($video->title)}}" title="{{$video->title}}" target="_blank">{{ str_limit($video->title, 10, '...') }} <i class="fa fa-external-link-square"></i></a></td>
                       <td>{{ $video->user()->username }}</td>
                       <td>{{ $video->item_for_sale == 'sale' ? trans('misc.sale') : trans('misc.free')  }}</td>

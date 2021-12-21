@@ -43,7 +43,7 @@ if( Auth::check() ) {
 
 	// All Images resolutions
 	$stockImages = $response->stock;
-	 
+
 	// Similar Photos
 	$arrayTags  = explode(",",$response->tags);
 	$countTags = count( $arrayTags );
@@ -74,7 +74,7 @@ if( Auth::check() ) {
 @section('keywords_custom'){{$response->tags .','}}@endsection
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
 
 <meta property="og:type" content="website" />
 <meta property="og:image:width" content="{{App\Helper::getWidth('public/uploads/preview/'.$response->preview)}}"/>
@@ -82,12 +82,12 @@ if( Auth::check() ) {
 
 <meta property="og:site_name" content="{{$settings->title}}"/>
 <meta property="og:url" content="{{url("photo/$response->id").'/'.str_slug($response->title)}}"/>
-<meta property="og:image" content="{{ asset('public/uploads/preview/') }}/{{$response->preview}}"/>
+<meta property="og:image" content="{{ asset('uploads/preview/') }}/{{$response->preview}}"/>
 <meta property="og:title" content="{{ $response->title.' - '.trans_choice('misc.photos_plural', 1 ).' #'.$response->id }}"/>
 <meta property="og:description" content="{{ App\Helper::removeLineBreak( e( $response->description ) ) }}"/>
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="{{ asset('public/uploads/preview/') }}/{{$response->preview}}" />
+<meta name="twitter:image" content="{{ asset('uploads/preview/') }}/{{$response->preview}}" />
 <meta name="twitter:title" content="{{ $response->title.' - '.trans_choice('misc.photos_plural', 1 ).' #'.$response->id }}" />
 <meta name="twitter:description" content="{{ App\Helper::removeLineBreak( e( $response->description ) ) }}"/>
 
@@ -227,7 +227,7 @@ if( Auth::check() ) {
 
 
 	<div class="text-center margin-bottom-20">
-    <div style="margin: 0 auto; background: url('{{asset('public/img/pixel.gif')}}') repeat center center; max-width:{{App\Helper::getWidth('public/uploads/preview/'.$response->preview)}}px; max-height: {{App\Helper::getHeight('public/uploads/preview/'.$response->preview)}}px">
+    <div style="margin: 0 auto; background: url('{{asset('img/pixel.gif')}}') repeat center center; max-width:{{App\Helper::getWidth('public/uploads/preview/'.$response->preview)}}px; max-height: {{App\Helper::getHeight('public/uploads/preview/'.$response->preview)}}px">
         <a data-fancybox href="{{url('public/uploads/preview',$response->preview)}}">
       <img class="img-responsive img-rounded" style="display: inline-block;" src="{{url('public/uploads/preview',$response->preview)}}" />
       </a>
@@ -267,7 +267,7 @@ if( Auth::check() ) {
 <div class="btn-block margin-bottom-20 po">
 	<h3>{{trans('misc.similar_photos')}}</h3>
 	<div id="imagesFlex" class="flex-images btn-block margin-bottom-40">
-		 @include('includes.images') 
+		 @include('includes.images')
 		</div>
 </div>
 <!-- End Block -->
@@ -289,7 +289,7 @@ if( Auth::check() ) {
 
 	<div class="media">
             <span class="pull-left">
-                <img alt="Image" src="{{ asset('public/avatar')}}/{{ Auth::user()->avatar }}" class="media-object img-circle" width="50">
+                <img alt="Image" src="{{ asset('avatar')}}/{{ Auth::user()->avatar }}" class="media-object img-circle" width="50">
             </span>
 
             <div class="media-body">
@@ -419,7 +419,7 @@ if( Auth::check() ) {
 
 				@endif
 			</div><!-- col-xs-6 -->
-		
+
 
 			<!-- col-xs-6 -->
 			<div class="col-xs-6" style="width: 50%;">
@@ -530,14 +530,14 @@ if( Auth::check() ) {
               </label>
               </div>
               @endforeach
-              
+
 
             </dd>
           </div><!-- form-group -->
 
     <!-- btn-free -->
 		<!-- <button type="submit" class="btn btn-success btn-lg btn-block dropdown-toggle" id="downloadBtn"> -->
-		
+
 		<!--<div class="radio margin-bottom-15">-->
   <!--          <label class="padding-zero">-->
   <!--              <input id="popular_sort" class="">-->
@@ -547,7 +547,7 @@ if( Auth::check() ) {
   <!--              </span>-->
   <!--          </label>-->
   <!--      </div>-->
-		
+
 		<button type="submit" class="btn btn-success btn-lg btn-block " id="downloadBtn">
 			<i class="fa fa-cloud-download myicon-right"></i> {{trans('misc.download')}}
 			</button>
@@ -555,7 +555,7 @@ if( Auth::check() ) {
       </form>
 
     @else
-	
+
     <form action="{{url('purchase/stock', $stockImages[2]->token)}}" method="post" id="formBuy">
 
       @csrf
@@ -609,14 +609,14 @@ if( Auth::check() ) {
 
         </dd>
       </div><!-- form-group -->
-      
+
 
       <!-- btn-sale -->
-  		
+
 
      @if(Auth::check() && Auth::user()->id == $response->user_id)
-     
-     
+
+
      <!-- Commented by shahzad
      <button type="submit" class="btn btn-success btn-lg btn-block dropdown-toggle" data-type="small" id="downloadBtn">
        <i class="fa fa-cloud-download myicon-right"></i> {{trans('misc.download')}}
@@ -627,10 +627,10 @@ if( Auth::check() ) {
        {{trans('misc.buy')}}
        <span id="priceItem">{{ $settings->currency_position == 'left' ? $settings->currency_symbol : null }}
             <span id="itemPrice">{{$response->price}}</span>
-                {{ $settings->currency_position == 'right' ? $settings->currency_symbol : null }} 
+                {{ $settings->currency_position == 'right' ? $settings->currency_symbol : null }}
                     <small class="sm-currency-code">{{$settings->currency_code}}</small></span>
      </button>-->
-     
+
      <!-- Stripe Checkout Integration start -->
   		<!--<form action="/purchase" method="POST">-->
           <!--<script
@@ -645,9 +645,9 @@ if( Auth::check() ) {
             data-currency="usd">
           </script>-->
         <!--</form>-->
-        
+
         @if(Auth::check())
-            
+
             <hr />
             <!-- Payment Options -->
             <h5>Select payment method</h5>
@@ -676,7 +676,7 @@ if( Auth::check() ) {
                     </span>
                   </label>
                 </div>-->
-                
+
             </div>
             <style>
             /* Payment radio css */
@@ -691,12 +691,12 @@ if( Auth::check() ) {
                 background-color: transparent;
                 color: #000;
             }
-            
+
             .payment-panel-main {
                 display: -ms-flexbox!important;
                 display: flex!important;
             }
-            
+
              .payment-panel-main .payment-panel-box{
                 -ms-flex-preferred-size: 0;
                 flex-basis: 0;
@@ -707,15 +707,15 @@ if( Auth::check() ) {
             /* Payment radio css */
             </style>
             <!-- Payment Options -->
-            
-            
+
+
             <!-- Paypal Button -->
             <!-- Set up a container element for the button -->
             <div id="paypalDiv" class="hide">
                 <div id="paypal-button-container"></div>
             </div>
             <!-- Paypal Button -->
-        
+
             <!-- Stripe Button -->
             <div id="stripeDiv">
                 <button type="submit" class="btn btn-success btn-lg btn-block dropdown-toggle stripeBtn" data-type="small" id="downloadButton">
@@ -731,7 +731,7 @@ if( Auth::check() ) {
                     {{trans('misc.buy')}}
                     <span id="priceItem">{{ $settings->currency_position == 'left' ? $settings->currency_symbol : null }}<span id="itemPrice">{{$response->price}}</span>{{ $settings->currency_position == 'right' ? $settings->currency_symbol : null }} <small class="sm-currency-code">{{$settings->currency_code}}</small></span>
             </button>
-            
+
             <!--<div class="dropdown">
               <button class="btn btn-success btn-lg btn-block dropdown-toggle" data-type="small" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown button
@@ -742,17 +742,17 @@ if( Auth::check() ) {
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
             </div>-->
-            
+
         @endif
         <!-- Stripe Checkout Integration end -->
-     
-     
-     
+
+
+
      @endif
-        
-  		
-  		
-  		
+
+
+
+
       <!-- btn-sale -->
     </form>
 
@@ -934,7 +934,7 @@ if( Auth::check() ) {
 @endsection
 
 @section('javascript')
-<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
 var URL_BASE = '<?php echo url('/') ?>';
 
@@ -1358,7 +1358,7 @@ function confirmPurchase() {
 
 
       @if(Auth::check())
-      
+
       var $currentImage = $('.itemPrice').attr("data-type");
       var $formBuy = $('#formBuy');
 
@@ -1377,26 +1377,26 @@ function confirmPurchase() {
           $('#itemPrice').html(($price*10));
         }
       });
-      
-      
-    /* Payment Option */    
-    $('.paymentOption').on('click', function() { 
+
+
+    /* Payment Option */
+    $('.paymentOption').on('click', function() {
         switch ($(this).attr("data-type")) {
             case 'stripe':
               $("#paypalDiv").slideUp();
               $("#stripeDiv").slideDown();
               break;
-              
+
             case 'paypal':
               $("#stripeDiv").slideUp();
               $("#paypalDiv").slideDown();
               break;
           }
     });
-    
+
     /* Payment Option */
-      
-      
+
+
     var strMoney = {{$response->price}}; //Set for Stripe
     $('.itemPrice').on('click', function() {
 
@@ -1468,7 +1468,7 @@ function confirmPurchase() {
 
         var $button = $(this),
             $form = $button.parents('form');
-        
+
         //strMoney = 200*100;
         var opts = $.extend({}, $button.data(), {
             token: function(result) {
@@ -1481,7 +1481,7 @@ function confirmPurchase() {
             description: "{{$response->description}}",
             panelLabel:  'Pay',
             close: $button.prop("disabled", true)
-            
+
         });
 
         StripeCheckout.open(opts);
@@ -1553,20 +1553,20 @@ $(window).on('popstate', function() {
                 console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
                 var transaction = orderData.purchase_units[0].payments.captures[0];
                 //alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
-                
+
                 //window.location = 'thankyou.php?txt_id=' + transaction.id;
-                
-                
+
+
                 // Replace the above to show a success message within this page, e.g.
                 // const element = document.getElementById('paypal-button-container');
                 // element.innerHTML = '';
                 // element.innerHTML = '<h3>Thank you for your payment!</h3>';
                 // Or go to another URL:  actions.redirect('thank_you.html');
-                
+
                 $('.stripeBtn').parents('form').append($('<input>').attr({ type: 'hidden', name: 'paypalTxnId', value: transaction.id })).submit();
             });
         },
-        
+
         onError: function (err) {
             // For example, redirect to a specific error page
             //window.location.href = "/your-error-page-here";

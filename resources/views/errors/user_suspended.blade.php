@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ $settings->description }}">
     <meta name="keywords" content="{{ $settings->keywords }}" />
-     <link rel="shortcut icon" href="{{ URL::asset('public/img/favicon.png') }}" />
+     <link rel="shortcut icon" href="{{ URL::asset('img/favicon.png') }}" />
 
     <title>{{ trans('error.error_user_banned') }}</title>
 

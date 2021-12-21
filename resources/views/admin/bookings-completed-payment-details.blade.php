@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('css')
-<link href="{{{ asset('public/plugins/iCheck/all.css') }}}" rel="stylesheet" type="text/css" />
+<link href="{{{ asset('plugins/iCheck/all.css') }}}" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')
 <!-- Content Wrapper. Contains page content -->
@@ -8,7 +8,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h4>
-           {{ trans('admin.admin') }} <i class="fa fa-angle-right margin-separator"></i> {{ trans_choice('misc.completed_request_details', 0) }} 
+           {{ trans('admin.admin') }} <i class="fa fa-angle-right margin-separator"></i> {{ trans_choice('misc.completed_request_details', 0) }}
           </h4>
         </section>
 
@@ -37,19 +37,19 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                    
+
                 </div><!-- /.box-header -->
 
                 <div class="box-body table-responsive no-padding">
-               
+
                   <div class="table-div">
                   <table cellspacing="0" class=" dashboard-table-custom uk-table dataTable" id="dt_colVis" width="100%">
                     <thead>
-                      
+
                     </thead>
                     <tbody>
                     <h3 class="text-center" style="font-size: 36px;">Booking Payment Details</h3>
-                      
+
                       <tr>
                         <td class="">Reference #:</td>
                         <td class="">{{ $data->reference_no }}</td>
@@ -72,7 +72,7 @@
                         <td class="">Requested Date(s):</td>
                         <td class="">{{  App\Helper::formatDate($data->requested_date) }} - {{ $data->requested_time }} (preferred)</td>
                       </tr>
-                      
+
                       <tr>
                         <td class="">Requested Customer:</td>
                         <td class="">{{ $data->UserName }}</td>
@@ -82,11 +82,11 @@
                         <td class="">Requested Photographer:</td>
                         <td class="">{{ $data->UserNameArtist }}</td>
                       </tr>
-                      
+
                       @php
-                      
+
                         $getPaymentDetails = DB::table('payments')->where('RequestReferenceNo','=', $data->reference_no)->first();
-                       
+
                       @endphp
                         <tr>
                             <td>First Name</td>
@@ -130,15 +130,15 @@
                         </tr>
                     </tbody>
                   </table>
-                 
+
                   </div>
                   <div id="paypal-button-container"></div>
-                  
+
 
 
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
-        
+
             </div>
           </div>
 

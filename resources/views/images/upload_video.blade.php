@@ -7,8 +7,8 @@
 @endsection
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -56,7 +56,7 @@
 
 		<!-- <div class="filer-input-dragDrop position-relative" id="draggable"> -->
 
-			
+
 
 			<!-- previewPhoto -->
 			<!-- <div class="previewPhoto"></div> -->
@@ -79,10 +79,10 @@
 
 			<div class="panel panel-default padding-20 border-none">
 
-            
+
 
 				<div class="panel-body">
-                  
+
                   <div class="form-group">
                     <input type="file" accept=".mp4"  name="video" id="fileVideo" >
                     <small class="help-block"><i class="fa fa-cloud-upload myicon-left"></i> Select a file (MP4)</small>
@@ -116,7 +116,7 @@
                     <label>{{ trans('misc.subcategory') }}</label>
                     <select name="sub_categories_id" id="subCategoryId" class="form-control">
                       <option value="">Select Sub Category</option>
-                     
+
                     </select>
                   </div><!-- /.form-group-->
 
@@ -259,9 +259,9 @@
 
 @section('javascript')
 
-	
-<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
+
+<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
   <script type="text/javascript">
 
     //Flat red color scheme for iCheck
@@ -506,10 +506,10 @@
       }
     });
   </script>
-  
+
 
 
 @endsection
 
-  
+
 

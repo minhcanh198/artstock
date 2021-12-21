@@ -1,8 +1,8 @@
 @extends('new_template.layouts.app')
- 
+
 {{-- @extends('app') --}}
 <style>
-    
+
   .light-modal-body {
     background: #000;
 }
@@ -35,8 +35,8 @@
 @endsection
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -106,8 +106,8 @@
 			</ul>
 
 		</div>
-		
-		
+
+
 
 @include('errors.errors-forms')
     <!-- form start -->
@@ -125,7 +125,7 @@
                 <!--<div class="previewPhoto" style="visibility: hidden;" data-cropzee="filePhoto"></div>-->
             <!-- previewPhoto -->
             <!-- Using Bootstrap Modal -->
-    
+
       <div class="btn btn-danger btn-sm btn-remove-photo display-none" id="removePhoto">
         <i class="icon icon-Delete myicon-right"></i> {{trans('misc.delete')}}
         </div>
@@ -173,7 +173,7 @@
                     <label>{{ trans('misc.subcategory') }}</label>
                     <select name="sub_categories_id" id="subCategoryId" class="form-control">
                       <option value="">Select Sub Category</option>
-                     
+
                     </select>
                   </div><!-- /.form-group-->
 
@@ -314,11 +314,11 @@
 
 @section('javascript')
 
-	
-<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
+
+<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
   <script type="text/javascript">
-  
+
   		 $("#tagInput").tagsInput({
 
     'delimiter': [','],   // Or a string with a single delimiter. Ex: ';'
@@ -364,7 +364,7 @@
       console.log('changedqweqwe');
       var urlNeew = window.location.href.split('#')[0];
     //   console.log(window.location.href.split('#')[0]);
-      
+
       var loaded = false;
       if(window.File && window.FileReader && window.FileList && window.Blob){
         if($(this).val()){ //check empty input filed
@@ -419,7 +419,7 @@
                 var _filname =  oFile.name;
                 var fileName = _filname.substr(0, _filname.lastIndexOf('.'));
                 $('#title').val(replaceString(fileName));
-                
+
               };// <<--- image.onload
 
 
@@ -438,8 +438,8 @@
 
     $('input[type="file"]').attr('title', window.URL ? ' ' : '');
 
-  
-    
+
+
 
 
     $('#itemForSale').on('change', function(){
@@ -575,12 +575,12 @@
       }
     });
   </script>
-  
-  
-  
+
+
+
 
 
 @endsection
 
-  
+
 

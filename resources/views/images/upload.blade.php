@@ -1,5 +1,5 @@
 @extends('new_template.layouts.app')
- 
+
 @section('title')
   {{-- trans('users.upload').' - ' --}}
   {{ 'Image Upload'.' - ' }}
@@ -7,8 +7,8 @@
 
 @section('css')
 
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
 
 
 <style type="text/css">
@@ -20,7 +20,7 @@ max-width: 100%;
 }
 .preview {
 overflow: hidden;
-width: 160px; 
+width: 160px;
 height: 160px;
 margin: 10px;
 border: 1px solid red;
@@ -35,7 +35,7 @@ max-width: 1000px !important;
 @section('content')
 
 <div class="container margin-bottom-40 padding-top-40">
-    
+
                                             <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg" role="document">
                                             <div class="modal-content">
@@ -67,7 +67,7 @@ max-width: 1000px !important;
                                             </div>
                                             </div>
                                             </div>
-    
+
 	<div class="row">
 
     @if( Auth::user()->status == 'active' )
@@ -94,17 +94,17 @@ max-width: 1000px !important;
 			</ul>
 
 		</div>
-		
-		
+
+
 
 @include('errors.errors-forms')
     <!-- form start -->
     <form method="POST" action="{{ url('upload/image') }}" enctype="multipart/form-data" id="formUpload" files="true">
 
     	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-    	
+
     	<input type="hidden" name="base64data" id="base64data" value="">
-        
+
         <?php /* Commented by shahzad ?>
 		<div class="filer-input-dragDrop position-relative" id="draggable" style="width: 750px;
     height: 500px;">
@@ -117,23 +117,23 @@ max-width: 1000px !important;
                 <!--<div class="previewPhoto" style="visibility: hidden;" data-cropzee="filePhoto"></div>-->
             <!-- previewPhoto -->
             <!-- Using Bootstrap Modal -->
-    
+
       <div class="btn btn-danger btn-sm btn-remove-photo display-none" id="removePhoto">
         <i class="icon icon-Delete myicon-right"></i> {{trans('misc.delete')}}
         </div>
 
 			<div class="filer-input-inner">
 				<div class="filer-input-icon">
-					<i class="fa fa-cloud-upload"></i> 
+					<i class="fa fa-cloud-upload"></i>
 					</div>
 					<div class="filer-input-text">
 						<h3 class="margin-bottom-10">{{ trans('misc.click_select_image') }} Developer test</h3>
 						<h3>{{ trans('misc.max_size') }}: {{  $settings->min_width_height_image.' - '.App\Helper::formatBytes($settings->file_size_allowed * 1024)}} </h3>
-					
-					</div> 
+
+					</div>
 				</div>
-			
-			
+
+
 			</div>
 			<?php Commented by shahzad */ ?>
             <!--<div class="preview"></div>-->
@@ -141,8 +141,8 @@ max-width: 1000px !important;
 			<div class="panel panel-default padding-20 border-none">
 
 				<div class="panel-body">
-				    
-				    
+
+
 				    <!-- upload image test -->
 				    <!-- Start Form Group -->
                     <div class="form-group">
@@ -151,19 +151,19 @@ max-width: 1000px !important;
                             <option value="image">{{ trans('misc.image') }}</option>
                             <option value="vector">{{ trans('misc.type_vector_graphic') }}</option>
                           </select>
-                            
+
                           <span class="btn-block display-none" id="imageSpan">
                             <!--<button type="button" class="btn btn-default btn-block" id="upload_file" style="margin-top: 10px;border-style: dashed;padding: 12px;">
                             <i class="fa fa-cloud-upload myicon-right"></i> Select a file (JPG, PNG, GIF)
                             </button>-->
-                            
+
                             <img id="output" width="120" src="">
                             <br />
                             <input type="file" name="photo" id="uploadPhoto" class="image" onchange="loadFile(event)">
                             <input type="hidden" name="baseTxtImg" id="baseTxtImg" value="">
                             <small class="help-block"><i class="fa fa-cloud-upload myicon-left"></i> Select a file (JPG, PNG, GIF)</small>
                           </span>
-                          
+
                           <span class="btn-block display-none" id="vector" style="display:none;">
                             <!--<button type="button" class="btn btn-default btn-block" id="upload_file" style="margin-top: 10px;border-style: dashed;padding: 12px;">
                             <i class="fa fa-cloud-upload myicon-right"></i> {{trans('misc.select_vector')}}
@@ -174,12 +174,12 @@ max-width: 1000px !important;
                           </span>
                     </div><!-- /.form-group-->
                     <small class="help-block" id="fileDocument"></small>
-				    
+
 				    <!-- upload image test -->
-				    
-				    
-				    
-				    
+
+
+
+
                  <!-- Start Form Group -->
                     <div class="form-group">
                       <label>{{ trans('admin.title') }}</label>
@@ -209,7 +209,7 @@ max-width: 1000px !important;
                     <label>{{ trans('misc.subcategory') }}</label>
                     <select name="sub_categories_id" id="subCategoryId" class="form-control">
                       <option value="">Select Sub Category</option>
-                     
+
                     </select>
                   </div><!-- /.form-group-->
 
@@ -255,7 +255,7 @@ max-width: 1000px !important;
                           </select>
                   </div><!-- /.form-group-->
 
-                  
+
 
                   <!-- Start form-group -->
                     <div class="form-group options_free" style="display:none;">
@@ -344,8 +344,8 @@ max-width: 1000px !important;
 <script src="https://wmlgl.github.io/cropperjs-gif/dist/cropperjs-gif-all.js"></script>
 
 
-<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
 
 <script>
         /* Crop Modal Window */
@@ -365,7 +365,7 @@ max-width: 1000px !important;
                 file = files[0];
                 if (URL) {
                     done(URL.createObjectURL(file));
-                } 
+                }
                 else if (FileReader) {
                     reader = new FileReader();
                     reader.onload = function (e) {
@@ -375,14 +375,14 @@ max-width: 1000px !important;
                 }
             }
         });
-        
+
         /* Get Selected image size */
         //var _URL = window.URL || window.webkitURL;
         var imgWidth, imgHeight;
         $("#uploadPhoto").change(function(e) {
             var file, img;
-        
-        
+
+
             if ((file = this.files[0])) {
                 img = new Image();
                 img.onload = function() {
@@ -394,14 +394,14 @@ max-width: 1000px !important;
                     alert( "not a valid file: " + file.type);
                 };
                 img.src = _URL.createObjectURL(file);*/
-        
-        
+
+
             }
-        
+
         });
         /* Get Selected image size */
-        
-        
+
+
         $modal.on('shown.bs.modal', function () {
         cropper = new Cropper(image, {
             aspectRatio: imgWidth/imgHeight,
@@ -480,19 +480,19 @@ xhr.onload = function(e) {
   if (this.status == 200) {
     myBlob = this.response;
     console.log(myBlob);
-    reader.readAsDataURL(myBlob); 
+    reader.readAsDataURL(myBlob);
     reader.onloadend = function() {
     console.log(reader);
-    var base64data = reader.result; 
-    // console.log(base64data); 
+    var base64data = reader.result;
+    // console.log(base64data);
     $modal.modal('hide');
     alert("Image Cropped Successfully!");
-    
+
     //$("#base64data").val(base64data);
     $("#baseTxtImg").val(base64data);
     $("#output").attr("src",base64data);
-    
-    
+
+
     /*$.ajax({
     type: "POST",
     dataType: "json",
@@ -525,7 +525,7 @@ $("#tagInput").tagsInput({
       onChange: function() {
           var input = $(this).siblings('.tagsinput');
           var maxLen = {{$settings->tags_limit}};
-    
+
       if( input.children('span.tag').length >= maxLen){
               input.children('div').hide();
           }
@@ -550,14 +550,14 @@ function replaceString(string) {
         if($(this).val() == 'sale') {
             $('#priceBox').slideDown();
             $('.options_free').slideUp();
-    
-        } 
+
+        }
         else {
             $('#priceBox').slideUp();
             $('.options_free').slideDown();
         }
     });
-    
+
     $('#typeImage').on('change', function(){
       if($(this).val() == 'vector') {
         $('#vector').slideDown();
@@ -576,7 +576,7 @@ function replaceString(string) {
           //$('#fileDocument').html('');
       }
     });
-    
+
     /*$('#typeImage').on('change', function(){
       if($(this).val() == 'vector') {
         $('#vector').slideDown();
@@ -605,7 +605,7 @@ function replaceString(string) {
       }
     });
 
-    
+
     $("#categoryId").change(function(){
       var catid = $(this).val();
       const baseUrl = '<?php echo url("/"); ?>';

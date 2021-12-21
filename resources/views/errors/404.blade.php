@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ $settings->description }}">
     <meta name="keywords" content="{{ $settings->keywords }}" />
-     <link rel="shortcut icon" href="{{ URL::asset('public/img/favicon.png') }}" />
+     <link rel="shortcut icon" href="{{ URL::asset('img/favicon.png') }}" />
 
     <title>{{ trans('error.error_404_description') }}</title>
 
     @include('includes.css_general')
 
   </head>
-  
+
   <body id="bg-error">
     <!-- container -->
     <div class="container">
@@ -26,14 +26,14 @@
       	<a href="{{ url('/') }}">{{ trans('error.go_home') }}</a>
      </div><!--/col-md-* -->
 
-    	
+
   </div><!--************ Row ********************-->
 
-      
+
     </div><!--******************** Container ******************-->
 
 
     @include('includes.javascript_general')
-    
+
   </body>
   </html>

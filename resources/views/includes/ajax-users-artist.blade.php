@@ -1,10 +1,10 @@
 @php
-$i = 0;    
+$i = 0;
 @endphp
 @if(count($images) > 0)
     <div class="row">
 		@foreach($images as $image)
-		
+
 			<div class="col-md-4 mb-4-cutom">
 				<!--<div class="choose-photographer-box">-->
 				<!--	<div class="header-photographer">-->
@@ -15,12 +15,12 @@ $i = 0;
 				<!--			<div class="col-sm-7 offset-md-1">-->
 				<!--				<h4 class="title-this">{{ $image[0]->username }}</h4>-->
 				<!--					<p class="tag-one">{{ $image[0]->type_name }}</p>-->
-								
+
 								<!-- <p class="tag-two">Available</p> -->
 				<!--			</div>-->
 				<!--		</div>-->
 				<!--	</div>    -->
-							
+
 				<!--	@if($image[0]->user_type_id == "1")-->
 				<!--		<div class="bottom" style="background-image: url(<?php //echo url('/'). '/public/uploads/thumbnail/'. $image[0]->img; ?>)">-->
 				<!--			<div class="row">-->
@@ -63,10 +63,10 @@ $i = 0;
 				<!--		</div>-->
 				<!--	@else-->
 				<!--	@endif-->
-					
+
 				<!--</div>-->
-				
-				
+
+
 				<div class="choose-photographer-box">
             		<div class="pt-4 pb-4 pl-3 pr-3">
             			<div class="">
@@ -83,8 +83,8 @@ $i = 0;
                                         // var_dump($userPhotographer->id);
                                         // dd(count($queryGetDataById));
                                         if(count($queryGetDataById) > 0){
-                                            
-                                        
+
+
                                     ?>
                     			        @foreach($queryGetDataById as $dataUserImages)
                         			        @php
@@ -95,17 +95,17 @@ $i = 0;
                     								$thumbnail = 'public/uploads/small/'.$stockImage->name;
                 								}
             								@endphp
-                    					    
+
                     					    <a data-fancybox href="{{ asset($thumbnail) }}" data-id="{{$dataUserImages->id}}" data-title="{{$dataUserImages->title}}" data-description="{{$dataUserImages->description}}" data-price="{{$dataUserImages->price}}" data-typee="photo">
-                                    					    
+
                                     		    <img src="{{ asset($thumbnail) }}" alt="" class="set-img-size">
                             			    </a>
                     					@endforeach
                     				<?php
                                         }else{
                                     ?>
-                                    <p class="dummy-text-when-another-div-empty"> 
-                                                No Photo Available        
+                                    <p class="dummy-text-when-another-div-empty">
+                                                No Photo Available
                                             </p>
                                     <?php
                                         }
@@ -118,8 +118,8 @@ $i = 0;
                                         // var_dump($userVideographer->id);
                                         // dd(count($queryVideosGetDataById));
                                         if(count($queryVideosGetDataById) > 0){
-                                                
-                                            
+
+
                                     ?>
                     			        @foreach($queryVideosGetDataById as $dataUserVideos)
                         			        @php
@@ -129,15 +129,15 @@ $i = 0;
                     								$stockImage = App\Models\Stock::whereImagesId($dataUserVideos->id)->whereType('small')->select('name')->first();
                     								$thumbnail = 'public/uploads/small/'.$stockImage->name;
                 								}
-                								
+
                 								$watermarkedVideoPathScreenShot = 'public/uploads/video/screen_shot/';
                 								$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
-                								
+
                 								$VideoFileScreenShotName = explode('.', $dataUserVideos->thumbnail)[0];
-                								
+
                 								$realVideoFileName = $dataUserVideos->thumbnail;
             								@endphp
-                    					    
+
                     					    <a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$realVideoFileName }}" data-id="{{$dataUserVideos->id}}" data-title="{{$dataUserVideos->title}}" data-description="{{$dataUserVideos->description}}" data-price="{{$dataUserVideos->price}}" data-typee="video">
                     					        <img src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" alt="" class="set-img-size">
                 					        </a>
@@ -145,8 +145,8 @@ $i = 0;
                 				    <?php
                                         }else{
                                     ?>
-                                        <p class="dummy-text-when-another-div-empty"> 
-                                            No Video Available        
+                                        <p class="dummy-text-when-another-div-empty">
+                                            No Video Available
                                         </p>
                                     <?php
                                         }
@@ -159,8 +159,8 @@ $i = 0;
                                         // var_dump($userAnimator->id);
                                         // dd(count($queryAnimationsGetDataById));
                                         if(count($queryAnimationsGetDataById) > 0){
-                                            
-                                        
+
+
                                     ?>
                     			        @foreach($queryAnimationsGetDataById as $dataUserAnimations)
                         			        @php
@@ -170,13 +170,13 @@ $i = 0;
                     								$stockImage = App\Models\Stock::whereImagesId($dataUserAnimations->id)->whereType('small')->select('name')->first();
                     								$thumbnail = 'public/uploads/small/'.$stockImage->name;
                 								}
-                								
+
                 								$watermarkedVideoPathScreenShot = 'public/uploads/video/screen_shot/';
-                            								
+
                 								$AnimationFileScreenShotName = explode('.', $dataUserAnimations->thumbnail)[0];
-                								
+
                 								$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
-                								
+
                 								$realVideoFileName = $dataUserAnimations->thumbnail;
             								@endphp
                     					    <a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$realVideoFileName }}" data-id="{{$dataUserAnimations->id}}" data-title="{{$dataUserAnimations->title}}" data-description="{{$dataUserAnimations->description}}" data-price="{{$dataUserAnimations->price}}" data-typee="video">
@@ -189,8 +189,8 @@ $i = 0;
                     					<?php
                                         }else{
                                     ?>
-                                    <p class="dummy-text-when-another-div-empty"> 
-                                                No Animation Available        
+                                    <p class="dummy-text-when-another-div-empty">
+                                                No Animation Available
                                             </p>
                                     <?php
                                         }
@@ -203,8 +203,8 @@ $i = 0;
                                             // var_dump($userMusician->id);
                                             // dd(count($queryMusiciansGetDataById));
                                             if(count($queryMusiciansGetDataById) > 0){
-                                                
-                                            
+
+
                                         ?>
                                 			        @foreach($queryMusiciansGetDataById as $dataUserMusicians)
                                     			        @php
@@ -214,14 +214,14 @@ $i = 0;
                                 								$stockImage = App\Models\Stock::whereImagesId($dataUserMusicians->id)->whereType('small')->select('name')->first();
                                 								$thumbnail = 'public/uploads/small/'.$stockImage->name;
                             								}
-                            								
+
                             								$watermarkedMusicPath = 'public/uploads/audio/large/';
-                            								
+
                         								@endphp
                                 					    <!--<audio controls class="audio-one" controlsList="nodownload" oncontextmenu="return false;">-->
                                          {{-- <!--                   <source src="{{ asset($watermarkedMusicPath).'/'. $dataUserMusicians->thumbnail }}"  type="audio/mp3">--> --}}
                                          <!--               </audio> -->
-                                                        <div class="wave d-flex" data-path="{{ asset('public/uploads/audio/large'). '/'. $dataUserMusicians->thumbnail }}">
+                                                        <div class="wave d-flex" data-path="{{ asset('uploads/audio/large'). '/'. $dataUserMusicians->thumbnail }}">
                                                                                 <div class="align-self-center music-col-2">
                                                                                     <a href="javascript:;" class="btn-music-play" id="baton-playMusic#{{ $dataUserMusicians->thumbnail}}">
                                                                                         <i class="fas fa-play"></i>
@@ -230,26 +230,26 @@ $i = 0;
                                                                                         <i class="fas fa-pause"></i>
                                                                                     </a>
                                                                                 </div>
-                                                                                
+
                                                                                 <div class="wave-container music-col-10"></div>
                                                                             </div>
                                 					@endforeach
                                 					<?php
                                             }else{
                                                 ?>
-                                                <p class="dummy-text-when-another-div-empty"> 
-                                                    No Music Available        
+                                                <p class="dummy-text-when-another-div-empty">
+                                                    No Music Available
                                                 </p>
-                                                
+
                                                 <?php
                                             }
                     					?>
             					</div>
         					@else
         					@endif
-        					
+
         			    </div>
-        		    </div>    
+        		    </div>
         			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
         				<div class="">
         					<div class="d-md-flex">
@@ -264,7 +264,7 @@ $i = 0;
         			</div>
         	    </div>
 			</div>
-        @endforeach 
+        @endforeach
     </div>
 @else
     <div class="row">

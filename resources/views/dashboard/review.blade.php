@@ -1,7 +1,7 @@
 @extends('dashboard.layout')
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
 <style>
 /**
  * The CSS shown here will not be introduced in the Quickstart guide, but shows
@@ -57,11 +57,11 @@
     content: '★ ';
 }
 .rate > input:checked ~ label {
-    color: #ffc700;    
+    color: #ffc700;
 }
 .rate:not(:checked) > label:hover,
 .rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
+    color: #deb217;
 }
 .rate > input:checked + label:hover,
 .rate > input:checked + label:hover ~ label,
@@ -103,7 +103,7 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="shootId" id="shootId" value="{{ $shootId }}">
 
-                    
+
                     <!-- Start Box Body -->
                     <div class="box-body">
                     <div id="errorReviewStar" style="display:none;"></div>
@@ -111,7 +111,7 @@
                             <div id="errorReviewStar" style="display:none;" class="col-sm-6"></div>
                             <label class="col-sm-2 control-label">{{ trans('misc.rate') }}</label>
                             <div class="col-sm-10">
-                            
+
                                 <div class="rate">
                                     <input type="radio" id="star-5" name="rate" value="5" />
                                     <label for="star-5">5 stars</label>
@@ -129,7 +129,7 @@
                         </div>
                     </div><!-- /.box-body -->
 
-                    
+
                     <div class="box-body">
                     <div id="errorReviewDescription" style="display:none;"></div>
                         <div class="form-group">
@@ -141,7 +141,7 @@
                     </div><!-- /.box-body -->
 
 
-                    
+
                      <!-- Start Box Body -->
                 <div class="box-body">
                 <div id="errorReviewImage" style="display:none;"></div>
@@ -150,7 +150,7 @@
                         <div class="col-sm-10">
 
                             <div class="btn-block margin-bottom-10">
-                            
+
                             </div>
 
                             <div class="btn btn-info box-file">
@@ -165,7 +165,7 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- /.box-body -->  
+                </div><!-- /.box-body -->
 
                     <div class="box-footer">
                         <a href="{{url('user/dashboard/my-shoots')}}" class="btn btn-default"><i class="fa fa-long-arrow-left"></i> {{ trans('auth.back') }}</a>
@@ -188,8 +188,8 @@
 @section('javascript')
 
 	<!-- icheck -->
-	<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
-  <script src="{{ asset('public/js/jquery.form.js') }}"></script>
+	<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('js/jquery.form.js') }}"></script>
   <script src="https://js.stripe.com/v3/"></script>
   <script src='https://js.paystack.co/v1/inline.js'></script>
 
@@ -235,7 +235,7 @@
             let Value = $(this).val();
             $("#review_rate").val('');
             $("#review_rate").val(Value);
-            
+
         });
     });
 

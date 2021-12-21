@@ -44,7 +44,7 @@ if( Auth::check() ) {
 ?>
 
 {{-- @extends('app') --}}
- @extends('new_template.layouts.app') 
+ @extends('new_template.layouts.app')
 
 @section('title') {{ $title }} @endsection
 
@@ -58,7 +58,7 @@ if( Auth::check() ) {
   padding: 10px;
   border-radius:10px;
   display: none;
-    margin: 10px auto 0px; 
+    margin: 10px auto 0px;
     width:50%;
 }
 
@@ -94,10 +94,10 @@ if( Auth::check() ) {
 	<div class="center-block text-center profile-user-over">
  		<div class="text-center">
 		 <a href="{{ url($user->username) }}">
-        		<img src="{{ asset('public/avatar').'/'.$user->avatar }}" width="150" height="150" class="img-circle border-avatar-profile avatarUser" />
+        		<img src="{{ asset('avatar').'/'.$user->avatar }}" width="150" height="150" class="img-circle border-avatar-profile avatarUser" />
         		</a>
 		 </div>
-		
+
 
         <h1 class="title-item none-overflow font-default">
         <a href="{{ $user->personal_website }}">
@@ -554,7 +554,7 @@ $(".changePass input").blur(function(){
                     dataType: 'JSON',
                     success: function (data) {
                         if(data.success) {
-                            swal("Good job!", "Successfully Added!", "success"); 
+                            swal("Good job!", "Successfully Added!", "success");
                         } else {
                             swal("Failed!", data.msg, "error");
                         }
@@ -562,8 +562,8 @@ $(".changePass input").blur(function(){
                     },error:function(err){
                         $(".changePassBtn").html($(".changePass input").val()+' <i class="fa fa-pencil"></i>');
                         console.log(err);
-                    } 
-                }); 
+                    }
+                });
             }
         });
       });
@@ -582,7 +582,7 @@ $('#personalWebForm').on('submit',function(e){
             dataType: 'JSON',
             success: function (data) {
                 if(data.success) {
-                    swal("Good job!", "Successfully Added!", "success"); 
+                    swal("Good job!", "Successfully Added!", "success");
                 } else {
                     swal("Failed!", data.msg, "error");
                 }
@@ -590,8 +590,8 @@ $('#personalWebForm').on('submit',function(e){
             },error:function(err){
                 $(".changePassBtn").html($(".changePass input").val()+' <i class="fa fa-pencil"></i>');
                 console.log(err);
-            } 
-        }); 
+            }
+        });
     }
 });
 </script>

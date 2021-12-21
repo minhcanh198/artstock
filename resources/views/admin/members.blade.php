@@ -85,14 +85,14 @@
                   @foreach( $data as $user )
                     <tr>
                       <td>{{ $user->id }}</td>
-					  <td><img src="{{asset('public/avatar').'/'.$user->avatar}}" width="20" height="20" class="img-circle" /> {{ $user->username }}</td>
+					  <td><img src="{{asset('avatar').'/'.$user->avatar}}" width="20" height="20" class="img-circle" /> {{ $user->username }}</td>
 					  <td>
 						@if($user->user_type_id != "")
 							@foreach($types as $type)
 								@if($user->user_type_id == $type->types_id)
 									{{ $type->type_name }}
 								@endif
-							@endforeach	
+							@endforeach
 						@else
 							{{ '---' }}
 						@endif

@@ -44,7 +44,7 @@ if( Auth::check() ) {
 	// All Images resolutions
 	$stockImages = $response->stock;
 	// dd($stockImages);
-	 
+
 	// Similar Photos
 	$arrayTags  = explode(",",$response->tags);
 	$countTags = count( $arrayTags );
@@ -75,7 +75,7 @@ if( Auth::check() ) {
 @section('keywords_custom'){{$response->tags .','}}@endsection
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
 
 <meta property="og:type" content="website" />
 <meta property="og:image:width" content="{{App\Helper::getWidth('public/uploads/preview/'.$response->preview)}}"/>
@@ -83,12 +83,12 @@ if( Auth::check() ) {
 
 <meta property="og:site_name" content="{{$settings->title}}"/>
 <meta property="og:url" content="{{url("photo/$response->id").'/'.str_slug($response->title)}}"/>
-<meta property="og:image" content="{{ asset('public/uploads/preview/') }}/{{$response->preview}}"/>
+<meta property="og:image" content="{{ asset('uploads/preview/') }}/{{$response->preview}}"/>
 <meta property="og:title" content="{{ $response->title.' - '.trans_choice('misc.photos_plural', 1 ).' #'.$response->id }}"/>
 <meta property="og:description" content="{{ App\Helper::removeLineBreak( e( $response->description ) ) }}"/>
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="{{ asset('public/uploads/preview/') }}/{{$response->preview}}" />
+<meta name="twitter:image" content="{{ asset('uploads/preview/') }}/{{$response->preview}}" />
 <meta name="twitter:title" content="{{ $response->title.' - '.trans_choice('misc.photos_plural', 1 ).' #'.$response->id }}" />
 <meta name="twitter:description" content="{{ App\Helper::removeLineBreak( e( $response->description ) ) }}"/>
 
@@ -228,7 +228,7 @@ if( Auth::check() ) {
 
 
 	<div class="text-center margin-bottom-20">
-    <div style="margin: 0 auto; background: url('{{asset('public/img/pixel.gif')}}') repeat center center; max-width:{{App\Helper::getWidth('public/uploads/preview/'.$response->preview)}}px; max-height: {{App\Helper::getHeight('public/uploads/preview/'.$response->preview)}}px">
+    <div style="margin: 0 auto; background: url('{{asset('img/pixel.gif')}}') repeat center center; max-width:{{App\Helper::getWidth('public/uploads/preview/'.$response->preview)}}px; max-height: {{App\Helper::getHeight('public/uploads/preview/'.$response->preview)}}px">
         <a data-fancybox href="{{url('public/uploads/preview',$response->preview)}}">
       <img class="img-responsive img-rounded" style="display: inline-block;" src="{{url('public/uploads/preview',$response->preview)}}" />
       </a>
@@ -268,7 +268,7 @@ if( Auth::check() ) {
 <div class="btn-block margin-bottom-20 po">
 	<h3>{{trans('misc.similar_photos')}}</h3>
 	<div id="imagesFlex" class="flex-images btn-block margin-bottom-40">
-		 @include('includes.images') 
+		 @include('includes.images')
 		</div>
 </div>
 <!-- End Block -->
@@ -290,7 +290,7 @@ if( Auth::check() ) {
 
 	<div class="media">
             <span class="pull-left">
-                <img alt="Image" src="{{ asset('public/avatar')}}/{{ Auth::user()->avatar }}" class="media-object img-circle" width="50">
+                <img alt="Image" src="{{ asset('avatar')}}/{{ Auth::user()->avatar }}" class="media-object img-circle" width="50">
             </span>
 
             <div class="media-body">
@@ -420,7 +420,7 @@ if( Auth::check() ) {
 
 				@endif
 			</div><!-- col-xs-6 -->
-		
+
 
 			<!-- col-xs-6 -->
 			<div class="col-xs-6" style="width: 50%;">
@@ -544,7 +544,7 @@ if( Auth::check() ) {
       </form>
 
     @else
-	
+
     <form action="{{url('purchase/stock', $stockImages[2]->token)}}" method="post" id="formBuy">
 
       @csrf
@@ -600,7 +600,7 @@ if( Auth::check() ) {
       </div><!-- form-group -->
 
       <!-- btn-sale -->
-  		
+
 
      @if(Auth::check() && Auth::user()->id == $response->user_id)
      <button type="submit" class="btn btn-success btn-lg btn-block dropdown-toggle" data-type="small" id="downloadBtn">
@@ -612,10 +612,10 @@ if( Auth::check() ) {
        {{trans('misc.buy')}}
        <span id="priceItem">{{ $settings->currency_position == 'left' ? $settings->currency_symbol : null }}
             <span id="itemPrice">{{$response->price}}</span>
-                {{ $settings->currency_position == 'right' ? $settings->currency_symbol : null }} 
+                {{ $settings->currency_position == 'right' ? $settings->currency_symbol : null }}
                     <small class="sm-currency-code">{{$settings->currency_code}}</small></span>
      </button>
-     
+
      <!-- Stripe Checkout Integration start -->
   		<!--<form action="/purchase" method="POST">-->
           <!--<script
@@ -630,12 +630,12 @@ if( Auth::check() ) {
             data-currency="usd">
           </script>-->
         <!--</form>-->
-        
-        <!--<button 
-            type="submit" 
-            class="btn btn-success btn-lg btn-block dropdown-toggle stripeBtn" 
-            data-type="small" 
-            id="downloadBtn" 
+
+        <!--<button
+            type="submit"
+            class="btn btn-success btn-lg btn-block dropdown-toggle stripeBtn"
+            data-type="small"
+            id="downloadBtn"
             data-key="{{env('STRIPE_KEY')}}"
             data-amount="{{$response->price*100}}"
             data-name="{{$response->title}}"
@@ -647,15 +647,15 @@ if( Auth::check() ) {
        <span id="priceItem">{{ $settings->currency_position == 'left' ? $settings->currency_symbol : null }}<span id="itemPrice">{{$response->price}}</span>{{ $settings->currency_position == 'right' ? $settings->currency_symbol : null }} <small class="sm-currency-code">{{$settings->currency_code}}</small></span>
         </button>-->
         <!-- Stripe Checkout Integration end -->
-     
-     
-     
+
+
+
      @endif
 
-  		
-  		
-  		
-  		
+
+
+
+
       <!-- btn-sale -->
     </form>
 
@@ -837,7 +837,7 @@ if( Auth::check() ) {
 @endsection
 
 @section('javascript')
-<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
 var URL_BASE = '<?php echo url('/') ?>';
 
@@ -1261,7 +1261,7 @@ function confirmPurchase() {
 
 
       @if(Auth::check())
-      
+
       var $currentImage = $('.itemPrice').attr("data-type");
       var $formBuy = $('#formBuy');
 

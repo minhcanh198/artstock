@@ -88,22 +88,22 @@
                   @foreach( $data as $image )
                     <tr>
                       <td>{{ $image->id }}</td>
-                      <!--<td><img src="{{asset('public/uploads/thumbnail').'/'.$image->thumbnail}}" width="50" /></td>-->
-                      
+                      <!--<td><img src="{{asset('uploads/thumbnail').'/'.$image->thumbnail}}" width="50" /></td>-->
+
                       @if($image->is_type=='audio')
                         <td colspan="2">
                             <audio controls>
                               <source src="<?php echo url('/public/uploads/audio/large/').'/' . $image->thumbnail; ?>" type="audio/mpeg">
                               Your browser does not support the audio element.
-                            </audio>     
+                            </audio>
                         </td>
                       @else
                       <td>
                           @if($image->is_type=='image')
-                                <img src="{{asset('public/uploads/thumbnail').'/'.$image->thumbnail}}" width="50" />
+                                <img src="{{asset('uploads/thumbnail').'/'.$image->thumbnail}}" width="50" />
                           @else
                             <?php $imgg = explode(".",$image->thumbnail); $imggg = 'screen-shot-'.$imgg[0].'.png'; ?>
-                                <img src="{{asset('public/uploads/video/screen_shot/'.$imggg)}}" width="50" />
+                                <img src="{{asset('uploads/video/screen_shot/'.$imggg)}}" width="50" />
                           @endif
                       </td>
                       <td><a href="@if($image->is_type=='image') {{ url('photo', $image->id) }}  @else {{ url('video', $image->id) }}  @endif" title="{{$image->title}}" target="_blank">{{ str_limit($image->title, 20, '...') }} <i class="fa fa-external-link-square"></i></a></td>
@@ -145,7 +145,7 @@
                       		</td>
 
                     </tr><!-- /.TR -->
-                  
+
                   @endforeach
 
                     @else

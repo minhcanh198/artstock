@@ -46,9 +46,9 @@
                     @php
 
                     if(null !== $purchase->images()) {
-                      
+
                         if($purchase->images()->is_type=='image'){
-                            $image_photo = asset('public/uploads/thumbnail').'/'.$purchase->images()->thumbnail;
+                            $image_photo = asset('uploads/thumbnail').'/'.$purchase->images()->thumbnail;
                             $image_title = $purchase->images()->title;
                             $image_url   = url('photo', $purchase->images()->id);
                             $download_url = url('purchase/stock', $purchase->images()->token_id);
@@ -56,7 +56,7 @@
                         else if($purchase->images()->is_type=='video')
                         {
                             $imgg = explode(".",$purchase->images()->thumbnail); $imggg = 'screen-shot-'.$imgg[0].'.png';
-                            $image_photo = asset('public/uploads/video/screen_shot/'.$imggg);
+                            $image_photo = asset('uploads/video/screen_shot/'.$imggg);
                             $image_title = $purchase->images()->title;
                             $image_url   = url('video', $purchase->images()->id);
                             $download_url = url('purchase/stock', $purchase->images()->token_id);

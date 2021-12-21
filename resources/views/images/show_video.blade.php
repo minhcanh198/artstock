@@ -44,7 +44,7 @@ if( Auth::check() ) {
 	// All Images resolutions
 	$stockImages = $response->stock;
 	// dd($stockImages);
-	 
+
 	// Similar Photos
 	$arrayTags  = explode(",",$response->tags);
 	$countTags = count( $arrayTags );
@@ -60,14 +60,14 @@ if( Auth::check() ) {
 	->orderByRaw('RAND()')
 	->take(5)
     ->get();
-    
+
 
 
 	// Comments
 	$comments_sql = $response->comments()->where('status','1')->orderBy('date', 'desc')->paginate(10);
 
  ?>
- 
+
  @extends('new_template.layouts.app')
  {{-- @extends('app') --}}
 
@@ -78,7 +78,7 @@ if( Auth::check() ) {
 @section('keywords_custom'){{$response->tags .','}}@endsection
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
 
 <meta property="og:type" content="website" />
 {{-- <meta property="og:image:width" content="{{App\Helper::getWidth('public/uploads/video/water_mark_large/'.'watermark-'.$response->thumbnail)}}"/>
@@ -86,12 +86,12 @@ if( Auth::check() ) {
 {{-- {{ dd('pourfawouur5') }} --}}
 {{--<meta property="og:site_name" content="{{$settings->title}}"/>
 <meta property="og:url" content="{{url("photo/$response->id").'/'.str_slug($response->title)}}"/>
-<meta property="og:image" content="{{ asset('public/uploads/preview/') }}/{{$response->preview}}"/>
+<meta property="og:image" content="{{ asset('uploads/preview/') }}/{{$response->preview}}"/>
 <meta property="og:title" content="{{ $response->title.' - '.trans_choice('misc.photos_plural', 1 ).' #'.$response->id }}"/>
 <meta property="og:description" content="{{ App\Helper::removeLineBreak( e( $response->description ) ) }}"/>
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="{{ asset('public/uploads/preview/') }}/{{$response->preview}}" />
+<meta name="twitter:image" content="{{ asset('uploads/preview/') }}/{{$response->preview}}" />
 <meta name="twitter:title" content="{{ $response->title.' - '.trans_choice('misc.photos_plural', 1 ).' #'.$response->id }}" />
 <meta name="twitter:description" content="{{ App\Helper::removeLineBreak( e( $response->description ) ) }}"/>--}}
 
@@ -234,8 +234,8 @@ $watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
 @endphp
 
 	<div class="text-center margin-bottom-20">
-    {{--<!-- <div style="margin: 0 auto; background: url('{{asset('public/img/pixel.gif')}}') repeat center center; max-width:{{App\Helper::getWidth('public/uploads/preview/'.$response->preview)}}px; max-height: {{App\Helper::getHeight('public/uploads/preview/'.$response->preview)}}px"> --> --}}
-    <div style="margin: 0 auto; background: url('{{asset('public/img/pixel.gif')}}') repeat center center; ">
+    {{--<!-- <div style="margin: 0 auto; background: url('{{asset('img/pixel.gif')}}') repeat center center; max-width:{{App\Helper::getWidth('public/uploads/preview/'.$response->preview)}}px; max-height: {{App\Helper::getHeight('public/uploads/preview/'.$response->preview)}}px"> --> --}}
+    <div style="margin: 0 auto; background: url('{{asset('img/pixel.gif')}}') repeat center center; ">
       <!-- <img class="img-responsive img-rounded" style="display: inline-block;" src="{{url('public/uploads/preview',$response->preview)}}" /> -->
         <video width="850" height="510" controls controlsList="nodownload" >
             @if($response->extension == "mp4")
@@ -286,7 +286,7 @@ width: 100%;
     <div class="btn-block margin-bottom-20 po">
         <h3>{{trans('misc.similar_photos')}}</h3>
         <div id="imagesFlex" class="flex-images btn-block margin-bottom-40">
-            @include('includes.images') 
+            @include('includes.images')
             </div>
     </div>
     <!-- End Block -->
@@ -308,7 +308,7 @@ width: 100%;
 
 	<div class="media">
             <span class="pull-left">
-                <img alt="Image" src="{{ asset('public/avatar')}}/{{ Auth::user()->avatar }}" class="media-object img-circle" width="50">
+                <img alt="Image" src="{{ asset('avatar')}}/{{ Auth::user()->avatar }}" class="media-object img-circle" width="50">
             </span>
 
             <div class="media-body">
@@ -363,7 +363,7 @@ width: 100%;
 
 	 	</div>
 	 @endif
-     
+
 </div><!-- End Block -->
 
  </div><!-- /COL MD -->
@@ -446,7 +446,7 @@ width: 100%;
 			</div>
 	  </div>
 	</div><!-- End Panel -->
-    
+
 	@if( Auth::check() && $response->status == 'active')
 		<div class="row margin-bottom-20">
 			<!-- col-xs-6 -->
@@ -465,7 +465,7 @@ width: 100%;
 
 				@endif
 			</div><!-- col-xs-6 -->
-		
+
 
 			<!-- col-xs-6 -->
 			<div class="col-xs-6" style="width: 50%;">
@@ -490,7 +490,7 @@ width: 100%;
 		</div>
 	@endif
 
-    
+
 	<!-- Start Panel -->
  	<div class="panel panel-default">
 	  <div class="panel-body padding-zero">
@@ -527,15 +527,15 @@ width: 100%;
 	</div><!-- End Panel -->
 
 	@endif
-    
+
   <!-- btn-group -->
 	<div class="btn-group btn-block margin-bottom-20">
-    
-    
+
+
     @if($response->item_for_sale == 'free'
         || Auth::check() && Auth::user()->id == $response->user_id && $response->item_for_sale == 'free'
         )
-        
+
 		<form action="{{url('download/stock', $stockImages[0]->token)}}" method="post">
         {{-- <!-- <form action="{{url('download/stock')}}" method="post"> --> --}}
 
@@ -548,7 +548,7 @@ width: 100%;
           @endguest
 
           <div class="form-group">
-          
+
             <dd>
               @foreach( $stockImages as $stock )
         		 	<?php
@@ -582,7 +582,7 @@ width: 100%;
             </dd>
           </div>
           <!-- form-group -->
-          
+
             <!-- btn-free -->
                 <!-- <button type="submit" class="btn btn-success btn-lg btn-block dropdown-toggle" id="downloadBtn"> -->
                 <button type="submit" class="btn btn-success btn-lg btn-block " id="downloadBtn">
@@ -590,9 +590,9 @@ width: 100%;
                     </button>
             <!-- btn-free -->
         </form>
-      
-    @else 
-    
+
+    @else
+
     <form action="{{url('purchase/stock', $stockImages[0]->token)}}" method="post" id="formBuy">
     {{-- <!-- <form action="{{url('purchase/stock')}}" method="post" id="formBuy"> --> --}}
       @csrf
@@ -613,7 +613,7 @@ width: 100%;
     @endif
 
       <div class="form-group">
-      
+
         <dd>
           @foreach( $stockImages as $stock )
     		 	<?php
@@ -645,9 +645,9 @@ width: 100%;
           @endforeach
 
         </dd>
-      </div> 
+      </div>
 	  <!-- form-group -->
-      
+
       @if(Auth::check() && Auth::user()->id != $response->user()->id)
         <!-- Payment Options -->
         <h5>Select payment method</h5>
@@ -676,7 +676,7 @@ width: 100%;
                 </span>
               </label>
             </div>-->
-            
+
         </div>
         @endif
         <style>
@@ -692,12 +692,12 @@ width: 100%;
             background-color: transparent;
             color: #000;
         }
-        
+
         .payment-panel-main {
             display: -ms-flexbox!important;
             display: flex!important;
         }
-        
+
          .payment-panel-main .payment-panel-box{
             -ms-flex-preferred-size: 0;
             flex-basis: 0;
@@ -708,25 +708,25 @@ width: 100%;
         /* Payment radio css */
         </style>
         <!-- Payment Options -->
-      
+
       <!-- btn-sale -->
-  		
-          
+
+
       @if(Auth::check() && Auth::user()->id != $response->user()->id)
         <!-- Commented by shahzad
         <button type="submit" class="btn btn-success btn-lg btn-block dropdown-toggle" data-type="small" id="downloadButton">
             <i class="fa fa-cloud-download myicon-right"></i> {{trans('misc.download')}}
         </button>-->
-        
+
         @if(Auth::check())
-            
+
             <!-- Paypal Button -->
             <!-- Set up a container element for the button -->
             <div id="paypalDiv" class="hide">
                 <div id="paypal-button-container"></div>
             </div>
             <!-- Paypal Button -->
-            
+
             <div id="stripeDiv">
                 <button type="submit" class="btn btn-success btn-lg btn-block dropdown-toggle stripeBtn" data-type="small" id="downloadButton">
                     <i class="fa fa-shopping-cart myicon-right"></i>
@@ -749,7 +749,7 @@ width: 100%;
 
 
 		</div><!-- End btn-group -->
-        
+
 @if($response->item_for_sale == 'free')
 
 	<?php
@@ -923,7 +923,7 @@ width: 100%;
 @endsection
 
 @section('javascript')
-<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
 var URL_BASE = '<?php echo url('/') ?>';
 
@@ -1344,24 +1344,24 @@ function confirmPurchase() {
           $('#itemPrice').html(($price*10));
         }
       });
-    
-    /* Payment Option */    
-    $('.paymentOption').on('click', function() { 
+
+    /* Payment Option */
+    $('.paymentOption').on('click', function() {
         switch ($(this).attr("data-type")) {
             case 'stripe':
               $("#paypalDiv").slideUp();
               $("#stripeDiv").slideDown();
               break;
-              
+
             case 'paypal':
               $("#stripeDiv").slideUp();
               $("#paypalDiv").slideDown();
               break;
           }
     });
-    
-    /* Payment Option */  
-     
+
+    /* Payment Option */
+
     var strMoney = {{$response->price}}; //Set for Stripe
     $('.itemPrice').on('click', function() {
 
@@ -1494,20 +1494,20 @@ $(window).on('popstate', function() {
                 console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
                 var transaction = orderData.purchase_units[0].payments.captures[0];
                 //alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
-                
+
                 //window.location = 'thankyou.php?txt_id=' + transaction.id;
-                
-                
+
+
                 // Replace the above to show a success message within this page, e.g.
                 // const element = document.getElementById('paypal-button-container');
                 // element.innerHTML = '';
                 // element.innerHTML = '<h3>Thank you for your payment!</h3>';
                 // Or go to another URL:  actions.redirect('thank_you.html');
-                
+
                 $('.stripeBtn').parents('form').append($('<input>').attr({ type: 'hidden', name: 'paypalTxnId', value: transaction.id })).submit();
             });
         },
-        
+
         onError: function (err) {
             // For example, redirect to a specific error page
             //window.location.href = "/your-error-page-here";

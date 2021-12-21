@@ -7,7 +7,7 @@
                     @if($getRouteDetails != "")
                         @if($getRouteDetails->route_img != "")
                             <div class="col-md-6 padding-left-0">
-                                <img src="<?php echo asset('public/destination_page_new/destination-1.jpg') ?>" alt="" class="img-responsive set-height-450">
+                                <img src="<?php echo asset('destination_page_new/destination-1.jpg') ?>" alt="" class="img-responsive set-height-450">
                             </div>
                         @else
 					        <div class="col-md-8 offset-md-2 pt-4 pb-4">
@@ -44,7 +44,7 @@
 				</div>
 				<!-- <div class="row margin-top-destination-location-box"> -->
 			        <artistcard citySlug=<?php echo $getRouteDetails->route_slug ?> cityRoute=<?php echo 'route'; ?> sessionUser=<?php echo (\Auth::user()) ? \Auth::user()->id : ''; ?>></artistcard>
-                    
+
                     <!-- <div class="col-sm-12 text-center mt-4-custom">
                         <a href="" class="load-more-one">
                             Load More
@@ -53,7 +53,7 @@
 				<!-- </div> -->
 			</div>
         </section>
-        <section class="last-section-photographer" style="background: url(<?php echo asset('public/destination_page_new/destination-1.jpg') ?>)">
+        <section class="last-section-photographer" style="background: url(<?php echo asset('destination_page_new/destination-1.jpg') ?>)">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6 set-padding-col">
@@ -69,7 +69,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="owl-carousel owl-carousel-photographer owl-theme">
-                            
+
                             @foreach($getRoutesByCity as $routesData)
                                 <div class="item">
                                     <div class="popular-destination-box">
@@ -105,6 +105,6 @@
                 </div>
             </div>
         </section>
-		
-        
+
+
         @endsection

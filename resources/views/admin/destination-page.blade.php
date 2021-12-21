@@ -1,8 +1,8 @@
 @extends('admin.layout')
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -55,7 +55,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Title</label>
                             <div class="col-sm-10">
-                                <input type="text" name="title" id="title" class="form-control" value="{{ ($destinationPageSettings != null && $destinationPageSettings->title != '') ? $destinationPageSettings->title : '' }}">                        
+                                <input type="text" name="title" id="title" class="form-control" value="{{ ($destinationPageSettings != null && $destinationPageSettings->title != '') ? $destinationPageSettings->title : '' }}">
                             </div>
                         </div>
                     </div><!-- /.box-body -->
@@ -65,7 +65,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Banner Heading</label>
                             <div class="col-sm-10">
-                                <input type="text" name="header_heading" id="header_heading" class="form-control" value="{{ ($destinationPageSettings != null && $destinationPageSettings->header_heading != '') ? $destinationPageSettings->header_heading : '' }}">                        
+                                <input type="text" name="header_heading" id="header_heading" class="form-control" value="{{ ($destinationPageSettings != null && $destinationPageSettings->header_heading != '') ? $destinationPageSettings->header_heading : '' }}">
                             </div>
                         </div>
                     </div><!-- /.box-body -->
@@ -75,7 +75,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Banner Description</label>
                             <div class="col-sm-10">
-                                <input type="text" name="header_description" id="header_description" class="form-control" value="{{ ($destinationPageSettings != null && $destinationPageSettings->header_description != '') ? $destinationPageSettings->header_description : '' }}">                        
+                                <input type="text" name="header_description" id="header_description" class="form-control" value="{{ ($destinationPageSettings != null && $destinationPageSettings->header_description != '') ? $destinationPageSettings->header_description : '' }}">
                             </div>
                         </div>
                     </div><!-- /.box-body -->
@@ -102,14 +102,14 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- /.box-body -->  
+                    </div><!-- /.box-body -->
 
                     <!-- Start Box Body -->
                     <div class="box-body">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">First Section Heading</label>
                             <div class="col-sm-10">
-                                <input type="text" name="first_section_heading" id="first_section_heading" class="form-control" value="{{ ($destinationPageSettings != null && $destinationPageSettings->first_section_header != '') ? $destinationPageSettings->first_section_header : '' }}">                        
+                                <input type="text" name="first_section_heading" id="first_section_heading" class="form-control" value="{{ ($destinationPageSettings != null && $destinationPageSettings->first_section_header != '') ? $destinationPageSettings->first_section_header : '' }}">
                             </div>
                         </div>
                     </div><!-- /.box-body -->
@@ -119,7 +119,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Second Section Heading</label>
                             <div class="col-sm-10">
-                                <input type="text" name="second_section_heading" id="second_section_heading" class="form-control" value="{{ ($destinationPageSettings != null && $destinationPageSettings->second_section_header != '') ? $destinationPageSettings->second_section_header : '' }}">                        
+                                <input type="text" name="second_section_heading" id="second_section_heading" class="form-control" value="{{ ($destinationPageSettings != null && $destinationPageSettings->second_section_header != '') ? $destinationPageSettings->second_section_header : '' }}">
                             </div>
                         </div>
                     </div><!-- /.box-body -->
@@ -129,7 +129,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Second Section Content</label>
                             <div class="col-sm-10">
-                                <input type="text" name="second_section_content" id="second_section_content" class="form-control" value="{{ ($destinationPageSettings != null && $destinationPageSettings->second_section_content != '') ? $destinationPageSettings->second_section_content : '' }}">                        
+                                <input type="text" name="second_section_content" id="second_section_content" class="form-control" value="{{ ($destinationPageSettings != null && $destinationPageSettings->second_section_content != '') ? $destinationPageSettings->second_section_content : '' }}">
                             </div>
                         </div>
                     </div><!-- /.box-body -->
@@ -139,7 +139,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Third Section Content</label>
                             <div class="col-sm-10">
-                                <input type="text" name="third_section_content" id="third_section_content" class="form-control" value="{{ ($destinationPageSettings != null && $destinationPageSettings->third_section_content != '') ? $destinationPageSettings->third_section_content : '' }}">                        
+                                <input type="text" name="third_section_content" id="third_section_content" class="form-control" value="{{ ($destinationPageSettings != null && $destinationPageSettings->third_section_content != '') ? $destinationPageSettings->third_section_content : '' }}">
                             </div>
                         </div>
                     </div><!-- /.box-body -->
@@ -173,7 +173,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Third Section Button Text</label>
                             <div class="col-sm-10">
-                                <input type="text" name="third_section_button_text" id="third_section_button_text" class="form-control" value="{{ ($destinationPageSettings != null && $destinationPageSettings->third_section_button_text != '') ? $destinationPageSettings->third_section_button_text : '' }}">                        
+                                <input type="text" name="third_section_button_text" id="third_section_button_text" class="form-control" value="{{ ($destinationPageSettings != null && $destinationPageSettings->third_section_button_text != '') ? $destinationPageSettings->third_section_button_text : '' }}">
                             </div>
                         </div>
                     </div><!-- /.box-body -->
@@ -197,10 +197,10 @@
 @section('javascript')
 
 	<!-- icheck -->
-	<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
 
-    <script src="{{{ asset('public/plugins/ckeditor/ckeditor.js') }}}" type="text/javascript"></script>
+    <script src="{{{ asset('plugins/ckeditor/ckeditor.js') }}}" type="text/javascript"></script>
 
     <script type="text/javascript">
 		$(function () {

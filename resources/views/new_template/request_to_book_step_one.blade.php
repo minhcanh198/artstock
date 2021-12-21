@@ -1,6 +1,6 @@
 @extends('new_template.layouts.app')
 @section('content')
-    <section class="form-main-section" style="background: url(<?php echo asset('public/destination_page_new/destination-1.jpg') ?>)">
+    <section class="form-main-section" style="background: url(<?php echo asset('destination_page_new/destination-1.jpg') ?>)">
         <div class="form-area-box">
             <div class="container">
                 <div class="row">
@@ -43,7 +43,7 @@
                                             <h1 id="changingHeading" class="title-form">You are requesting to book a music with {{ ($getUserData->name != "") ? $getUserData->name : $getUserData->username }} from {{ $getCityAndCountry->name }}, {{ $getCityAndCountry->countryName }}. </h1>
                                         @else
                                         @endif
-                                        
+
                                     @endif
                                 @else
                                     <h1 id="changingHeading" class="title-form">You're requesting to book.</h1>
@@ -108,8 +108,8 @@
                                 @if($datePrefered == null)
                                     <div class="form-group">
                                         <label for="photoShootTwo" class="label-form-photo-shoot mb-4-cutom">What day would you like to book?</label>
-                                        <input type="text" class="form-control DatePrefered" readonly name="DatePrefered" id="DatePrefered"> 
-                                        
+                                        <input type="text" class="form-control DatePrefered" readonly name="DatePrefered" id="DatePrefered">
+
                                     </div>
                                     <div id="errorDatePreferedDiv"></div>
                                 @else

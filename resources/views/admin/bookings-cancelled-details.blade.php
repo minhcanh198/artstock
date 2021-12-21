@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('css')
-<link href="{{{ asset('public/plugins/iCheck/all.css') }}}" rel="stylesheet" type="text/css" />
+<link href="{{{ asset('plugins/iCheck/all.css') }}}" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')
 <!-- Content Wrapper. Contains page content -->
@@ -8,7 +8,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h4>
-           {{ trans('admin.admin') }} <i class="fa fa-angle-right margin-separator"></i> {{ trans_choice('misc.cancelled_request_details', 0) }} 
+           {{ trans('admin.admin') }} <i class="fa fa-angle-right margin-separator"></i> {{ trans_choice('misc.cancelled_request_details', 0) }}
           </h4>
         </section>
 
@@ -37,21 +37,21 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                    
+
                 </div><!-- /.box-header -->
 
                 <div class="box-body table-responsive no-padding">
-               
+
                   <div class="table-div">
                   <table cellspacing="0" class=" dashboard-table-custom uk-table dataTable" id="dt_colVis" width="100%">
                     <thead>
-                      
+
                     </thead>
                     <tbody>
                     <h3 class="text-center" style="font-size: 36px;">General</h3>
                       <tr>
                         <td class="">City:</td>
-                        @php 
+                        @php
                           $getCountryName = \App\Models\Country::where('id','=',$data->CountryId)->first();
                         @endphp
                         <td class="">{{ $data->city_name }}, {{ $getCountryName->country_name }} </td>
@@ -78,7 +78,7 @@
                         <td class="">Requested Date(s):</td>
                         <td class="">{{  App\Helper::formatDate($data->requested_date) }} - {{ $data->requested_time }} (preferred)</td>
                       </tr>
-                      
+
                       <tr>
                         <td class="">Requested Customer:</td>
                         <td class="">{{ $data->UserName }}</td>
@@ -115,7 +115,7 @@
                         <td class="">{{ $data->important_information }}</td>
                       </tr>
                       @endif
-                      
+
                       @if($data->time_restriction != "")
                       <tr>
                         <td class="">Time Restriction:</td>
@@ -127,14 +127,14 @@
                   @if($data->trip_reason != "" || $data->preferred_style != "" || $data->level_of_direction != "")
                   <table cellspacing="0" class=" dashboard-table-custom uk-table dataTable" id="dt_colVis" width="100%">
                     <tbody>
-                      
+
                       <h3 class="text-center" style="font-size: 36px;">Inspiration</h3>
-                        
+
                       <tr>
                         <td class="">Occasion:</td>
                         <td class="">{{ $data->trip_reason }}</td>
                       </tr>
-                      
+
                       <tr>
                         <td class="">Style:</td>
                         <td class="">{{ $data->preferred_style }}</td>
@@ -145,12 +145,12 @@
                         <td class="" >{{ $data->level_of_direction }}</td>
                       </tr>
                     </tbody>
-                  </table>    
+                  </table>
                   @endif
-                  <table cellspacing="0" class=" dashboard-table-custom uk-table dataTable" id="dt_colVis" width="100%">    
+                  <table cellspacing="0" class=" dashboard-table-custom uk-table dataTable" id="dt_colVis" width="100%">
                     <tbody>
                       <h3 class="text-center" style="font-size: 36px;">Route</h3>
-                        
+
                       @if($data->route_id != 0)
                         @php
                           $getRouteDetails = \App\Models\Routes::where('id','=',$data->route_id)->first();
@@ -159,7 +159,7 @@
                           <td class="">Route:</td>
                           <td class="">{{ $getRouteDetails->route_name }}</td>
                         </tr>
-                        
+
                         <tr>
                           <td class="">Route Description:</td>
                           <td class="">{{ $getRouteDetails->description }}</td>
@@ -168,7 +168,7 @@
                        {{--<tr>
                           <td class="" >Level of direction:</td>
                           <td class="" >{{ $data->level_of_direction }}</td>
-                        </tr>--}} 
+                        </tr>--}}
                       @else
                         @php
                           $getUserDetailss = \App\Models\User::where('id','=',$data->customer_id)->first();
@@ -177,7 +177,7 @@
                           <td class="">Route:</td>
                           <td class="">{{ 'Custom Route for ' . $getUserDetailss->username }} - {{ $data->city_name }}</td>
                         </tr>
-                        
+
                         <tr>
                           <td class="">Route Vision:</td>
                           <td class="">{{ $data->describe_route }}</td>
@@ -186,13 +186,13 @@
                         <tr>
                           <td class="">Requested Meeting Location:</td>
                           <td class="">{{ $data->requested_meeting_location }}</td>
-                        </tr> 
+                        </tr>
                       @endif
-                        
+
                     </tbody>
                   </table>
                   </div>
-                  
+
 
 
                 </div><!-- /.box-body -->

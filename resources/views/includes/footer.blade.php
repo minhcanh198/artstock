@@ -5,7 +5,7 @@
     		<div class="row">
     			<div class="col-md-4">
     				<a href="{{ url('/') }}">
-    					<img src="{{ asset('public/img/logo.png') }}" />
+    					<img src="{{ asset('img/logo.png') }}" />
     				</a>
     			   <p class="margin-tp-xs">{{ $settings->description }}</p>
 

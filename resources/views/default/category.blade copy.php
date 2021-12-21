@@ -27,7 +27,7 @@
 <div class="container-fluid margin-bottom-40">
 
 <div class="row" >
-					
+
 					<div class="tabs">
 						<div class="tabs__navigation" data-aos="fade-down">
 							@php
@@ -105,18 +105,18 @@
 					</div>
 				</div>
 			</div>
-			
+
 			@php
 			$categorySlug = $category->slug;
-			
+
 			if($categorySlug == "animation" ){
-				$cateSlug = "animator"; 
+				$cateSlug = "animator";
 			}else if($categorySlug == "photo" ){
-				$cateSlug = "photographer"; 
+				$cateSlug = "photographer";
 			}else if($categorySlug == "video" ){
-				$cateSlug = "videographer"; 
+				$cateSlug = "videographer";
 			}else if($categorySlug == "music" ){
-				$cateSlug = "musician"; 
+				$cateSlug = "musician";
 			}
 			$allUsersCount = App\Models\User::join('types','types.types_id','=', 'users.user_type_id')->where('user_type_id','!=', '')->where('types.type_name','=',$cateSlug)->get();
 			@endphp
@@ -125,7 +125,7 @@
 				<?php
 					$categorySlug = $category->slug;
 					if($categorySlug == "animation"){
-						$cateSlug = "animator"; 
+						$cateSlug = "animator";
 						$allUsers = App\Models\User::join('types','types.types_id','=', 'users.user_type_id')->where('user_type_id','!=', '')->where('types.type_name','=',$cateSlug)->get();
 						// dd($allUsers[0]->id);
 						// var_dump($allUsers[0]->id);
@@ -134,14 +134,14 @@
 								$users = App\Models\User::find($allUsers[$UA]->id);
 								// dd($users->types()->type_name);
 
-								$categorySlug = $category->slug;			
+								$categorySlug = $category->slug;
 				?>
-				
+
 								<div class="col-md-4 photographer-box">
 									<div class="">
-										<div class="photographer-img"><img alt="" class="img-fluid" style="height: 260px" src="{{ asset('public/cover/').'/'.$users->cover }}"></div>
+										<div class="photographer-img"><img alt="" class="img-fluid" style="height: 260px" src="{{ asset('cover/').'/'.$users->cover }}"></div>
 										<div class="d-flex justify-content-center">
-											<div class="photographer-person-img text-center"><img style="border-radius: 50%;width: 140px;" alt="" src="{{ asset('public/avatar').'/'.$users->avatar }}"></div>
+											<div class="photographer-person-img text-center"><img style="border-radius: 50%;width: 140px;" alt="" src="{{ asset('avatar').'/'.$users->avatar }}"></div>
 											<div class="icon-photo">
 												<i class="far fa-images"></i> <small class="photos-count">{{ App\Helper::formatNumber($users->images()->count()) }}</small>
 											</div>
@@ -169,7 +169,7 @@
 				<?php
 						}
 					}else if($categorySlug == "photo"){
-						$cateSlug = "photographer"; 
+						$cateSlug = "photographer";
 						$allUsers = App\Models\User::join('types','types.types_id','=', 'users.user_type_id')->where('user_type_id','!=', '')->where('types.type_name','=',$cateSlug)->get();
 						// dd($allUsers[0]->id);
 						// var_dump($allUsers[0]->id);
@@ -178,13 +178,13 @@
 								$users = App\Models\User::find($allUsers[$UA]->id);
 								// dd($users->types()->type_name);
 
-								$categorySlug = $category->slug;			
+								$categorySlug = $category->slug;
 				?>
 								<div class="col-md-4 photographer-box">
 									<div class="">
-										<div class="photographer-img"><img alt="" class="img-fluid" style="height: 260px" src="{{ asset('public/cover/').'/'.$users->cover }}"></div>
+										<div class="photographer-img"><img alt="" class="img-fluid" style="height: 260px" src="{{ asset('cover/').'/'.$users->cover }}"></div>
 										<div class="d-flex justify-content-center">
-											<div class="photographer-person-img text-center"><img style="border-radius: 50%;width: 140px;" alt="" src="{{ asset('public/avatar').'/'.$users->avatar }}"></div>
+											<div class="photographer-person-img text-center"><img style="border-radius: 50%;width: 140px;" alt="" src="{{ asset('avatar').'/'.$users->avatar }}"></div>
 											<div class="icon-photo">
 												<i class="far fa-images"></i> <small class="photos-count">{{ App\Helper::formatNumber($users->images()->count()) }}</small>
 											</div>
@@ -212,7 +212,7 @@
 				<?php
 						}
 					}else if($categorySlug == "video"){
-						$cateSlug = "videographer"; 
+						$cateSlug = "videographer";
 						$allUsers = App\Models\User::join('types','types.types_id','=', 'users.user_type_id')->where('user_type_id','!=', '')->where('types.type_name','=',$cateSlug)->get();
 						// dd($allUsers[0]->id);
 						// var_dump($allUsers[0]->id);
@@ -221,13 +221,13 @@
 								$users = App\Models\User::find($allUsers[$UA]->id);
 								// dd($users->types()->type_name);
 
-								$categorySlug = $category->slug;			
+								$categorySlug = $category->slug;
 				?>
 								<div class="col-md-4 photographer-box">
 									<div class="">
-										<div class="photographer-img"><img alt="" class="img-fluid" style="height: 260px" src="{{ asset('public/cover/').'/'.$users->cover }}"></div>
+										<div class="photographer-img"><img alt="" class="img-fluid" style="height: 260px" src="{{ asset('cover/').'/'.$users->cover }}"></div>
 										<div class="d-flex justify-content-center">
-											<div class="photographer-person-img text-center"><img style="border-radius: 50%;width: 140px;" alt="" src="{{ asset('public/avatar').'/'.$users->avatar }}"></div>
+											<div class="photographer-person-img text-center"><img style="border-radius: 50%;width: 140px;" alt="" src="{{ asset('avatar').'/'.$users->avatar }}"></div>
 											<div class="icon-photo">
 												<i class="far fa-images"></i> <small class="photos-count">{{ App\Helper::formatNumber($users->images()->count()) }}</small>
 											</div>
@@ -255,7 +255,7 @@
 				<?php
 						}
 					}else if($categorySlug == "music"){
-						$cateSlug = "musician"; 
+						$cateSlug = "musician";
 						$allUsers = App\Models\User::join('types','types.types_id','=', 'users.user_type_id')->where('user_type_id','!=', '')->where('types.type_name','=',$cateSlug)->get();
 						// dd($allUsers[0]->id);
 						// var_dump($allUsers[0]->id);
@@ -264,13 +264,13 @@
 								$users = App\Models\User::find($allUsers[$UA]->id);
 								// dd($users->types()->type_name);
 
-								$categorySlug = $category->slug;		
+								$categorySlug = $category->slug;
 				?>
 								<div class="col-md-4 photographer-box">
 									<div class="">
-										<div class="photographer-img"><img alt="" class="img-fluid" style="height: 260px" src="{{ asset('public/cover/').'/'.$users->cover }}"></div>
+										<div class="photographer-img"><img alt="" class="img-fluid" style="height: 260px" src="{{ asset('cover/').'/'.$users->cover }}"></div>
 										<div class="d-flex justify-content-center">
-											<div class="photographer-person-img text-center"><img style="border-radius: 50%;width: 140px;" alt="" src="{{ asset('public/avatar').'/'.$users->avatar }}"></div>
+											<div class="photographer-person-img text-center"><img style="border-radius: 50%;width: 140px;" alt="" src="{{ asset('avatar').'/'.$users->avatar }}"></div>
 											<div class="icon-photo">
 												<i class="far fa-images"></i> <small class="photos-count">{{ App\Helper::formatNumber($users->images()->count()) }}</small>
 											</div>
@@ -299,7 +299,7 @@
 						}
 					}
 				?>
-	
+
 			</div>
 		</div>
 	</section>

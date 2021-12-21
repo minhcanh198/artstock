@@ -1,7 +1,7 @@
 @extends('dashboard.layout')
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
 <style>
 /**
  * The CSS shown here will not be introduced in the Quickstart guide, but shows
@@ -148,8 +148,8 @@
 @section('javascript')
 
 	<!-- icheck -->
-	<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
-  <script src="{{ asset('public/js/jquery.form.js') }}"></script>
+	<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('js/jquery.form.js') }}"></script>
   <script src="https://js.stripe.com/v3/"></script>
   <script src='https://js.paystack.co/v1/inline.js'></script>
 

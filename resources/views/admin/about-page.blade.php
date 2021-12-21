@@ -1,8 +1,8 @@
 @extends('admin.layout')
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -58,7 +58,7 @@
                         <input type="text" value="{{ $aboutPageSettings->header_heading }}" name="header_heading" class="form-control" placeholder="Header Heading">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -69,7 +69,7 @@
                         <textarea name="header_description" class="form-control" placeholder="Header Description">{{ $aboutPageSettings->header_description }}</textarea>
                       </div>
                     </div>
-                  </div><!-- /.box-body -->   
+                  </div><!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -97,14 +97,14 @@
 					     </div>
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                    <!-- Start Box Body -->
                    <!-- <div class="box-body">
                     <div class="form-group">
                       <label class="col-sm-2 control-label">{{ trans('admin.content') }}</label>
                       <div class="col-sm-10">
-                      	
+
                       	<textarea name="content"rows="5" cols="40" id="content" class="form-control" placeholder="{{ trans('admin.content') }}">{{ $aboutPageSettings->content }}</textarea>
                       </div>
                     </div>
@@ -121,7 +121,7 @@
                         <input type="text" value="{{ $aboutPageSettings->section_header_1 }}" name="section_header_1" class="form-control" placeholder="Section Header 1">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -132,7 +132,7 @@
                         <textarea name="section_description_1" class="form-control" placeholder="Section 1 Description">{{ $aboutPageSettings->section_description_1 }}</textarea>
                       </div>
                     </div>
-                  </div><!-- /.box-body -->   
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
 
@@ -144,7 +144,7 @@
                         <input type="text" value="{{ $aboutPageSettings->section_header_2 }}" name="section_header_2" class="form-control" placeholder="Section Header 2">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -155,7 +155,7 @@
                         <textarea name="section_description_2" class="form-control" placeholder="Section 2 Description">{{ $aboutPageSettings->section_description_2 }}</textarea>
                       </div>
                     </div>
-                  </div><!-- /.box-body -->   
+                  </div><!-- /.box-body -->
 
                    <!-- Start Box Body -->
 
@@ -167,7 +167,7 @@
                         <input type="text" value="{{ $aboutPageSettings->section_header_3 }}" name="section_header_3" class="form-control" placeholder="Section Header 3">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -178,7 +178,7 @@
                         <textarea name="section_description_3" class="form-control" placeholder="Section 3 Description">{{ $aboutPageSettings->section_description_3 }}</textarea>
                       </div>
                     </div>
-                  </div><!-- /.box-body -->   
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
 
@@ -190,7 +190,7 @@
                         <input type="text" value="{{ $aboutPageSettings->section_header_4 }}" name="section_header_4" class="form-control" placeholder="Section Header 4">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -201,8 +201,8 @@
                         <textarea name="section_description_4" class="form-control" placeholder="Section 4 Description">{{ $aboutPageSettings->section_description_4 }}</textarea>
                       </div>
                     </div>
-                  </div><!-- /.box-body --> 
-                  
+                  </div><!-- /.box-body -->
+
                       <!-- Start Box Body -->
 
                       <div class="box-body">
@@ -213,7 +213,7 @@
                         <input type="text" value="{{ $aboutPageSettings->section_header_5 }}" name="section_header_5" class="form-control" placeholder="Section Header 5">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -224,7 +224,7 @@
                         <textarea name="section_description_5" class="form-control" placeholder="Section 5 Description">{{ $aboutPageSettings->section_description_5 }}</textarea>
                       </div>
                     </div>
-                  </div><!-- /.box-body --> 
+                  </div><!-- /.box-body -->
 
                   <div class="box-footer">
                     <button type="submit" class="btn btn-success">{{ trans('admin.save') }}</button>
@@ -245,10 +245,10 @@
 @section('javascript')
 
 	<!-- icheck -->
-	<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
 
-    <script src="{{{ asset('public/plugins/ckeditor/ckeditor.js') }}}" type="text/javascript"></script>
+    <script src="{{{ asset('plugins/ckeditor/ckeditor.js') }}}" type="text/javascript"></script>
 
     <script type="text/javascript">
 		$(function () {

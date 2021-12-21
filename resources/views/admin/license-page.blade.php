@@ -1,8 +1,8 @@
 @extends('admin.layout')
 
 @section('css')
-<link href="{{ asset('public/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('plugins/tagsinput/jquery.tagsinput.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -58,9 +58,9 @@
                         <input type="text" value="{{ $licensePageSettings->header_heading }}" name="header_heading" class="form-control" placeholder="Header Heading">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
-                  <!-- Start Box Body --> 
+                  <!-- Start Box Body -->
                   <div class="box-body">
                     <div class="form-group">
                       <!-- <label class="col-sm-2 control-label">{{ trans('admin.name_site') }}</label> -->
@@ -69,7 +69,7 @@
                         <textarea name="header_description" class="form-control" placeholder="Header Description">{{ $licensePageSettings->header_description }}</textarea>
                       </div>
                     </div>
-                  </div><!-- /.box-body -->   
+                  </div><!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -97,14 +97,14 @@
                         </div>
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                    <!-- Start Box Body -->
                    <!-- <div class="box-body">
                     <div class="form-group">
                       <label class="col-sm-2 control-label">{{ trans('admin.content') }}</label>
                       <div class="col-sm-10">
-                      	
+
 {{--                      	<textarea name="content"rows="5" cols="40" id="content" class="form-control" placeholder="{{ trans('admin.content') }}">{{ $licensePageSettings->content }}</textarea> --}}
                       </div>
                     </div>
@@ -121,7 +121,7 @@
                         <input type="text" value="{{ $licensePageSettings->section_1_heading }}" name="section_1_heading" class="form-control" placeholder="Section 1 Header">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -133,7 +133,7 @@
                         <!-- <textarea name="section_1_description" class="form-control" placeholder="Section 1 Description">{{ $licensePageSettings->section_1_description }}</textarea> -->
                       </div>
                     </div>
-                  </div><!-- /.box-body -->   
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -157,7 +157,7 @@
                         <input type="text" value="{{ $licensePageSettings->section_2_heading }}" name="section_2_heading" class="form-control" placeholder="Section Header 2">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -169,7 +169,7 @@
                         <!-- <textarea name="section_2_description" class="form-control" placeholder="Section 2 Description">{{ $licensePageSettings->section_2_description }}</textarea> -->
                       </div>
                     </div>
-                  </div><!-- /.box-body --> 
+                  </div><!-- /.box-body -->
 
 
                   <!-- Start Box Body -->
@@ -181,7 +181,7 @@
                         <input type="text" value="{{ $licensePageSettings->section_2_content_1_header }}" name="section_2_content_1_header" class="form-control" placeholder="Content 1 Heading">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -193,7 +193,7 @@
                         <!-- <textarea name="section_2_content_1_description" class="form-control" placeholder="Content 1 Description">{{ $licensePageSettings->section_2_content_1_description }}</textarea> -->
                       </div>
                     </div>
-                  </div><!-- /.box-body -->   
+                  </div><!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -221,7 +221,7 @@
                         </div>
                       </div>
                     </div>
-                  </div><!-- /.box-body -->    
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -232,7 +232,7 @@
                         <input type="text" value="{{ $licensePageSettings->section_2_content_2_header }}" name="section_2_content_2_header" class="form-control" placeholder="Content 2 Heading">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -244,7 +244,7 @@
                         <!-- <textarea name="section_2_content_1_description" class="form-control" placeholder="Content 1 Description">{{ $licensePageSettings->section_2_content_1_description }}</textarea> -->
                       </div>
                     </div>
-                  </div><!-- /.box-body -->   
+                  </div><!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -272,7 +272,7 @@
                         </div>
                       </div>
                     </div>
-                  </div><!-- /.box-body --> 
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -283,7 +283,7 @@
                         <input type="text" value="{{ $licensePageSettings->section_2_content_3_header }}" name="section_2_content_3_header" class="form-control" placeholder="Content 3 Heading">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -295,7 +295,7 @@
                         <!-- <textarea name="section_2_content_1_description" class="form-control" placeholder="Content 1 Description">{{ $licensePageSettings->section_2_content_1_description }}</textarea> -->
                       </div>
                     </div>
-                  </div><!-- /.box-body -->   
+                  </div><!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -323,7 +323,7 @@
                         </div>
                       </div>
                     </div>
-                  </div><!-- /.box-body --> 
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -334,7 +334,7 @@
                         <input type="text" value="{{ $licensePageSettings->section_2_content_4_header }}" name="section_2_content_4_header" class="form-control" placeholder="Content 4 Heading">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -346,7 +346,7 @@
                         <!-- <textarea name="section_2_content_1_description" class="form-control" placeholder="Content 1 Description">{{ $licensePageSettings->section_2_content_1_description }}</textarea> -->
                       </div>
                     </div>
-                  </div><!-- /.box-body -->   
+                  </div><!-- /.box-body -->
 
                    <!-- Start Box Body -->
                   <div class="box-body">
@@ -374,7 +374,7 @@
                         </div>
                       </div>
                     </div>
-                  </div><!-- /.box-body --> 
+                  </div><!-- /.box-body -->
 
                    <!-- Start Box Body -->
 
@@ -386,7 +386,7 @@
                         <input type="text" value="{{ $licensePageSettings->section_3_heading }}" name="section_3_heading" class="form-control" placeholder="Section Header 3">
                       </div>
                     </div>
-                  </div><!-- /.box-body -->  
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -398,7 +398,7 @@
                         <!-- <textarea name="section_description_3" class="form-control" placeholder="Section 3 Description">{{ $licensePageSettings->section_3_description }}</textarea> -->
                       </div>
                     </div>
-                  </div><!-- /.box-body -->   
+                  </div><!-- /.box-body -->
 
                   <!-- Start Box Body -->
                   <div class="box-body">
@@ -431,10 +431,10 @@
 @section('javascript')
 
 	<!-- icheck -->
-	<script src="{{ asset('public/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
-	<script src="{{ asset('public/plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('plugins/tagsinput/jquery.tagsinput.min.js') }}" type="text/javascript"></script>
 
-    <script src="{{{ asset('public/plugins/ckeditor/ckeditor.js') }}}" type="text/javascript"></script>
+    <script src="{{{ asset('plugins/ckeditor/ckeditor.js') }}}" type="text/javascript"></script>
 
     <script type="text/javascript">
 		$(function () {

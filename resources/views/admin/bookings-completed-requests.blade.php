@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('css')
-<link href="{{{ asset('public/plugins/iCheck/all.css') }}}" rel="stylesheet" type="text/css" />
+<link href="{{{ asset('plugins/iCheck/all.css') }}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -83,7 +83,7 @@
                       <th class="active">{{ trans('misc.country') }}</th>
                       <th class="active">{{ trans('misc.req_customer') }}</th>
                       <th class="active">{{ trans('misc.req_photographer') }}</th>
-                      
+
                       <th class="active">{{ trans('admin.req_date') }}</th>
                       <th class="active">{{ trans('admin.status') }}</th>
                       <th colspan="2" class="active">{{ trans('admin.actions') }}</th>
@@ -94,13 +94,13 @@
                       <td>{{ $shoots->id }}</td>
                       <td>{{ $shoots->reference_no }}</td>
                       <td>{{ $shoots->city_name }}</td>
-                      @php 
+                      @php
                         $getCountryName = \App\Models\Country::where('id','=',$shoots->CountryId)->first();
                       @endphp
                       <td>{{ $getCountryName->country_name }}</td>
                       <td>{{ $shoots->UserName }}</td>
                       <td>{{ $shoots->UserNameArtist }}</td>
-                      
+
                       <td>{{ App\Helper::formatDate($shoots->requested_date) }} - {{ $shoots->requested_time }} (preferred)</td>
 
                      <?php if( $shoots->status == 'pending' ) {
@@ -122,18 +122,18 @@
 
                       		?>
                       <td>
-                          
+
                           <span class="label label-{{$mode}}">{{ $_status }}</span>
                             @if($shoots->isCustomerAction == "approved")
-                          <span class="label label-{{$mode}}">{{ "Approved by customer" }}</span>  
+                          <span class="label label-{{$mode}}">{{ "Approved by customer" }}</span>
                           @endif
-                          
+
                             @if($shoots->isArtistPaymentRequest == 1)
-                          <span class="label label-{{$mode}}">{{ "Payment requested by artist" }}</span> 
+                          <span class="label label-{{$mode}}">{{ "Payment requested by artist" }}</span>
                           @else
-                          <span class="label label-danger">{{ "Payment not requested by artist yet" }}</span> 
+                          <span class="label label-danger">{{ "Payment not requested by artist yet" }}</span>
                           @endif
-                          
+
                       </td>
                       @if($shoots->isArtistPaymentRequest == 1)
                       <td>

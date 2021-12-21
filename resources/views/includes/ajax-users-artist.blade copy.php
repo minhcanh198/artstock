@@ -1,5 +1,5 @@
 @php
-$i = 0;    
+$i = 0;
 @endphp
 @if(count($images) > 0)
     <div class="row">
@@ -52,11 +52,11 @@ $i = 0;
 							@endphp
 							@foreach($VideosData as $vidData)
 								@php
-						
+
 									$getFileName = explode(".",$vidData->thumbnail);
 									$screenShotVideoPath = 'public/uploads/video/screen_shot/'. 'screen-shot-'.$getFileName[0].'.png';
 								@endphp
-							
+
 								<div>
 									<img src="{{ asset($screenShotVideoPath) }}" alt="" class="img-fluid destinations-city-s2-slider-img">
 								</div>
@@ -67,15 +67,15 @@ $i = 0;
 							@endphp
 							@foreach($VideosData as $vidData)
 								@php
-						
+
 									$getFileName = explode(".",$vidData->thumbnail);
 									$screenShotVideoPath = 'public/uploads/video/screen_shot/'. 'screen-shot-'.$getFileName[0].'.png';
 								@endphp
-							
+
 								<div>
 									<audio controls class="audio-one">
 										<source src="https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"  type="audio/mp3">
-									</audio> 
+									</audio>
 								</div>
 							@endforeach
 						@else
@@ -84,7 +84,7 @@ $i = 0;
 					<div class="box-conten">
 						<h3 class="title mt-4 mb-4">{{ ($image->name != "") ? $image->name : $image->username }}</h3>
 						<div class="round-image-box">
-							<img src="{{ asset('public/avatar').'/'.$image->avatar }}" alt="" class="img-fluid">
+							<img src="{{ asset('avatar').'/'.$image->avatar }}" alt="" class="img-fluid">
 						</div>
 						<p class="mb-4">
 							{{ $image->bio }}
@@ -96,7 +96,7 @@ $i = 0;
 					</div>
 				</div>
 			</div>
-        @endforeach 
+        @endforeach
     </div>
 @else
     <div class="row">
