@@ -16,7 +16,7 @@
  */
 
 Route::get('/', 'HomeController@index');
-Route::get('home', function(){ return redirect('/'); });
+Route::get('/home', function(){ return redirect('/'); });
 Route::get('/about', 'AboutController@index');
 Route::get('/license', 'LicenseController@index');
 Route::get('/imprint', 'ImprintController@index');
@@ -253,7 +253,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 	//<---- Upload
 	 Route::get('upload/image', function(){
-	     
+
 	 if( Auth::user()->authorized_to_upload == 'yes' ) {
 	 	return view('images.upload');
 	 } else {
@@ -269,7 +269,7 @@ Route::group(['middleware' => 'auth'], function() {
 		} else {
 			return redirect('/');
 		}
-   
+
 	});
 
 	Route::get('upload/audio', function(){
@@ -279,19 +279,19 @@ Route::group(['middleware' => 'auth'], function() {
 		} else {
 			return redirect('/');
 		}
-   
+
 	});
 
 	//Vue.js Route Start
-	
+
 	// Chat System Routes Start
 	Route::post('/generate-token', 'ChatController@getnerateToken');
 	Route::get('/get-users', 'ChatController@getUsers');
-	
-	
+
+
 	// Chat System Routes End
-	
-	
+
+
 
 	//Vue.js Route End
 
@@ -324,7 +324,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 	// Upload Avatar
 	Route::post('upload/avatar','UserController@upload_avatar');
-	
+
 	//Add Personal Website
 	Route::post('add/personal','UserController@personal_website');
 
@@ -388,26 +388,26 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('user/dashboard/review/{id}', 'DashboardController@review');
 	Route::get('user/dashboard/view-review/{id}', 'DashboardController@viewReview');
 	Route::post('user/dashboard/process-review', 'DashboardController@reviewProcess');
-	
+
 	//Custom Checkout
 	Route::get('user/dashboard/checkout/{refNo}', 'DashboardController@customCheckOut');
 	Route::post('user/dashboard/checkout-payment-proccess', 'DashboardController@customCheckOutProccess');
-	
+
 	//Customer Files Uploaded By Artist
 	Route::post('user/dashboard/upload-file-customer', 'DashboardController@uploadFileCustomer');
 	Route::get('user/dashboard/download_all_files/{referenceNo}', 'DashboardController@downloadAllFiles');
 	Route::get('user/dashboard/view_all_files/{referenceNo}', 'DashboardController@viewAllFiles');
-	//Customer Approve or Reject 
+	//Customer Approve or Reject
 	Route::post('user/dashboard/update-customer-action','DashboardController@updateCustomerAction');
 	//Artist Payment Request
 	Route::post('user/dashboard/artist-payment-request','DashboardController@artistPaymentRequest');
-	
-	
+
+
 
 
 	Route::post('get-artist-customer-details', 'DashboardController@getDetailsArtistCustomer');
 
-	//Chat 
+	//Chat
 	Route::get('get-chat-list/{userId}','DashboardController@getChatList');
 	Route::get('get-single-chat-details/{chatId}','DashboardController@getSingleChatDetails');
 	Route::post('send-text-msg','DashboardController@sendTextMsg');
@@ -418,14 +418,14 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('delete-chat/{chatId}/{userId}', 'DashboardController@deleteChat');
 
-	
+
 
 	// My Bookings
 	Route::get('user/dashboard/my-bookings','DashboardController@myBookings');
 	Route::get('user/dashboard/my-bookings-details/{id}','DashboardController@myBookingsDetails');
 
 	Route::post('user/dashboard/update-booking-request-status', 'DashboardController@updateBookingRequestStatus');
-	
+
 	//Photographer Package
 	Route::get('user/dashboard/packages/photographer-package', 'DashboardController@photographerPackage');
 	Route::get('user/dashboard/packages/photographer-package/add', 'DashboardController@photographerAddPackage');
@@ -487,7 +487,7 @@ Route::group(['middleware' => 'auth'], function() {
 	// Purchase Photo
 	Route::post('purchase/stock/{token_id}','ImagesController@purchase');
 	Route::post('purchase/audio/{token_id}', 'ImagesController@purchaseaudio');
-	
+
 });//<------ End User Views LOGGED
 
 Route::post('instant_buy', 'ImagesController@instant_buy');
@@ -553,7 +553,7 @@ Route::group(['middleware' => 'role'], function() {
 	Route::post('panel/admin/sub-categories/update','AdminController@updateSubCategories');
 	Route::get('panel/admin/sub-categories/delete/{id}','AdminController@deleteSubCategories')->where(array( 'id' => '[0-9]+'));
 
-	
+
 	// FAQ Categories
 	Route::get('panel/admin/faq-categories','AdminController@faqCategories');
 	Route::get('panel/admin/faq-categories/add','AdminController@addFaqCategories');
@@ -562,7 +562,7 @@ Route::group(['middleware' => 'role'], function() {
 	Route::post('panel/admin/faq-categories/update','AdminController@updateFaqCategories');
 	Route::get('panel/admin/faq-categories/delete/{id}','AdminController@deleteFaqCategories')->where(array( 'id' => '[0-9]+'));
 
-	// FAQ 
+	// FAQ
 	Route::get('panel/admin/faq','AdminController@faq');
 	Route::get('panel/admin/faq/add','AdminController@addFaq');
 	Route::post('panel/admin/faq/add','AdminController@storeFaq');
@@ -581,11 +581,11 @@ Route::group(['middleware' => 'role'], function() {
 	Route::get('panel/admin/booking-cancelled-details/{id}', 'AdminController@bookingCancelledRequestsDetails');
 	Route::get('panel/admin/booking-approved-details/{id}', 'AdminController@bookingApprovedRequestsDetails');
 	Route::get('panel/admin/booking-completed-details/{id}', 'AdminController@bookingCompletedRequestsDetails');
-	
-	//Payment Detail 
+
+	//Payment Detail
 	Route::get('panel/admin/get_payment_details/{id}', 'AdminController@getPaymentDetails');
-	
-	
+
+
 
 	//Destinations -> Continents
 	Route::get('panel/admin/destinations/continents', 'AdminController@continent');
@@ -641,7 +641,7 @@ Route::group(['middleware' => 'role'], function() {
 	Route::post('panel/admin/settings','AdminController@saveSettings');
 
 	//Inventory Start
-	
+
 	//Photoshoot
 	Route::get('panel/admin/photoshoot-type', 'AdminController@photoshootType');
 	Route::get('panel/admin/photoshoot-type/add', 'AdminController@addPhotoshootType');
@@ -649,8 +649,8 @@ Route::group(['middleware' => 'role'], function() {
 	Route::get('panel/admin/photoshoot-type/edit/{id}', 'AdminController@editPhotoshootType');
 	Route::post('panel/admin/photoshoot-type/update', 'AdminController@updatePhotoshootType');
 	Route::get('panel/admin/photoshoot-type/delete/{id}', 'AdminController@deletePhotoshootType');
-	
-	
+
+
 	//Time Of Day
 	Route::get('panel/admin/time-day', 'AdminController@timeDay');
 	Route::get('panel/admin/time-day/add', 'AdminController@addTimeDay');
@@ -735,7 +735,7 @@ Route::group(['middleware' => 'role'], function() {
 	Route::get('panel/admin/imprint-page-settings', 'AdminController@imprintPageSettings');
 	Route::post('panel/admin/imprint-page-settings', 'AdminController@saveImprintPageSettings');
 	// Imprint Page Settings Admin SITE CONTENT END
-	
+
 	// Privacy Policy Page Settings Admin SITE CONTENT START
 	Route::get('panel/admin/privacy-policy-page-settings', 'AdminController@privacyPolicyPageSettings');
 	Route::post('panel/admin/privacy-policy-page-settings', 'AdminController@savePrivacyPolicyPageSettings');
@@ -759,10 +759,10 @@ Route::group(['middleware' => 'role'], function() {
 	// Images
 	Route::get('panel/admin/images','AdminController@images');
 	Route::post('panel/admin/images/delete','AdminController@delete_image');
-	
+
 	Route::get('panel/admin/images/{id}','AdminController@edit_image');
 	Route::post('panel/admin/images/update','AdminController@update_image');
-	
+
 	// Videos
 	Route::get('panel/admin/videos','AdminController@videos');
 	Route::post('panel/admin/videos/delete','AdminController@delete_video');
