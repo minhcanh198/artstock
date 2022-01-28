@@ -6,8 +6,7 @@ Options +FollowSymLinks
 
     RewriteEngine On
 
-    RewriteRule ^$ public/index.php [L]
-    RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+    RewriteRule ^(.*)$ public/$1 [L]
 #
 #    # Handle Authorization Header
 #    RewriteCond %{HTTP:Authorization} .
