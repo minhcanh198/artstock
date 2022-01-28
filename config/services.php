@@ -38,13 +38,13 @@ return [
     'facebook' => [
       'client_id' => env('FB_APP_ID'), // configure with your app id
       'client_secret' => env('FB_APP_KEY'), // your app secret
-      'redirect' => env('FB_APP_CALLBACK1'), // IMPORTANT NOT REMOVE /oauth/facebook/callback
+      'redirect' => env('FB_APP_CALLBACK'), // IMPORTANT NOT REMOVE /oauth/facebook/callback
       ],
 
    'twitter' => [
      'client_id' => env('TW_APP_ID'), // configure with your app id
      'client_secret' => env('TW_APP_KEY'), // your app secret
-     'redirect' => env('TW_APP_CALLBACK1'), // IMPORTANT NOT REMOVE /oauth/twitter/callback
+     'redirect' => env('TW_APP_CALLBACK'), // IMPORTANT NOT REMOVE /oauth/twitter/callback
      ],
 
 ];
