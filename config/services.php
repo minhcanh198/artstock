@@ -36,15 +36,15 @@ return [
     ],
 
     'facebook' => [
-      'client_id' => "301689844049141", // configure with your app id
-      'client_secret' => '9c9e151289c2cd51c2d5cd5ca1e4d4b4', // your app secret
-      'redirect' => 'https://artstockunited.com/oauth/facebook/callback', // IMPORTANT NOT REMOVE /oauth/facebook/callback
+      'client_id' => env('FB_APP_ID'), // configure with your app id
+      'client_secret' => env('FB_APP_KEY'), // your app secret
+      'redirect' => env('FB_APP_CALLBACK1'), // IMPORTANT NOT REMOVE /oauth/facebook/callback
       ],
 
-    //   'twitter' => [
-    //     'client_id' => "APP_ID", // configure with your app id
-    //     'client_secret' => 'APP_SECRET', // your app secret
-    //     'redirect' => 'http://YOURSITE.COM/oauth/twitter/callback', // IMPORTANT NOT REMOVE /oauth/twitter/callback
-    //     ],
+   'twitter' => [
+     'client_id' => env('TW_APP_ID'), // configure with your app id
+     'client_secret' => env('TW_APP_KEY'), // your app secret
+     'redirect' => env('TW_APP_CALLBACK1'), // IMPORTANT NOT REMOVE /oauth/twitter/callback
+     ],
 
 ];
