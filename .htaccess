@@ -1,15 +1,28 @@
 <IfModule mod_rewrite.c>
 Options +FollowSymLinks
-RewriteEngine On
+#RewriteEngine On
+#
+#RewriteCond %{REQUEST_URI} !^/public/
+#
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME} !-f
+#
+#
+#RewriteRule ^(.*)$ /public/$1
+##RewriteRule ^ index.php [L]
+#RewriteRule ^(/)?$ public/index.php [L]
 
-RewriteCond %{REQUEST_URI} !^/public/
+RewriteEngine on
 
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
+# prevent endless loop
+RewriteCond %{ENV:REDIRECT_STATUS} 200
+RewriteRule ^ - [L]
 
+# redirect client to non-public
+RewriteRule ^public/(.*)$ $1 [R,L]
 
+# send real page to client
+RewriteCond %{REQUEST_URI} !^public
+RewriteRule ^.*$ public/$0 [L]
 
-RewriteRule ^(.*)$ /public/$1
-#RewriteRule ^ index.php [L]
-RewriteRule ^(/)?$ public/index.php [L]
 </IfModule>
