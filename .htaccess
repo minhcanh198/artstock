@@ -2,7 +2,6 @@
 Options +FollowSymLinks
 RewriteEngine On
 
-RewriteCond %{HTTPS} !=on
 RewriteCond %{REQUEST_URI} !^/public/
 
 RewriteCond %{REQUEST_FILENAME} !-d
