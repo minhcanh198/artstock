@@ -237,7 +237,7 @@ class Helper
         if (!file_exists(base_path($image))) {
             return 0;
         }
-        $size = getimagesize($image);
+        $size = getimagesize(base_path($image));
         $height = $size[1];
         return $height;
     }
@@ -247,7 +247,7 @@ class Helper
         if (!file_exists(base_path($image))) {
             return 0;
         }
-        $size = getimagesize($image);
+        $size = getimagesize(base_path($image));
         $width = $size[0];
         return $width;
     }
