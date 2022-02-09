@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use URL;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
