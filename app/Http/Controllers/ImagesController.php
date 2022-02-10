@@ -1943,10 +1943,10 @@ class ImagesController extends Controller
             if ($image->is_type == "video") {
 
                 if ($type != 'vector') {
-                    $pathFile = 'public/uploads/video/large/' . $image->thumbnail;
+                    $pathFile = 'uploads/video/large/' . $image->thumbnail;
                     $resolution = $getImage->resolution;
                 } else {
-                    $pathFile = 'public/uploads/files/' . $getImage->name;
+                    $pathFile = 'uploads/files/' . $getImage->name;
                     $resolution = trans('misc.vector_graphic');
                 }
 
@@ -1960,10 +1960,10 @@ class ImagesController extends Controller
             } else {
 
                 if ($type != 'vector') {
-                    $pathFile = 'public/uploads/' . $type . '/' . $getImage->name;
+                    $pathFile = 'uploads/' . $type . '/' . $getImage->name;
                     $resolution = $getImage->resolution;
                 } else {
-                    $pathFile = 'public/uploads/files/' . $getImage->name;
+                    $pathFile = 'uploads/files/' . $getImage->name;
                     $resolution = trans('misc.vector_graphic');
                 }
 
@@ -2067,7 +2067,7 @@ class ImagesController extends Controller
             }
             //<<<<---/  Verify Purchase of the User
 
-            $pathFile = 'public/uploads/audio/large/' . $image->thumbnail;
+            $pathFile = 'uploads/audio/large/' . $image->thumbnail;
 
             $headers = [
                 'Content-Type:' => ' image/' . $image->extension,
@@ -2102,9 +2102,9 @@ class ImagesController extends Controller
         }
 
         if ($image->is_type == "image")
-            $pathFile = 'public/uploads/medium/' . $getImage->name;
+            $pathFile = 'uploads/medium/' . $getImage->name;
         if ($image->is_type == "video")
-            $pathFile = 'public/uploads/video/large/' . $image->thumbnail;
+            $pathFile = 'uploads/video/large/' . $image->thumbnail;
 
         $resolution = $getImage->resolution;
         $headers = [
@@ -2248,10 +2248,10 @@ class ImagesController extends Controller
             //<<<<---/  Verify Purchase of the User
             if ($image->is_type == "video") {
                 if ($type != 'vector') {
-                    $pathFile = 'public/uploads/video/large/' . $image->thumbnail;
+                    $pathFile = 'uploads/video/large/' . $image->thumbnail;
                     $resolution = $getImage->resolution;
                 } else {
-                    $pathFile = 'public/uploads/files/' . $getImage->name;
+                    $pathFile = 'uploads/files/' . $getImage->name;
                     $resolution = trans('misc.vector_graphic');
                 }
 
@@ -2263,10 +2263,10 @@ class ImagesController extends Controller
                 ];
             } else {
                 if ($type != 'vector') {
-                    $pathFile = 'public/uploads/' . $type . '/' . $getImage->name;
+                    $pathFile = 'uploads/' . $type . '/' . $getImage->name;
                     $resolution = $getImage->resolution;
                 } else {
-                    $pathFile = 'public/uploads/files/' . $getImage->name;
+                    $pathFile = 'uploads/files/' . $getImage->name;
                     $resolution = trans('misc.vector_graphic');
                 }
 
@@ -2298,10 +2298,10 @@ class ImagesController extends Controller
         }
 
         if ($this->request->type != 'vector') {
-            $pathFile = 'public/uploads/' . $this->request->type . '/' . $getImage->name;
+            $pathFile = 'uploads/' . $this->request->type . '/' . $getImage->name;
             $resolution = $getImage->resolution;
         } else {
-            $pathFile = 'public/uploads/files/' . $getImage->name;
+            $pathFile = 'uploads/files/' . $getImage->name;
             $resolution = trans('misc.vector_graphic');
         }
 
