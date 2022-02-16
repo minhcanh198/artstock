@@ -352,61 +352,25 @@ class UserController extends Controller
     }//<--- End Method
 
     public function upload_avatar(Request $request)
-    {
+    {   
+        $path = 'avatar/';
+        $avatar = strtolower(Auth::user()->username . '-' . Auth::user()->id . time() . str_random(10) . '.png');
+        $folderPath = public_path('avatar/');
+        $image_parts = explode(";base64,", $request->photo);
+        $image_type_aux = explode("image/", $image_parts[0]);
+        $image_type = $image_type_aux[1];
+        $image_base64 = base64_decode($image_parts[1]);
+        $file = $folderPath . $avatar;
+        file_put_contents($file, $image_base64);
 
-        $id = Auth::user()->id;
+        // Update Database
+        User::where('id', Auth::user()->id)->update(array('avatar' => $avatar));
 
-        $validator = Validator::make($request->all(), [
-            'photo' => 'required|mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=180,min_height=180|max:' . $this->settings->file_size_allowed . '',
+        return response()->json([
+            'success' => true,
+            'avatar' => url($path . $avatar),
         ]);
-
-        if ($validator->fails()) {
-            return response()->json([
-                'success' => false,
-                'errors' => $validator->getMessageBag()->toArray(),
-            ]);
-        }
-
-        // PATHS
-        $temp = 'public/temp/';
-        $path = 'public/avatar/';
-        $imgOld = $path . Auth::user()->avatar;
-
-        //<--- HASFILE PHOTO
-        if ($request->hasFile('photo')) {
-
-            $extension = $request->file('photo')->getClientOriginalExtension();
-            $avatar = strtolower(Auth::user()->username . '-' . Auth::user()->id . time() . str_random(10) . '.' . $extension);
-
-            if ($request->file('photo')->move($temp, $avatar)) {
-
-                set_time_limit(0);
-
-                Helper::resizeImageFixed($temp . $avatar, 180, 180, $temp . $avatar);
-
-                // Copy folder
-                if (\File::exists($temp . $avatar)) {
-                    /* Avatar */
-                    \File::copy($temp . $avatar, $path . $avatar);
-                    \File::delete($temp . $avatar);
-                }//<--- IF FILE EXISTS
-
-                //<<<-- Delete old image -->>>/
-                if (\File::exists($imgOld) && $imgOld != $path . 'default.jpg') {
-                    \File::delete($temp . $avatar);
-                    \File::delete($imgOld);
-                }//<--- IF FILE EXISTS #1
-
-                // Update Database
-                User::where('id', Auth::user()->id)->update(array('avatar' => $avatar));
-
-                return response()->json([
-                    'success' => true,
-                    'avatar' => url($path . $avatar),
-                ]);
-
-            }// Move
-        }//<--- HASFILE PHOTO
+            
     }//<--- End Method Avatar
 
     public function upload_cover(Request $request)

@@ -65,7 +65,19 @@ if( Auth::check() ) {
 .changePass .changePassBtn{
   overflow: hidden;
 }
-
+.preview {
+overflow: hidden;
+width: 160px;
+height: 160px;
+margin: 10px;
+border: 1px solid red;
+}
+.modal-lg{
+max-width: 1000px !important;
+}
+img {
+max-width: 100%;
+}
 </style>
 <div class="jumbotron profileUser index-header jumbotron_set jumbotron-cover-user" style="{{$cover}} padding: 209px 0 80px;">
 
@@ -132,6 +144,68 @@ if( Auth::check() ) {
                 <input type="url" placeholder="Add Your Personal Website..." name="personal_website" value="{{ Auth::user()->personal_website }}" />
               </div>
             </form>
+			<div class="container margin-bottom-40 padding-top-40">
+
+                                            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="modalLabel">Crop Your Image</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                            <div class="img-container">
+                                            <div class="row">
+                                            <div class="col-md-8">
+                                            <img id="image" src="">
+                                            </div>
+                                            <div class="col-md-4">
+                                            <div class="preview"></div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-primary" id="rotate">Rotate</button>
+                                            <button type="button" class="btn btn-primary" id="crop">Crop and Save</button>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+
+			<div class="row">
+
+			@if( Auth::user()->status == 'active' )
+
+				@if( $settings->limit_upload_user == 0 || $imagesUploads < $settings->limit_upload_user || Auth::user()->role == 'admin'  )
+
+					<!-- col-md-12 -->
+					<div class="col-md-8 offset-md-2 mt-4">
+
+					<div class="wrap-center center-block">
+
+					<div class="alert alert-warning" role="alert">
+
+							<ul class="padding-zero">
+								<?php if( $settings->limit_upload_user == 0 ) {
+									$limit = strtolower(trans('admin.unlimited'));
+								} else {
+									$limit = $settings->limit_upload_user;
+								} ?>
+								<li class="margin-bottom-10"><i class="glyphicon glyphicon-warning-sign myicon-right"></i>  {{ trans('conditions.terms') }}</li>
+								<li class="margin-bottom-10"><i class="glyphicon glyphicon-info-sign myicon-right"></i>  {{ trans('conditions.upload_max', ['limit' => $limit ]) }}</li>
+								<li class="margin-bottom-10"><i class="glyphicon glyphicon-info-sign myicon-right"></i>  {{ trans('conditions.sex_content') }}</li>
+								<li class="margin-bottom-10"><i class="glyphicon glyphicon-info-sign myicon-right"></i>  {{ trans('conditions.own_images') }}</li>
+							</ul>
+
+						</div>
+				@endif
+			@endif
 			@endif
 
 			@if( Auth::check() && $user->id != Auth::user()->id )
@@ -326,6 +400,9 @@ if( Auth::check() ) {
 @endsection
 
 @section('javascript')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
+<script src="https://wmlgl.github.io/cropperjs-gif/dist/cropperjs-gif-all.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
 
@@ -408,60 +485,180 @@ $(".reportUser").click(function(e) {
 @if( Auth::check() && Auth::user()->id == $user->id )
 
 	//<<<<<<<=================== * UPLOAD AVATAR  * ===============>>>>>>>//
-    $(document).on('change', '#uploadAvatar', function(){
+/* Crop Modal Window */
+		var $modal = $('#modal');
+        var image = document.getElementById('image');
+        var cropper;
+        $("body").on("change", "#uploadAvatar", function(e){
+                var files = e.target.files;
+                var done = function (url) { console.log(image.width); console.log(image.height);
+                image.src = url;
+                $modal.modal('show');
+            };
+            var reader;
+            var file;
+            var url;
+            if (files && files.length > 0) {
+                file = files[0];
+                if (URL) {
+                    done(URL.createObjectURL(file));
+                }
+                else if (FileReader) {
+                    reader = new FileReader();
+                    reader.onload = function (e) {
+                        done(reader.result);
+                    };
+                reader.readAsDataURL(file);
+                }
+            }
+        });
 
-    $('.wrap-loader').show();
+        /* Get Selected image size */
+        var imgWidth, imgHeight;
+        $("#uploadAvatar").change(function(e) {
+            var file, img;
+            if ((file = this.files[0])) {
+                img = new Image();
+                img.onload = function() {
+                    imgWidth = this.width;
+                    imgHeight = this.height;
+                };
 
-   (function(){
-	 $("#formAvatar").ajaxForm({
-	 dataType : 'json',
-	 error: function error(responseText, statusText, xhr, $form)  {
-	 	$('.wrap-loader').hide();
-	 	$('#uploadAvatar').val('');
-	 	$('.popout').addClass('popout-error').html('{{trans('misc.error')}} ('+xhr+')').fadeIn('500').delay('5000').fadeOut('500');
-	     /*alert('status: ' + statusText + '\n\rresponseText: \n' + responseText + '\n\nxhr: \n' + xhr);*/
-	 },
-	 success:  function(e){
-	 if( e ){
-        if( e.success == false ){
-		$('.wrap-loader').hide();
+            }
 
-		var error = '';
-                        for($key in e.errors){
-                        	error += '' + e.errors[$key] + '';
-                        }
-		swal({
-    			title: "{{ trans('misc.error_oops') }}",
-    			text: ""+ error +"",
-    			type: "error",
-    			confirmButtonText: "{{ trans('users.ok') }}"
-    			});
+        });
+        /* Get Selected image size */
 
-			$('#uploadAvatar').val('');
 
-		} else {
+        $modal.on('shown.bs.modal', function () {
+        cropper = new Cropper(image, {
+            aspectRatio: imgWidth/imgHeight,
+            viewMode: 1,
+            preview: '.preview',
+            rotatable:true
+        });
+        }).on('hidden.bs.modal', function () {
+        cropper.destroy();
+        cropper = null;
+        });
 
-			$('#uploadAvatar').val('');
-			$('.avatarUser').attr('src',e.avatar);
-			$('.wrap-loader').hide();
-		}
+        $("#rotate").click(function(){
+            cropper.rotate(90);
+            //cropper.move(1, -1).rotate(45).scale(1, -1);
+        });
 
-		}//<-- e
-			else {
+function cropGif(){
+            CropperjsGif.crop({
+                // debug: true,
+                encoder: {
+                    workers: 2,
+                    quality: 10,
+                    workerScript: "../dist/gif.worker.js"
+                },
+                src: gifImg.src,
+                background: '#fff',
+                maxWidth: 600,
+                maxHeight: 600,
+                onerror: function(code, error){
+                    console.log(code, error)
+                }
+            },
+            cropper,
+            function(blob){
+                previewImg.src = URL.createObjectURL(blob);
+
+                // test send blob
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', "/post/test");
+                xhr.onprogress = function(e){
+                    tmp.innerText = "upload progress: " + e.loaded;
+                };
+                xhr.onreadystatechange = function(e){
+                    tmp.innerText = "upload status: " + xhr.status + ", " + xhr.readyState;
+                }
+                if(blob.slice) {
+                    xhr.send(blob.slice(0, 10))
+                } else {
+                    var fileReader = new FileReader();
+                    fileReader.onload = function(event) {
+                        xhr.send(event.target.result)
+                    };
+                    fileReader.readAsArrayBuffer(blob);
+                }
+            });
+        }
+	$("#crop").click(function(){
+	canvas = cropper.getCroppedCanvas({
+	width: 160,
+	height: 160,
+	});
+	var cropImage = cropper.getCroppedCanvas().toDataURL();
+	canvas.toBlob(function(blob) {
+	url = URL.createObjectURL(blob);
+	
+	var reader = new FileReader();
+	var myBlob;
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', $('#modal .preview img').attr('src'), true);
+	xhr.responseType = 'blob';
+	xhr.onload = function(e) {
+	if (this.status == 200) {
+		myBlob = this.response;
+		reader.readAsDataURL(myBlob);
+		reader.onloadend = function() {
+		var base64data = reader.result;
+		$modal.modal('hide');
+		$.ajax({
+		type: "POST",
+		dataType: "json",
+		url: "upload/avatar",
+		data: {'_token': $('meta[name="_token"]').attr('content'), 'photo': cropImage},
+		success: function(e){
+			if( e ){
+				if( e.success == false ){
 				$('.wrap-loader').hide();
-				swal({
-    			title: "{{ trans('misc.error_oops') }}",
-    			text: '{{trans("misc.error")}}',
-    			type: "error",
-    			confirmButtonText: "{{ trans('users.ok') }}"
-    			});
 
-				$('#uploadAvatar').val('');
+				var error = '';
+								for($key in e.errors){
+									error += '' + e.errors[$key] + '';
+								}
+				swal({
+						title: "{{ trans('misc.error_oops') }}",
+						text: ""+ error +"",
+						type: "error",
+						confirmButtonText: "{{ trans('users.ok') }}"
+						});
+
+					$('#uploadAvatar').val('');
+
+				} else {
+					alert("Avatar changed Successfully!");
+					$('#uploadAvatar').val('');
+					$('.img-circle').attr('src', e.avatar);
+					
+				}
+
+			}//<-- e
+			else {
+						swal({
+						title: "{{ trans('misc.error_oops') }}",
+						text: '{{trans("misc.error")}}',
+						type: "error",
+						confirmButtonText: "{{ trans('users.ok') }}"
+						});
+
+						$('#uploadAvatar').val('');
 			}
-		   }//<----- SUCCESS
-		}).submit();
-    })(); //<--- FUNCTION %
-});//<<<<<<<--- * ON * --->>>>>>>>>>>
+		}//<----- SUCCESS
+		
+		});
+		}
+	}
+	};
+	xhr.send();
+	});
+	})
+/* Crop Modal Window  */
 //<<<<<<<=================== * UPLOAD AVATAR  * ===============>>>>>>>//
 
 //<<<<<<<=================== * UPLOAD COVER  * ===============>>>>>>>//
