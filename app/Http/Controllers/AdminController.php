@@ -54,6 +54,7 @@ use Image;
 use App\Models\Purchases;
 use App\Models\Deposits;
 use App\Models\Withdrawals;
+use App\Models\UseGuidePageSettings;
 use Mail;
 use File;
 
@@ -2786,6 +2787,63 @@ class AdminController extends Controller {
 		
 
 	}
+
+	//use guide page settings 
+	public function useGuidePageSettings() {
+		
+		$useGuidePageSettings = UseGuidePageSettings::first();
+		return view('admin.use-guide-page',compact('useGuidePageSettings'));
+
+	}
+
+	public function saveUseGuidePageSettings(Request $request){
+		$postData = $request->all();
+		// dd($postData);die;
+
+		//Header
+		$headerHeading = $postData['header_heading'];
+		$headerDescription = $postData['header_description'];
+		$sectionHeader = $postData['section_header'];
+		$sectionDescription = $postData['section_description'];
+		$linkYoutobeVideo = $postData['link_youtube_video'];
+
+		$useGuidePageSettings = UseGuidePageSettings::first();
+
+		//Header Updating
+		$useGuidePageSettings->header_heading   = $headerHeading;
+		$useGuidePageSettings->header_description   = $headerDescription;
+		$useGuidePageSettings->section_header   = $sectionHeader;
+		$useGuidePageSettings->section_description   = $sectionDescription;
+		$useGuidePageSettings->link_youtube_video   = $linkYoutobeVideo;
+		
+		//Header Main Image 
+		if($request->hasFile('header_main_image')){	
+			$headerMainImage = $postData['header_main_image'];
+			$mainImageName = 'header_main_image_'.time().'.'.$headerMainImage->getClientOriginalExtension();
+			$Path = 'use_guide_page/header_assets/';
+			$destinationPath = public_path($Path);
+		
+			if (!file_exists($destinationPath)) {
+				// path does not exist
+				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
+				if($saveFile){
+					$useGuidePageSettings->header_main_image = $mainImageName;
+				}
+			}else{
+				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
+				if($saveFile){
+					$useGuidePageSettings->header_main_image = $mainImageName;
+				}
+			}
+		}			
+
+		$useGuidePageSettings->save();
+
+		\Session::flash('success_message', trans('admin.success_update'));
+
+		return redirect('panel/admin/use-guide-page-settings');
+	}
+
 
 	public function imprintPageSettings() {
 
