@@ -37,7 +37,7 @@
 		<meta name="description" content="@yield('description_custom'){{ $settings->description }}">
 		<meta name="keywords" content="@yield('keywords_custom'){{ $settings->keywords }}" />
 		<link rel="shortcut icon" href="{{ asset('img/favicon.png') }}" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+{{--		<meta http-equiv="X-UA-Compatible" content="IE=edge">--}}
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 		<meta name="api-base-url" content="{{ url('/') }}" />
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
