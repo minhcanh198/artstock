@@ -637,6 +637,7 @@ a:hover {
 									<li><a href="{{ url('/destinations') }}">Locations</a></li>
 									<li><a href="{{ url('/license') }}">License</a></li>
 									<li><a href="{{ url('/about')}}">About</a></li>
+									<li><a href="{{ url('/use-guide')}}">Use Guide</a></li>
 									<!-- <li><a href="">Contact</a></li> -->
 									<!-- <li class="dropdown new dropdown-one-header" style="    margin-top: 5px;">  -->
 

@@ -19,6 +19,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', function(){ return redirect('/'); });
 Route::get('/about', 'AboutController@index');
 Route::get('/license', 'LicenseController@index');
+Route::get('/use-guide', 'UseGuideController@index');
 Route::get('/imprint', 'ImprintController@index');
 Route::get('/privacy-policy', 'PrivacyPolicyController@index');
 Route::get('/terms-of-service', 'TermsController@index');
@@ -725,6 +726,11 @@ Route::group(['middleware' => 'role'], function() {
 	Route::get('panel/admin/license-page-settings', 'AdminController@licensePageSettings');
 	Route::post('panel/admin/license-page-settings', 'AdminController@saveLicensePageSettings');
 	// License Page Settings Admin SITE CONTENT END
+
+	// Use Guide Page Settings Admin SITE CONTENT START
+	Route::get('panel/admin/use-guide-page-settings', 'AdminController@useGuidePageSettings');
+	Route::post('panel/admin/use-guide-page-settings', 'AdminController@saveUseGuidePageSettings');
+	// Use Guide Page Settings Admin SITE CONTENT END
 
 	// FAQ Page Settings Admin SITE CONTENT START
 	Route::get('panel/admin/faq-page-settings', 'AdminController@faqPageSettings');

@@ -79,7 +79,7 @@
   iframe {
       border: 0;
       outline: 0;
-      width: 100% !important;
+      /* width: 100% !important; */
   }
   label:not(.login-field-icon) {
       line-height: normal !important;

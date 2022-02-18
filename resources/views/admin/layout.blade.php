@@ -453,6 +453,7 @@ button.enter-chat {
                 <li @if(Request::is('panel/admin/home-page-settings')) class="active" @endif><a href="{{ url('panel/admin/home-page-settings') }}"><i class="fa fa-circle-o"></i> Home Page</a></li>
                 <li @if(Request::is('panel/admin/about-page-settings')) class="active" @endif><a href="{{ url('panel/admin/about-page-settings') }}"><i class="fa fa-circle-o"></i> About Us Page</a></li>
                 <li @if(Request::is('panel/admin/license-page-settings')) class="active" @endif><a href="{{ url('panel/admin/license-page-settings') }}"><i class="fa fa-circle-o"></i> License Page</a></li>
+                <li @if(Request::is('panel/admin/use-guide-page-settings')) class="active" @endif><a href="{{ url('panel/admin/use-guide-page-settings') }}"><i class="fa fa-circle-o"></i> Use Guide Page</a></li>
                 <li @if(Request::is('panel/admin/faq-page-settings')) class="active" @endif><a href="{{ url('panel/admin/faq-page-settings') }}"><i class="fa fa-circle-o"></i> FAQ Page</a></li>
                 <li @if(Request::is('panel/admin/imprint-page-settings')) class="active" @endif><a href="{{ url('panel/admin/imprint-page-settings') }}"><i class="fa fa-circle-o"></i> Imprint Page</a></li>
                 <li @if(Request::is('panel/admin/privacy-policy-page-settings')) class="active" @endif><a href="{{ url('panel/admin/privacy-policy-page-settings') }}"><i class="fa fa-circle-o"></i> Privacy Policy Page</a></li>
