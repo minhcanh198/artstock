@@ -79,7 +79,7 @@
 
                         <div class="btn-block margin-bottom-10">
                         @if($licensePageSettings->header_main_image != null)
-                          <img src="{{url('/public/license_page/header_assets/').'/'. $licensePageSettings->header_main_image }}" style="width:200px">
+                          <img src="{{url('/license_page/header_assets/').'/'. $licensePageSettings->header_main_image }}" style="width:200px">
                         @endif
                         </div>
 
@@ -203,7 +203,7 @@
 
                         <div class="btn-block margin-bottom-10">
                         @if($licensePageSettings->section_2_content_1_image != null)
-                          <img src="{{url('/public/license_page/section_2_content/').'/'. $licensePageSettings->section_2_content_1_image }}" style="width:200px">
+                          <img src="{{url('/license_page/section_2_content/').'/'. $licensePageSettings->section_2_content_1_image }}" style="width:200px">
                         @endif
                         </div>
 
@@ -254,7 +254,7 @@
 
                         <div class="btn-block margin-bottom-10">
                         @if($licensePageSettings->section_2_content_2_image != null)
-                          <img src="{{url('/public/license_page/section_2_content/').'/'. $licensePageSettings->section_2_content_2_image }}" style="width:200px">
+                          <img src="{{url('/license_page/section_2_content/').'/'. $licensePageSettings->section_2_content_2_image }}" style="width:200px">
                         @endif
                         </div>
 
@@ -305,7 +305,7 @@
 
                         <div class="btn-block margin-bottom-10">
                         @if($licensePageSettings->section_2_content_3_image != null)
-                          <img src="{{url('/public/license_page/section_2_content/').'/'. $licensePageSettings->section_2_content_3_image }}" style="width:200px">
+                          <img src="{{url('/license_page/section_2_content/').'/'. $licensePageSettings->section_2_content_3_image }}" style="width:200px">
                         @endif
                         </div>
 
@@ -356,7 +356,7 @@
 
                         <div class="btn-block margin-bottom-10">
                         @if($licensePageSettings->section_2_content_4_image != null)
-                          <img src="{{url('/public/license_page/section_2_content/').'/'. $licensePageSettings->section_2_content_4_image }}" style="width:200px">
+                          <img src="{{url('/license_page/section_2_content/').'/'. $licensePageSettings->section_2_content_4_image }}" style="width:200px">
                         @endif
                         </div>
 

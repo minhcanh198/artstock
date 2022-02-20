@@ -71,7 +71,7 @@ $i = 0;
             		<div class="pt-4 pb-4 pl-3 pr-3">
             			<div class="">
             			    <a href="<?php echo url('/'). '/artist/'. $image[0]->id; ?>">
-        					<img src="<?php echo url('/'). '/public/avatar/'. $image[0]->avatar; ?>" alt="" class="photographer-thimbnial">
+        					<img src="<?php echo url('/'). '/avatar/'. $image[0]->avatar; ?>" alt="" class="photographer-thimbnial">
         					</a>
             			    <h4 class="title-this-photographer">{{ $image[0]->username }}</h4>
                             <p class="tag-one-photographer">{{ $image[0]->type_name }}</p>
@@ -183,9 +183,6 @@ $i = 0;
                     					        <img src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">
                 					        </a>
                     					@endforeach
-                    					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                    					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                    					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
                     					<?php
                                         }else{
                                     ?>
@@ -253,12 +250,8 @@ $i = 0;
         			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
         				<div class="">
         					<div class="d-md-flex">
-        						<!--<a href="<?php //echo url('/')?>/artist/<?php //echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>-->
-        						<!--<a href="<?php //echo url('/')?>/request-to-book?photographerId=<?php //echo $users->id ;?>&cityId=<?php //echo $users->city_id; ?>" class="button-book-one w-100">Book artist</a>-->
         						<a href="<?php echo url('/'). '/artist/'. $image[0]->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
-								<!--<a href="<?php //echo url('/'). '/request-to-book?photographerId='. $image[0]->id . '&cityId='. $image[0]->city_id; ?>" class="button-book-one w-100">Book artist</a>-->
 								<a href="<?php echo url('/'). '/request-to-book?photographerId='. $image[0]->id; ?>" class="button-book-one w-100">Book artist</a>
-								<!--<a href="javascript:;" class="button-chat-two" >Chat</a>-->
         					</div>
         				</div>
         			</div>

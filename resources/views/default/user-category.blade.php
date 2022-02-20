@@ -14,7 +14,7 @@
         @else
         	<p class="subtitle-site"><strong>{{$settings->title}}</strong></p>
         @endif
-    
+
         <?php
 			$categorySlug = $category->type_name;
 			if($categorySlug == "Animator" ){
@@ -38,7 +38,7 @@
 		<?php
 			}
 		?>
-        
+
 		<div class="row mt-5">
 
 			<div class="col-lg-2">
@@ -52,14 +52,14 @@
 							<i class="fa fa-search"></i>
 						</button>
 
-						
+
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-2">
 			</div>
 		</div>
-		
+
       </div>
     </div>
 
@@ -110,7 +110,7 @@
                 $("#btnSubmitTxtArtistSearch").click();
             }
         });
- 
+
 		// const baseUrl = '<?php //echo url("/")?>';
 		$("#btnSubmitTxtArtistSearch").click(function(){
 			var searchArtistValue = $("#txt_search_artist").val();
@@ -146,7 +146,7 @@
 								// 					'</div>'+
 								// 				'</div>'+
 								// 			'</div>';
-													
+
 								// 			if(value[0].user_type_id == "1"){
 
 								// 				html += '<div class="bottom" style="background-image: url('+ baseUrl +'/public/uploads/thumbnail/' +  value[0].img + ')">'+
@@ -159,7 +159,7 @@
 								// 							'</div>'+
 								// 						'</div>';
 								// 			}else if(value[0].user_type_id == "3"){
-											
+
 								// 				html +=	'<div class="bottom" style="background-image: url(' + baseUrl +  '/public/uploads/video/screen_shot/'+ value[0].ScreenShot + ')">'+
 								// 							'<div class="row">'+
 								// 								'<div class="col-5 offset-7">'+
@@ -190,24 +190,24 @@
 								// 							'</div>'+
 								// 						'</div>';
 								// 			}
-												
-											
-											
+
+
+
 								// 		html += ' </div>';
-								
-								
-								
+
+
+
 								 html += '<div class="col-lg-4 col-md-6 mb-4-cutom">'+
                 							    '<div class="choose-photographer-box">'+
                                             		'<div class="pt-4 pb-4 pl-3 pr-3">'+
                                             			'<div class="">'+
-                                            			    '<a data-fancybox href="' + baseUrl + '/public/avatar/' + value[0].avatar +'">'+
-                                        					    '<img src="' + baseUrl + '/public/avatar/' + value[0].avatar +'" alt="" class="photographer-thimbnial">'+
+                                            			    '<a data-fancybox href="' + baseUrl + '/avatar/' + value[0].avatar +'">'+
+                                        					    '<img src="' + baseUrl + '/avatar/' + value[0].avatar +'" alt="" class="photographer-thimbnial">'+
                                         					 '</a>'+
                                             			    '<h4 class="title-this-photographer">' + value[0].username + '</h4>'+
                                                             '<p class="tag-one-photographer">' + value[0].type_name + '</p>'+
                                                             '<p class="tag-one-photographer" style="    margin-left: 77px;">'+ value[0].CountryName + '</p>';
-                                                            
+
                                                             if(value[0].user_type_id == "1"){//1 user type photographer
                                                 			    html +='<div class="mt-4" style="text-align: center;">';
                                                 			    if(value[0].img != null){
@@ -215,8 +215,8 @@
                                                 			        //   for(var i=0; i < splitImgs.length; i++){
                                                 			        for(var i=0; i < 4; i++){
                                                 			            if(splitImgs[i] != undefined){
-                                            								html +='<a data-fancybox href="' + baseUrl + '/public/uploads/preview/' + splitImgs[i] +'">'+
-                                                        					    '<img src="' + baseUrl + '/public/uploads/preview/' + splitImgs[i] +'" alt="" class="set-img-size">'+
+                                            								html +='<a data-fancybox href="' + baseUrl + '/uploads/preview/' + splitImgs[i] +'">'+
+                                                        					    '<img src="' + baseUrl + '/uploads/preview/' + splitImgs[i] +'" alt="" class="set-img-size">'+
                                                             			    '</a>';
                                                 			            }
                                                 			        }
@@ -233,8 +233,8 @@
                                                         			         //   console.log(realFileName);
                                                         			            var getFileNameScreenShot = splitVids[i].split('.')[0] + '.png';
                                                         			         //   console.log('asd ==>'+ getFileNameScreenShot);
-                                            								html +='<a data-fancybox href="' + baseUrl + '/public/uploads/video/water_mark_large/watermark-' + realFileName +'">'+
-                                                        					    '<img src="' + baseUrl + '/public/uploads/video/screen_shot/screen-shot-' + getFileNameScreenShot +'" alt="" class="set-img-size">'+
+                                            								html +='<a data-fancybox href="' + baseUrl + '/uploads/video/water_mark_large/watermark-' + realFileName +'">'+
+                                                        					    '<img src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + getFileNameScreenShot +'" alt="" class="set-img-size">'+
                                                             			    '</a>';
                                                 			            }
                                                 			        }
@@ -251,8 +251,8 @@
                                                         			         //   console.log(realFileNameAni);
                                                         			            var getFileNameScreenShotAni = splitAnis[i].split('.')[0] + '.png';
                                                         			         //   console.log('asd ==>'+ getFileNameScreenShotAni);
-                                            								html +='<a data-fancybox href="' + baseUrl + '/public/uploads/video/water_mark_large/watermark-' + realFileNameAni +'">'+
-                                                        					    '<img src="' + baseUrl + '/public/uploads/video/screen_shot/screen-shot-' + getFileNameScreenShotAni +'" alt="" class="set-img-size">'+
+                                            								html +='<a data-fancybox href="' + baseUrl + '/uploads/video/water_mark_large/watermark-' + realFileNameAni +'">'+
+                                                        					    '<img src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + getFileNameScreenShotAni +'" alt="" class="set-img-size">'+
                                                             			    '</a>';
                                                 			            }
                                                 			        }
@@ -272,7 +272,7 @@
                                                     //     					   // '<img src="' + baseUrl + '/public/uploads/audio/large/' + splitMus[i] +'" alt="" class="set-img-size">'+
                                                     //     					    '<div class="wave-container"></div>'+
                                                     //         			    '</div>';
-                                                            			    
+
                                                             			    html += '<div class="qwewaveUserSearch d-flex" data-path="' + baseUrl + '/public/uploads/audio/large/' + splitMus[i] +'">'+
                                                                                 '<div class="align-self-center music-col-2">'+
                                                                                     '<a href="javascript:;" class="btn-music-play" id="userSearchbaton-playMusic#'+ splitMus[i] +'">'+
@@ -282,7 +282,7 @@
                                                                                         '<i class="fas fa-pause"></i>'+
                                                                                     '</a>'+
                                                                                 '</div>'+
-                                                                                
+
                                                                                 '<div class="wave-container music-col-10"></div>'+
                                                                             '</div>';
                                                 			            }
@@ -305,8 +305,8 @@
                                         			'</div>'+
                                             	'</div>'+
                                 	        '</div>';
-								
-								
+
+
 								//  html += '<div class="choose-photographer-box">'+
         //                             		'<div class="pt-4 pb-4 pl-3 pr-3">'+
         //                             			'<div class="">'+
@@ -336,7 +336,7 @@
         //                                 			               console.log('errro while fetching limit images by user id ');
         //                                 			           }
         //                                 			        });
-                                        			         
+
         //                             					html += '</div>';
         //                                         	}else if(value[0].user_type_id == "3"){
         //                                         	    html += '<div class="mt-4" style="text-align: center;" id="'+ value[0].id +'">';
@@ -360,7 +360,7 @@
         //                                 			           }
         //                                 			        });
         //                             					html += '</div>';
-                                    					
+
         //                                         	}else if(value[0].user_type_id == "2"){
         //                                         	    html += '<div class="mt-4" style="text-align: center;" id="'+ value[0].id +'" >';
         //                                 			        $.ajax({
@@ -383,16 +383,16 @@
         //                                 			               console.log('errro while fetching limit images by user id ');
         //                                 			           }
         //                                 			        });
-                                        			         
+
         //                             					html += '</div>';
         //                                         	}
-                                					
+
         //                         			    html += '</div>'+
-        //                         		    '</div>'+    
+        //                         		    '</div>'+
         //                         			'<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">'+
         //                         				'<div class="">'+
         //                         					'<div class="d-md-flex">'+
-                                					                
+
         //                         						'<a href="' + baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one w-100 mt-0">Portfolio</a>'+
         //                 								'<a href="'+ baseUrl + '/request-to-book?photographerId=' + value[0].id + '&cityId=' + value[0].city_id + '" class="button-book-one w-100">Book artist</a>'+
         //                 								// <!--<a href="javascript:;" class="button-chat-two" >Chat</a>-->
@@ -400,23 +400,23 @@
         //                         				'</div>'+
         //                         			'</div>'+
         //                         	    '</div>';
-								       
+
 								// 	html += '</div>';
 								});
 							html += '</div>';
 							html += '</div>';
 							$("#DivImageFlex").empty();
 							$("#DivImageFlex").append(html);
-                            
+
                             $('.qwewaveUserSearch').each(function(){
         			              //Generate unic ud
                                   var id = '_' + Math.random().toString(36).substr(2, 9);
                                   var path = $(this).attr('data-path');
         						    console.log($(this).find(".wave-container"));
-                                  
+
                                   //Set id to container
                                   $(this).find(".wave-container").attr("id", id);
-                                
+
                                   //Initialize WaveSurfer
                                   var wavesurfer = WaveSurfer.create({
                                       container: '#' + id,
@@ -424,7 +424,7 @@
                                     waveColor: '#ef595f',
                                     progressColor: '#3A3A3A',
                                     backgroundColor: 'transparent',
-                                  
+
                                     cursorWidth: 2,
                                     height: 70
                                     //   waveColor: '#ef595f',
@@ -435,11 +435,11 @@
                                     //   barWidth: 5,
                                     //   cursorWidth: 5
                                   });
-                                  
+
                                   //Load audio file
                                   wavesurfer.load(path);
-                                  
-                               
+
+
                                 var mainDataGetUserSearch = '';
                                 $(document).on('click', 'a[id^="userSearchbaton-playMusic#"]', function(){
                                     var dataGet = $(this).attr('id').split('#')[1];
@@ -458,13 +458,13 @@
                                     $(this).hide();
                                     $('a[id^="userSearchbaton-playMusic#'+ dataGet +'"]').css('display','inline');
                                 });
-                                
+
                                 wavesurfer.on('finish', function () {
                                     $('a[id^="userSearchbaton-pauseMusic#'+ mainDataGetUserSearch +'"]').css('display','none');
                                     $('a[id^="userSearchbaton-playMusic#'+ mainDataGetUserSearch +'"]').css('display','inline');
                                 });
                             });
-                            
+
 							//Clearing Banner Text And Change Count of users start
 							$("#strongBannerText").empty();
 							var txt = '<?php echo trans('misc.profile_images_available_category2') ?>';
@@ -549,7 +549,7 @@
 								// 					'</div>'+
 								// 				'</div>'+
 								// 			'</div>';
-													
+
 								// 			if(value[0].user_type_id == "1"){
 
 								// 				html += '<div class="bottom" style="background-image: url('+ baseUrl +'/public/uploads/thumbnail/' +  value[0].img + ')">'+
@@ -562,7 +562,7 @@
 								// 							'</div>'+
 								// 						'</div>';
 								// 			}else if(value[0].user_type_id == "3"){
-											
+
 								// 				html +=	'<div class="bottom" style="background-image: url(' + baseUrl +  '/public/uploads/video/screen_shot/'+ value[0].ScreenShot + ')">'+
 								// 							'<div class="row">'+
 								// 								'<div class="col-5 offset-7">'+
@@ -593,9 +593,9 @@
 								// 							'</div>'+
 								// 						'</div>';
 								// 			}
-												
-											
-											
+
+
+
 								// 		html += ' </div>';
 								//  html += '<div class="choose-photographer-box">'+
         //                             		'<div class="pt-4 pb-4 pl-3 pr-3">'+
@@ -626,7 +626,7 @@
         //                                 			               console.log('errro while fetching limit images by user id ');
         //                                 			           }
         //                                 			        });
-                                        			         
+
         //                             					html += '</div>';
         //                                         	}else if(value[0].user_type_id == "3"){
         //                                         	    html += '<div class="mt-4" style="text-align: center;" id="'+ value[0].id +'">';
@@ -650,7 +650,7 @@
         //                                 			           }
         //                                 			        });
         //                             					html += '</div>';
-                                    					
+
         //                                         	}else if(value[0].user_type_id == "2"){
         //                                         	    html += '<div class="mt-4" style="text-align: center;" id="'+ value[0].id +'" >';
         //                                 			        $.ajax({
@@ -673,16 +673,16 @@
         //                                 			               console.log('errro while fetching limit images by user id ');
         //                                 			           }
         //                                 			        });
-                                        			         
+
         //                             					html += '</div>';
         //                                         	}
-                                					
+
         //                         			    html += '</div>'+
-        //                         		    '</div>'+    
+        //                         		    '</div>'+
         //                         			'<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">'+
         //                         				'<div class="">'+
         //                         					'<div class="d-md-flex">'+
-                                					                
+
         //                         						'<a href="' + baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one w-100 mt-0">Portfolio</a>'+
         //                 								'<a href="'+ baseUrl + '/request-to-book?photographerId=' + value[0].id + '&cityId=' + value[0].city_id + '" class="button-book-one w-100">Book artist</a>'+
         //                 								// <!--<a href="javascript:;" class="button-chat-two" >Chat</a>-->
@@ -691,7 +691,7 @@
         //                         			'</div>'+
         //                         	    '</div>';
 								// 	html += '</div>';
-								
+
 								 html += '<div class="col-lg-4 col-md-6 mb-4-cutom">'+
                 							    '<div class="choose-photographer-box">'+
                                             		'<div class="pt-4 pb-4 pl-3 pr-3">'+
@@ -702,7 +702,7 @@
                                             			    '<h4 class="title-this-photographer">' + value[0].username + '</h4>'+
                                                             '<p class="tag-one-photographer">' + value[0].type_name + '</p>'+
                                                             '<p class="tag-one-photographer" style="    margin-left: 77px;">'+ value[0].CountryName + '</p>';
-                                                            
+
                                                             if(value[0].user_type_id == "1"){//1 user type photographer
                                                 			    html +='<div class="mt-4" style="text-align: center;">';
                                                 			    if(value[0].img != null){
@@ -759,7 +759,7 @@
                                                     //     					   // '<img src="' + baseUrl + '/public/uploads/audio/large/' + splitMus[i] +'" alt="" class="set-img-size">'+
                                                     //     					    '<div class="wave-container"></div>'+
                                                     //         			    '</div>';
-                                                            			    
+
                                                             			    html += '<div class="qwewaveClear d-flex" data-path="' + baseUrl + '/public/uploads/audio/large/' + splitMus[i] +'">'+
                                                                                 '<div class="align-self-center music-col-2">'+
                                                                                     '<a href="javascript:;" class="btn-music-play" id="Clearbaton-playMusic#'+ splitMus[i] +'">'+
@@ -769,7 +769,7 @@
                                                                                         '<i class="fas fa-pause"></i>'+
                                                                                     '</a>'+
                                                                                 '</div>'+
-                                                                                
+
                                                                                 '<div class="wave-container music-col-10"></div>'+
                                                                             '</div>';
                                                 			            }
@@ -797,16 +797,16 @@
 							html += '</div>';
 							$("#DivImageFlex").empty();
 							$("#DivImageFlex").append(html);
-							
+
 							$('.qwewaveClear').each(function(){
         			              //Generate unic ud
                                   var id = '_' + Math.random().toString(36).substr(2, 9);
                                   var path = $(this).attr('data-path');
         						    console.log($(this).find(".wave-container"));
-                                  
+
                                   //Set id to container
                                   $(this).find(".wave-container").attr("id", id);
-                                
+
                                   //Initialize WaveSurfer
                                   var wavesurfer = WaveSurfer.create({
                                       container: '#' + id,
@@ -814,7 +814,7 @@
                                     waveColor: '#ef595f',
                                     progressColor: '#3A3A3A',
                                     backgroundColor: 'transparent',
-                                  
+
                                     cursorWidth: 2,
                                     height: 70
                                     //   waveColor: '#ef595f',
@@ -825,11 +825,11 @@
                                     //   barWidth: 5,
                                     //   cursorWidth: 5
                                   });
-                                  
+
                                   //Load audio file
                                   wavesurfer.load(path);
-                                  
-                               
+
+
                                 var mainDataGetClear = '';
                                 $(document).on('click', 'a[id^="Clearbaton-playMusic#"]', function(){
                                     var dataGet = $(this).attr('id').split('#')[1];
@@ -848,7 +848,7 @@
                                     $(this).hide();
                                     $('a[id^="Clearbaton-playMusic#'+ dataGet +'"]').css('display','inline');
                                 });
-                                
+
                                 wavesurfer.on('finish', function () {
                                     $('a[id^="Clearbaton-pauseMusic#'+ mainDataGetClear +'"]').css('display','none');
                                     $('a[id^="Clearbaton-playMusic#'+ mainDataGetClear +'"]').css('display','inline');
@@ -930,7 +930,7 @@
 
 		});//<<---- PAGINATION AJAX
 
-		
+
 </script>
 
 

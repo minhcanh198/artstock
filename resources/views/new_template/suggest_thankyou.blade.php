@@ -1,7 +1,7 @@
 @extends('new_template.layouts.app')
 @section('content')
 <!-- <section class="suggest-city-s1" style="background-image: url(https://dl.dropboxusercontent.com/s/mfxce4736aopmbi/flytographer.wallpaper.png?dl=0);"> -->
-<section class="suggest-city-s1" style="background-image: url(<?php echo url('/').'/public/suggest_a_city/assets/'.$suggestCityPageSettings->request_thankyou_background_img; ?>);">
+<section class="suggest-city-s1" style="background-image: url(<?php echo url('/').'/suggest_a_city/assets/'.$suggestCityPageSettings->request_thankyou_background_img; ?>);">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 offset-md-3 bg-suggest-city-form">

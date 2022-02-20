@@ -198,7 +198,7 @@
                             <div class="item">
                                 <div class="inner-img">
                                     <img
-                                        src="{{ url('/') }}/public/home_page/sections_assets/{{ $homePageSettings->section1_image }}"
+                                        src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section1_image }}"
                                         class="img-fluid">
                                 </div>
                             </div>
@@ -229,7 +229,7 @@
                             <div class="item">
                                 <div class="inner-img aos-init aos-animate" data-aos="zoom-in">
                                     <img
-                                        src="{{ url('/') }}/public/home_page/sections_assets/{{ $homePageSettings->section2_image }}"
+                                        src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section2_image }}"
                                         class="img-fluid">
                                 </div>
                             </div>
@@ -244,7 +244,7 @@
                             <div class="item">
                                 <div class="inner-img">
                                     <img
-                                        src="{{ url('/') }}/public/home_page/sections_assets/{{ $homePageSettings->section3_image }}"
+                                        src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section3_image }}"
                                         class="img-fluid">
                                 </div>
                             </div>
@@ -275,7 +275,7 @@
                             <div class="item">
                                 <div class="inner-img aos-init aos-animate" data-aos="zoom-in">
                                     <img
-                                        src="{{ url('/') }}/public/home_page/sections_assets/{{ $homePageSettings->section4_image }}"
+                                        src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section4_image }}"
                                         class="img-fluid">
                                 </div>
                             </div>
@@ -287,67 +287,6 @@
     </section>
 
     <section class="section-popular mb-5">
-        <!--<div class="container-fluid">-->
-        <!--    <div class="row">-->
-        <!--        <div class="col-md-4">-->
-        <!--            <div class="mb-4-cutom">-->
-        <!--                <div class="choose-photographer-box">-->
-        <!--                    <style>-->
-        <!--                        .header-photographer-2 .set-img-size.new-img {-->
-        <!--                                width: 80px;-->
-        <!--                                height: 80px;-->
-        <!--                                margin: 0 auto;-->
-        <!--                                text-align: center;-->
-        <!--                        }-->
-        <!--                        .choose-photographer-box .header-photographer-2 .title-this {-->
-        <!--                            font-size: 24px;-->
-        <!--                            margin-bottom: 10px;-->
-        <!--                        }-->
-        <!--                        .choose-photographer-box .header-photographer-2 .tag-one {-->
-        <!--                            color: #888;-->
-        <!--                            position: relative;-->
-        <!--                            margin-bottom: 10px;-->
-        <!--                        }-->
-        <!--                    </style>-->
-        <!--                    <div class="header-photographer-2">-->
-        <!--                        <div class="row">-->
-        <!--                            <div class="col-sm-3">-->
-        <!--                                <img src="https://projects.hexawebstudio.com/darquise-nantel/public/avatar/esteban-101599843096r1tiu1n8kz.jpg" alt="" class="set-img-size new-img">-->
-        <!--                            </div>-->
-        <!--                            <div class="col-sm-3">-->
-        <!--                                <img src="https://projects.hexawebstudio.com/darquise-nantel/public/avatar/esteban-101599843096r1tiu1n8kz.jpg" alt="" class="set-img-size new-img">-->
-        <!--                            </div>-->
-        <!--                            <div class="col-sm-3">-->
-        <!--                                <img src="https://projects.hexawebstudio.com/darquise-nantel/public/avatar/esteban-101599843096r1tiu1n8kz.jpg" alt="" class="set-img-size new-img">-->
-        <!--                            </div>-->
-        <!--                            <div class="col-sm-3">-->
-        <!--                                <img src="https://projects.hexawebstudio.com/darquise-nantel/public/avatar/esteban-101599843096r1tiu1n8kz.jpg" alt="" class="set-img-size new-img">-->
-        <!--                            </div>-->
-        <!--                            <div class="col-sm-6 mt-3">-->
-        <!--                                <h4 class="title-this">Esteban</h4>-->
-        <!--                                    <p class="tag-one">Photographer</p>-->
-
-        <!--                                 <p class="tag-two">Available</p> -->
-        <!--                            </div>-->
-        <!--                        </div>-->
-        <!--                    </div>    -->
-        <!--                    <div class="bottom" style="background-image:url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/)">-->
-        <!--                        <div class="row">-->
-        <!--                            <div class="col-5 offset-7">-->
-        <!--                                <a href="https://projects.hexawebstudio.com/darquise-nantel/artist/10" class="btn-portfolio-one mb-2">Portfolio</a>-->
-        <!--                                <a href="https://projects.hexawebstudio.com/darquise-nantel/request-to-book?photographerId=10&amp;cityId=1" class="button-book-one mb-2">Book artist</a>-->
-        <!--<a href="javascript:;" v-if="suser != ''" @click="addToActiveChat(photoUser)" class="button-chat-two" >Chat</a>-->
-        <!--                            </div>-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-
-        <!--            </div>  -->
-
-        <!--         </div>-->
-        <!--    </div>-->
-        <!--</div>-->
-
         <div class="container">
             <div class="row mb-4">
                 <div class="col-12">
@@ -362,25 +301,21 @@
                 </div>
             </div>
 
-        <!--<usersliderhome sessionUser=<?php //echo (\Auth::user()) ? \Auth::user()->id : ''; ?>></usersliderhome>-->
-            <!-- <artistcard></artistcard> -->
             <div class="margin-top-destination-location-box">
 
                 <carousel>
                     <div class="owl-carousel owl-theme slider-artist-new">
                         <?php
                         foreach($userArtistListPhotographer as $userPhotographer){
-                        // dd($userPhotographer);
                         ?>
                         <div class="">
 
-                            <!--<div class="col-md-4">-->
                             <div class="choose-photographer-box">
                                 <div class="pt-4 pb-4 pl-3 pr-3">
                                     <div class="">
                                         <a href="<?php echo url('/')?>/artist/<?php echo $userPhotographer->id; ?>">
                                             <img
-                                                src="<?php echo url('/')?>/public/avatar/<?php echo $userPhotographer->avatar; ?>"
+                                                src="<?php echo url('/')?>/avatar/<?php echo $userPhotographer->avatar; ?>"
                                                 alt="" class="photographer-thimbnial">
                                         </a>
                                         <h4 class="title-this-photographer">{{ $userPhotographer->username }}</h4>
@@ -391,8 +326,6 @@
                                         <div class="mt-4" style="text-align: center;">
                                             <?php
                                             $queryGetDataById = App\Models\Images::where(['is_type' => 'image', 'user_id' => $userPhotographer->id])->limit(4)->get();
-                                            // var_dump($userPhotographer->id);
-                                            // dd(count($queryGetDataById));
                                             if(count($queryGetDataById) > 0){
 
 
@@ -417,9 +350,6 @@
                                         <?php
                                         }
                                         ?>
-                                        <!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
-                                        <!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
-                                        <!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
                                         </div>
 
                                     </div>
@@ -438,23 +368,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--</div>-->
 
-                            <!--<div class="mb-4-cutom">-->
-                            <!--    <div class="choose-photographer-box" style="margin:10px;">-->
-                            <!--        <div class="header-photographer">-->
-                            <!--            <div class="row">-->
-                            <!--                <div class="col-sm-4">-->
-                        <!--                    <img src="<?php echo url('/')?>/public/avatar/<?php echo $userPhotographer->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
-                            <!--                </div>-->
-                            <!--                <div class="col-sm-7 offset-md-1">-->
-                        <!--                    <h4 class="title-this">{{ $userPhotographer->username }}</h4>-->
-                        <!--                        <p class="tag-one">{{ $userPhotographer->type_name }}</p>-->
-
-                            <!-- <p class="tag-two">Available</p> -->
-                            <!--                </div>-->
-                            <!--            </div>-->
-                            <!--        </div>    -->
                         <?php
                         //if($userPhotographer->type_name == "Photographer"){
                         ?>
@@ -490,7 +404,7 @@
                                     <!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="photographer-thimbnial">-->
                                         <a href="<?php echo url('/')?>/artist/<?php echo $userVideographer->id; ?>">
                                             <img
-                                                src="<?php echo url('/')?>/public/avatar/<?php echo $userVideographer->avatar; ?>"
+                                                src="<?php echo url('/')?>/avatar/<?php echo $userVideographer->avatar; ?>"
                                                 alt="" class="photographer-thimbnial">
                                         </a>
                                         <h4 class="title-this-photographer">{{ $userVideographer->username }}</h4>
@@ -613,7 +527,7 @@
                                     <!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="photographer-thimbnial">-->
                                         <a href="<?php echo url('/')?>/artist/<?php echo $userAnimator->id; ?>">
                                             <img
-                                                src="<?php echo url('/')?>/public/avatar/<?php echo $userAnimator->avatar; ?>"
+                                                src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>"
                                                 alt="" class="photographer-thimbnial">
                                         </a>
                                         <h4 class="title-this-photographer">{{ $userAnimator->username }}</h4>
