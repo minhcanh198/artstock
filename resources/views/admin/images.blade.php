@@ -93,7 +93,7 @@
                       @if($image->is_type=='audio')
                         <td colspan="2">
                             <audio controls>
-                              <source src="<?php echo url('/public/uploads/audio/large/').'/' . $image->thumbnail; ?>" type="audio/mpeg">
+                              <source src="<?php echo url('/uploads/audio/large/').'/' . $image->thumbnail; ?>" type="audio/mpeg">
                               Your browser does not support the audio element.
                             </audio>
                         </td>

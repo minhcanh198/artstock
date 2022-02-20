@@ -79,7 +79,7 @@
 
                         <div class="btn-block margin-bottom-10">
                         @if($faqPageSettings->header_main_image != null)
-                          <img src="{{url('/public/faq_page/header_assets/').'/'. $faqPageSettings->header_main_image }}" style="width:200px">
+                          <img src="{{url('/faq_page/header_assets/').'/'. $faqPageSettings->header_main_image }}" style="width:200px">
                         @endif
                         </div>
 

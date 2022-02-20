@@ -2,7 +2,7 @@
 
 
 
-@section('content') 
+@section('content')
 <section class="hire-more-section">
     <div class="container">
         <div class="row mt-4 mb-5">
@@ -32,7 +32,7 @@
                 <!-- hire-more-active -->
                     <div class="hire-more-box  " id="box_photoshoot_type-{{ $photoShoot->id }}">
                         <div class="img">
-                            <img src="<?php echo url('/').'/public/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
+                            <img src="<?php echo url('/').'/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
                         </div>
                         <div class="txt">
                         <!-- <i class="fas fa-check"></i> -->
@@ -40,16 +40,16 @@
                                 {{ $photoShoot->photoshoot_name }}
                             </p>
                         </div>
-                    </div>  
+                    </div>
                 </div>
                 @endforeach
             @else
                 <div class="row mb-4">
                     <div class="col-12 text-center">
-                        <h1>Photography Types </h1>    
+                        <h1>Photography Types </h1>
                     </div>
                 </div>
-                
+
                 <div class="row">
                 @foreach($photoshootTypes as $photoShoot)
                     @if($photoShoot->types_id == "1")
@@ -57,7 +57,7 @@
                             <!-- hire-more-active -->
                             <div class="hire-more-box  " id="box_photoshoot_type-{{ $photoShoot->id }}">
                                 <div class="img">
-                                    <img src="<?php echo url('/').'/public/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
+                                    <img src="<?php echo url('/').'/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
                                 </div>
                                 <div class="txt">
                                 <!-- <i class="fas fa-check"></i> -->
@@ -65,7 +65,7 @@
                                         {{ $photoShoot->photoshoot_name }}
                                     </p>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                     @endif
                 @endforeach
@@ -75,7 +75,7 @@
                         <h1>Animation Types </h1>
                     </div>
                 </div>
-                
+
                 <div class="row">
                 @foreach($photoshootTypes as $photoShoot)
                     @if($photoShoot->types_id == "2")
@@ -83,7 +83,7 @@
                             <!-- hire-more-active -->
                             <div class="hire-more-box  " id="box_photoshoot_type-{{ $photoShoot->id }}">
                                 <div class="img">
-                                    <img src="<?php echo url('/').'/public/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
+                                    <img src="<?php echo url('/').'/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
                                 </div>
                                 <div class="txt">
                                 <!-- <i class="fas fa-check"></i> -->
@@ -91,12 +91,12 @@
                                         {{ $photoShoot->photoshoot_name }}
                                     </p>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                     @endif
                 @endforeach
                 </div>
-                
+
                 <div class="row mb-4">
                     <div class="col-12 text-center">
                         <h1>Videography Types </h1>
@@ -109,7 +109,7 @@
                             <!-- hire-more-active -->
                             <div class="hire-more-box  " id="box_photoshoot_type-{{ $photoShoot->id }}">
                                 <div class="img">
-                                    <img src="<?php echo url('/').'/public/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
+                                    <img src="<?php echo url('/').'/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
                                 </div>
                                 <div class="txt">
                                 <!-- <i class="fas fa-check"></i> -->
@@ -117,12 +117,12 @@
                                         {{ $photoShoot->photoshoot_name }}
                                     </p>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                     @endif
                 @endforeach
                 </div>
-                
+
                 <div class="row mb-4">
                     <div class="col-12 text-center">
                         <h1>Music Types </h1>
@@ -135,7 +135,7 @@
                             <!-- hire-more-active -->
                             <div class="hire-more-box  " id="box_photoshoot_type-{{ $photoShoot->id }}">
                                 <div class="img">
-                                    <img src="<?php echo url('/').'/public/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
+                                    <img src="<?php echo url('/').'/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
                                 </div>
                                 <div class="txt">
                                 <!-- <i class="fas fa-check"></i> -->
@@ -143,7 +143,7 @@
                                         {{ $photoShoot->photoshoot_name }}
                                     </p>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                     @endif
                 @endforeach
@@ -178,7 +178,7 @@
     <!--Content-->
     <div class="modal-content">
         <div class="logo-modal">
-            <img src="<?php echo url('/').'/public/img/commercial-1.svg' ?>" alt="" class="img-fluid">
+            <img src="<?php echo url('/').'/img/commercial-1.svg' ?>" alt="" class="img-fluid">
         </div>
       <!--Modal cascading tabs-->
         <div class="d-flex justify-content-center mt-4 mb-4">
