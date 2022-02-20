@@ -58,5 +58,5 @@ return [
 	'error_desc'              =>      'Whoops! There were some problems with your input.',
 	'error_logging'           =>      'These credentials do not match our records.',
 	'login_download'          =>      'Please log-in for download',
-
+    'paypal_account'          =>      'Paypal Account'
 ];
