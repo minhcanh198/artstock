@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2",
+        "php": "^7.4",
         "albertcht/invisible-recaptcha": "^1.9",
         "fideloper/proxy": "^4.0",
         "get-stream/stream-chat": "^1.1",
@@ -24,6 +24,8 @@
         "league/flysystem-aws-s3-v3": "^1.0",
         "maatwebsite/excel": "^3.1",
         "mollie/laravel-mollie": "^2.0",
+        "paypal/rest-api-sdk-php": "^1.14",
+        "paypal/paypalhttp": "~1.0.1",
         "php-ffmpeg/php-ffmpeg": "^0.16.0",
         "razorpay/razorpay": "^2.5",
         "spatie/flysystem-dropbox": "^1.2",
@@ -54,7 +56,8 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "PHPImageWorkshop\\":"PHPImageWorkshop/"
+            "PHPImageWorkshop\\":"PHPImageWorkshop/",
+            "PaypalPayoutsSDK\\": "lib/PaypalPayoutsSDK/"
         },
         "classmap": [
             "database/seeds",

@@ -645,7 +645,7 @@ if( Auth::check() ) {
             data-currency="usd">
           </script>-->
         <!--</form>-->
-
+        @if($response->showPayment)
         @if(Auth::check())
 
             <hr />
@@ -742,8 +742,11 @@ if( Auth::check() ) {
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
             </div>-->
-
+         @endif
+        @else
+            <div class="panel panel-danger text-center"><span class="text-danger">{{trans('misc.artist_payment_not_ready')}}</span></div>
         @endif
+
         <!-- Stripe Checkout Integration end -->
 
 
@@ -1529,7 +1532,7 @@ $(window).on('popstate', function() {
 
 <!-- Paypal Checkout Added by shahzad -->
 <!-- Include the PayPal JavaScript SDK -->
-<script src="https://www.paypal.com/sdk/js?client-id=ASy70TwJR4ZZ9M40E_o-EBaF0Ni6c58Cfu46kgsBbti22YddJrR78ZX1yUJd573C820D1rR9d9-GmzAJ&currency=USD"></script>
+<script src="https://www.paypal.com/sdk/js?client-id={{env('PAYPAL_CLIENT_ID')}}&currency=USD"></script>
 
 <script>
     // Render the PayPal button into #paypal-button-container

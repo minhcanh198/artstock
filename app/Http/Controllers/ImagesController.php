@@ -22,7 +22,9 @@ use League\ColorExtractor\Palette;
 use Image;
 use App\Models\Purchases;
 use FFMpeg;
-
+use PaypalPayoutsSDK\Core\PayPalHttpClient;
+use PaypalPayoutsSDK\Core\SandboxEnvironment;
+use PaypalPayoutsSDK\Payouts\PayoutsPostRequest;
 use Stripe;
 use Session;
 
@@ -1722,7 +1724,8 @@ class ImagesController extends Controller
             }
 
         }//<--------- * Visits * ---------->
-
+        $showPayment =  User::where('id', $response->user_id)->where('paypal_account', '!=', '')->first() ? true : false;
+        $response->showPayment = $showPayment;
         return view('images.show')->withResponse($response);
 
     }//<--- End Method
@@ -2129,6 +2132,7 @@ class ImagesController extends Controller
 
         $image = Images::where('token_id', $token_id)->firstOrFail();
 
+        $user = User::where('id', $image->user_id)->where('paypal_account', '!=', '')->firstOrFail();
 
         // Validate Licenses and Type
         $licensesArray = ['regular', 'extended'];
@@ -2245,6 +2249,9 @@ class ImagesController extends Controller
                 //Add user balance
                 //User::find($image->user()->id)->increment('balance', $earningNetSeller); //Commented by shahzad
             }
+            // refund money to artist
+
+            $this->refundMoneyToArtist($user->paypal_account, $earningNetSeller);
             //<<<<---/  Verify Purchase of the User
             if ($image->is_type == "video") {
                 if ($type != 'vector') {
@@ -2316,5 +2323,50 @@ class ImagesController extends Controller
 
     }//<--- End Method
 
+    public function refundMoneyToArtist($paypalEmail, $value)
+    {
+        $clientId = env('PAYPAL_CLIENT_ID');
+        $clientSecret = env('PAYPAL_CLIENT_SECRET');
 
+        $environment = new SandboxEnvironment($clientId, $clientSecret);
+        $client = new PayPalHttpClient($environment);
+
+
+        $request = new PayoutsPostRequest();
+        $json =
+            '{
+                "sender_batch_header":
+                {
+                  "email_subject": "Refund from Artstock"
+                },
+                "items": [
+                {
+                  "recipient_type": "EMAIL",
+                  "receiver": "' . $paypalEmail . '",
+                  "note": "Refund Image",
+                  "sender_item_id": "",
+                  "amount":
+                  {
+                    "currency": "USD",
+                    "value": "' . $value . '"
+                  }
+                }]
+            }';
+//        dd($json);
+        $body= json_decode(
+            $json,
+            true);
+        $request->body = $body;
+        $response = $client->execute($request);
+        print "Status Code: {$response->statusCode}\n";
+        print "Status: {$response->result->batch_header->batch_status}\n";
+        print "Batch ID: {$response->result->batch_header->payout_batch_id}\n";
+        print "Links:\n";
+        foreach($response->result->links as $link)
+        {
+            print "\t{$link->rel}: {$link->href}\tCall Type: {$link->method}\n";
+        }
+        echo json_encode($response->result, JSON_PRETTY_PRINT), "\n";
+
+    }
 }

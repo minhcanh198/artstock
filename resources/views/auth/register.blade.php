@@ -141,6 +141,10 @@
                             </select>
                             <div id="errorUserTypeDiv"></div>
                         </div>
+                        <div class="mb-3 col-12" id="paypalaccount" style="display:none;">
+                            <input required type="text" class="form-control" id="paypal_account" name="paypal_account" placeholder="{{{ trans('auth.paypal_account') }}}" title="{{{ trans('auth.paypal_account') }}}" autocomplete="off">
+                            <div id="errorPaypalAccount"></div>
+                        </div>
                         <div class="mb-3 col-12" id="divPerHour" style="display:none;">
                             <input type="text" id="perHour" name="perHour" class="form-control" placeholder="{{ 'Per Hour' }}">
                         </div>
@@ -278,7 +282,7 @@
         let countryId = $("#country_id").val();
         let cityId = $("#city_id").val();
         let routeId = $("#route_id").val();
-
+        let paypalAccount = $("#paypal_account").val();
         var re = /^(([^<>()[]\.,;:s@"]+(.[^<>()[]\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/igm;
 
         // console.log(userName);
@@ -330,6 +334,14 @@
             setTimeout(function(){
                 $('#password_confirmation').css('border-color','#ced4da');
                 $('#errorPasswordConfirmationDiv').text('');
+            }, 2000);
+        }else if(paypalAccount == ""){
+            $("#paypal_account").css('border-color','red');
+            $("#errorPaypalAccount").text('This field is required');
+            $("#errorPaypalAccount").css('color','red');
+            setTimeout(function(){
+                $('#paypal_account').css('border-color','#ced4da');
+                $('#errorPaypalAccount').text('');
             }, 2000);
         }
         // else if(userType == ""){
@@ -384,9 +396,13 @@
                 $("#divPerHour").hide();
             }
             $("#divCountry").show();
+            $("#paypalaccount").show();
+
             // $("#divCity").show();
         }else{
             $("#divCountry").hide();
+            $("#paypalaccount").hide();
+            $("#divPerHour").hide();
             // $("#divCity").hide();
         }
     });

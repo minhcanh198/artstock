@@ -13,25 +13,25 @@ return array(
 	'images'             				=>      'Photos',
 	'images_plural'             		=>      'Photo|Photos', // plural 1 Image 2 Images
 	'photos_plural'             		=>      'Photo|Photos', // plural 1 Photo 2 Photos
-	'pending_requests'             		=>      'Pending Requests', 
-	'pending_request_details'           =>      'Pending Request Detail', 
-	'completed_requests'             	=>      'Completed Requests', 
-	'completed_request_details'         =>      'Completed Request Detail', 
-	'rejected_requests'             	=>      'Rejected Requests', 
-	'rejected_request_details'          =>      'Rejected Request Detail', 
-	'approved_requests'             	=>      'Approved Requests', 
-	'approved_request_details'          =>      'Approved Request Detail', 
-	'cancelled_requests'             	=>      'Cancelled Requests', 
-	'cancelled_request_details'         =>      'Cancelled Request Detail', 
-// 	'my_shoots'             			=>      'My Shoots', 
-	'my_requests'             			=>      'My Requests', 
-// 	'my_shoot_details'             		=>      'Shoot Details', 
-	'my_requests_details'             		=>      'Request Details', 
-// 	'my_bookings'             			=>      'My Bookings', 
-	'my_clients_requests'             			=>      'My Client(s) Requests', 
-// 	'my_booking_details'             	=>      'Booking Details', 
-	'my_clients_requests_details'             	=>      'Client Request Details', 
-	'referenceNo'             			=>      'Reference #', 
+	'pending_requests'             		=>      'Pending Requests',
+	'pending_request_details'           =>      'Pending Request Detail',
+	'completed_requests'             	=>      'Completed Requests',
+	'completed_request_details'         =>      'Completed Request Detail',
+	'rejected_requests'             	=>      'Rejected Requests',
+	'rejected_request_details'          =>      'Rejected Request Detail',
+	'approved_requests'             	=>      'Approved Requests',
+	'approved_request_details'          =>      'Approved Request Detail',
+	'cancelled_requests'             	=>      'Cancelled Requests',
+	'cancelled_request_details'         =>      'Cancelled Request Detail',
+// 	'my_shoots'             			=>      'My Shoots',
+	'my_requests'             			=>      'My Requests',
+// 	'my_shoot_details'             		=>      'Shoot Details',
+	'my_requests_details'             		=>      'Request Details',
+// 	'my_bookings'             			=>      'My Bookings',
+	'my_clients_requests'             			=>      'My Client(s) Requests',
+// 	'my_booking_details'             	=>      'Booking Details',
+	'my_clients_requests_details'             	=>      'Client Request Details',
+	'referenceNo'             			=>      'Reference #',
 	'explore' 		            		=> 		'Explore',
 	'upload' 		            		=> 		'Upload',
 	'error_oops'			    		=>		'Oops...',
@@ -347,19 +347,19 @@ return array(
 	'price_maximum_sale' 				=> 		'The maximum price is :symbol:max :code', // Not remove :symbol:min and :code
 	'price_maximum_sale2' 				=> 		'The maximum price is :max:symbol :code', // Not remove :symbol:min and :code
 	'price_required' 					=> 		'The Price field is required',
-	'buy' => 'Buy',		
-	'sale' => 'Sale',		
-	'free' => 'Free',		
+	'buy' => 'Buy',
+	'sale' => 'Sale',
+	'free' => 'Free',
 	'not_enough_funds' 					=> 		'You do not have enough funds to buy this photo.',
 	'user_gain' 						=> 		'You will receive :percentage% for each sale', // Not remove :percentage
 	'premium' 							=> 		'Premium',
 	'has_bought' 						=> 		'has bought',
 	'amount_min_withdrawal' 			=> 		'The minimum amount for withdrawals',
 
-	// Version 2.1		
+	// Version 2.1
 	'err_internet_disconnected' 		=> 		'The connection has been lost',
 
-	// Version 2.3		
+	// Version 2.3
 	'statistics_of_the_month' 			=> 		'Statistics of the month',
 	'revenue_today' 					=> 		'Revenue today',
 	'revenue_week' 						=> 		'Revenue this week',
@@ -371,7 +371,7 @@ return array(
 	'sell_option_validate' 				=> 		"You can't deactivate the sale option, because there are items that are Premium. This option is available when there is no item for sale.",
 	'purchase_not_allowed' 				=> 		'Error occurred, purchase not allowed.',
 
-	// Version 2.5		
+	// Version 2.5
 	'currency_symbol' 					=> 		'Currency Symbol',
 	'notice_currency' 					=> 		'Important: Make sure payment processors accept your currency.',
 	'fee' 								=> 		'Percentage fee %',
@@ -382,7 +382,7 @@ return array(
 	'card_required_name_email' 			=> 		'You must provide your name and email to process your donation with your card.',
 	'select_payment_gateway' 			=> 		'Select payment gateway...',
 
-	// Version 2.7		
+	// Version 2.7
 	'type_image' 						=> 		'Type of Image?',
 	'image' 							=> 		'Image (JPG, PNG, GIF)',
 	'featured_photos' 					=> 		'Featured <span class="color-default"> Photos </span>', // Just translate 'Featured and 'Photos'
@@ -395,7 +395,7 @@ return array(
 	'v' 								=> 		'V', // Vector
 	'file_validation' 					=> 		'The file must be format: :values', // No delete :values
 
-	// Version 3.2		
+	// Version 3.2
 	'popular_categories' 				=> 		'Popular categories:',
 	'price_formats' 					=> 		'Price Formats:',
 	'small_photo_price' 				=> 		'Small Art price:',
@@ -415,7 +415,7 @@ return array(
 	'text_confirm_purchase_2' 			=> 		'of your funds',
 	'yes_confirm_buy'					=> 		'Yes, buy!',
 
-	// Version 3.3		
+	// Version 3.3
 	'license_regular'					=> 		'Regular License',
 	'license_extended' 					=> 		'Extended License',
 	'view_license_details' 				=> 		'View license details',
@@ -427,6 +427,6 @@ return array(
 	'already_bought_text' 				=> 		'You have already bought this item, do you want to buy another license? if you want to download again go to:',
 	'decimal_format' 					=> 		'Decimal format',
 	'error_payment_stripe_3d' 			=> 		'The latest payment attempt  has failed or been canceled, and the attached payment method has been removed. You can try confirming again with a new payment method.',
-
+    'artist_payment_not_ready'          =>      'Artist payment is not ready'
 
 );
