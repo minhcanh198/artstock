@@ -7,7 +7,7 @@
 <style>
 .color-black {
     color: #000;
-} 
+}
 </style>
 
 <!-- Paypal Checkout Added by shahzad -->
@@ -46,7 +46,7 @@
 								Clear Search  <i class="fa fa-refresh"></i>
 							</a>
 							@endif
-							
+
 						</div>
 					</div>
 					</form>
@@ -60,7 +60,7 @@
 <div class="container">
 
     <div class="row" >
-					
+
         <div class="tabs">
             <div class="tabs__navigation" data-aos="fade-down">
                 @php
@@ -81,7 +81,7 @@
             <?php
 				if($images->total() != 0){
 					foreach($images as $img_key => $imge){
-					    
+
 					    $userDetails = App\Models\User::where('id','=', $imge->user_id)->first();
 			?>
 			            <?php /*?>
@@ -96,18 +96,18 @@
 							</div>
 							<audio controls class="audio-one">
 								<source src="<?php echo url('/public/uploads/audio/large/').'/' . $imge->thumbnail; ?>"  type="audio/mp3">
-							</audio> 
+							</audio>
 						</div>
 						<?php */?>
-						
-						
-						<div class="audio-song-box Bigwave" data-path="<?php echo url('/public/uploads/audio/large/').'/' . $imge->thumbnail; ?>">
-                            
+
+
+						<div class="audio-song-box Bigwave" data-path="<?php echo url('/uploads/audio/large/').'/' . $imge->thumbnail; ?>">
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <span class="d-block">
                             			<h5 class="text-overflow author-label mg-bottom-xs" title="{{ $userDetails->username }}">
-                            				<img src="{{ url('/') .'/public/avatar/'. $userDetails->avatar }}" alt="User" class="img-circle img-circle-2">
+                            				<img src="{{ url('/') .'/avatar/'. $userDetails->avatar }}" alt="User" class="img-circle img-circle-2">
                             				<span class="color-black">{{ $userDetails->username }}</span>
                         				</h5>
                             				<!--<span class="btn-block date-color text-overflow">{{ $imge->title }}</span>-->
@@ -123,8 +123,8 @@
                                         @csrf
                                         <!--<input type="text" name="token_id" value="{{$imge->token_id}}">-->
                                         <!--<button type="submit" class="buy-track stripeBtn" data-name="{{$imge->title}}" data-description="{{$imge->description}}" data-amount="{{$imge->price}}"><span>${{$imge->price}}</span> Buy</button>-->
-                                        
-                                        
+
+
                                         <!-- DropDown Button Start -->
                                         <div class="dropdown">
                                           <button class="btn buy-track dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -140,16 +140,16 @@
                                           </div>
                                         </div>
                                         <!-- DropDown Button End -->
-                                        
+
                                         <script>
                                         // Render the PayPal button into #paypal-button-container
                                         paypal.Buttons({
-                                            
+
                                             style: {
                                                  layout: 'horizontal',
                                                  tagline: 'false'
                                             },
-                                    
+
                                             // Set up the transaction
                                             createOrder: function(data, actions) {
                                                 return actions.order.create({
@@ -160,7 +160,7 @@
                                                     }]
                                                 });
                                             },
-                                    
+
                                             // Finalize the transaction
                                             onApprove: function(data, actions) {
                                                 return actions.order.capture().then(function(orderData) {
@@ -168,44 +168,44 @@
                                                     console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
                                                     var transaction = orderData.purchase_units[0].payments.captures[0];
                                                     //alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
-                                                    
+
                                                     //window.location = 'thankyou.php?txt_id=' + transaction.id;
-                                                    
-                                                    
+
+
                                                     // Replace the above to show a success message within this page, e.g.
                                                     // const element = document.getElementById('paypal-button-container');
                                                     // element.innerHTML = '';
                                                     // element.innerHTML = '<h3>Thank you for your payment!</h3>';
                                                     // Or go to another URL:  actions.redirect('thank_you.html');
-                                                    
+
                                                     $('#paypal-button-container-{{$imge->id}}').parents('form').append($('<input>').attr({ type: 'hidden', name: 'payment_option', value: 'paypal' }));
                                                     $('#paypal-button-container-{{$imge->id}}').parents('form').append($('<input>').attr({ type: 'hidden', name: 'paypalTxnId', value: transaction.id }));
                                                     $('#paypal-button-container-{{$imge->id}}').parents('form').submit();
                                                 });
                                             },
-                                            
+
                                             onError: function (err) {
                                                 // For example, redirect to a specific error page
                                                 //window.location.href = "/your-error-page-here";
                                                 console.log('Some Error Occured!');
                                               }
-                                    
-                                    
+
+
                                         }).render('#paypal-button-container-{{$imge->id}}');
                                         </script>
-                                        
-                                        
+
+
                                         <!--<span class="align-self-center ml-2 p-0">
             								<span class="myicon-right"><i class="fa fa-heart-o myicon-right"></i> 1</span>
                             				<span class="myicon-right"><i class="icon icon-Download myicon-right"></i> 1</span>
                             			</span>--><!-- Span Out -->
                             			</form>
-                            			
+
                                     </div>
                                 </div>
                             </div>
                     	    <!--<button type="button">Play / Pause</button>-->
-                    	    
+
                     	    <div class="row music-main-page-home">
                     	        <div class="align-self-center col-md-2 text-center">{{ $imge->title }}</div>
                         	    <div class="align-self-center col-md-1 text-center">
@@ -217,17 +217,17 @@
                                     </a>
                                 </div>
                     	        <div class="wave-container col-md-8 p-0"></div>
-                    	        
+
                 	        </div>
-                
-                            
+
+
                         </div>
-						
-						
-						
-						
-						
-						
+
+
+
+
+
+
             <?php
 					}
             	}else{
@@ -243,7 +243,7 @@
 				}
             ?>
 			<?php
-			
+
 				if($images->total() != 0){
 
 			?>
@@ -352,7 +352,7 @@
 <script>
 $('.stripeBtn').on('click', function(e) {
   var strBtn = $(this);
-  
+
   strBtn.prop("disabled", true);
     // Open Checkout with further options:
       StripeCheckout.configure({
@@ -363,11 +363,11 @@ $('.stripeBtn').on('click', function(e) {
         // You can access the token ID with `token.id`.
         // Get the token ID to your server-side code for use.
         console.log("Token created: " + token.id);
-        
+
         strBtn.parents('form').append($('<input>').attr({ type: 'hidden', name: 'payment_option', value: 'stripe' }));
         strBtn.parents('form').append($('<input>').attr({ type: 'hidden', name: 'stripeToken', value: token.id }));
         strBtn.parents('form').submit();
-        
+
       },
       opened: function() {
       	console.log("Form opened");

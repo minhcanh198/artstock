@@ -6,7 +6,7 @@
 			@if($getRouteDetails != "")
 				@if($getRouteDetails->route_img != "")
 					<div class="col-md-6 pl-0">
-						<img src="{{ url('/').'/public/img-route/'.$getRouteDetails->route_img }}" alt="" class="img-fluid img-banner-destinations-city">
+						<img src="{{ url('/').'/img-route/'.$getRouteDetails->route_img }}" alt="" class="img-fluid img-banner-destinations-city">
 					</div>
 					<div class="col-md-5 align-self-center">
 				@else

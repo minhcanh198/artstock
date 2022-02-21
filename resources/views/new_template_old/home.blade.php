@@ -4,7 +4,7 @@
     $homePageSettings = App\Models\HomePageSettings::first();
 
 @endphp
-<section class="banner" style="background: url(http://localhost/gostock/public/home_page/header_assets/{{ $homePageSettings->header_main_image }}) fixed;">
+<section class="banner" style="background: url(http://localhost/gostock/home_page/header_assets/{{ $homePageSettings->header_main_image }}) fixed;">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -23,7 +23,7 @@
             </div>
             <div class="col-md-6" data-aos="fade-left">
                 <!-- <div class="banner-img"><img class="img-fluid" src="{{{ asset('new_template/images/banner-img2.png') }}}"></div> -->
-                <div class="banner-img"><img class="img-fluid" src="{{ url('/') }}/public/home_page/header_assets/{{ $homePageSettings->header_image }}"></div>
+                <div class="banner-img"><img class="img-fluid" src="{{ url('/') }}/home_page/header_assets/{{ $homePageSettings->header_image }}"></div>
             </div>
         </div>
     </div>
@@ -274,7 +274,7 @@
     <div class="inner-img">
 
         <!-- <img src="{{{ asset('new_template/images/p-1.png') }}}" class="img-fluid"> -->
-        <img src="{{ url('/') }}/public/home_page/sections_assets/{{ $homePageSettings->section1_image }}" class="img-fluid">
+        <img src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section1_image }}" class="img-fluid">
     </div>
     </div>
 <div class="col-md-7" data-aos="fade-left">
@@ -310,7 +310,7 @@
 
     <div class="inner-img" data-aos="zoom-in">
     <!-- <img src="{{{ asset('new_template/images/p-2.png') }}}" class="img-fluid"> -->
-        <img src="{{ url('/') }}/public/home_page/sections_assets/{{ $homePageSettings->section2_image }}" class="img-fluid">
+        <img src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section2_image }}" class="img-fluid">
     </div>
     </div>
 </div>
@@ -321,7 +321,7 @@
 
     <div class="inner-img">
     <!-- <img src="{{{ asset('new_template/images/p-3.png') }}}" class="img-fluid"> -->
-        <img src="{{ url('/') }}/public/home_page/sections_assets/{{ $homePageSettings->section3_image }}" class="img-fluid">
+        <img src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section3_image }}" class="img-fluid">
     </div>
     </div>
 <div class="col-md-7" data-aos="fade-left">
@@ -356,14 +356,14 @@
 
     <div class="inner-img aos-init aos-animate" data-aos="zoom-in">
         <!-- <img src="{{{ asset('new_template/images/p-4.png') }}}" class="img-fluid"> -->
-        <img src="{{ url('/') }}/public/home_page/sections_assets/{{ $homePageSettings->section4_image }}" class="img-fluid">
+        <img src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section4_image }}" class="img-fluid">
     </div>
     </div>
 </div>
 </div>
     </div>
 </section>
-<section class="fouth" style="background: url(http://localhost/gostock/public/home_page/footer_assets/{{ $homePageSettings->footer1_image }}) fixed #121c1d;">
+<section class="fouth" style="background: url(http://localhost/gostock/home_page/footer_assets/{{ $homePageSettings->footer1_image }}) fixed #121c1d;">
 <div class="container">
 <div class="row">
 <div class="col-md-6 float-right">

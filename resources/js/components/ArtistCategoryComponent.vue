@@ -31,14 +31,14 @@
         "speed": 1000,
         "slidesToShow": 3,
         "slidesToScroll": 1,
-        //   "touchThreshold": 5    
+        //   "touchThreshold": 5
     }
 </script>
 
-<template> 
+<template>
 
     <div>
-        
+
         <div class="margin-top-destination-location-box">
             <carousel  v-if="loaded" :dots="true" :nav="false" :loop="false" :items="3" >
                 <div class="mb-4-cutom"  v-for="photoUser in getUserArtistList" :key="photoUser.id">
@@ -46,18 +46,18 @@
                         <div class="header-photographer">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <img :src="baUrl + '/public/avatar/' + photoUser.avatar" alt="" class="set-img-size" style="width:100px;">
+                                    <img :src="baUrl + '/avatar/' + photoUser.avatar" alt="" class="set-img-size" style="width:100px;">
                                 </div>
                                 <div class="col-sm-7 offset-md-1">
                                     <h4 class="title-this">{{ photoUser.username }}</h4>
                                         <p class="tag-one">{{ photoUser.type_name }}</p>
-                                    
+
                                     <!-- <p class="tag-two">Available</p> -->
                                 </div>
                             </div>
-                        </div>    
-                                
-                        <div class="bottom" v-if="photoUser.type_name == 'Photographer'" :style="{backgroundImage: 'url('+ baUrl + '/public/uploads/thumbnail/' + photoUser.img +')'}">
+                        </div>
+
+                        <div class="bottom" v-if="photoUser.type_name == 'Photographer'" :style="{backgroundImage: 'url('+ baUrl + '/uploads/thumbnail/' + photoUser.img +')'}">
                             <div class="row">
                                 <div class="col-5 offset-7">
                                     <a :href="baUrl +'/artist/'+ photoUser.id" class="btn-portfolio-one mb-2">Portfolio</a>
@@ -66,8 +66,8 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="bottom" v-else-if="photoUser.type_name == 'Videographer'" :style="{backgroundImage: 'url('+ baUrl + '/public/uploads/video/screen_shot/' + photoUser.ScreenShot +')'}">
+
+                        <div class="bottom" v-else-if="photoUser.type_name == 'Videographer'" :style="{backgroundImage: 'url('+ baUrl + '/uploads/video/screen_shot/' + photoUser.ScreenShot +')'}">
                             <div class="row">
                                 <div class="col-5 offset-7">
                                     <a :href="baUrl +'/artist/'+ photoUser.id" class="btn-portfolio-one mb-2">Portfolio</a>
@@ -76,7 +76,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bottom" v-else-if="photoUser.type_name == 'Animator'" :style="{backgroundImage: 'url('+ baUrl + '/public/uploads/video/screen_shot/' + photoUser.ScreenShot +')'}">
+                        <div class="bottom" v-else-if="photoUser.type_name == 'Animator'" :style="{backgroundImage: 'url('+ baUrl + '/uploads/video/screen_shot/' + photoUser.ScreenShot +')'}">
                             <div class="row">
                                 <div class="col-5 offset-7">
                                     <a :href="baUrl +'/artist/'+ photoUser.id" class="btn-portfolio-one mb-2">Portfolio</a>
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bottom" v-else-if="photoUser.type_name == 'Musician'" :style="{backgroundImage: 'url('+ baUrl + '/public/uploads/thumbnail/musicWave.png'+')'}">
+                        <div class="bottom" v-else-if="photoUser.type_name == 'Musician'" :style="{backgroundImage: 'url('+ baUrl + '/uploads/thumbnail/musicWave.png'+')'}">
                             <div class="row">
                                 <div class="col-5 offset-7">
                                     <a :href="baUrl +'/artist/'+ photoUser.id" class="btn-portfolio-one mb-2">Portfolio</a>
@@ -94,9 +94,9 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
-                </div>     
+                </div>
             </carousel>
         </div>
     </div>
@@ -105,7 +105,7 @@
 import carousel from "vue-owl-carousel";
 
     export default {
-       
+
         components: {
             carousel
         },
@@ -139,5 +139,5 @@ import carousel from "vue-owl-carousel";
         }
     };
 
-    
+
 </script>
