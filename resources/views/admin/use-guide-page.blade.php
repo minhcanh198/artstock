@@ -79,7 +79,7 @@
 
                         <div class="btn-block margin-bottom-10">
                         @if($useGuidePageSettings->header_main_image != null)
-                          <img src="{{url('/public/use_guide_page/header_assets/').'/'. $useGuidePageSettings->header_main_image }}" style="width:200px">
+                          <img src="{{url('/use_guide_page/header_assets/').'/'. $useGuidePageSettings->header_main_image }}" style="width:200px">
                         @endif
                         </div>
 
@@ -124,11 +124,10 @@
 
                   <!-- Start Box Body -->
                   <div class="box-body">
+                  <label class="col-sm-2 control-label">Instruction Video</label>
                     <div class="form-group">
-                      <label class="col-sm-2 control-label">Embed Code Youtube Video</label>
-                      <div class="col-sm-10">
-                        <textarea name="link_youtube_video" class="form-control" placeholder="Section Description">{{ $useGuidePageSettings->link_youtube_video }}</textarea>
-                      </div>
+                      <input type="file" accept="video/*"  name="instruction_video" id="fileInstructionVideo">
+                      <small class="help-block"><i class="fa fa-cloud-upload myicon-left"></i> Select a file video</small>
                     </div>
                   </div><!-- /.box-body -->
 

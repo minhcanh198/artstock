@@ -2798,14 +2798,25 @@ class AdminController extends Controller {
 
 	public function saveUseGuidePageSettings(Request $request){
 		$postData = $request->all();
-		// dd($postData);die;
-
+		$file = $request->file('instruction_video');
+		if (!empty($file)) {
+			$rules=[
+				'instruction_video' => 'mimes:mpeg,ogg,mp4,webm,3gp,mov,flv,avi,wmv,ts|max:500000'];
+			$validator = Validator($postData,$rules);
+			if ($validator->fails()) {
+				return response()->json([
+					'success' => false,
+					'errors' => $validator->getMessageBag()->toArray(),
+				]);
+			} //<-- Validator video
+		}
+		
 		//Header
 		$headerHeading = $postData['header_heading'];
 		$headerDescription = $postData['header_description'];
 		$sectionHeader = $postData['section_header'];
 		$sectionDescription = $postData['section_description'];
-		$linkYoutobeVideo = $postData['link_youtube_video'];
+		
 
 		$useGuidePageSettings = UseGuidePageSettings::first();
 
@@ -2814,7 +2825,7 @@ class AdminController extends Controller {
 		$useGuidePageSettings->header_description   = $headerDescription;
 		$useGuidePageSettings->section_header   = $sectionHeader;
 		$useGuidePageSettings->section_description   = $sectionDescription;
-		$useGuidePageSettings->link_youtube_video   = $linkYoutobeVideo;
+		
 		
 		//Header Main Image 
 		if($request->hasFile('header_main_image')){	
@@ -2835,7 +2846,15 @@ class AdminController extends Controller {
 					$useGuidePageSettings->header_main_image = $mainImageName;
 				}
 			}
-		}			
+		}
+		if($request->hasFile('instruction_video')){
+			
+            $filename = $file->getClientOriginalName();
+            $path = public_path().'/use_guide_page/video/';
+            $file->move($path, $filename);
+			
+			$useGuidePageSettings->link_youtube_video = $filename;		
+		}
 
 		$useGuidePageSettings->save();
 
