@@ -10,7 +10,7 @@ $i = 0;
 				<!--	<div class="header-photographer">-->
 				<!--		<div class="row">-->
 				<!--			<div class="col-sm-4">-->
-				<!--				<img src="<?php //echo url('/'). '/public/avatar/'. $image[0]->avatar; ?>" alt="" class="set-img-size">-->
+				<!--				<img src="<?php //echo url('/'). '/avatar/'. $image[0]->avatar; ?>" alt="" class="set-img-size">-->
 				<!--			</div>-->
 				<!--			<div class="col-sm-7 offset-md-1">-->
 				<!--				<h4 class="title-this">{{ $image[0]->username }}</h4>-->
@@ -22,7 +22,7 @@ $i = 0;
 				<!--	</div>    -->
 
 				<!--	@if($image[0]->user_type_id == "1")-->
-				<!--		<div class="bottom" style="background-image: url(<?php //echo url('/'). '/public/uploads/thumbnail/'. $image[0]->img; ?>)">-->
+				<!--		<div class="bottom" style="background-image: url(<?php //echo url('/'). '/uploads/thumbnail/'. $image[0]->img; ?>)">-->
 				<!--			<div class="row">-->
 				<!--				<div class="col-5 offset-7">-->
 				<!--					<a href="<?php //echo url('/'). '/artist/'. $image[0]->id; ?>" class="btn-portfolio-one mb-2">Portfolio</a>-->
@@ -32,7 +32,7 @@ $i = 0;
 				<!--			</div>-->
 				<!--		</div>-->
 				<!--	@elseif($image[0]->user_type_id == "3")-->
-				<!--		<div class="bottom" style="background-image: url(<?php //echo url('/'). '/public/uploads/video/screen_shot/'. $image[0]->ScreenShot; ?>)">-->
+				<!--		<div class="bottom" style="background-image: url(<?php //echo url('/'). '/uploads/video/screen_shot/'. $image[0]->ScreenShot; ?>)">-->
 				<!--			<div class="row">-->
 				<!--				<div class="col-5 offset-7">-->
 				<!--					<a href="<?php //echo url('/'). '/artist/'. $image[0]->id; ?>" class="btn-portfolio-one mb-2">Portfolio</a>-->
@@ -42,7 +42,7 @@ $i = 0;
 				<!--			</div>-->
 				<!--		</div>-->
 				<!--	@elseif($image[0]->user_type_id == "2")-->
-				<!--		<div class="bottom" style="background-image: url(<?php //echo url('/'). '/public/uploads/video/screen_shot/'. $image[0]->ScreenShot; ?>)">-->
+				<!--		<div class="bottom" style="background-image: url(<?php //echo url('/'). '/uploads/video/screen_shot/'. $image[0]->ScreenShot; ?>)">-->
 				<!--			<div class="row">-->
 				<!--				<div class="col-5 offset-7">-->
 				<!--					<a href="<?php //echo url('/'). '/artist/'. $image[0]->id; ?>" class="btn-portfolio-one mb-2">Portfolio</a>-->
@@ -52,7 +52,7 @@ $i = 0;
 				<!--			</div>-->
 				<!--		</div>-->
 				<!--	@elseif($image[0]->user_type_id == "4")-->
-				<!--		<div class="bottom" style="background-image: url(<?php //echo url('/'). '/public/uploads/thumbnail/musicWave.png'; ?>)" >-->
+				<!--		<div class="bottom" style="background-image: url(<?php //echo url('/'). '/uploads/thumbnail/musicWave.png'; ?>)" >-->
 				<!--			<div class="row">-->
 				<!--				<div class="col-5 offset-7">-->
 				<!--					<a href="<?php //echo url('/'). '/artist/'. $image[0]->id; ?>" class="btn-portfolio-one mb-2">Portfolio</a>-->
@@ -247,7 +247,7 @@ $i = 0;
 
         			    </div>
         		    </div>
-        			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
+        			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">
         				<div class="">
         					<div class="d-md-flex">
         						<a href="<?php echo url('/'). '/artist/'. $image[0]->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>

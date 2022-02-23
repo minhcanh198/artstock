@@ -91,11 +91,11 @@
 								<div class="audio-icons ml-auto d-flex align-self-center">
 									<!-- <a href="" class="icon-one"><i class="fas fa-download"></i></a>
 									<a href="" class="icon-one"><i class="fas fa-heart"></i></a> -->
-									<a href="<?php echo url('/public/uploads/audio/large/'). '/'. $imge->thumbnail; ?>" download="<?php echo $imge->thumbnail; ?>" class="buy-track"><i class="fas fa-download"></i> Download</a>
+									<a href="<?php echo url('/uploads/audio/large/'). '/'. $imge->thumbnail; ?>" download="<?php echo $imge->thumbnail; ?>" class="buy-track"><i class="fas fa-download"></i> Download</a>
 								</div>
 							</div>
 							<audio controls class="audio-one">
-								<source src="<?php echo url('/public/uploads/audio/large/').'/' . $imge->thumbnail; ?>"  type="audio/mp3">
+								<source src="<?php echo url('/uploads/audio/large/').'/' . $imge->thumbnail; ?>"  type="audio/mp3">
 							</audio>
 						</div>
 						<?php */?>
@@ -118,7 +118,7 @@
                                     <div class="audio-icons ml-auto d-flex align-self-center justify-content-end">
                                         <!-- <a href="" class="icon-one"><i class="fas fa-download"></i></a>
                                         <a href="" class="icon-one"><i class="fas fa-heart"></i></a> -->
-                                        <!--<a href="javascript:;<?php //echo url('/public/uploads/audio/large/'). '/'. $imge->thumbnail; ?>" @if( $imge->item_for_sale == 'free' ) download="<?php echo $imge->thumbnail; ?>" @endif class="buy-track"><span>${{$imge->price}}</span> Buy</a>-->
+                                        <!--<a href="javascript:;<?php //echo url('/uploads/audio/large/'). '/'. $imge->thumbnail; ?>" @if( $imge->item_for_sale == 'free' ) download="<?php echo $imge->thumbnail; ?>" @endif class="buy-track"><span>${{$imge->price}}</span> Buy</a>-->
                                         <form action="{{url('purchase/audio', $imge->token_id)}}" method="post">
                                         @csrf
                                         <!--<input type="text" name="token_id" value="{{$imge->token_id}}">-->
@@ -357,7 +357,7 @@ $('.stripeBtn').on('click', function(e) {
     // Open Checkout with further options:
       StripeCheckout.configure({
         key: '{{env("STRIPE_KEY")}}',
-        image: 'https://projects.hexawebstudio.com/darquise-nantel/public/img/favicon.png',
+        image: 'https://projects.hexawebstudio.com/darquise-nantel/img/favicon.png',
         locale: 'auto',
         token: function(token) {
         // You can access the token ID with `token.id`.

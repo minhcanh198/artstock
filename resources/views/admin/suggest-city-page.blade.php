@@ -77,7 +77,7 @@
                             <div class="col-sm-10">
                                 <div class="btn-block margin-bottom-10">
                                     @if($suggestCityPageSettings != null && $suggestCityPageSettings->request_background_img != null)
-                                        <img src="{{url('/public/suggest_a_city/assets/').'/'. $suggestCityPageSettings->request_background_img }}" style="width:200px">
+                                        <img src="{{url('/suggest_a_city/assets/').'/'. $suggestCityPageSettings->request_background_img }}" style="width:200px">
                                     @endif
                                 </div>
                                 <div class="btn btn-info box-file">
@@ -100,7 +100,7 @@
                             <div class="col-sm-10">
                                 <div class="btn-block margin-bottom-10">
                                     @if($suggestCityPageSettings != null && $suggestCityPageSettings->request_thankyou_background_img != null)
-                                        <img src="{{url('/public/suggest_a_city/assets/').'/'. $suggestCityPageSettings->request_thankyou_background_img }}" style="width:200px">
+                                        <img src="{{url('/suggest_a_city/assets/').'/'. $suggestCityPageSettings->request_thankyou_background_img }}" style="width:200px">
                                     @endif
                                 </div>
                                 <div class="btn btn-info box-file">

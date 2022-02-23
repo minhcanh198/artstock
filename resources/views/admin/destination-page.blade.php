@@ -87,7 +87,7 @@
                             <div class="col-sm-10">
                                 <div class="btn-block margin-bottom-10">
                                     @if($destinationPageSettings != null && $destinationPageSettings->header_main_image != null)
-                                        <img src="{{url('/public/destination_page/assets/').'/'. $destinationPageSettings->header_main_image }}" style="width:200px">
+                                        <img src="{{url('/destination_page/assets/').'/'. $destinationPageSettings->header_main_image }}" style="width:200px">
                                     @endif
                                 </div>
                                 <div class="btn btn-info box-file">
@@ -151,7 +151,7 @@
                             <div class="col-sm-10">
                                 <div class="btn-block margin-bottom-10">
                                     @if($destinationPageSettings != null && $destinationPageSettings->third_section_main_image != null)
-                                        <img src="{{url('/public/destination_page/assets/').'/'. $destinationPageSettings->third_section_main_image }}" style="width:200px">
+                                        <img src="{{url('/destination_page/assets/').'/'. $destinationPageSettings->third_section_main_image }}" style="width:200px">
                                     @endif
                                 </div>
                                 <div class="btn btn-info box-file">

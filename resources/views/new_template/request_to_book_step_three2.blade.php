@@ -143,9 +143,9 @@
                                                     <div class="box-img" id="rout-box-img_{{ $routes->id }}">
                                                         
                                                         @if($routes->route_img != null)
-                                                            <img src="./public/imran_images_dummy/barcelona-solo-adventure-solo-plants_500.jpeg" alt="" class="img-fluid">
+                                                            <img src="./imran_images_dummy/barcelona-solo-adventure-solo-plants_500.jpeg" alt="" class="img-fluid">
                                                         @else
-                                                            <img src="{{ url('/') . '/public/no_image/no_image_found.jpg' }}" alt="" class="img-fluid">
+                                                            <img src="{{ url('/') . '/no_image/no_image_found.jpg' }}" alt="" class="img-fluid">
                                                         @endif
                                                     </div>
                                                     <div class="box-content mt-2">
@@ -174,7 +174,7 @@
                                             <div class="rout-box " id="box-route-custom_Custom">
                                                 <!-- <p class="flag-two">Iconic Sights</p> -->
                                                 <div class="box-img" id="rout-box-img_Custom">
-                                                        <img src="{{ url('/') . '/public/no_image/no_image_found.jpg' }}" alt="" class="img-fluid">
+                                                        <img src="{{ url('/') . '/no_image/no_image_found.jpg' }}" alt="" class="img-fluid">
                                                 </div>
                                                 <div class="box-content mt-2">
                                                     <h3 class="custom-route-div-specific-location">

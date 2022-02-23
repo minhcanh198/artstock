@@ -457,11 +457,11 @@
                                             <div class="audio-icons ml-auto d-flex align-self-center">
                                                 <!-- <a href="" class="icon-one"><i class="fas fa-download"></i></a>
                                                 <a href="" class="icon-one"><i class="fas fa-heart"></i></a> -->
-                                                <a href="<?php echo url('/public/uploads/audio/large/'). '/'. $imge->thumbnail; ?>" download="<?php echo $imge->thumbnail; ?>" class="buy-track"><i class="fas fa-download"></i> Download</a>
+                                                <a href="<?php echo url('/uploads/audio/large/'). '/'. $imge->thumbnail; ?>" download="<?php echo $imge->thumbnail; ?>" class="buy-track"><i class="fas fa-download"></i> Download</a>
                                             </div>
                                         </div>
                                         <audio controls class="audio-one">
-                                            <source src="<?php echo url('/public/uploads/audio/large/').'/' . $imge->thumbnail; ?>"  type="audio/mp3">
+                                            <source src="<?php echo url('/uploads/audio/large/').'/' . $imge->thumbnail; ?>"  type="audio/mp3">
                                         </audio>
                                     </div>
                         <?php
@@ -494,18 +494,18 @@
                                             $colors = explode(",", $image->colors);
                                             $color = $colors[0];
                                             if($image->extension == 'png' ) {
-                                            $background = 'background: url('.url('public/img/pixel.gif').') repeat center center #e4e4e4;';
+                                            $background = 'background: url('.url('img/pixel.gif').') repeat center center #e4e4e4;';
                                             } else {
                                             $background = 'background-color: #'.$color.'';
                                             }
                                             if($settings->show_watermark == '1') {
-                                            $thumbnail = 'public/uploads/preview/'.$image->preview;
+                                            $thumbnail = 'uploads/preview/'.$image->preview;
                                             } else {
                                             $stockImage = App\Models\Stock::whereImagesId($image->id)->whereType('small')->select('name')->first();
-                                            $thumbnail = 'public/uploads/small/'.$stockImage->name;
+                                            $thumbnail = 'uploads/small/'.$stockImage->name;
                                             }
 
-                                            $watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
+                                            $watermarkedVideoPath = 'uploads/video/water_mark_large/';
                                         @endphp
 
                                         @if($image->is_type == "video")
@@ -551,7 +551,7 @@
                                         <div class="choose-photographer-box">
                                 		<div class="pt-4 pb-1 pl-3 pr-3">
                                 			<div class="">
-                            					<img src="<?php echo url('/')?>/public/avatar/<?php echo $image->avatar; ?>" alt="" class="photographer-thimbnial">
+                            					<img src="<?php echo url('/')?>/avatar/<?php echo $image->avatar; ?>" alt="" class="photographer-thimbnial">
                                 			    <h4 class="title-this-photographer">{{ $image->username }}</h4>
                                                 <p class="tag-one-photographer">{{ $image->type_name }}</p>
                                                 <p class="tag-one-photographer" style="    margin-left: 77px;">{{ $image->CountryName }}</p>
@@ -570,10 +570,10 @@
                                             			        @foreach($queryGetDataById as $dataUserImages)
                                                 			        @php
                                                     			        if($settings->show_watermark == '1') {
-                                        								    $thumbnail = 'public/uploads/preview/'.$dataUserImages->preview;
+                                        								    $thumbnail = 'uploads/preview/'.$dataUserImages->preview;
                                         								} else {
                                             								$stockImage = App\Models\Stock::whereImagesId($dataUserImages->id)->whereType('small')->select('name')->first();
-                                            								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+                                            								$thumbnail = 'uploads/small/'.$stockImage->name;
                                         								}
                                     								@endphp
                                     								<a data-fancybox href="{{ asset($thumbnail) }}">
@@ -584,9 +584,9 @@
                                             					<?php
                                                                 }
                                         					?>
-                                            					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
-                                            					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
-                                            					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
                                         					</div>
                                                         <?php
                                                             }else if($image->user_type_id == "3"){
@@ -603,14 +603,14 @@
                                                     			        @foreach($queryVideosGetDataById as $dataUserVideos)
                                                         			        @php
                                                             			        if($settings->show_watermark == '1') {
-                                                								    $thumbnail = 'public/uploads/preview/'.$dataUserVideos->preview;
+                                                								    $thumbnail = 'uploads/preview/'.$dataUserVideos->preview;
                                                 								} else {
                                                     								$stockImage = App\Models\Stock::whereImagesId($dataUserVideos->id)->whereType('small')->select('name')->first();
-                                                    								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+                                                    								$thumbnail = 'uploads/small/'.$stockImage->name;
                                                 								}
 
-                                                								$watermarkedVideoPathScreenShot = 'public/uploads/video/screen_shot/';
-                                                								$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
+                                                								$watermarkedVideoPathScreenShot = 'uploads/video/screen_shot/';
+                                                								$watermarkedVideoPath = 'uploads/video/water_mark_large/';
 
                                                 								$VideoFileScreenShotName = explode('.', $dataUserVideos->thumbnail)[0];
 
@@ -623,9 +623,9 @@
                                                 					<?php
                                                                         }
                                                 					?>
-                                            					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
-                                            					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
-                                            					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
                                         					   </div>
                                                         <?php
                                                             }else if($image->user_type_id == "2"){
@@ -640,17 +640,17 @@
                                                     			        @foreach($queryAnimationsGetDataById as $dataUserAnimations)
                                                         			        @php
                                                             			        if($settings->show_watermark == '1') {
-                                                								    $thumbnail = 'public/uploads/preview/'.$dataUserAnimations->preview;
+                                                								    $thumbnail = 'uploads/preview/'.$dataUserAnimations->preview;
                                                 								} else {
                                                     								$stockImage = App\Models\Stock::whereImagesId($dataUserAnimations->id)->whereType('small')->select('name')->first();
-                                                    								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+                                                    								$thumbnail = 'uploads/small/'.$stockImage->name;
                                                 								}
 
-					                        									$watermarkedVideoPathScreenShot = 'public/uploads/video/screen_shot/';
+					                        									$watermarkedVideoPathScreenShot = 'uploads/video/screen_shot/';
 
                                                 								$AnimationFileScreenShotName = explode('.', $dataUserAnimations->thumbnail)[0];
 
-                                                								$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
+                                                								$watermarkedVideoPath = 'uploads/video/water_mark_large/';
 
                                                 								$realVideoFileName = $dataUserAnimations->thumbnail;
                                             								@endphp
@@ -658,9 +658,9 @@
                                                     					        <img src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">
                                                 					        </a>
                                                     					@endforeach
-                                                    					<!--<img src="<?php echo url('/')?>/public/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                                                    					<!--<img src="<?php echo url('/')?>/public/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                                                    					<!--<img src="<?php echo url('/')?>/public/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                                    					<!--<img src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                                    					<!--<img src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                                    					<!--<img src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
                                                     					<?php
                                                                         }else{
                                                                     ?>
@@ -682,13 +682,13 @@
                                                         			        @foreach($queryMusiciansGetDataById as $dataUserMusicians)
                                                         			            {{-- @php --}}
                                                             <!--    			        if($settings->show_watermark == '1') {-->
-                                                    								<!--    $thumbnail = 'public/uploads/preview/'.$dataUserMusicians->preview;-->
+                                                    								<!--    $thumbnail = 'uploads/preview/'.$dataUserMusicians->preview;-->
                                                     								<!--} else {-->
                                                         				<!--				$stockImage = App\Models\Stock::whereImagesId($dataUserMusicians->id)->whereType('small')->select('name')->first();-->
-                                                        				<!--				$thumbnail = 'public/uploads/small/'.$stockImage->name;-->
+                                                        				<!--				$thumbnail = 'uploads/small/'.$stockImage->name;-->
                                                     								<!--}-->
 
-                                                    								$watermarkedMusicPath = 'public/uploads/audio/large/';
+                                                    								$watermarkedMusicPath = 'uploads/audio/large/';
 
                                                 								{{-- @endphp --}}
                                                 								<!--<div class="row">-->
@@ -751,7 +751,7 @@
 
                             			    </div>
                             		    </div>
-                            			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
+                            			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">
                             				<div class="">
                             					<div class="d-md-flex">
                             						<a href="<?php echo url('/')?>/artist/<?php echo $image->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
@@ -793,18 +793,18 @@
                                         $colors = explode(",", $image->colors);
                                         $color = $colors[0];
                                         if($image->extension == 'png' ) {
-                                        $background = 'background: url('.url('public/img/pixel.gif').') repeat center center #e4e4e4;';
+                                        $background = 'background: url('.url('img/pixel.gif').') repeat center center #e4e4e4;';
                                         } else {
                                         $background = 'background-color: #'.$color.'';
                                         }
                                         if($settings->show_watermark == '1') {
-                                        $thumbnail = 'public/uploads/preview/'.$image->preview;
+                                        $thumbnail = 'uploads/preview/'.$image->preview;
                                         } else {
                                         $stockImage = App\Models\Stock::whereImagesId($image->id)->whereType('small')->select('name')->first();
-                                        $thumbnail = 'public/uploads/small/'.$stockImage->name;
+                                        $thumbnail = 'uploads/small/'.$stockImage->name;
                                         }
 
-                                        $watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
+                                        $watermarkedVideoPath = 'uploads/video/water_mark_large/';
                                     @endphp
 
                                     @if($image->is_type == "video")
@@ -850,7 +850,7 @@
                                     <div class="choose-photographer-box">
                                 		<div class="pt-4 pb-1 pl-3 pr-3">
                                 			<div class="">
-                            					<img src="<?php echo url('/')?>/public/avatar/<?php echo $image->avatar; ?>" alt="" class="photographer-thimbnial">
+                            					<img src="<?php echo url('/')?>/avatar/<?php echo $image->avatar; ?>" alt="" class="photographer-thimbnial">
                                 			    <h4 class="title-this-photographer">{{ $image->username }}</h4>
                                                 <p class="tag-one-photographer">{{ $image->type_name }}</p>
                                                 <p class="tag-one-photographer" style="    margin-left: 77px;">{{ $image->CountryName }}</p>
@@ -869,10 +869,10 @@
                                             			        @foreach($queryGetDataById as $dataUserImages)
                                                 			        @php
                                                     			        if($settings->show_watermark == '1') {
-                                        								    $thumbnail = 'public/uploads/preview/'.$dataUserImages->preview;
+                                        								    $thumbnail = 'uploads/preview/'.$dataUserImages->preview;
                                         								} else {
                                             								$stockImage = App\Models\Stock::whereImagesId($dataUserImages->id)->whereType('small')->select('name')->first();
-                                            								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+                                            								$thumbnail = 'uploads/small/'.$stockImage->name;
                                         								}
                                     								@endphp
                                     								<a data-fancybox href="{{ asset($thumbnail) }}">
@@ -883,9 +883,9 @@
                                             					<?php
                                                                 }
                                         					?>
-                                            					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
-                                            					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
-                                            					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
                                         					</div>
                                                         <?php
                                                             }else if($image->user_type_id == "3"){
@@ -902,14 +902,14 @@
                                                     			        @foreach($queryVideosGetDataById as $dataUserVideos)
                                                         			        @php
                                                             			        if($settings->show_watermark == '1') {
-                                                								    $thumbnail = 'public/uploads/preview/'.$dataUserVideos->preview;
+                                                								    $thumbnail = 'uploads/preview/'.$dataUserVideos->preview;
                                                 								} else {
                                                     								$stockImage = App\Models\Stock::whereImagesId($dataUserVideos->id)->whereType('small')->select('name')->first();
-                                                    								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+                                                    								$thumbnail = 'uploads/small/'.$stockImage->name;
                                                 								}
 
-                                                								$watermarkedVideoPathScreenShot = 'public/uploads/video/screen_shot/';
-                                                								$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
+                                                								$watermarkedVideoPathScreenShot = 'uploads/video/screen_shot/';
+                                                								$watermarkedVideoPath = 'uploads/video/water_mark_large/';
 
                                                 								$VideoFileScreenShotName = explode('.', $dataUserVideos->thumbnail)[0];
 
@@ -922,9 +922,9 @@
                                                 					<?php
                                                                         }
                                                 					?>
-                                            					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
-                                            					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
-                                            					<!--<img src="<?php //echo url('/')?>/public/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
                                         					   </div>
                                                         <?php
                                                             }else if($image->user_type_id == "2"){
@@ -941,17 +941,17 @@
                                                     			        @foreach($queryAnimationsGetDataById as $dataUserAnimations)
                                                         			        @php
                                                             			        if($settings->show_watermark == '1') {
-                                                								    $thumbnail = 'public/uploads/preview/'.$dataUserAnimations->preview;
+                                                								    $thumbnail = 'uploads/preview/'.$dataUserAnimations->preview;
                                                 								} else {
                                                     								$stockImage = App\Models\Stock::whereImagesId($dataUserAnimations->id)->whereType('small')->select('name')->first();
-                                                    								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+                                                    								$thumbnail = 'uploads/small/'.$stockImage->name;
                                                 								}
 
-					                        									$watermarkedVideoPathScreenShot = 'public/uploads/video/screen_shot/';
+					                        									$watermarkedVideoPathScreenShot = 'uploads/video/screen_shot/';
 
                                                 								$AnimationFileScreenShotName = explode('.', $dataUserAnimations->thumbnail)[0];
 
-                                                								$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
+                                                								$watermarkedVideoPath = 'uploads/video/water_mark_large/';
 
                                                 								$realVideoFileName = $dataUserAnimations->thumbnail;
                                             								@endphp
@@ -959,9 +959,9 @@
                                                     					        <img src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">
                                                 					        </a>
                                                     					@endforeach
-                                                    					<!--<img src="<?php echo url('/')?>/public/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                                                    					<!--<img src="<?php echo url('/')?>/public/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                                                    					<!--<img src="<?php echo url('/')?>/public/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                                    					<!--<img src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                                    					<!--<img src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                                    					<!--<img src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
                                                     					<?php
                                                                         }else{
                                                                     ?>
@@ -983,13 +983,13 @@
                                                         			        @foreach($queryMusiciansGetDataById as $dataUserMusicians)
                                                         			           {{--  @php --}}
                                                             <!--    			        if($settings->show_watermark == '1') {-->
-                                                    								<!--    $thumbnail = 'public/uploads/preview/'.$dataUserMusicians->preview;-->
+                                                    								<!--    $thumbnail = 'uploads/preview/'.$dataUserMusicians->preview;-->
                                                     								<!--} else {-->
                                                         				<!--				$stockImage = App\Models\Stock::whereImagesId($dataUserMusicians->id)->whereType('small')->select('name')->first();-->
-                                                        				<!--				$thumbnail = 'public/uploads/small/'.$stockImage->name;-->
+                                                        				<!--				$thumbnail = 'uploads/small/'.$stockImage->name;-->
                                                     								<!--}-->
 
-                                                    								$watermarkedMusicPath = 'public/uploads/audio/large/';
+                                                    								$watermarkedMusicPath = 'uploads/audio/large/';
 
                                                 								{{-- @endphp --}}
                                                 								<!--<div class="row">-->
@@ -1052,7 +1052,7 @@
 
                             			    </div>
                             		    </div>
-                            			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
+                            			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">
                             				<div class="">
                             					<div class="d-md-flex">
                             						<a href="<?php echo url('/')?>/artist/<?php echo $image->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>

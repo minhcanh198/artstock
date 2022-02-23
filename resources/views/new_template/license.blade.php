@@ -3,7 +3,7 @@
 @section('title'){{ $licensePageSettings->title.' - ' }}@endsection
 
 @section('content') 
-<!-- <div class="jumbotron md  jumbotron_set jumbotron-cover" style="background-image: {{ url('/') }}/public/about_page/header_assets/{{ $licensePageSettings->header_main_image }} !important"> -->
+<!-- <div class="jumbotron md  jumbotron_set jumbotron-cover" style="background-image: {{ url('/') }}/about_page/header_assets/{{ $licensePageSettings->header_main_image }} !important"> -->
 <div class="bg-license" style="background-image:url(<?php echo url('public/license_page/header_assets/').'/'.$licensePageSettings->header_main_image; ?>);">
   <div class="container wrap-jumbotron position-relative">
     <h1 class="title-site">{{ $licensePageSettings->header_heading }}</h1>

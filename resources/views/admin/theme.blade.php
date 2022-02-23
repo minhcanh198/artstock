@@ -64,7 +64,7 @@
                       <div class="col-sm-10">
 
                         <div class="btn-block margin-bottom-10">
-                          <img src="{{url('/public/img/logo.svg')}}" style="width:150px">
+                          <img src="{{url('/img/logo.svg')}}" style="width:150px">
                         </div>
 
                       	<div class="btn btn-info box-file">
@@ -90,7 +90,7 @@
                       <div class="col-sm-10">
 
                         <div class="btn-block margin-bottom-10">
-                          <img src="{{url('/public/img/favicon.png')}}">
+                          <img src="{{url('/img/favicon.png')}}">
                         </div>
 
                       	<div class="btn btn-info box-file">
@@ -117,7 +117,7 @@
                       <div class="col-sm-10">
 
                         <div class="btn-block margin-bottom-10">
-                          <img src="{{url('/public/img/footer_logo.png')}}" style="width:150px">
+                          <img src="{{url('/img/footer_logo.png')}}" style="width:150px">
                         </div>
 
                       	<div class="btn btn-info box-file">
@@ -143,7 +143,7 @@
                       <div class="col-sm-10">
 
                         <div class="btn-block margin-bottom-10">
-                          <img src="{{url('/public/img/header_index.jpg')}}" style="width:200px">
+                          <img src="{{url('/img/header_index.jpg')}}" style="width:200px">
                         </div>
 
                       	<div class="btn btn-info box-file">
@@ -170,7 +170,7 @@
                       <div class="col-sm-10">
 
                         <div class="btn-block margin-bottom-10">
-                          <img src="{{url('/public/img/cover.jpg')}}" style="width:200px">
+                          <img src="{{url('/img/cover.jpg')}}" style="width:200px">
                         </div>
 
                       	<div class="btn btn-info box-file">

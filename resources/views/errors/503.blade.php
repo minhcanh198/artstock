@@ -17,12 +17,12 @@
 
 <!-- CSS
 ================================================== -->
-<link rel="stylesheet" href="https://miguelvasquez.net/public/css/bootstrap.min.css"/>
-<link rel="stylesheet" href="https://miguelvasquez.net/public/css/font-awesome.min.css"/>
-<link rel="stylesheet" href="https://miguelvasquez.net/public/css/mind-icons-line.css"/>
-<link rel="stylesheet" href="https://miguelvasquez.net/public/css/style.css"/>
-<link rel="stylesheet" href="https://miguelvasquez.net/public/css/colors/color.css"/>
-<link rel="stylesheet" href="https://miguelvasquez.net/public/css/vivify.min.css"/>
+<link rel="stylesheet" href="https://miguelvasquez.net/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://miguelvasquez.net/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="https://miguelvasquez.net/css/mind-icons-line.css"/>
+<link rel="stylesheet" href="https://miguelvasquez.net/css/style.css"/>
+<link rel="stylesheet" href="https://miguelvasquez.net/css/colors/color.css"/>
+<link rel="stylesheet" href="https://miguelvasquez.net/css/vivify.min.css"/>
 
 </head>
 <body>

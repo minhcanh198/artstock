@@ -17,7 +17,7 @@
                     <div class="col-md-3">
                         <div class="profile-inner">
                             <div class="img">
-                                <img src="<?php echo url('/').'/public/img/profile.jpeg' ?>" class="img-fluid">
+                                <img src="<?php echo url('/').'/img/profile.jpeg' ?>" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                 <div class="customer-review-write-area mt-5">
                     <div class="row">
                         <div class="col-4">
-                            <img src="<?php echo url('/').'/public/img/review-img.jpeg' ?>" class="img-fluid">
+                            <img src="<?php echo url('/').'/img/review-img.jpeg' ?>" class="img-fluid">
                         </div>
                         <div class="col-8">
                             <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -89,7 +89,7 @@
                     <hr>
                     <div class="row">
                         <div class="col-4">
-                            <img src="<?php echo url('/').'/public/img/review-img.jpeg' ?>" class="img-fluid">
+                            <img src="<?php echo url('/').'/img/review-img.jpeg' ?>" class="img-fluid">
                         </div>
                         <div class="col-8">
                             <p>
