@@ -273,7 +273,7 @@
                                                     //     					    '<div class="wave-container"></div>'+
                                                     //         			    '</div>';
 
-                                                            			    html += '<div class="qwewaveUserSearch d-flex" data-path="' + baseUrl + '/public/uploads/audio/large/' + splitMus[i] +'">'+
+                                                            			    html += '<div class="qwewaveUserSearch d-flex" data-path="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'">'+
                                                                                 '<div class="align-self-center music-col-2">'+
                                                                                     '<a href="javascript:;" class="btn-music-play" id="userSearchbaton-playMusic#'+ splitMus[i] +'">'+
                                                                                         '<i class="fas fa-play"></i>'+
@@ -294,7 +294,7 @@
                                                             }
                                         			    html +='</div>'+
                                         		    '</div>'+
-                                        			'<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">'+
+                                        			'<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">'+
                                         				'<div class="">'+
                                         					'<div class="d-md-flex">'+
                                         						'<a href="' + baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one w-100 mt-0">Portfolio</a>'+
@@ -696,8 +696,8 @@
                 							    '<div class="choose-photographer-box">'+
                                             		'<div class="pt-4 pb-4 pl-3 pr-3">'+
                                             			'<div class="">'+
-                                            			    '<a data-fancybox href="' + baseUrl + '/public/avatar/' + value[0].avatar +'">'+
-                                        					    '<img src="' + baseUrl + '/public/avatar/' + value[0].avatar +'" alt="" class="photographer-thimbnial">'+
+                                            			    '<a data-fancybox href="' + baseUrl + '/avatar/' + value[0].avatar +'">'+
+                                        					    '<img src="' + baseUrl + '/avatar/' + value[0].avatar +'" alt="" class="photographer-thimbnial">'+
                                         					 '</a>'+
                                             			    '<h4 class="title-this-photographer">' + value[0].username + '</h4>'+
                                                             '<p class="tag-one-photographer">' + value[0].type_name + '</p>'+
@@ -710,8 +710,8 @@
                                                 			        //   for(var i=0; i < splitImgs.length; i++){
                                                 			        for(var i=0; i < 4; i++){
                                                 			            if(splitImgs[i] != undefined){
-                                            								html +='<a data-fancybox href="' + baseUrl + '/public/uploads/preview/' + splitImgs[i] +'">'+
-                                                        					    '<img src="' + baseUrl + '/public/uploads/preview/' + splitImgs[i] +'" alt="" class="set-img-size">'+
+                                            								html +='<a data-fancybox href="' + baseUrl + '/uploads/preview/' + splitImgs[i] +'">'+
+                                                        					    '<img src="' + baseUrl + '/uploads/preview/' + splitImgs[i] +'" alt="" class="set-img-size">'+
                                                             			    '</a>';
                                                 			            }
                                                 			        }
@@ -724,8 +724,8 @@
                                                 			        //   for(var i=0; i < splitImgs.length; i++){
                                                 			        for(var i=0; i < 4; i++){
                                                 			            if(splitVids[i] != undefined){
-                                            								html +='<a data-fancybox href="' + baseUrl + '/public/uploads/video/screen_shot/screen-shot-' + splitVids[i] +'">'+
-                                                        					    '<img src="' + baseUrl + '/public/uploads/video/screen_shot/screen-shot-' + splitVids[i] +'" alt="" class="set-img-size">'+
+                                            								html +='<a data-fancybox href="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitVids[i] +'">'+
+                                                        					    '<img src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitVids[i] +'" alt="" class="set-img-size">'+
                                                             			    '</a>';
                                                 			            }
                                                 			        }
@@ -738,8 +738,8 @@
                                                 			        //   for(var i=0; i < splitImgs.length; i++){
                                                 			        for(var i=0; i < 4; i++){
                                                 			            if(splitAnis[i] != undefined){
-                                            								html +='<a data-fancybox href="' + baseUrl + '/public/uploads/video/screen_shot/screen-shot-' + splitAnis[i] +'">'+
-                                                        					    '<img src="' + baseUrl + '/public/uploads/video/screen_shot/screen-shot-' + splitAnis[i] +'" alt="" class="set-img-size">'+
+                                            								html +='<a data-fancybox href="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitAnis[i] +'">'+
+                                                        					    '<img src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitAnis[i] +'" alt="" class="set-img-size">'+
                                                             			    '</a>';
                                                 			            }
                                                 			        }
@@ -760,7 +760,7 @@
                                                     //     					    '<div class="wave-container"></div>'+
                                                     //         			    '</div>';
 
-                                                            			    html += '<div class="qwewaveClear d-flex" data-path="' + baseUrl + '/public/uploads/audio/large/' + splitMus[i] +'">'+
+                                                            			    html += '<div class="qwewaveClear d-flex" data-path="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'">'+
                                                                                 '<div class="align-self-center music-col-2">'+
                                                                                     '<a href="javascript:;" class="btn-music-play" id="Clearbaton-playMusic#'+ splitMus[i] +'">'+
                                                                                         '<i class="fas fa-play"></i>'+
@@ -781,7 +781,7 @@
                                                             }
                                         			    html +='</div>'+
                                         		    '</div>'+
-                                        			'<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">'+
+                                        			'<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">'+
                                         				'<div class="">'+
                                         					'<div class="d-md-flex">'+
                                         						'<a href="' + baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one w-100 mt-0">Portfolio</a>'+

@@ -345,9 +345,6 @@ class HomeController extends Controller
 
     public function category($slug)
     {
-
-
-        // dd($slug);
         if ($slug != "music") {
             $images = Query::categoryImages($slug);
         } else {
@@ -355,17 +352,10 @@ class HomeController extends Controller
 
         }
 
-// 		echo '<pre>';
-// 		dd($images);
-// 		die;
-
 
         if (strpos($slug, '-') !== false) {
-            // echo "Word Found!";
-// 			dd('if');
             return view('default.user-category')->with($images);
         } else {
-// dd('else');
             if ($slug == "music") {
                 return view('default.categor_music')->with($images);
             } else {
@@ -428,7 +418,6 @@ class HomeController extends Controller
 
     public function categoryImages($slug)
     {
-
         $images = Query::getCategoryImages($slug);
 
         if ($slug == "photographer") {
