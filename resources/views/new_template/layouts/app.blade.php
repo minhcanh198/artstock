@@ -667,7 +667,7 @@ a:hover {
                                     								<!-- Start -->
                                     				<div class="media li-group noty-media">
                                     					<div class="pull-left">
-                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Frank"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/public/avatar/frank-111599843468wmk4ogjwy3.jpg"> </a>
+                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Frank"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/avatar/frank-111599843468wmk4ogjwy3.jpg"> </a>
                                     					</div>
                                     					<div class="media-body">
                                     						<div class="pull-right small">
@@ -688,7 +688,7 @@ a:hover {
                                     								<!-- Start -->
                                     				<div class="media li-group noty-media">
                                     					<div class="pull-left">
-                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/public/avatar/darquise-33162147904185cmg317ve.png"> </a>
+                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/avatar/darquise-33162147904185cmg317ve.png"> </a>
                                     					</div>
                                     					<div class="media-body">
                                     						<div class="pull-right small">
@@ -709,7 +709,7 @@ a:hover {
                                     									<!-- Start -->
                                     				<div class="media li-group noty-media">
                                     					<div class="pull-left">
-                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/public/avatar/darquise-33162147904185cmg317ve.png"> </a>
+                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/avatar/darquise-33162147904185cmg317ve.png"> </a>
                                     					</div>
                                     					<div class="media-body">
                                     						<div class="pull-right small">
@@ -730,7 +730,7 @@ a:hover {
                                     									<!-- Start -->
                                     				<div class="media li-group noty-media">
                                     					<div class="pull-left">
-                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/public/avatar/darquise-33162147904185cmg317ve.png"> </a>
+                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/avatar/darquise-33162147904185cmg317ve.png"> </a>
                                     					</div>
                                     					<div class="media-body">
                                     						<div class="pull-right small">
@@ -751,7 +751,7 @@ a:hover {
                                     									<!-- Start -->
                                     				<div class="media li-group noty-media">
                                     					<div class="pull-left">
-                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/public/avatar/darquise-33162147904185cmg317ve.png"> </a>
+                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/avatar/darquise-33162147904185cmg317ve.png"> </a>
                                     					</div>
                                     					<div class="media-body">
                                     						<div class="pull-right small">
@@ -772,7 +772,7 @@ a:hover {
                                     									<!-- Start -->
                                     				<div class="media li-group noty-media">
                                     					<div class="pull-left">
-                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/public/avatar/darquise-33162147904185cmg317ve.png"> </a>
+                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/avatar/darquise-33162147904185cmg317ve.png"> </a>
                                     					</div>
                                     					<div class="media-body">
                                     						<div class="pull-right small">
@@ -953,7 +953,7 @@ a:hover {
               <div class="" style="margin-left: auto; margin-right: 10px;">
                 <!-- <div class="dropdown">
                   <button class="dropdown-toggle" type="button" data-toggle="dropdown" style="background-color: transparent; border: 0;     background-color: transparent; border: 0; border-radius: 50%; width: 36px; height: 36px; background-color: rgba(0, 0, 0, .05);
-                  opacity: 1; border: 0; display: flex; justify-content: center; align-items: center;"><img src="{{ url('/')}}/public/img/icons8-menu-vertical-30.png" alt="">
+                  opacity: 1; border: 0; display: flex; justify-content: center; align-items: center;"><img src="{{ url('/')}}/img/icons8-menu-vertical-30.png" alt="">
                   <span class="caret"></span></button>
                   <ul class="dropdown-menu dropdown-modal-messenger">
                     <li><a href="#">HTML</a></li>
@@ -987,7 +987,7 @@ a:hover {
               <!-- <a href="" type="button" class="" data-toggle="modal" data-target="#messageMainModal2"  style="display: block; color: #000;">
                 <div class="row conversation-persons-modal" style="margin-bottom: 14px;">
                   <div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">
-                    <img src="../public/img/dummy-avatar.jpg" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">
+                    <img src="../img/dummy-avatar.jpg" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">
                   </div>
                   <div class="col-md-8" style="padding-left: 0; padding-right: 0;">
                       <p>User Name</p>
@@ -1020,7 +1020,7 @@ a:hover {
               <div class="" style="margin-left: auto; margin-right: 10px;">
                 <!-- <div class="dropdown">
                   <button class="dropdown-toggle" type="button" data-toggle="dropdown" style="background-color: transparent; border: 0;     background-color: transparent; border: 0; border-radius: 50%; width: 36px; height: 36px; background-color: rgba(0, 0, 0, .05);
-                  opacity: 1; border: 0; display: flex; justify-content: center; align-items: center;"><img src="{{ url('/') }}/public/img/icons8-menu-vertical-30.png" alt="">
+                  opacity: 1; border: 0; display: flex; justify-content: center; align-items: center;"><img src="{{ url('/') }}/img/icons8-menu-vertical-30.png" alt="">
 
                   <ul class="dropdown-menu dropdown-modal-messenger">
                     <li><a href="#">HTML</a></li>
@@ -1072,7 +1072,7 @@ a:hover {
               </div>
 
               <div class="col-md-1" style="">
-                <button id="sendMsgChat" class="enter-chat"><img src="{{ url('/') }}/public/img/email.png" alt="" class="img-responsive" style="width: 17px;"></button>
+                <button id="sendMsgChat" class="enter-chat"><img src="{{ url('/') }}/img/email.png" alt="" class="img-responsive" style="width: 17px;"></button>
               </div>
               <div class="col-md-1"></div>
             </div>
@@ -1577,7 +1577,7 @@ a:hover {
                 /*<!-- Stripe Checkout Added by Shahzad -->*/
                 var handler = StripeCheckout.configure({
                   key: '{{env("STRIPE_KEY")}}',
-                  image: 'https://projects.hexawebstudio.com/darquise-nantel/public/img/favicon.png',
+                  image: 'https://projects.hexawebstudio.com/darquise-nantel/img/favicon.png',
                   locale: 'auto',
                   token: function(token) {
                     // You can access the token ID with `token.id`.
@@ -1746,9 +1746,9 @@ a:hover {
 							'<div class="row conversation-persons-modal" style="margin-bottom: 14px;">'+
 								'<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
 								if(value.senderId == sessionUserId){
-								htmlChatList +='<img src="'+ baseUrl + '/public/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+								htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
 								}else{
-								htmlChatList +='<img src="'+ baseUrl + '/public/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+								htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
 								}
 								htmlChatList +='</div>'+
 								'<div class="col-md-7" style="padding-left: 0; padding-right: 0;">';
@@ -1772,10 +1772,10 @@ a:hover {
 								}else{
 
 									if(value.MessageType == "image"){
-									htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/public/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+									htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
 									}else{
-									htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/public/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
+									htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
 									}
 								}
 								htmlChatList += '</div>'+
@@ -1811,9 +1811,9 @@ a:hover {
 							'<div class="row conversation-persons-modal" style="margin-bottom: 14px;">'+
 								'<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
 								if(value.senderId == sessionUserId){
-								htmlChatList +='<img src="'+ baseUrl + '/public/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+								htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
 								}else{
-								htmlChatList +='<img src="'+ baseUrl + '/public/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+								htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
 								}
 								htmlChatList +='</div>'+
 								'<div class="col-md-7" style="padding-left: 0; padding-right: 0;">';
@@ -1837,10 +1837,10 @@ a:hover {
 								}else{
 
 									if(value.MessageType == "image"){
-									htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/public/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+									htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
 									}else{
-									htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/public/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
+									htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
 									}
 								}
 								htmlChatList += '</div>'+
@@ -1878,7 +1878,7 @@ a:hover {
 					$("#textChatId").val(resp[0].chat_id);
 					$("#textUserId").val('');
 					if(resp[0].senderId == sessionUserId2){
-						htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].receiverAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
+						htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/avatar/' + resp[0].receiverAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
 						if(resp[0].receiverName !== ""){
 
 							htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].receiverName +'</span>';
@@ -1889,7 +1889,7 @@ a:hover {
 						htmlHeadhingUserName +='</h5>';
 						$("#textUserId").val(resp[0].receiverId);
 					}else{
-						htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].senderAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
+						htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/avatar/' + resp[0].senderAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
 						if(resp[0].senderName !== ""){
 						htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].senderName +'</span>';
 						}else{
@@ -1927,17 +1927,17 @@ a:hover {
 							if(value.file_type == "image"){
 								if(value.sender_id != sessionUserId){
 								htmlSingleChatList += '<div class="col-md-6 hover-show-download " style="border-radius:10px; margin-right: 1px;">'+
-														'<img src="'+ baseUrl +'/public/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">'+
+														'<img src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">'+
 														'<span class="download-btn" id="spanDownloadHover">'+
-														'<a download="'+ value.message_file +'" href="' + baseUrl +'/public/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
+														'<a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
 														'</span>'+
 														'<span style="display: block;text-align: right;font-size: 11px;color: #fff;position: absolute;bottom: 10px;right: 31px;">'+ msgTime +'</span>'+
 														'</div>';
 								}else{
 								htmlSingleChatList += '<div class="col-md-6 hover-show-download offset-md-6" style="border-radius:10px;" >'+
-														'<img src="'+ baseUrl +'/public/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">'+
+														'<img src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">'+
 														'<span class="download-btn" id="spanDownloadHover">'+
-														'<a download="'+ value.message_file +'" href="' + baseUrl +'/public/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
+														'<a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
 														'</span>'+
 														'<span style="display: block;text-align: right;font-size: 11px;color: #fff;position: absolute;bottom: 10px;right: 31px;">'+ msgTime +'</span>'+
 														'</div>';
@@ -1946,24 +1946,24 @@ a:hover {
 								if(value.sender_id != sessionUserId){
 								htmlSingleChatList += '<div class="col-md-12" >';
 								if(value.message_file.split('.')[1] == "pdf"){
-									htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/public/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+									htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 								}else{
-									htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/public/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+									htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 								}
 								htmlSingleChatList  += value.message_file +
-								'<span><a download="'+ value.message_file +'" href="' + baseUrl +'/public/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
+								'<span><a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
 								'</span>'+
 								'<span style="display: block; text-align: right;font-size: 11px;">22:38</span></p>'+
 								'</div>';
 								}else{
 								htmlSingleChatList += '<div class="col-md-12" >';
 								if(value.message_file.split('.')[1] == "pdf"){
-									htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto; margin-bottom: 14px;"><span><img src="'+ baseUrl +'/public/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+									htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto; margin-bottom: 14px;"><span><img src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 								}else{
-									htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto; margin-bottom: 14px"><span><img src="'+ baseUrl +'/public/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+									htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto; margin-bottom: 14px"><span><img src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 								}
 								htmlSingleChatList += value.message_file +
-									'<span><a download="'+ value.message_file +'" href="' + baseUrl +'/public/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
+									'<span><a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
 									'</span>'+
 									'<span style="display: block; text-align: right;font-size: 11px;">22:38</span></p>'+
 								'</div>';
@@ -2060,9 +2060,9 @@ a:hover {
 									'<div class="row conversation-persons-modal" style="margin-bottom: 14px;">'+
 									'<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
 									if(value.senderId == sessionUserId){
-										htmlChatList +='<img src="'+ baseUrl + '/public/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+										htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
 									}else{
-										htmlChatList +='<img src="'+ baseUrl + '/public/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+										htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
 									}
 									htmlChatList +='</div>'+
 									'<div class="col-md-7" style="padding-left: 0; padding-right: 0;">';
@@ -2087,11 +2087,11 @@ a:hover {
 											if(value.MessageType == "image"){
 
 
-											htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/public/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+											htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
 											}else{
 
-											htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/public/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
+											htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
 											}
 										}
 										htmlChatList += '</div>'+
@@ -2127,9 +2127,9 @@ a:hover {
 									'<div class="row conversation-persons-modal" style="margin-bottom: 14px;">'+
 										'<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
 										if(value.senderId == sessionUserId){
-										htmlChatList +='<img src="'+ baseUrl + '/public/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+										htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
 										}else{
-										htmlChatList +='<img src="'+ baseUrl + '/public/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+										htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
 										}
 										htmlChatList +='</div>'+
 										'<div class="col-md-7" style="padding-left: 0; padding-right: 0;">';
@@ -2154,11 +2154,11 @@ a:hover {
 											if(value.MessageType == "image"){
 
 
-												htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/public/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+												htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
 											}else{
 
-												htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/public/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
+												htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
 											}
 										}
 											htmlChatList += '</div>'+
@@ -2231,17 +2231,17 @@ a:hover {
 											if(value.file_type == "image"){
 											if(value.sender_id != sessionUserId){
 												htmlSingleChatList += '<div class="col-md-6 hover-show-download " style="border-radius:10px; margin-right: 1px;">'+
-																	'<img src="'+ baseUrl +'/public/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">'+
+																	'<img src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">'+
 																	'<span class="download-btn" id="spanDownloadHover">'+
-																	'<a download="'+ value.message_file +'" href="' + baseUrl +'/public/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
+																	'<a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
 																	'</span>'+
 																	'<span style="display: block;text-align: right;font-size: 11px;color: #fff;position: absolute;bottom: 10px;right: 31px;">'+ msgTime +'</span>'+
 																	'</div>';
 											}else{
 												htmlSingleChatList += '<div class="col-md-6 hover-show-download offset-md-6" style="border-radius:10px;" >'+
-																	'<img src="'+ baseUrl +'/public/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">'+
+																	'<img src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">'+
 																	'<span class="download-btn" id="spanDownloadHover">'+
-																	'<a download="'+ value.message_file +'" href="' + baseUrl +'/public/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
+																	'<a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
 																	'</span>'+
 																	'<span style="display: block;text-align: right;font-size: 11px;color: #fff;position: absolute;bottom: 10px;right: 31px;">'+ msgTime +'</span>'+
 																	'</div>';
@@ -2250,24 +2250,24 @@ a:hover {
 											if(value.sender_id != sessionUserId){
 												htmlSingleChatList += '<div class="col-md-12" >';
 												if(value.message_file.split('.')[1] == "pdf"){
-												htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/public/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+												htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 												}else{
-												htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/public/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+												htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 												}
 												htmlSingleChatList  += value.message_file +
-												'<span><a download="'+ value.message_file +'" href="' + baseUrl +'/public/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
+												'<span><a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
 												'</span>'+
 												'<span style="display: block; text-align: right;font-size: 11px;">22:38</span></p>'+
 												'</div>';
 											}else{
 												htmlSingleChatList += '<div class="col-md-12" >';
 												if(value.message_file.split('.')[1] == "pdf"){
-												htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img src="'+ baseUrl +'/public/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+												htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 												}else{
-												htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img src="'+ baseUrl +'/public/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+												htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 												}
 												htmlSingleChatList += value.message_file +
-												'<span><a download="'+ value.message_file +'" href="' + baseUrl +'/public/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
+												'<span><a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
 												'</span>'+
 												'<span style="display: block; text-align: right;font-size: 11px;">22:38</span></p>'+
 												'</div>';
@@ -2342,9 +2342,9 @@ a:hover {
 											'<div class="row conversation-persons-modal" style="margin-bottom: 14px;">'+
 											'<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
 											if(value.senderId == sessionUserId){
-												htmlChatList +='<img src="'+ baseUrl + '/public/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+												htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
 											}else{
-												htmlChatList +='<img src="'+ baseUrl + '/public/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+												htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
 											}
 											htmlChatList +='</div>'+
 											'<div class="col-md-7" style="padding-left: 0; padding-right: 0;">';
@@ -2369,11 +2369,11 @@ a:hover {
 												if(value.MessageType == "image"){
 
 
-													htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/public/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+													htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
 												}else{
 
-													htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/public/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
+													htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
 												}
 												}
 											htmlChatList += '</div>'+
@@ -2409,9 +2409,9 @@ a:hover {
 											'<div class="row conversation-persons-modal" style="margin-bottom: 14px;">'+
 											'<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
 											if(value.senderId == sessionUserId){
-												htmlChatList +='<img src="'+ baseUrl + '/public/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+												htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
 											}else{
-												htmlChatList +='<img src="'+ baseUrl + '/public/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+												htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
 											}
 											htmlChatList +='</div>'+
 											'<div class="col-md-7" style="padding-left: 0; padding-right: 0;">';
@@ -2436,11 +2436,11 @@ a:hover {
 												if(value.MessageType == "image"){
 
 
-													htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/public/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+													htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
 												}else{
 
-													htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/public/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
+													htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
 												}
 												}
 											htmlChatList += '</div>'+
@@ -2480,7 +2480,7 @@ a:hover {
 							$("#textChatId").val(resp[0].chat_id);
 							$("#textUserId").val('');
 							if(resp[0].senderId == sessionUserId2){
-								htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].receiverAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
+								htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/avatar/' + resp[0].receiverAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
 								if(resp[0].receiverName !== ""){
 
 								htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].receiverName +'</span>';
@@ -2491,7 +2491,7 @@ a:hover {
 							htmlHeadhingUserName +='</h5>';
 							$("#textUserId").val(resp[0].receiverId);
 							}else{
-							htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/public/avatar/' + resp[0].senderAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
+							htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/avatar/' + resp[0].senderAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
 							if(resp[0].senderName !== ""){
 								htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].senderName +'</span>';
 							}else{
@@ -2531,17 +2531,17 @@ a:hover {
 									if(value.file_type == "image"){
 									if(value.sender_id != sessionUserId){
 										htmlSingleChatList += '<div class="col-md-6 hover-show-download " style="border-radius:10px; margin-right: 1px;">'+
-															'<img src="'+ baseUrl +'/public/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">'+
+															'<img src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">'+
 															'<span class="download-btn" id="spanDownloadHover">'+
-															'<a download="'+ value.message_file +'" href="' + baseUrl +'/public/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
+															'<a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
 															'</span>'+
 															'<span style="display: block;text-align: right;font-size: 11px;color: #fff;position: absolute;bottom: 10px;right: 31px;">'+ msgTime +'</span>'+
 															'</div>';
 									}else{
 										htmlSingleChatList += '<div class="col-md-6 hover-show-download offset-md-6" style="border-radius:10px; " >'+
-															'<img src="'+ baseUrl +'/public/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">'+
+															'<img src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">'+
 															'<span class="download-btn" id="spanDownloadHover">'+
-															'<a download="'+ value.message_file +'" href="' + baseUrl +'/public/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
+															'<a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
 															'</span>'+
 															'<span style="display: block;text-align: right;font-size: 11px;color: #fff;position: absolute;bottom: 10px;right: 31px;">'+ msgTime +'</span>'+
 															'</div>';
@@ -2550,24 +2550,24 @@ a:hover {
 									if(value.sender_id != sessionUserId){
 										htmlSingleChatList += '<div class="col-md-12" >';
 										if(value.message_file.split('.')[1] == "pdf"){
-										htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/public/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+										htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 										}else{
-										htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/public/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+										htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 										}
 										htmlSingleChatList  += value.message_file +
-										'<span><a download="'+ value.message_file +'" href="' + baseUrl +'/public/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
+										'<span><a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
 										'</span>'+
 										'<span style="display: block; text-align: right;font-size: 11px;">'+ msgTime +'</span></p>'+
 										'</div>';
 									}else{
 										htmlSingleChatList += '<div class="col-md-12" >';
 										if(value.message_file.split('.')[1] == "pdf"){
-										htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img src="'+ baseUrl +'/public/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+										htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 										}else{
-										htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img src="'+ baseUrl +'/public/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+										htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 										}
 										htmlSingleChatList += value.message_file +
-										'<span><a download="'+ value.message_file +'" href="' + baseUrl +'/public/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
+										'<span><a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
 										'</span>'+
 										'<span style="display: block; text-align: right;font-size: 11px;">'+ msgTime +'</span></p>'+
 										'</div>';
@@ -2727,17 +2727,17 @@ a:hover {
 										if(value.file_type == "image"){
 										if(value.sender_id != sessionUserId){
 											htmlSingleChatList += '<div class="col-md-6 hover-show-download " style="border-radius:10px;">'+
-																'<img src="'+ baseUrl +'/public/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #000; border-radius: 12px;">'+
+																'<img src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #000; border-radius: 12px;">'+
 																'<span class="download-btn" id="spanDownloadHover">'+
-																'<a download="'+ value.message_file +'" href="' + baseUrl +'/public/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
+																'<a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
 																'</span>'+
 																'<span style="display: block;text-align: right;font-size: 11px;color: #fff;position: absolute;bottom: 10px;right: 31px;">'+ msgTime +'</span>'+
 																'</div>';
 										}else{
 											htmlSingleChatList += '<div class="col-md-6 hover-show-download offset-md-6" style="border-radius:10px;" >'+
-																'<img src="'+ baseUrl +'/public/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">'+
+																'<img src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">'+
 																'<span class="download-btn" id="spanDownloadHover">'+
-																'<a download="'+ value.message_file +'" href="' + baseUrl +'/public/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
+																'<a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
 																'</span>'+
 																'<span style="display: block;text-align: right;font-size: 11px;color: #fff;position: absolute;bottom: 10px;right: 31px;">'+ msgTime +'</span>'+
 																'</div>';
@@ -2746,24 +2746,24 @@ a:hover {
 										if(value.sender_id != sessionUserId){
 											htmlSingleChatList += '<div class="col-md-12" >';
 											if(value.message_file.split('.')[1] == "pdf"){
-											htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/public/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+											htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 											}else{
-											htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/public/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+											htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 											}
 											htmlSingleChatList  += value.message_file +
-											'<span><a download="'+ value.message_file +'" href="' + baseUrl +'/public/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
+											'<span><a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
 											'</span>'+
 											'<span style="display: block; text-align: right;font-size: 11px;">22:38</span></p>'+
 											'</div>';
 										}else{
 											htmlSingleChatList += '<div class="col-md-12" >';
 											if(value.message_file.split('.')[1] == "pdf"){
-											htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto; margin-bottom: 14px"><span><img src="'+ baseUrl +'/public/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+											htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto; margin-bottom: 14px"><span><img src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 											}else{
-											htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img src="'+ baseUrl +'/public/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+											htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
 											}
 											htmlSingleChatList += value.message_file +
-											'<span><a download="'+ value.message_file +'" href="' + baseUrl +'/public/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
+											'<span><a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
 											'</span>'+
 											'<span style="display: block; text-align: right;font-size: 11px;">22:38</span></p>'+
 											'</div>';
@@ -3374,8 +3374,8 @@ a:hover {
                 							    '<div class="choose-photographer-box">'+
                                             		'<div class="pt-4 pb-4 pl-3 pr-3">'+
                                             			'<div class="">'+
-                                            			    '<a data-fancybox href="' + baseUrl + '/public/avatar/' + value[0].avatar +'">'+
-                                        					    '<img src="' + baseUrl + '/public/avatar/' + value[0].avatar +'" alt="" class="photographer-thimbnial">'+
+                                            			    '<a data-fancybox href="' + baseUrl + '/avatar/' + value[0].avatar +'">'+
+                                        					    '<img src="' + baseUrl + '/avatar/' + value[0].avatar +'" alt="" class="photographer-thimbnial">'+
                                         					 '</a>'+
                                             			    '<h4 class="title-this-photographer">' + value[0].username + '</h4>'+
                                                             '<p class="tag-one-photographer">' + value[0].type_name + '</p>'+
@@ -3388,8 +3388,8 @@ a:hover {
                                                 			        //   for(var i=0; i < splitImgs.length; i++){
                                                 			        for(var i=0; i < 4; i++){
                                                 			            if(splitImgs[i] != undefined){
-                                            								htmlDiv +='<a data-fancybox href="' + baseUrl + '/public/uploads/preview/' + splitImgs[i] +'">'+
-                                                        					    '<img src="' + baseUrl + '/public/uploads/preview/' + splitImgs[i] +'" alt="" class="set-img-size">'+
+                                            								htmlDiv +='<a data-fancybox href="' + baseUrl + '/uploads/preview/' + splitImgs[i] +'">'+
+                                                        					    '<img src="' + baseUrl + '/uploads/preview/' + splitImgs[i] +'" alt="" class="set-img-size">'+
                                                             			    '</a>';
                                                 			            }
                                                 			        }
@@ -3406,8 +3406,8 @@ a:hover {
                                                         			         //   console.log(realFileName);
                                                         			            var getFileNameScreenShot = splitVids[i].split('.')[0] + '.png';
                                                         			         //   console.log('asd ==>'+ getFileNameScreenShot);
-                                            								htmlDiv +='<a data-fancybox href="' + baseUrl + '/public/uploads/video/water_mark_large/watermark-' + realFileName +'">'+
-                                                        					    '<img src="' + baseUrl + '/public/uploads/video/screen_shot/screen-shot-' + getFileNameScreenShot +'" alt="" class="set-img-size">'+
+                                            								htmlDiv +='<a data-fancybox href="' + baseUrl + '/uploads/video/water_mark_large/watermark-' + realFileName +'">'+
+                                                        					    '<img src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + getFileNameScreenShot +'" alt="" class="set-img-size">'+
                                                             			    '</a>';
                                                 			            }
                                                 			        }
@@ -3425,8 +3425,8 @@ a:hover {
                                                         			         //   console.log(realFileNameAni);
                                                         			            var getFileNameScreenShotAni = splitAnis[i].split('.')[0] + '.png';
                                                         			         //   console.log('asd ==>'+ getFileNameScreenShotAni);
-                                            								htmlDiv +='<a data-fancybox href="' + baseUrl + '/public/uploads/video/water_mark_large/watermark-' + realFileNameAni +'">'+
-                                                        					    '<img src="' + baseUrl + '/public/uploads/video/screen_shot/screen-shot-' + getFileNameScreenShotAni +'" alt="" class="set-img-size">'+
+                                            								htmlDiv +='<a data-fancybox href="' + baseUrl + '/uploads/video/water_mark_large/watermark-' + realFileNameAni +'">'+
+                                                        					    '<img src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + getFileNameScreenShotAni +'" alt="" class="set-img-size">'+
                                                             			    '</a>';
                                                 			            }
                                                 			        }
@@ -3439,13 +3439,13 @@ a:hover {
                                                 			        //   for(var i=0; i < splitImgs.length; i++){
                                                 			        for(var i=0; i < 1; i++){
                                                 			            if(splitMus[i] != undefined){
-                                            								// htmlDiv +='<div class="qwewave" data-path="' + baseUrl + '/public/uploads/audio/large/' + splitMus[i] +'">'+
+                                            								// htmlDiv +='<div class="qwewave" data-path="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'">'+
                                             								// '<button type="button" id="baton#'+ splitMus[i] + '">Play / Pause</button>'+
-                                                    //     					   // '<img src="' + baseUrl + '/public/uploads/audio/large/' + splitMus[i] +'" alt="" class="set-img-size">'+
+                                                    //     					   // '<img src="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'" alt="" class="set-img-size">'+
                                                     //     					    '<div class="wave-container"></div>'+
                                                     //         			    '</div>';
 
-                                                            			    htmlDiv += '<div class="qwewave d-flex" data-path="' + baseUrl + '/public/uploads/audio/large/' + splitMus[i] +'">'+
+                                                            			    htmlDiv += '<div class="qwewave d-flex" data-path="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'">'+
                                                                                 '<div class="align-self-center music-col-2">'+
                                                                                     '<a href="javascript:;" class="btn-music-play" id="baton-playMusic#'+ splitMus[i] +'">'+
                                                                                         '<i class="fas fa-play"></i>'+
@@ -3466,7 +3466,7 @@ a:hover {
                                                             }
                                         			    htmlDiv +='</div>'+
                                         		    '</div>'+
-                                        			'<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">'+
+                                        			'<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">'+
                                         				'<div class="">'+
                                         					'<div class="d-md-flex justify-content-center">'+
                                         						'<a href="' + baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one mt-0">Portfolio</a>'+
@@ -3483,7 +3483,7 @@ a:hover {
 				// 							'<div class="header-photographer">'+
 				// 								'<div class="row">'+
 				// 									'<div class="col-md-4">'+
-				// 										'<img src="' + baseUrl + '/public/avatar/' + value[0].avatar +'" alt="" class="set-img-size">'+
+				// 										'<img src="' + baseUrl + '/avatar/' + value[0].avatar +'" alt="" class="set-img-size">'+
 				// 									'</div>'+
 				// 									'<div class="col-md-7 offset-md-1">'+
 				// 										'<h4 class="title-this">' + value[0].username + '</h4>'+
@@ -3493,7 +3493,7 @@ a:hover {
 				// 							'</div>';
 
 				// 							if(value[0].user_type_id == "1"){
-				// 								htmlDiv +='<div class="bottom" style="background-image: url(' + baseUrl + '/public/uploads/thumbnail/' + value[0].img + ')">'+
+				// 								htmlDiv +='<div class="bottom" style="background-image: url(' + baseUrl + '/uploads/thumbnail/' + value[0].img + ')">'+
 				// 									'<div class="row">'+
 				// 										'<div class="col-5 offset-7">'+
 				// 											'<a href="' + baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one mb-2">Portfolio</a>'+
@@ -3503,7 +3503,7 @@ a:hover {
 				// 									'</div>'+
 				// 								'</div>';
 				// 							}else if(value[0].user_type_id == "3"){
-				// 								htmlDiv +='<div class="bottom" style="background-image: url(' + baseUrl + '/public/uploads/video/screen_shot/' + value[0].ScreenShot + ')">'+
+				// 								htmlDiv +='<div class="bottom" style="background-image: url(' + baseUrl + '/uploads/video/screen_shot/' + value[0].ScreenShot + ')">'+
 				// 									'<div class="row">'+
 				// 										'<div class="col-5 offset-7">'+
 				// 											'<a href="' + baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one mb-2">Portfolio</a>'+
@@ -3513,7 +3513,7 @@ a:hover {
 				// 									'</div>'+
 				// 								'</div>';
 				// 							}else if(value[0].user_type_id == "2"){
-				// 							htmlDiv +='<div class="bottom" style="background-image: url(' + baseUrl + '/public/uploads/video/screen_shot/' + value[0].ScreenShot + ')">'+
+				// 							htmlDiv +='<div class="bottom" style="background-image: url(' + baseUrl + '/uploads/video/screen_shot/' + value[0].ScreenShot + ')">'+
 				// 									'<div class="row">'+
 				// 										'<div class="col-5 offset-7">'+
 				// 											'<a href="' + baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one mb-2">Portfolio</a>'+
@@ -3523,7 +3523,7 @@ a:hover {
 				// 									'</div>'+
 				// 								'</div>';
 				// 							}else if(value[0].user_type_id == "4"){
-				// 							htmlDiv +='<div class="bottom" style="background-image: url(' + baseUrl + '/public/uploads/thumbnail/musicWave.png'+ ')" >'+
+				// 							htmlDiv +='<div class="bottom" style="background-image: url(' + baseUrl + '/uploads/thumbnail/musicWave.png'+ ')" >'+
 				// 									'<div class="row">'+
 				// 										'<div class="col-5 offset-7">'+
 				// 											'<a href="' + baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one mb-2">Portfolio</a>'+

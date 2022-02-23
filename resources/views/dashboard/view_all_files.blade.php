@@ -332,7 +332,7 @@
                                 @foreach($gVideo as $gvid)
                                 <li class="">
                                     <video onmouseover="this.play()" onmouseout="this.pause()" width="100%" height="100%" muted="" loop="">
-        							<!--<source src="https://projects.hexawebstudio.com/darquise-nantel/public/uploads/video/water_mark_large/watermark-person-slicing-fruits-121599847070rke90rxnwv.mp4" type="video/mp4">-->
+        							<!--<source src="https://projects.hexawebstudio.com/darquise-nantel/uploads/video/water_mark_large/watermark-person-slicing-fruits-121599847070rke90rxnwv.mp4" type="video/mp4">-->
         							<source src="<?php echo url('public/customer_files/'.$refNo.'/').'/'. $gvid->customer_file_name; ?>" type="video/mp4">
                             						<!-- <source src="movie.ogg" type="video/ogg"> -->
                             			Your browser does not support the video tag.

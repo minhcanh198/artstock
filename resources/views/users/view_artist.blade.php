@@ -34,32 +34,32 @@
     <!--<h1 class="text-center artist-title mt-4 mb-4">portfolio</h1>-->
     <div class="">
         <div class="item">
-            <img src="{{ url('').'/public/cover/'. $artistDetails->cover }}" class="img-fluid img" style="display: block;
+            <img src="{{ url('').'/cover/'. $artistDetails->cover }}" class="img-fluid img" style="display: block;
     width: 100%;">
         </div>
         <!--<div class="item">-->
-        <!--    <img src="{{ url('').'/public/img/bg-new.jpeg' }}" class="img-fluid img">-->
+        <!--    <img src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
         <!--</div>-->
         <!--<div class="item">-->
-        <!--    <img src="{{ url('').'/public/img/bg-new.jpeg' }}" class="img-fluid img">-->
+        <!--    <img src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
         <!--</div>-->
         <!--<div class="item">-->
-        <!--    <img src="{{ url('').'/public/img/bg-new.jpeg' }}" class="img-fluid img">-->
+        <!--    <img src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
         <!--</div>-->
         <!--<div class="item">-->
-        <!--    <img src="{{ url('').'/public/img/bg-new.jpeg' }}" class="img-fluid img">-->
+        <!--    <img src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
         <!--</div>-->
         <!--<div class="item">-->
-        <!--    <img src="{{ url('').'/public/img/bg-new.jpeg' }}" class="img-fluid img">-->
+        <!--    <img src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
         <!--</div>-->
         <!--<div class="item">-->
-        <!--    <img src="{{ url('').'/public/img/bg-new.jpeg' }}" class="img-fluid img">-->
+        <!--    <img src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
         <!--</div>-->
         <!--<div class="item">-->
-        <!--    <img src="{{ url('').'/public/img/bg-new.jpeg' }}" class="img-fluid img">-->
+        <!--    <img src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
         <!--</div>-->
         <!--<div class="item">-->
-        <!--    <img src="{{ url('').'/public/img/bg-new.jpeg' }}" class="img-fluid img">-->
+        <!--    <img src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
         <!--</div>-->
     </div>
     <section class="profile">
@@ -78,7 +78,7 @@
                     <div class="col-md-3">
                         <div class="profile-inner">
                             <div class="img">
-                                <img src="<?php echo url('/').'/public/avatar/'. $artistDetails->avatar; ?>" class="img-fluid">
+                                <img src="<?php echo url('/').'/avatar/'. $artistDetails->avatar; ?>" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -249,7 +249,7 @@
                             
                             
                             <!-- Audio start -->
-                            <div class="audio-song-box Bigwave" data-path="<?php echo url('/public/uploads/audio/large/').'/' . $AudioData->thumbnail; ?>">
+                            <div class="audio-song-box Bigwave" data-path="<?php echo url('/uploads/audio/large/').'/' . $AudioData->thumbnail; ?>">
                                 <!--<button type="button">Play / Pause</button>-->
                         	    <div class="row music-main-page-home">
                             	    <div class="align-self-center col-md-2 text-center">
@@ -285,7 +285,7 @@
                         @foreach($getReviewOfUserById as $reviewResult)
                         <div class="row customer-review-box">
                             <div class="col-3 pr-0">
-                                <img src="<?php echo url('/').'/public/review_images/'. $reviewResult->review_image; ?>" class="img-fluid  unique-viewartist-img">
+                                <img src="<?php echo url('/').'/review_images/'. $reviewResult->review_image; ?>" class="img-fluid  unique-viewartist-img">
                             </div>
                             <div class="col-9">
                             <div class="d-flex mt-3">

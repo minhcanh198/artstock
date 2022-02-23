@@ -138,7 +138,7 @@
 								// 			'<div class="header-photographer">'+
 								// 				'<div class="row">'+
 								// 					'<div class="col-sm-4">'+
-								// 						'<img src="' + baseUrl + '/public/avatar/' + value[0].avatar + '" alt="" class="set-img-size">'+
+								// 						'<img src="' + baseUrl + '/avatar/' + value[0].avatar + '" alt="" class="set-img-size">'+
 								// 					'</div>'+
 								// 					'<div class="col-sm-7 offset-md-1">'+
 								// 						'<h4 class="title-this">' + value[0].username + '</h4>'+
@@ -149,7 +149,7 @@
 
 								// 			if(value[0].user_type_id == "1"){
 
-								// 				html += '<div class="bottom" style="background-image: url('+ baseUrl +'/public/uploads/thumbnail/' +  value[0].img + ')">'+
+								// 				html += '<div class="bottom" style="background-image: url('+ baseUrl +'/uploads/thumbnail/' +  value[0].img + ')">'+
 								// 							'<div class="row">'+
 								// 								'<div class="col-5 offset-7">'+
 								// 									'<a href="' + baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one mb-2">Portfolio</a>' +
@@ -160,7 +160,7 @@
 								// 						'</div>';
 								// 			}else if(value[0].user_type_id == "3"){
 
-								// 				html +=	'<div class="bottom" style="background-image: url(' + baseUrl +  '/public/uploads/video/screen_shot/'+ value[0].ScreenShot + ')">'+
+								// 				html +=	'<div class="bottom" style="background-image: url(' + baseUrl +  '/uploads/video/screen_shot/'+ value[0].ScreenShot + ')">'+
 								// 							'<div class="row">'+
 								// 								'<div class="col-5 offset-7">'+
 								// 									'<a href="' + baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one mb-2">Portfolio</a>'+
@@ -170,7 +170,7 @@
 								// 							'</div>'+
 								// 						'</div>';
 								// 			}else if(value[0].user_type_id == "2"){
-								// 				html += '<div class="bottom" style="background-image: url('+ baseUrl + '/public/uploads/video/screen_shot/' + value[0].ScreenShot + ')">'+
+								// 				html += '<div class="bottom" style="background-image: url('+ baseUrl + '/uploads/video/screen_shot/' + value[0].ScreenShot + ')">'+
 								// 							'<div class="row">'+
 								// 								'<div class="col-5 offset-7">'+
 								// 									'<a href="' + baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one mb-2">Portfolio</a>'+
@@ -180,7 +180,7 @@
 								// 							'</div>'+
 								// 						'</div>';
 								// 			}else if(value[0].user_type_id == "4"){
-								// 				html += '<div class="bottom" style="background-image: url('+ baseUrl + '/public/uploads/thumbnail/musicWave.png'+ ')" >'+
+								// 				html += '<div class="bottom" style="background-image: url('+ baseUrl + '/uploads/thumbnail/musicWave.png'+ ')" >'+
 								// 							'<div class="row">'+
 								// 								'<div class="col-5 offset-7">'+
 								// 									'<a href="'+ baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one mb-2">Portfolio</a>'+
@@ -267,9 +267,9 @@
                                                 			        //   for(var i=0; i < splitImgs.length; i++){
                                                 			        for(var i=0; i < 1; i++){
                                                 			            if(splitMus[i] != undefined){
-                                            								// htmlDiv +='<div class="qwewave" data-path="' + baseUrl + '/public/uploads/audio/large/' + splitMus[i] +'">'+
+                                            								// htmlDiv +='<div class="qwewave" data-path="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'">'+
                                             								// '<button type="button" id="baton#'+ splitMus[i] + '">Play / Pause</button>'+
-                                                    //     					   // '<img src="' + baseUrl + '/public/uploads/audio/large/' + splitMus[i] +'" alt="" class="set-img-size">'+
+                                                    //     					   // '<img src="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'" alt="" class="set-img-size">'+
                                                     //     					    '<div class="wave-container"></div>'+
                                                     //         			    '</div>';
 
@@ -310,8 +310,8 @@
 								//  html += '<div class="choose-photographer-box">'+
         //                             		'<div class="pt-4 pb-4 pl-3 pr-3">'+
         //                             			'<div class="">'+
-        //                             			    '<a data-fancybox href="' + baseUrl + '/public/avatar/' + value[0].avatar + '">'+
-        //                         					'<img src="' + baseUrl + '/public/avatar/' + value[0].avatar + '" alt="" class="photographer-thimbnial">'+
+        //                             			    '<a data-fancybox href="' + baseUrl + '/avatar/' + value[0].avatar + '">'+
+        //                         					'<img src="' + baseUrl + '/avatar/' + value[0].avatar + '" alt="" class="photographer-thimbnial">'+
         //                         					'</a>'+
     				// 								'<h4 class="title-this-photographer">' + value[0].username + '</h4>'+
 								// 					'<p class="tag-one-photographer">' + value[0].type_name  + '</p>'+
@@ -326,8 +326,8 @@
         //                                 			               var Imagehtml = '';
         //                                 			               console.log(responseImage);
         //                                 			               $.each( responseImage, function( key, valueImage ) {
-        //                                 			                   Imagehtml += '<a data-fancybox href="'+ baseUrl +'/public/uploads/preview/' + valueImage.preview + '">'+
-        //                                     					                '<img src="'+ baseUrl + '/public/uploads/preview/' + valueImage.preview + '" alt="" class="set-img-size">'+
+        //                                 			                   Imagehtml += '<a data-fancybox href="'+ baseUrl +'/uploads/preview/' + valueImage.preview + '">'+
+        //                                     					                '<img src="'+ baseUrl + '/uploads/preview/' + valueImage.preview + '" alt="" class="set-img-size">'+
         //                                     					                '</a>';
         //                                                           });
         //                                                           $("#"+ value[0].id).append(Imagehtml);
@@ -349,8 +349,8 @@
         //                                 			               $.each(responseVideo, function( key, valueVideo ) {
         //         								                        // var splitThumbnail = ;
         //         								                        // alert(JSON.stringify(valueVideo));
-        //                                     					         Videohtml += '<a data-fancybox href="'+ baseUrl + '/public/uploads/video/screen_shot/screen-shot-'+ valueVideo.thumbnail.split('.')[0] + '.png' +'">'+
-        //                                     					        '<img src="'+ baseUrl + '/public/uploads/video/screen_shot/screen-shot-'+ valueVideo.thumbnail.split('.')[0] + '.png' +'" alt="" class="set-img-size">'+
+        //                                     					         Videohtml += '<a data-fancybox href="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-'+ valueVideo.thumbnail.split('.')[0] + '.png' +'">'+
+        //                                     					        '<img src="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-'+ valueVideo.thumbnail.split('.')[0] + '.png' +'" alt="" class="set-img-size">'+
         //                                     					        '</a>';
         //                                                           });
         //                                                           $("#"+ value[0].id).append(Videohtml);
@@ -373,8 +373,8 @@
         //                                 			               $.each(responseAnimation, function( key, valueAnimation ) {
         //                                 			                   console.log(valueAnimation);
         //                                 			                   var splitAnimationThumbnail = valueAnimation.thumbnail.split('.')[0];
-        //                                     					        Animationhtml += '<a data-fancybox href="'+ baseUrl + '/public/uploads/video/screen_shot/screen-shot-' + splitAnimationThumbnail + '.png' + '">'+
-        //                                     					            '<img src="'+ baseUrl + '/public/uploads/video/screen_shot/screen-shot-' + splitAnimationThumbnail + '.png' + '" alt="" class="set-img-size">'+
+        //                                     					        Animationhtml += '<a data-fancybox href="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitAnimationThumbnail + '.png' + '">'+
+        //                                     					            '<img src="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitAnimationThumbnail + '.png' + '" alt="" class="set-img-size">'+
         //                                     					        '</a>';
         //                                                           });
         //                                                           $("#"+ value[0].id).append(Animationhtml);
@@ -389,7 +389,7 @@
 
         //                         			    html += '</div>'+
         //                         		    '</div>'+
-        //                         			'<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">'+
+        //                         			'<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">'+
         //                         				'<div class="">'+
         //                         					'<div class="d-md-flex">'+
 
@@ -541,7 +541,7 @@
 								// 			'<div class="header-photographer">'+
 								// 				'<div class="row">'+
 								// 					'<div class="col-sm-4">'+
-								// 						'<img src="' + baseUrl + '/public/avatar/' + value[0].avatar + '" alt="" class="set-img-size">'+
+								// 						'<img src="' + baseUrl + '/avatar/' + value[0].avatar + '" alt="" class="set-img-size">'+
 								// 					'</div>'+
 								// 					'<div class="col-sm-7 offset-md-1">'+
 								// 						'<h4 class="title-this">' + value[0].username + '</h4>'+
@@ -552,7 +552,7 @@
 
 								// 			if(value[0].user_type_id == "1"){
 
-								// 				html += '<div class="bottom" style="background-image: url('+ baseUrl +'/public/uploads/thumbnail/' +  value[0].img + ')">'+
+								// 				html += '<div class="bottom" style="background-image: url('+ baseUrl +'/uploads/thumbnail/' +  value[0].img + ')">'+
 								// 							'<div class="row">'+
 								// 								'<div class="col-5 offset-7">'+
 								// 									'<a href="' + baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one mb-2">Portfolio</a>' +
@@ -563,7 +563,7 @@
 								// 						'</div>';
 								// 			}else if(value[0].user_type_id == "3"){
 
-								// 				html +=	'<div class="bottom" style="background-image: url(' + baseUrl +  '/public/uploads/video/screen_shot/'+ value[0].ScreenShot + ')">'+
+								// 				html +=	'<div class="bottom" style="background-image: url(' + baseUrl +  '/uploads/video/screen_shot/'+ value[0].ScreenShot + ')">'+
 								// 							'<div class="row">'+
 								// 								'<div class="col-5 offset-7">'+
 								// 									'<a href="' + baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one mb-2">Portfolio</a>'+
@@ -573,7 +573,7 @@
 								// 							'</div>'+
 								// 						'</div>';
 								// 			}else if(value[0].user_type_id == "2"){
-								// 				html += '<div class="bottom" style="background-image: url('+ baseUrl + '/public/uploads/video/screen_shot/' + value[0].ScreenShot + ')">'+
+								// 				html += '<div class="bottom" style="background-image: url('+ baseUrl + '/uploads/video/screen_shot/' + value[0].ScreenShot + ')">'+
 								// 							'<div class="row">'+
 								// 								'<div class="col-5 offset-7">'+
 								// 									'<a href="' + baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one mb-2">Portfolio</a>'+
@@ -583,7 +583,7 @@
 								// 							'</div>'+
 								// 						'</div>';
 								// 			}else if(value[0].user_type_id == "4"){
-								// 				html += '<div class="bottom" style="background-image: url('+ baseUrl + '/public/uploads/thumbnail/musicWave.png'+ ')" >'+
+								// 				html += '<div class="bottom" style="background-image: url('+ baseUrl + '/uploads/thumbnail/musicWave.png'+ ')" >'+
 								// 							'<div class="row">'+
 								// 								'<div class="col-5 offset-7">'+
 								// 									'<a href="'+ baseUrl + '/artist/' + value[0].id + '" class="btn-portfolio-one mb-2">Portfolio</a>'+
@@ -600,8 +600,8 @@
 								//  html += '<div class="choose-photographer-box">'+
         //                             		'<div class="pt-4 pb-4 pl-3 pr-3">'+
         //                             			'<div class="">'+
-        //                             			    '<a data-fancybox href="' + baseUrl + '/public/avatar/' + value[0].avatar + '">'+
-        //                         					'<img src="' + baseUrl + '/public/avatar/' + value[0].avatar + '" alt="" class="photographer-thimbnial">'+
+        //                             			    '<a data-fancybox href="' + baseUrl + '/avatar/' + value[0].avatar + '">'+
+        //                         					'<img src="' + baseUrl + '/avatar/' + value[0].avatar + '" alt="" class="photographer-thimbnial">'+
         //                         					'</a>'+
     				// 								'<h4 class="title-this-photographer">' + value[0].username + '</h4>'+
 								// 					'<p class="tag-one-photographer">' + value[0].type_name  + '</p>'+
@@ -616,8 +616,8 @@
         //                                 			               var Imagehtml = '';
         //                                 			               console.log(responseImage);
         //                                 			               $.each( responseImage, function( key, valueImage ) {
-        //                                 			                   Imagehtml += '<a data-fancybox href="'+ baseUrl +'/public/uploads/preview/' + valueImage.preview + '">'+
-        //                                     					                '<img src="'+ baseUrl + '/public/uploads/preview/' + valueImage.preview + '" alt="" class="set-img-size">'+
+        //                                 			                   Imagehtml += '<a data-fancybox href="'+ baseUrl +'/uploads/preview/' + valueImage.preview + '">'+
+        //                                     					                '<img src="'+ baseUrl + '/uploads/preview/' + valueImage.preview + '" alt="" class="set-img-size">'+
         //                                     					                '</a>';
         //                                                           });
         //                                                           $("#"+ value[0].id).append(Imagehtml);
@@ -639,8 +639,8 @@
         //                                 			               $.each(responseVideo, function( key, valueVideo ) {
         //         								                        // var splitThumbnail = ;
         //         								                        // alert(JSON.stringify(valueVideo));
-        //         								                        Videohtml += '<a data-fancybox href="'+ baseUrl + '/public/uploads/video/screen_shot/screen-shot-'+ valueVideo.thumbnail.split('.')[0] + '.png' +'">'+
-        //                                     					        '<img src="'+ baseUrl + '/public/uploads/video/screen_shot/screen-shot-'+ valueVideo.thumbnail.split('.')[0] + '.png' +'" alt="" class="set-img-size">'+
+        //         								                        Videohtml += '<a data-fancybox href="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-'+ valueVideo.thumbnail.split('.')[0] + '.png' +'">'+
+        //                                     					        '<img src="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-'+ valueVideo.thumbnail.split('.')[0] + '.png' +'" alt="" class="set-img-size">'+
         //                                     					        '</a>';
         //                                                           });
         //                                                           $("#"+ value[0].id).append(Videohtml);
@@ -663,8 +663,8 @@
         //                                 			               $.each(responseAnimation, function( key, valueAnimation ) {
         //                                 			                   console.log(valueAnimation);
         //                                 			                   var splitAnimationThumbnail = valueAnimation.thumbnail.split('.')[0];
-        //                                 			                    Animationhtml += '<a data-fancybox href="'+ baseUrl + '/public/uploads/video/screen_shot/screen-shot-' + splitAnimationThumbnail + '.png' + '">'+
-        //                                     					            '<img src="'+ baseUrl + '/public/uploads/video/screen_shot/screen-shot-' + splitAnimationThumbnail + '.png' + '" alt="" class="set-img-size">'+
+        //                                 			                    Animationhtml += '<a data-fancybox href="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitAnimationThumbnail + '.png' + '">'+
+        //                                     					            '<img src="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitAnimationThumbnail + '.png' + '" alt="" class="set-img-size">'+
         //                                     					        '</a>';
         //                                                           });
         //                                                           $("#"+ value[0].id).append(Animationhtml);
@@ -679,7 +679,7 @@
 
         //                         			    html += '</div>'+
         //                         		    '</div>'+
-        //                         			'<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">'+
+        //                         			'<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">'+
         //                         				'<div class="">'+
         //                         					'<div class="d-md-flex">'+
 
@@ -754,9 +754,9 @@
                                                 			        //   for(var i=0; i < splitImgs.length; i++){
                                                 			        for(var i=0; i < 1; i++){
                                                 			            if(splitMus[i] != undefined){
-                                            								// htmlDiv +='<div class="qwewave" data-path="' + baseUrl + '/public/uploads/audio/large/' + splitMus[i] +'">'+
+                                            								// htmlDiv +='<div class="qwewave" data-path="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'">'+
                                             								// '<button type="button" id="baton#'+ splitMus[i] + '">Play / Pause</button>'+
-                                                    //     					   // '<img src="' + baseUrl + '/public/uploads/audio/large/' + splitMus[i] +'" alt="" class="set-img-size">'+
+                                                    //     					   // '<img src="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'" alt="" class="set-img-size">'+
                                                     //     					    '<div class="wave-container"></div>'+
                                                     //         			    '</div>';
 

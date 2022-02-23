@@ -11,7 +11,7 @@
                 <div class="col-md-4 mb-5">
                     <div class="hire-more-box hire-more-active">
                         <div class="img">
-                            <img src="<?php echo url('/').'/public/img/vacation-1.svg' ?>" alt="" class="img-fluid">
+                            <img src="<?php echo url('/').'/img/vacation-1.svg' ?>" alt="" class="img-fluid">
                         </div>
                         <div class="txt">
                         <!-- <i class="fas fa-check"></i> -->
@@ -24,7 +24,7 @@
                 <div class="col-md-4 mb-5">
                     <div class="hire-more-box hire-more-active">
                         <div class="img">
-                            <img src="<?php echo url('/').'/public/img/hometown-1.svg' ?>" alt="" class="img-fluid">
+                            <img src="<?php echo url('/').'/img/hometown-1.svg' ?>" alt="" class="img-fluid">
                         </div>
                         <div class="txt">
                         <!-- <i class="fas fa-check"></i> -->
@@ -37,7 +37,7 @@
                 <div class="col-md-4 mb-5">
                     <div class="hire-more-box hire-more-active">
                         <div class="img">
-                            <img src="<?php echo url('/').'/public/img/proposal-1.svg' ?>" alt="" class="img-fluid">
+                            <img src="<?php echo url('/').'/img/proposal-1.svg' ?>" alt="" class="img-fluid">
                         </div>
                         <div class="txt">
                         <!-- <i class="fas fa-check"></i> -->
@@ -50,7 +50,7 @@
                 <div class="col-md-4 mb-5 offset-md-2">
                     <div class="hire-more-box hire-more-active">
                         <div class="img">
-                            <img src="<?php echo url('/').'/public/img/coordinated-1.svg' ?>" alt="" class="img-fluid">
+                            <img src="<?php echo url('/').'/img/coordinated-1.svg' ?>" alt="" class="img-fluid">
                         </div>
                         <div class="txt">
                         <!-- <i class="fas fa-check"></i> -->
@@ -63,7 +63,7 @@
                 <div class="col-md-4 mb-5">
                     <div class="hire-more-box hire-more-active">
                         <div class="img">
-                            <img src="<?php echo url('/').'/public/img/commercial-1.svg' ?>" alt="" class="img-fluid">
+                            <img src="<?php echo url('/').'/img/commercial-1.svg' ?>" alt="" class="img-fluid">
                         </div>
                         <div class="txt">
                         <!-- <i class="fas fa-check"></i> -->
@@ -93,7 +93,7 @@
             <!--Content-->
             <div class="modal-content">
                 <div class="logo-modal">
-                    <img src="<?php echo url('/').'/public/img/commercial-1.svg' ?>" alt="" class="img-fluid">
+                    <img src="<?php echo url('/').'/img/commercial-1.svg' ?>" alt="" class="img-fluid">
                 </div>
                 <!--Modal cascading tabs-->
                 <div class="d-flex justify-content-center mt-4 mb-4">

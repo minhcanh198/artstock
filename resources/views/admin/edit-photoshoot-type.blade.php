@@ -101,7 +101,7 @@
                         <div class="col-sm-10">
 
                             <div class="btn-block margin-bottom-10">
-                                <img src="{{url('/public/img-photoshoot_type/').'/' . $photoshootType->photoshoot_icon_img}}" style="width:150px">
+                                <img src="{{url('/img-photoshoot_type/').'/' . $photoshootType->photoshoot_icon_img}}" style="width:150px">
                             </div>
 
                             <div class="btn btn-info box-file">

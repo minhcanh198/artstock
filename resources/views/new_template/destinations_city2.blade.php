@@ -5,7 +5,7 @@
 		<div class="row">
 			@if($getCityDetails->city_img != "")
 				<div class="col-md-6 pl-0">
-					<img src="{{ url('/').'/public/img-city/'.$getCityDetails->city_img }}" alt="" class="img-fluid img-banner-destinations-city">
+					<img src="{{ url('/').'/img-city/'.$getCityDetails->city_img }}" alt="" class="img-fluid img-banner-destinations-city">
 				</div>
 				<div class="col-md-5 align-self-center">
 			@else
@@ -156,7 +156,7 @@
 					<div class="destinations-city-s3-box">
 						<!-- <p class="flag">Iconic Sights</p> -->
 						<div class="img-box">
-							<img src="{{ url('/').'/public/img-route/'.$routesData->route_img }}" alt="" class="img-fluid">
+							<img src="{{ url('/').'/img-route/'.$routesData->route_img }}" alt="" class="img-fluid">
 						</div>
 						<div class="content-box">
 							<h3 class="title text-center">
@@ -164,7 +164,7 @@
 							</h3>
 							<a href="" class="d-block text-decorations">{{ $routesData->route_tagline }}</a>
 							<!-- <div class="city-route__shoot-lengths">
-								<img src="../public/imran_images_dummy/photo-camera.svg" width="20">
+								<img src="../imran_images_dummy/photo-camera.svg" width="20">
 								<p>Available Shoot Lengths:<br>
 								<span>90 min</span> <span class="pipe">|</span> <span>2 hours</span> <span class="pipe">|</span> <span>3 hours</span></p>
 							</div> -->

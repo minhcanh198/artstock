@@ -89,13 +89,13 @@
                     foreach($images as $imge){
                         $userDetails = App\Models\User::where('id','=', $imge->user_id)->first();
             ?>
-                        <div class="audio-song-box Bigwave" data-path="<?php echo url('/public/uploads/audio/large/').'/' . $imge->thumbnail; ?>">
+                        <div class="audio-song-box Bigwave" data-path="<?php echo url('/uploads/audio/large/').'/' . $imge->thumbnail; ?>">
 
                             <div class="row">
                                 <div class="col-md-6">
                                     <span class="d-block">
                             			<h5 class="text-overflow author-label mg-bottom-xs" title="{{ $userDetails->username }}">
-                            				<img src="{{ url('/') .'/public/avatar/'. $userDetails->avatar }}" alt="User" class="img-circle img-circle-2">
+                            				<img src="{{ url('/') .'/avatar/'. $userDetails->avatar }}" alt="User" class="img-circle img-circle-2">
                             				<span class="color-black">{{ $userDetails->username }}</span>
                         				</h5>
                             				<span class="timeAgo btn-block date-color text-overflow" data="{{ $imge->date }}"></span>
@@ -105,7 +105,7 @@
                                     <div class="audio-icons ml-auto d-flex align-self-center justify-content-end">
                                         <!-- <a href="" class="icon-one"><i class="fas fa-download"></i></a>
                                         <a href="" class="icon-one"><i class="fas fa-heart"></i></a> -->
-                                        <a href="<?php echo url('/public/uploads/audio/large/'). '/'. $imge->thumbnail; ?>" download="<?php echo $imge->thumbnail; ?>" class="buy-track"><span>$80</span> Buy</a>
+                                        <a href="<?php echo url('/uploads/audio/large/'). '/'. $imge->thumbnail; ?>" download="<?php echo $imge->thumbnail; ?>" class="buy-track"><span>$80</span> Buy</a>
                                         <span class="align-self-center ml-2 p-0">
             								<span class="myicon-right"><i class="fa fa-heart-o myicon-right"></i> 1</span>
                             				<span class="myicon-right"><i class="icon icon-Download myicon-right"></i> 1</span>
@@ -120,7 +120,7 @@
                     	        <!--<div class="col-md-12">
                         	        <audio controls>
                                       <source src="horse.ogg" type="audio/ogg">
-                                      <source src="<?php echo url('/public/uploads/audio/large/'). '/'. $imge->thumbnail; ?>" type="audio/mpeg">
+                                      <source src="<?php echo url('/uploads/audio/large/'). '/'. $imge->thumbnail; ?>" type="audio/mpeg">
                                       Your browser does not support the audio element.
                                     </audio>
                                 </div>-->
@@ -248,7 +248,7 @@
                                         <!--    <div class="header-photographer">-->
                                         <!--        <div class="row">-->
                                         <!--            <div class="col-sm-4">-->
-                                        <!--                <img src="<?php echo url('/')?>/public/avatar/<?php echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
+                                        <!--                <img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
                                         <!--            </div>-->
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
@@ -262,7 +262,7 @@
                                             // dd($users->type_name);
                                             //  if($users->type_name == "Animator"){
                                             ?>
-                                        <!--            <div class="bottom" style="background-image:url({{ url('/') }}/public/uploads/thumbnail/{{ $users->img }})">-->
+                                        <!--            <div class="bottom" style="background-image:url({{ url('/') }}/uploads/thumbnail/{{ $users->img }})">-->
                                         <!--                <div class="row">-->
                                         <!--                    <div class="col-5 offset-7">-->
                                         <!--                        <a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one mb-2">Portfolio</a>-->
@@ -279,7 +279,7 @@
                                         <div class="choose-photographer-box">
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
-                                					<img src="<?php echo url('/')?>/public/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
+                                					<img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
                                     			    <h4 class="title-this-photographer">{{ $users->username }}</h4>
                                                     <p class="tag-one-photographer">{{ $users->type_name }}</p>
                                     			    <div class="mt-4" style="text-align: center;">
@@ -306,9 +306,9 @@
                                 								@endphp
                                         					    <img src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">
                                         					@endforeach
-                                        					<!--<img src="<?php echo url('/')?>/public/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                                        					<!--<img src="<?php echo url('/')?>/public/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                                        					<!--<img src="<?php echo url('/')?>/public/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                        					<!--<img src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                        					<!--<img src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                        					<!--<img src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
                                         					<?php
                                                             }else{
                                                         ?>
@@ -321,7 +321,7 @@
                                 					</div>
                                 			    </div>
                                 		    </div>
-                                			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
+                                			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">
                                 				<div class="">
                                 					<div class="d-md-flex">
                                 						<a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
@@ -370,7 +370,7 @@
                                         <!--    <div class="header-photographer">-->
                                         <!--        <div class="row">-->
                                         <!--            <div class="col-sm-4">-->
-                                        <!--                <img src="<?php echo url('/')?>/public/avatar/<?php echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
+                                        <!--                <img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
                                         <!--            </div>-->
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
@@ -384,7 +384,7 @@
                                             // dd($users->type_name);
                                         // <!--        if($users->type_name == "Photographer"){-->
                                             ?>
-                                        <!--            <div class="bottom" style="background-image:url({{ url('/') }}/public/uploads/thumbnail/{{ $users->img }})">-->
+                                        <!--            <div class="bottom" style="background-image:url({{ url('/') }}/uploads/thumbnail/{{ $users->img }})">-->
                                         <!--                <div class="row">-->
                                         <!--                    <div class="col-5 offset-7">-->
                                         <!--                        <a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one mb-2">Portfolio</a>-->
@@ -401,7 +401,7 @@
                                         <div class="choose-photographer-box">
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
-                                					<img src="<?php echo url('/')?>/public/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
+                                					<img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
                                     			    <h4 class="title-this-photographer">{{ $users->username }}</h4>
                                                     <p class="tag-one-photographer">{{ $users->type_name }}</p>
                                     			    <div class="mt-4" style="text-align: center;">
@@ -436,7 +436,7 @@
                                 					</div>
                                 			    </div>
                                 		    </div>
-                                			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
+                                			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">
                                 				<div class="">
                                 					<div class="d-md-flex">
                                 						<a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
@@ -480,7 +480,7 @@
                                         <!--    <div class="header-photographer">-->
                                         <!--        <div class="row">-->
                                         <!--            <div class="col-sm-4">-->
-                                        <!--                <img src="<?php echo url('/')?>/public/avatar/<?php echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
+                                        <!--                <img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
                                         <!--            </div>-->
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
@@ -494,7 +494,7 @@
                                             // dd($users->type_name);
                                         //   if($users->type_name == "Videographer"){
                                             ?>
-                                        <!--            <div class="bottom" style="background-image:url({{ url('/') }}/public/uploads/thumbnail/{{ $users->img }})">-->
+                                        <!--            <div class="bottom" style="background-image:url({{ url('/') }}/uploads/thumbnail/{{ $users->img }})">-->
                                         <!--                <div class="row">-->
                                         <!--                    <div class="col-5 offset-7">-->
                                         <!--                        <a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one mb-2">Portfolio</a>-->
@@ -510,7 +510,7 @@
                                         <div class="choose-photographer-box">
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
-                                					<img src="<?php echo url('/')?>/public/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
+                                					<img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
                                     			    <h4 class="title-this-photographer">{{ $users->username }}</h4>
                                                     <p class="tag-one-photographer">{{ $users->type_name }}</p>
                                     			    <div class="mt-4" style="text-align: center;">
@@ -549,7 +549,7 @@
                                 					</div>
                                 			    </div>
                                 		    </div>
-                                			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
+                                			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">
                                 				<div class="">
                                 					<div class="d-md-flex">
                                 						<a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
@@ -594,7 +594,7 @@
                                         <!--    <div class="header-photographer">-->
                                         <!--        <div class="row">-->
                                         <!--            <div class="col-sm-4">-->
-                                        <!--                <img src="<?php echo url('/')?>/public/avatar/<?php echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
+                                        <!--                <img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
                                         <!--            </div>-->
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
@@ -608,7 +608,7 @@
                                             // dd($users->type_name);
                                             // if($users->type_name == "Musician"){
                                         ?>
-                                        <!--            <div class="bottom" style="background-image:url({{ url('/') }}/public/uploads/thumbnail/{{ $users->img }})">-->
+                                        <!--            <div class="bottom" style="background-image:url({{ url('/') }}/uploads/thumbnail/{{ $users->img }})">-->
                                         <!--                <div class="row">-->
                                         <!--                    <div class="col-5 offset-7">-->
                                         <!--                        <a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one mb-2">Portfolio</a>-->
@@ -624,7 +624,7 @@
                                         <div class="choose-photographer-box">
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
-                                					<img src="<?php echo url('/')?>/public/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
+                                					<img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
                                     			    <h4 class="title-this-photographer">{{ $users->username }}</h4>
                                                     <p class="tag-one-photographer">{{ $users->type_name }}</p>
                                                     <p class="tag-one-photographer" style="    margin-left: 77px;">{{ $users->CountryName }}</p>
@@ -678,7 +678,7 @@
                                 					</div>
                                 			    </div>
                                 		    </div>
-                                			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
+                                			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">
                                 				<div class="">
                                 					<div class="d-md-flex">
                                 						<a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>

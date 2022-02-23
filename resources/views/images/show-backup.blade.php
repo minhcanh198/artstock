@@ -626,7 +626,7 @@ if( Auth::check() ) {
             data-amount="{{$response->price*100}}"
             data-name="{{$response->title}}"
             data-description="{{$response->description}}"
-            data-image="https://projects.hexawebstudio.com/darquise-nantel/public/img/favicon.png"
+            data-image="https://projects.hexawebstudio.com/darquise-nantel/img/favicon.png"
             data-currency="usd">
           </script>-->
         <!--</form>-->
@@ -640,7 +640,7 @@ if( Auth::check() ) {
             data-amount="{{$response->price*100}}"
             data-name="{{$response->title}}"
             data-description="{{$response->description}}"
-            data-image="https://projects.hexawebstudio.com/darquise-nantel/public/img/favicon.png"
+            data-image="https://projects.hexawebstudio.com/darquise-nantel/img/favicon.png"
             data-currency="usd">
             <i class="fa fa-shopping-cart myicon-right"></i>
        {{trans('misc.buy')}}
@@ -711,7 +711,7 @@ if( Auth::check() ) {
 		<ul class="list-inline pull-right margin-zero" style="float:right !important">
 			<li><a title="Facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ url('photo',$response->id) }}" target="_blank"><img src="{{url('public/img/social')}}/facebook.png" width="20" /></a></li>
 			<li><a title="Twitter" href="https://twitter.com/intent/tweet?url={{ url('photo',$response->id) }}&text={{ e( $response->title ) }}" data-url="{{ url('photo',$response->id) }}" target="_blank"><img width="20" src="{{url('public/img/social')}}/twitter.png" /></a></li>
-			<li style="padding-right: 0;"><a title="Pinterest" href="//www.pinterest.com/pin/create/button/?url={{ url('photo',$response->id) }}&media={{ url('/') . '/public/uploads/preview/' . $response->preview }}&description={{ e( $response->title ) }}" target="_blank"><img width="20" src="{{url('public/img/social')}}/pinterest.png" /></a></li>
+			<li style="padding-right: 0;"><a title="Pinterest" href="//www.pinterest.com/pin/create/button/?url={{ url('photo',$response->id) }}&media={{ url('/') . '/uploads/preview/' . $response->preview }}&description={{ e( $response->title ) }}" target="_blank"><img width="20" src="{{url('public/img/social')}}/pinterest.png" /></a></li>
      </ul>
 		</div>
 	</div><!-- End Panel -->

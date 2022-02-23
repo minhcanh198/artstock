@@ -174,31 +174,14 @@ class HomeController extends Controller
 
     public function getSearchNew()
     {
-
-
         $q = request()->get('txt_search');
 
-        // dd(request()->get('type'));
-
         if (request()->get('type') != null && request()->get('type') == "4") {
-// dd('music');
             $images = Query::searchMusicNew();
-            // dd($images);
         } else {
-// var_dump('else');
-// var_dump($q);
-// die;
-            // dd('images');
             $images = Query::searchImagesNew();
-// 			dd($images);
         }
-
-        // $getImages = Images::whereRaw('FIND_IN_SET(?,tags)', [$q])->get();
-        // dd($getImages);
-
         $getImagesTags = Images::select('tags')->whereRaw('NOT FIND_IN_SET(?,tags)', [$q])->get();
-        // dd($getImagesTags);
-        //Getting Tags expect tag that is use for search.
         $arrayImageTags = array();
         for ($i = 0; $i < count($getImagesTags); $i++) {
             $tagComma = explode(",", $getImagesTags[$i]->tags);
@@ -213,12 +196,6 @@ class HomeController extends Controller
 
 
         $getParentMusicTypes = MusicType::where('parent_id', '=', '0')->get();
-        // $getChildMusicTypes = MusicType::where('parent_id','!=','0')->get();
-
-        // $title = trans('misc.result_of').' '. $q .' - ';
-        // echo '<pre>';
-        // 	var_dump($images);die;
-        // return view('default.search_new')->with($images);
         return view('default.search_new2', compact('sliceArrayAnyTenImageTags', 'images', 'q', 'getParentMusicTypes'));
     }// End Method
 

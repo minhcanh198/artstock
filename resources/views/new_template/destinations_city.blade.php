@@ -6,7 +6,7 @@
 				<div class="row">
                 @if($getCityDetails->city_img != "")
                     <div class="col-md-6 padding-left-0">
-                        <img src="{{ url('/').'/public/img-city/'.$getCityDetails->city_img }}" alt="" class="img-responsive set-height-450">
+                        <img src="{{ url('/').'/img-city/'.$getCityDetails->city_img }}" alt="" class="img-responsive set-height-450">
                     </div>
 					<div class="col-md-5 align-self-center">
                 @else
@@ -75,9 +75,9 @@
                                     <div class="popular-destination-box">
                                         <div class="img">
                                             @if($routesData->route_img != "")
-                                            <img src="{{ url('/').'/public/img-route/'.$routesData->route_img }}" alt="" class="img-responsive">
+                                            <img src="{{ url('/').'/img-route/'.$routesData->route_img }}" alt="" class="img-responsive">
                                             @else
-                                            <img src="{{ url('/').'/public/destination_page_new/greece.jpg' }}" alt="" class="img-responsive">
+                                            <img src="{{ url('/').'/destination_page_new/greece.jpg' }}" alt="" class="img-responsive">
                                             @endif
                                             <div class="img-content">
                                                 <h3>

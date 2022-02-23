@@ -1277,7 +1277,7 @@
     						<div class="item">
 								<div class="inner-img">
 									<!-- <img src="{{ asset('custom-css/images/p-3.png') }}" class="img-fluid"> -->
-									<img src="{{ url('/') }}/public/home_page/sections_assets/{{ $homePageSettings->section1_image }}" class="img-fluid">
+									<img src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section1_image }}" class="img-fluid">
 								</div>
 							</div>
 						</div>
@@ -1306,7 +1306,7 @@
 							<div class="item">
 								<div class="inner-img aos-init" >
 									<!-- <img src="{{ asset('custom-css/images/p-2.png') }}" class="img-fluid"> -->
-									<img src="{{ url('/') }}/public/home_page/sections_assets/{{ $homePageSettings->section2_image }}" class="img-fluid">
+									<img src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section2_image }}" class="img-fluid">
 								</div>
 							</div>
 						</div>
@@ -1320,7 +1320,7 @@
     						<div class="item">
 								<div class="inner-img">
 									<!-- <img src="{{ asset('custom-css/images/p-3.png') }}" class="img-fluid"> -->
-									<img src="{{ url('/') }}/public/home_page/sections_assets/{{ $homePageSettings->section3_image }}" class="img-fluid">
+									<img src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section3_image }}" class="img-fluid">
 								</div>
 							</div>
 						</div>
@@ -1348,7 +1348,7 @@
     						<div class="item">
 								<div class="inner-img aos-init">
 									<!-- <img src="{{ asset('custom-css/images/p-4.png') }}" class="img-fluid"> -->
-									<img src="{{ url('/') }}/public/home_page/sections_assets/{{ $homePageSettings->section4_image }}" class="img-fluid">
+									<img src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section4_image }}" class="img-fluid">
 								</div>
 							</div>
 						</div>

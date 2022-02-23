@@ -81,7 +81,7 @@
 
                         <div class="btn-block margin-bottom-10">
                         @if($homePageSettings->header_main_image != null)
-                          <img src="{{url('/public/home_page/header_assets/').'/'. $homePageSettings->header_main_image }}" style="width:200px">
+                          <img src="{{url('/home_page/header_assets/').'/'. $homePageSettings->header_main_image }}" style="width:200px">
                         @endif
                         </div>
 
@@ -109,7 +109,7 @@
 
                         <div class="btn-block margin-bottom-10">
                         @if($homePageSettings->header_image != null)
-                          <img src="{{url('/public/home_page/header_assets/').'/'. $homePageSettings->header_image }}" style="width:200px">
+                          <img src="{{url('/home_page/header_assets/').'/'. $homePageSettings->header_image }}" style="width:200px">
                         @endif
                         </div>
 
@@ -184,7 +184,7 @@
 
                         <div class="btn-block margin-bottom-10">
                         @if($homePageSettings->section1_image != null)
-                          <img src="{{url('/public/home_page/sections_assets/').'/'. $homePageSettings->section1_image }}" style="width:200px">
+                          <img src="{{url('/home_page/sections_assets/').'/'. $homePageSettings->section1_image }}" style="width:200px">
                         @endif
                         </div>
 
@@ -258,7 +258,7 @@
 
                         <div class="btn-block margin-bottom-10">
                         @if($homePageSettings->section2_image != null)
-                          <img src="{{url('/public/home_page/sections_assets/').'/'. $homePageSettings->section2_image }}" style="width:200px">
+                          <img src="{{url('/home_page/sections_assets/').'/'. $homePageSettings->section2_image }}" style="width:200px">
                         @endif
                         </div>
 
@@ -332,7 +332,7 @@
 
                         <div class="btn-block margin-bottom-10">
                         @if($homePageSettings->section3_image != null)
-                          <img src="{{url('/public/home_page/sections_assets/').'/'. $homePageSettings->section3_image }}" style="width:200px">
+                          <img src="{{url('/home_page/sections_assets/').'/'. $homePageSettings->section3_image }}" style="width:200px">
                         @endif
                         </div>
 
@@ -406,7 +406,7 @@
 
                         <div class="btn-block margin-bottom-10">
                         @if($homePageSettings->section4_image != null)
-                          <img src="{{url('/public/home_page/sections_assets/').'/'. $homePageSettings->section4_image }}" style="width:200px">
+                          <img src="{{url('/home_page/sections_assets/').'/'. $homePageSettings->section4_image }}" style="width:200px">
                         @endif
                         </div>
 
@@ -484,7 +484,7 @@
 
                         <div class="btn-block margin-bottom-10">
                         @if($homePageSettings->footer1_image != null)
-                          <img src="{{url('/public/home_page/footer_assets/').'/'. $homePageSettings->footer1_image }}" style="width:200px">
+                          <img src="{{url('/home_page/footer_assets/').'/'. $homePageSettings->footer1_image }}" style="width:200px">
                         @endif
                         </div>
 
@@ -562,7 +562,7 @@
 
                         <div class="btn-block margin-bottom-10">
                         @if($homePageSettings->footer2_image != null)
-                          <img src="{{url('/public/home_page/footer_assets/').'/'. $homePageSettings->footer2_image }}" style="width:200px">
+                          <img src="{{url('/home_page/footer_assets/').'/'. $homePageSettings->footer2_image }}" style="width:200px">
                         @endif
                         </div>
 

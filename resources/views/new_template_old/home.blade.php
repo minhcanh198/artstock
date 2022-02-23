@@ -388,7 +388,7 @@
 
 
 
-<section class="contact" data-aos="zoom-in" style="background: url(http://localhost/gostock/public/home_page/footer_assets/{{ $homePageSettings->footer2_image }}) fixed #000;">
+<section class="contact" data-aos="zoom-in" style="background: url(http://localhost/gostock/home_page/footer_assets/{{ $homePageSettings->footer2_image }}) fixed #000;">
     <div class="container">
         <div class="row">
             <div class="col-12">

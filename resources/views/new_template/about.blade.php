@@ -3,7 +3,7 @@
 @section('title'){{ $aboutPageSettings->title.' - ' }}@endsection
 
 @section('content') 
-<!-- <div class="jumbotron md  jumbotron_set jumbotron-cover" style="background-image: {{ url('/') }}/public/about_page/header_assets/{{ $aboutPageSettings->header_main_image }} !important"> -->
+<!-- <div class="jumbotron md  jumbotron_set jumbotron-cover" style="background-image: {{ url('/') }}/about_page/header_assets/{{ $aboutPageSettings->header_main_image }} !important"> -->
 <div class="bg-license" style="background-image:url(<?php echo url('public/about_page/header_assets/').'/'.$aboutPageSettings->header_main_image; ?>);">
       <div class="container wrap-jumbotron position-relative">
         <h1 class="title-site">{{ $aboutPageSettings->header_heading }}</h1>
@@ -17,18 +17,18 @@
     <!--    	<div class="choose-photographer-box">-->
     <!--    		<div class="pt-4 pb-4 pl-3 pr-3">-->
     <!--    			<div class="">-->
-    <!--					<img src="https://projects.hexawebstudio.com/darquise-nantel/public/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="photographer-thimbnial">-->
+    <!--					<img src="https://projects.hexawebstudio.com/darquise-nantel/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="photographer-thimbnial">-->
     <!--    			    <h4 class="title-this-photographer">qwioeu</h4>-->
     <!--                    <p class="tag-one-photographer">Photographer</p>-->
     <!--    			    <div class="mt-4" style="text-align: center;">-->
-    <!--    					<img src="https://projects.hexawebstudio.com/darquise-nantel/public/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="set-img-size">-->
-    <!--    					<img src="https://projects.hexawebstudio.com/darquise-nantel/public/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="set-img-size">-->
-    <!--    					<img src="https://projects.hexawebstudio.com/darquise-nantel/public/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="set-img-size">-->
-    <!--    					<img src="https://projects.hexawebstudio.com/darquise-nantel/public/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="set-img-size">-->
+    <!--    					<img src="https://projects.hexawebstudio.com/darquise-nantel/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="set-img-size">-->
+    <!--    					<img src="https://projects.hexawebstudio.com/darquise-nantel/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="set-img-size">-->
+    <!--    					<img src="https://projects.hexawebstudio.com/darquise-nantel/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="set-img-size">-->
+    <!--    					<img src="https://projects.hexawebstudio.com/darquise-nantel/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="set-img-size">-->
     <!--					</div>-->
     <!--			    </div>-->
     <!--		    </div>    -->
-    <!--			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">-->
+    <!--			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">-->
     <!--				<div class="">-->
     <!--					<div class="d-md-flex">-->
     <!--						<a href="https://projects.hexawebstudio.com/darquise-nantel/artist/16" class="btn-portfolio-one w-100 mt-0">Portfolio</a>-->
