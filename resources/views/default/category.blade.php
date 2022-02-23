@@ -228,7 +228,7 @@
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
                                     			    <a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>">
-                                					<img src="<?php echo url('/')?>/public/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
+                                					<img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
                                 					</a>
                                     			    <h4 class="title-this-photographer">{{ $users->username }}</h4>
                                                     <p class="tag-one-photographer">{{ $users->type_name }}</p>
@@ -281,7 +281,7 @@
                                 					</div>
                                 			    </div>
                                 		    </div>
-                                			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
+                                			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">
                                 				<div class="">
                                 					<div class="d-md-flex">
                                 						<a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
@@ -361,7 +361,7 @@
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
                                     			    <a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>">
-                                					<img src="<?php echo url('/')?>/public/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
+                                					<img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
                                 					</a>
                                     			    <h4 class="title-this-photographer">{{ $users->username }}</h4>
                                                     <p class="tag-one-photographer">{{ $users->type_name }}</p>
@@ -402,7 +402,7 @@
                                 					</div>
                                 			    </div>
                                 		    </div>
-                                			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
+                                			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">
                                 				<div class="">
                                 					<div class="d-md-flex">
                                 						<a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
@@ -490,7 +490,7 @@
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
                                     			    <a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>">
-                                					<img src="<?php echo url('/')?>/public/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
+                                					<img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
                                 					</a>
                                     			    <h4 class="title-this-photographer">{{ $users->username }}</h4>
                                                     <p class="tag-one-photographer">{{ $users->type_name }}</p>
@@ -540,7 +540,7 @@
                                 					</div>
                                 			    </div>
                                 		    </div>
-                                			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
+                                			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">
                                 				<div class="">
                                 					<div class="d-md-flex">
                                 						<a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
@@ -614,7 +614,7 @@
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
                                     			    <a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>">
-                                					<img src="<?php echo url('/')?>/public/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
+                                					<img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
                                 					</a>
                                     			    <h4 class="title-this-photographer">{{ $users->username }}</h4>
                                                     <p class="tag-one-photographer">{{ $users->type_name }}</p>
@@ -669,7 +669,7 @@
                                 					</div>
                                 			    </div>
                                 		    </div>
-                                			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/public/uploads/thumbnail/musicWave.png)">
+                                			<div class="bottom" style="background-image: url(https://projects.hexawebstudio.com/darquise-nantel/uploads/thumbnail/musicWave.png)">
                                 				<div class="">
                                 					<div class="d-md-flex">
                                 						<a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>" class="btn-portfolio-one w-100 mt-0">Portfolio</a>
