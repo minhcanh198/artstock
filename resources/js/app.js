@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -7,11 +6,10 @@
 
 require('./bootstrap');
 
-
 window.Vue = require('vue');
 
 // For sharing of data between components
-Vue.prototype.EventBus = new Vue(); 
+Vue.prototype.EventBus = new Vue();
 
 /**
  * The following block of code may be used to automatically register your
@@ -42,6 +40,5 @@ Vue.component('artistcard', require('./components/ArtistComponent.vue').default)
 
 
 const app = new Vue({
-    el: '#app',
-
+    el: '#app'
 });

@@ -882,7 +882,7 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
                             <ul class="list-inline pull-right margin-zero" style="float:right !important">
                                 <li><a title="Facebook"
                                        href="https://www.facebook.com/sharer/sharer.php?u={{ url('photo',$response->id) }}"
-                                       target="_blank"><img src="{{url('img/social')}}/facebook.png" width="20"/></a>
+                                       target="_blank"><img loading="lazy" src="{{url('img/social')}}/facebook.png" width="20"/></a>
                                 </li>
                                 <li><a title="Twitter"
                                        href="https://twitter.com/intent/tweet?url={{ url('photo',$response->id) }}&text={{ e( $response->title ) }}"

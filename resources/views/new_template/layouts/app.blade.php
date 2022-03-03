@@ -547,7 +547,7 @@ if (Auth::check()) {
             <div class="container">
                 <div class="row">
                     <div class="col-6">
-                        <a href="{{ url('/') }}"> <img src="{{ asset('img/logo.svg') }}" class="img-fluid"></a>
+                        <a href="{{ url('/') }}"> <img loading="lazy" src="{{ asset('img/logo.svg') }}" class="img-fluid"></a>
                     </div>
                     <div class="col-6 align-self-center text-right">
                         <div class="circle" id="navbar">
@@ -614,7 +614,7 @@ if (Auth::check()) {
                 <div class="row">
                     <div class="col-md-2">
                         <div class="logo">
-                            <a href="{{ url('/') }}"><img src="{{ asset('img/logo.svg') }}" style="width: 200px;"></a>
+                            <a href="{{ url('/') }}"><img loading="lazy" src="{{ asset('img/logo.svg') }}" style="width: 200px;"></a>
                         </div>
                     </div>
                     <div class="col-md-6 d-flex justify-content-center m-auto">
@@ -666,188 +666,65 @@ if (Auth::check()) {
                     </div>
                     <div class="col-md-3 m-auto">
                         <div class="social-icons ">
-                        @if( Auth::check() )
-
-                            <?php /* Commented by shahzad ?>
-								<li class="notifations-item notification-icon">
-                                    <a href="{{ url('notifications') }}" title="{{ trans('users.notifications') }}" class="font-default text-uppercase">
-                    					<i class="fa fa-bell-o"></i>
-                    					<span class="title-dropdown ">{{ trans('users.notifications') }}</span>
-                					</a>
+                            @if( Auth::check())
+                                <li class="notifations-item notification-icon">
+                                    <a href="{{ url('notifications') }}" title="{{ trans('users.notifications') }}"
+                                       class="font-default text-uppercase">
+                                        <i class="fa fa-bell-o"></i>
+                                        <span class="title-dropdown ">{{ trans('users.notifications') }}</span>
+                                    </a>
                                     <ul class="dropdown-notifations">
-                                        <!--<li><a href="#">Laptops</a></li>-->
-                                        <!--<li><a href="#">Monitors</a></li>-->
-                                        <!--<li><a href="#">Printers</a></li>-->
                                         <div class="row">
                                             <div class="col-md-12">
-                                    		<div class="wrap-center center-block noti-scroll-ne-index">
+                                                <div class="wrap-center center-block noti-scroll-ne-index">
 
-                                    			<dl class="margin-zero">
+                                                    <dl class="margin-zero">
 
-                                    								<!-- Start -->
-                                    				<div class="media li-group noty-media">
-                                    					<div class="pull-left">
-                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Frank"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/avatar/frank-111599843468wmk4ogjwy3.jpg"> </a>
-                                    					</div>
-                                    					<div class="media-body">
-                                    						<div class="pull-right small">
-                                    							<span class="timestamp timeAgo" data="2021-06-01T01:53:20-04:00">6 days ago</span>
-                                    						</div>
-                                    						<h5 class="media-heading"><a href="http://projects.paragonlogo.com/darquise-nantel/Frank"> <strong> Frank </strong> </a></h5>
+                                                        <!-- Start -->
+                                                        <div class="media li-group noty-media">
+                                                            <div class="pull-left">
+                                                                <a href="/darquise-nantel/Frank">
+                                                                    <img width="40" height="40"
+                                                                         class="img-circle myicon-righ media-objectt"
+                                                                         alt="User"
+                                                                         src="/darquise-nantel/avatar/frank-111599843468wmk4ogjwy3.jpg">
+                                                                </a>
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <div class="pull-right small">
+                                                                    <span class="timestamp timeAgo"
+                                                                          data="2021-06-01T01:53:20-04:00">6 days ago</span>
+                                                                </div>
+                                                                <h5 class="media-heading"><a
+                                                                        href="/darquise-nantel/Frank">
+                                                                        <strong> Frank </strong> </a></h5>
 
-                                    						<p class="list-grid-block p-text" style="height: auto; padding: 0 2px;">
-                                    							<i class="icon-heart ico-btn-like"></i> like you photo
+                                                                <p class="list-grid-block p-text"
+                                                                   style="height: auto; padding: 0 2px;">
+                                                                    <i class="icon-heart ico-btn-like"></i> like you
+                                                                    photo
 
-                                    														<a href="http://projects.paragonlogo.com/darquise-nantel/photo/220"> <strong>TshirtImages1</strong> </a>
+                                                                    <a href="/darquise-nantel/photo/220">
+                                                                        <strong>TshirtImages1</strong> </a>
 
-                                    						</p>
-                                    					</div>
-                                    				</div>
-                                    				<!-- End -->
-
-                                    								<!-- Start -->
-                                    				<div class="media li-group noty-media">
-                                    					<div class="pull-left">
-                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/avatar/darquise-33162147904185cmg317ve.png"> </a>
-                                    					</div>
-                                    					<div class="media-body">
-                                    						<div class="pull-right small">
-                                    							<span class="timestamp timeAgo" data="2021-04-07T13:53:26-04:00">2 months ago</span>
-                                    						</div>
-                                    						<h5 class="media-heading"><a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <strong> Darquise Nantel </strong> </a></h5>
-
-                                    						<p class="list-grid-block p-text" style="height: auto; padding: 0 2px;">
-                                    							<i class="icon-bubble"></i> comment you photo
-
-                                    														<a href="http://projects.paragonlogo.com/darquise-nantel/photo/188"> <strong>winter</strong> </a>
-
-                                    						</p>
-                                    					</div>
-                                    				</div>
-                                    				<!-- End -->
-
-                                    									<!-- Start -->
-                                    				<div class="media li-group noty-media">
-                                    					<div class="pull-left">
-                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/avatar/darquise-33162147904185cmg317ve.png"> </a>
-                                    					</div>
-                                    					<div class="media-body">
-                                    						<div class="pull-right small">
-                                    							<span class="timestamp timeAgo" data="2021-04-07T13:53:26-04:00">2 months ago</span>
-                                    						</div>
-                                    						<h5 class="media-heading"><a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <strong> Darquise Nantel </strong> </a></h5>
-
-                                    						<p class="list-grid-block p-text" style="height: auto; padding: 0 2px;">
-                                    							<i class="icon-bubble"></i> comment you photo
-
-                                    														<a href="http://projects.paragonlogo.com/darquise-nantel/photo/188"> <strong>winter</strong> </a>
-
-                                    						</p>
-                                    					</div>
-                                    				</div>
-                                    				<!-- End -->
-
-                                    									<!-- Start -->
-                                    				<div class="media li-group noty-media">
-                                    					<div class="pull-left">
-                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/avatar/darquise-33162147904185cmg317ve.png"> </a>
-                                    					</div>
-                                    					<div class="media-body">
-                                    						<div class="pull-right small">
-                                    							<span class="timestamp timeAgo" data="2021-04-07T13:53:26-04:00">2 months ago</span>
-                                    						</div>
-                                    						<h5 class="media-heading"><a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <strong> Darquise Nantel </strong> </a></h5>
-
-                                    						<p class="list-grid-block p-text" style="height: auto; padding: 0 2px;">
-                                    							<i class="icon-bubble"></i> comment you photo
-
-                                    														<a href="http://projects.paragonlogo.com/darquise-nantel/photo/188"> <strong>winter</strong> </a>
-
-                                    						</p>
-                                    					</div>
-                                    				</div>
-                                    				<!-- End -->
-
-                                    									<!-- Start -->
-                                    				<div class="media li-group noty-media">
-                                    					<div class="pull-left">
-                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/avatar/darquise-33162147904185cmg317ve.png"> </a>
-                                    					</div>
-                                    					<div class="media-body">
-                                    						<div class="pull-right small">
-                                    							<span class="timestamp timeAgo" data="2021-04-07T13:53:26-04:00">2 months ago</span>
-                                    						</div>
-                                    						<h5 class="media-heading"><a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <strong> Darquise Nantel </strong> </a></h5>
-
-                                    						<p class="list-grid-block p-text" style="height: auto; padding: 0 2px;">
-                                    							<i class="icon-bubble"></i> comment you photo
-
-                                    														<a href="http://projects.paragonlogo.com/darquise-nantel/photo/188"> <strong>winter</strong> </a>
-
-                                    						</p>
-                                    					</div>
-                                    				</div>
-                                    				<!-- End -->
-
-                                    									<!-- Start -->
-                                    				<div class="media li-group noty-media">
-                                    					<div class="pull-left">
-                                    						<a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <img width="40" height="40" class="img-circle myicon-righ media-objectt" alt="User" src="http://projects.paragonlogo.com/darquise-nantel/avatar/darquise-33162147904185cmg317ve.png"> </a>
-                                    					</div>
-                                    					<div class="media-body">
-                                    						<div class="pull-right small">
-                                    							<span class="timestamp timeAgo" data="2021-04-07T13:53:26-04:00">2 months ago</span>
-                                    						</div>
-                                    						<h5 class="media-heading"><a href="http://projects.paragonlogo.com/darquise-nantel/Darquise"> <strong> Darquise Nantel </strong> </a></h5>
-
-                                    						<p class="list-grid-block p-text" style="height: auto; padding: 0 2px;">
-                                    							<i class="icon-bubble"></i> comment you photo
-
-                                    														<a href="http://projects.paragonlogo.com/darquise-nantel/photo/188"> <strong>winter</strong> </a>
-
-                                    						</p>
-                                    					</div>
-                                    				</div>
-                                    				<!-- End -->
-
-
-
-                                    			</dl>
-
-
-                                    		</div><!-- wrap center -->
-                                    	</div>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <!-- End -->
+                                                    </dl>
+                                                </div><!-- wrap center -->
+                                            </div>
                                         </div>
 
                                         <div class="addon-btn-noti-nw">
                                             <a href="javascript:;">Show all notification</a>
                                         </div>
                                     </ul>
-                                </li> <?php */?>
-                            <!--<li class="notification-icon">-->
-                            <!--            				<span class="notify @if( $notifications_count != 0 ) displayBlock @endif" id="noti_connect">@if( $notifications_count != 0 ) {{ $notifications_count }} @endif</span>-->
-                            <!--            				<a href="{{ url('notifications') }}" title="{{ trans('users.notifications') }}" class="font-default text-uppercase">-->
-                                <!--            					<i class="fa fa-bell-o"></i>-->
-                            <!--            					<span class="title-dropdown">{{ trans('users.notifications') }}</span>-->
-                                <!--            					</a>-->
-                                <!--            			</li><!-- NOTY -->
-                                <!--		                <li>-->
-                                <!--                              <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">-->
-                                <!--                                <i class="far fa-bell"></i>-->
-                                <!--                              </a>-->
-                                <!--                            <div class="collapse" id="collapseExample">-->
-                                <!--                              <div class="card card-body">-->
-                                <!--                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.-->
-                                <!--                              </div>-->
-                                <!--                            </div>-->
-                                <!--</li>-->
-                                <!--<li><a href="javascript:;" id="openModalMessageChat" class="chat-btn-home"><i class="fas fa-comments"></i><span id="spanMessageCounter" class="chat-icon-notification">0</span></a></li>-->
-                                <!-- Commented by shahzad-->
-
+                                </li>
                                 <li class="dropdown new">
                                     <a href="javascript:void(0);" data-toggle="dropdown"
                                        class="userAvatar myprofile dropdown-toggle font-default text-uppercase">
-                                        <img src="{{ asset('avatar').'/'.$userAuth->avatar }}" alt="User"
+                                        <img loading="lazy" src="{{ asset('avatar').'/'.$userAuth->avatar }}" alt="User"
                                              class="img-circle avatarUser" width="25" height="25">
                                         <span class="title-dropdown">My Profile</span>
                                         <i class="ion-chevron-down margin-lft5"></i>
@@ -929,9 +806,9 @@ if (Auth::check()) {
                                 </li>
 
 
-                            @if(\Request::segment(1) != "destinations")
+                                @if(\Request::segment(1) != "destinations")
 
-                                @if( Auth::user()->authorized_to_upload == 'yes' )
+                                    @if( Auth::user()->authorized_to_upload == 'yes' )
                                     <!-- <a href="{{ url('upload') }}" class="btn btn-h-two mr-2">UPLOAD</a> -->
                                         <div class="dropdown-one-one">
                                             <button onclick="myFunction()" class="dropbtn-one-one"
@@ -944,9 +821,9 @@ if (Auth::check()) {
                                                 <a href="{{ url('upload/audio') }}">Audio Upload</a>
                                             </div>
                                         </div>
-                                @endif
-                            @else
-                                @if( Auth::user()->authorized_to_upload == 'yes' )
+                                    @endif
+                                @else
+                                    @if( Auth::user()->authorized_to_upload == 'yes' )
                                     <!-- <a href="{{ url('upload') }}" class="btn btn-h-two mr-2">UPLOAD</a> -->
                                         <div class="dropdown-one-one" style="opacity:0">
                                             <button onclick="myFunction()" class="dropbtn-one-one"
@@ -986,7 +863,7 @@ if (Auth::check()) {
                         <div class="" style="margin-left: auto; margin-right: 10px;">
                         <!-- <div class="dropdown">
                   <button class="dropdown-toggle" type="button" data-toggle="dropdown" style="background-color: transparent; border: 0;     background-color: transparent; border: 0; border-radius: 50%; width: 36px; height: 36px; background-color: rgba(0, 0, 0, .05);
-                  opacity: 1; border: 0; display: flex; justify-content: center; align-items: center;"><img src="{{ url('/')}}/img/icons8-menu-vertical-30.png" alt="">
+                  opacity: 1; border: 0; display: flex; justify-content: center; align-items: center;"><img loading="lazy" src="{{ url('/')}}/img/icons8-menu-vertical-30.png" alt="">
                   <span class="caret"></span></button>
                   <ul class="dropdown-menu dropdown-modal-messenger">
                     <li><a href="#">HTML</a></li>
@@ -1021,7 +898,7 @@ if (Auth::check()) {
                         <!-- <a href="" type="button" class="" data-toggle="modal" data-target="#messageMainModal2"  style="display: block; color: #000;">
                 <div class="row conversation-persons-modal" style="margin-bottom: 14px;">
                   <div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">
-                    <img src="../img/dummy-avatar.jpg" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">
+                    <img loading="lazy" src="../img/dummy-avatar.jpg" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">
                   </div>
                   <div class="col-md-8" style="padding-left: 0; padding-right: 0;">
                       <p>User Name</p>
@@ -1054,7 +931,7 @@ if (Auth::check()) {
                         <div class="" style="margin-left: auto; margin-right: 10px;">
                         <!-- <div class="dropdown">
                   <button class="dropdown-toggle" type="button" data-toggle="dropdown" style="background-color: transparent; border: 0;     background-color: transparent; border: 0; border-radius: 50%; width: 36px; height: 36px; background-color: rgba(0, 0, 0, .05);
-                  opacity: 1; border: 0; display: flex; justify-content: center; align-items: center;"><img src="{{ url('/') }}/img/icons8-menu-vertical-30.png" alt="">
+                  opacity: 1; border: 0; display: flex; justify-content: center; align-items: center;"><img loading="lazy" src="{{ url('/') }}/img/icons8-menu-vertical-30.png" alt="">
 
                   <ul class="dropdown-menu dropdown-modal-messenger">
                     <li><a href="#">HTML</a></li>
@@ -1107,7 +984,7 @@ if (Auth::check()) {
                     </div>
 
                     <div class="col-md-1" style="">
-                        <button id="sendMsgChat" class="enter-chat"><img src="{{ url('/') }}/img/email.png" alt=""
+                        <button id="sendMsgChat" class="enter-chat"><img loading="lazy" src="{{ url('/') }}/img/email.png" alt=""
                                                                          class="img-responsive" style="width: 17px;">
                         </button>
                     </div>
@@ -1134,7 +1011,7 @@ if (Auth::check()) {
             <div class="row">
                 <div class="col-md-6">
                     <div class="logo">
-                        <img src="{{ asset('img/footer_logo.png') }}" alt="" class="img-fluid">
+                        <img loading="lazy" src="{{ asset('img/footer_logo.png') }}" alt="" class="img-fluid">
                         <p class="mt-4">{{ $settings->description }}</p>
                         <div class="social-icons">
                             <ul>
@@ -1787,9 +1664,9 @@ if (Auth::check()) {
                                 '<div class="row conversation-persons-modal" style="margin-bottom: 14px;">' +
                                 '<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
                             if (value.senderId == sessionUserId) {
-                                htmlChatList += '<img src="' + baseUrl + '/avatar/' + value.receiverAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                                htmlChatList += '<img loading="lazy" src="' + baseUrl + '/avatar/' + value.receiverAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                             } else {
-                                htmlChatList += '<img src="' + baseUrl + '/avatar/' + value.senderAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                                htmlChatList += '<img loading="lazy" src="' + baseUrl + '/avatar/' + value.senderAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                             }
                             htmlChatList += '</div>' +
                                 '<div class="col-md-7" style="padding-left: 0; padding-right: 0;">';
@@ -1813,10 +1690,10 @@ if (Auth::check()) {
                             } else {
 
                                 if (value.MessageType == "image") {
-                                    htmlChatList += '<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+                                    htmlChatList += '<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
                                 } else {
-                                    htmlChatList += '<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">' + value.LatestMessageFile + '</p>';
+                                    htmlChatList += '<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">' + value.LatestMessageFile + '</p>';
                                 }
                             }
                             htmlChatList += '</div>' +
@@ -1852,9 +1729,9 @@ if (Auth::check()) {
                                 '<div class="row conversation-persons-modal" style="margin-bottom: 14px;">' +
                                 '<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
                             if (value.senderId == sessionUserId) {
-                                htmlChatList += '<img src="' + baseUrl + '/avatar/' + value.receiverAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                                htmlChatList += '<img loading="lazy" src="' + baseUrl + '/avatar/' + value.receiverAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                             } else {
-                                htmlChatList += '<img src="' + baseUrl + '/avatar/' + value.senderAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                                htmlChatList += '<img loading="lazy" src="' + baseUrl + '/avatar/' + value.senderAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                             }
                             htmlChatList += '</div>' +
                                 '<div class="col-md-7" style="padding-left: 0; padding-right: 0;">';
@@ -1878,10 +1755,10 @@ if (Auth::check()) {
                             } else {
 
                                 if (value.MessageType == "image") {
-                                    htmlChatList += '<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+                                    htmlChatList += '<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
                                 } else {
-                                    htmlChatList += '<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">' + value.LatestMessageFile + '</p>';
+                                    htmlChatList += '<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">' + value.LatestMessageFile + '</p>';
                                 }
                             }
                             htmlChatList += '</div>' +
@@ -1919,7 +1796,7 @@ if (Auth::check()) {
                 $("#textChatId").val(resp[0].chat_id);
                 $("#textUserId").val('');
                 if (resp[0].senderId == sessionUserId2) {
-                    htmlHeadhingUserName = '<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="' + baseUrl + '/avatar/' + resp[0].receiverAvatar + '" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
+                    htmlHeadhingUserName = '<h5 class="modal-title" id="messageMainModal-2Label"><img loading="lazy" src="" alt=""><img loading="lazy" src="' + baseUrl + '/avatar/' + resp[0].receiverAvatar + '" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
                     if (resp[0].receiverName !== "") {
 
                         htmlHeadhingUserName += '<span style="font-size: 16px;">' + resp[0].receiverName + '</span>';
@@ -1930,7 +1807,7 @@ if (Auth::check()) {
                     htmlHeadhingUserName += '</h5>';
                     $("#textUserId").val(resp[0].receiverId);
                 } else {
-                    htmlHeadhingUserName = '<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="' + baseUrl + '/avatar/' + resp[0].senderAvatar + '" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
+                    htmlHeadhingUserName = '<h5 class="modal-title" id="messageMainModal-2Label"><img loading="lazy" src="" alt=""><img loading="lazy" src="' + baseUrl + '/avatar/' + resp[0].senderAvatar + '" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
                     if (resp[0].senderName !== "") {
                         htmlHeadhingUserName += '<span style="font-size: 16px;">' + resp[0].senderName + '</span>';
                     } else {
@@ -1968,7 +1845,7 @@ if (Auth::check()) {
                             if (value.file_type == "image") {
                                 if (value.sender_id != sessionUserId) {
                                     htmlSingleChatList += '<div class="col-md-6 hover-show-download " style="border-radius:10px; margin-right: 1px;">' +
-                                        '<img src="' + baseUrl + '/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">' +
+                                        '<img loading="lazy" src="' + baseUrl + '/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">' +
                                         '<span class="download-btn" id="spanDownloadHover">' +
                                         '<a download="' + value.message_file + '" href="' + baseUrl + '/chats_images/' + value.message_file + '" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>' +
                                         '</span>' +
@@ -1976,7 +1853,7 @@ if (Auth::check()) {
                                         '</div>';
                                 } else {
                                     htmlSingleChatList += '<div class="col-md-6 hover-show-download offset-md-6" style="border-radius:10px;" >' +
-                                        '<img src="' + baseUrl + '/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">' +
+                                        '<img loading="lazy" src="' + baseUrl + '/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">' +
                                         '<span class="download-btn" id="spanDownloadHover">' +
                                         '<a download="' + value.message_file + '" href="' + baseUrl + '/chats_images/' + value.message_file + '" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>' +
                                         '</span>' +
@@ -1987,9 +1864,9 @@ if (Auth::check()) {
                                 if (value.sender_id != sessionUserId) {
                                     htmlSingleChatList += '<div class="col-md-12" >';
                                     if (value.message_file.split('.')[1] == "pdf") {
-                                        htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="' + baseUrl + '/img/pdf.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                        htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img loading="lazy" src="' + baseUrl + '/img/pdf.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                     } else {
-                                        htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="' + baseUrl + '/img/doc2.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                        htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img loading="lazy" src="' + baseUrl + '/img/doc2.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                     }
                                     htmlSingleChatList += value.message_file +
                                         '<span><a download="' + value.message_file + '" href="' + baseUrl + '/chats_images/' + value.message_file + '" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>' +
@@ -1999,9 +1876,9 @@ if (Auth::check()) {
                                 } else {
                                     htmlSingleChatList += '<div class="col-md-12" >';
                                     if (value.message_file.split('.')[1] == "pdf") {
-                                        htmlSingleChatList += '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto; margin-bottom: 14px;"><span><img src="' + baseUrl + '/img/pdf.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                        htmlSingleChatList += '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto; margin-bottom: 14px;"><span><img loading="lazy" src="' + baseUrl + '/img/pdf.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                     } else {
-                                        htmlSingleChatList += '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto; margin-bottom: 14px"><span><img src="' + baseUrl + '/img/doc2.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                        htmlSingleChatList += '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto; margin-bottom: 14px"><span><img loading="lazy" src="' + baseUrl + '/img/doc2.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                     }
                                     htmlSingleChatList += value.message_file +
                                         '<span><a download="' + value.message_file + '" href="' + baseUrl + '/chats_images/' + value.message_file + '" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>' +
@@ -2102,9 +1979,9 @@ if (Auth::check()) {
                                 '<div class="row conversation-persons-modal" style="margin-bottom: 14px;">' +
                                 '<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
                             if (value.senderId == sessionUserId) {
-                                htmlChatList += '<img src="' + baseUrl + '/avatar/' + value.receiverAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                                htmlChatList += '<img loading="lazy" src="' + baseUrl + '/avatar/' + value.receiverAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                             } else {
-                                htmlChatList += '<img src="' + baseUrl + '/avatar/' + value.senderAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                                htmlChatList += '<img loading="lazy" src="' + baseUrl + '/avatar/' + value.senderAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                             }
                             htmlChatList += '</div>' +
                                 '<div class="col-md-7" style="padding-left: 0; padding-right: 0;">';
@@ -2129,11 +2006,11 @@ if (Auth::check()) {
                                 if (value.MessageType == "image") {
 
 
-                                    htmlChatList += '<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+                                    htmlChatList += '<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
                                 } else {
 
-                                    htmlChatList += '<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">' + value.LatestMessageFile + '</p>';
+                                    htmlChatList += '<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">' + value.LatestMessageFile + '</p>';
                                 }
                             }
                             htmlChatList += '</div>' +
@@ -2169,9 +2046,9 @@ if (Auth::check()) {
                                 '<div class="row conversation-persons-modal" style="margin-bottom: 14px;">' +
                                 '<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
                             if (value.senderId == sessionUserId) {
-                                htmlChatList += '<img src="' + baseUrl + '/avatar/' + value.receiverAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                                htmlChatList += '<img loading="lazy" src="' + baseUrl + '/avatar/' + value.receiverAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                             } else {
-                                htmlChatList += '<img src="' + baseUrl + '/avatar/' + value.senderAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                                htmlChatList += '<img loading="lazy" src="' + baseUrl + '/avatar/' + value.senderAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                             }
                             htmlChatList += '</div>' +
                                 '<div class="col-md-7" style="padding-left: 0; padding-right: 0;">';
@@ -2196,11 +2073,11 @@ if (Auth::check()) {
                                 if (value.MessageType == "image") {
 
 
-                                    htmlChatList += '<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+                                    htmlChatList += '<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
                                 } else {
 
-                                    htmlChatList += '<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">' + value.LatestMessageFile + '</p>';
+                                    htmlChatList += '<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">' + value.LatestMessageFile + '</p>';
                                 }
                             }
                             htmlChatList += '</div>' +
@@ -2279,7 +2156,7 @@ if (Auth::check()) {
                                             if (value.file_type == "image") {
                                                 if (value.sender_id != sessionUserId) {
                                                     htmlSingleChatList += '<div class="col-md-6 hover-show-download " style="border-radius:10px; margin-right: 1px;">' +
-                                                        '<img src="' + baseUrl + '/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">' +
+                                                        '<img loading="lazy" src="' + baseUrl + '/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">' +
                                                         '<span class="download-btn" id="spanDownloadHover">' +
                                                         '<a download="' + value.message_file + '" href="' + baseUrl + '/chats_images/' + value.message_file + '" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>' +
                                                         '</span>' +
@@ -2287,7 +2164,7 @@ if (Auth::check()) {
                                                         '</div>';
                                                 } else {
                                                     htmlSingleChatList += '<div class="col-md-6 hover-show-download offset-md-6" style="border-radius:10px;" >' +
-                                                        '<img src="' + baseUrl + '/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">' +
+                                                        '<img loading="lazy" src="' + baseUrl + '/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">' +
                                                         '<span class="download-btn" id="spanDownloadHover">' +
                                                         '<a download="' + value.message_file + '" href="' + baseUrl + '/chats_images/' + value.message_file + '" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>' +
                                                         '</span>' +
@@ -2298,9 +2175,9 @@ if (Auth::check()) {
                                                 if (value.sender_id != sessionUserId) {
                                                     htmlSingleChatList += '<div class="col-md-12" >';
                                                     if (value.message_file.split('.')[1] == "pdf") {
-                                                        htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="' + baseUrl + '/img/pdf.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                                        htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img loading="lazy" src="' + baseUrl + '/img/pdf.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                                     } else {
-                                                        htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="' + baseUrl + '/img/doc2.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                                        htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img loading="lazy" src="' + baseUrl + '/img/doc2.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                                     }
                                                     htmlSingleChatList += value.message_file +
                                                         '<span><a download="' + value.message_file + '" href="' + baseUrl + '/chats_images/' + value.message_file + '" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>' +
@@ -2310,9 +2187,9 @@ if (Auth::check()) {
                                                 } else {
                                                     htmlSingleChatList += '<div class="col-md-12" >';
                                                     if (value.message_file.split('.')[1] == "pdf") {
-                                                        htmlSingleChatList += '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img src="' + baseUrl + '/img/pdf.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                                        htmlSingleChatList += '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img loading="lazy" src="' + baseUrl + '/img/pdf.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                                     } else {
-                                                        htmlSingleChatList += '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img src="' + baseUrl + '/img/doc2.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                                        htmlSingleChatList += '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img loading="lazy" src="' + baseUrl + '/img/doc2.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                                     }
                                                     htmlSingleChatList += value.message_file +
                                                         '<span><a download="' + value.message_file + '" href="' + baseUrl + '/chats_images/' + value.message_file + '" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>' +
@@ -2391,9 +2268,9 @@ if (Auth::check()) {
                                     '<div class="row conversation-persons-modal" style="margin-bottom: 14px;">' +
                                     '<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
                                 if (value.senderId == sessionUserId) {
-                                    htmlChatList += '<img src="' + baseUrl + '/avatar/' + value.receiverAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                                    htmlChatList += '<img loading="lazy" src="' + baseUrl + '/avatar/' + value.receiverAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                                 } else {
-                                    htmlChatList += '<img src="' + baseUrl + '/avatar/' + value.senderAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                                    htmlChatList += '<img loading="lazy" src="' + baseUrl + '/avatar/' + value.senderAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                                 }
                                 htmlChatList += '</div>' +
                                     '<div class="col-md-7" style="padding-left: 0; padding-right: 0;">';
@@ -2418,11 +2295,11 @@ if (Auth::check()) {
                                     if (value.MessageType == "image") {
 
 
-                                        htmlChatList += '<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+                                        htmlChatList += '<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
                                     } else {
 
-                                        htmlChatList += '<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">' + value.LatestMessageFile + '</p>';
+                                        htmlChatList += '<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">' + value.LatestMessageFile + '</p>';
                                     }
                                 }
                                 htmlChatList += '</div>' +
@@ -2458,9 +2335,9 @@ if (Auth::check()) {
                                     '<div class="row conversation-persons-modal" style="margin-bottom: 14px;">' +
                                     '<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
                                 if (value.senderId == sessionUserId) {
-                                    htmlChatList += '<img src="' + baseUrl + '/avatar/' + value.receiverAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                                    htmlChatList += '<img loading="lazy" src="' + baseUrl + '/avatar/' + value.receiverAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                                 } else {
-                                    htmlChatList += '<img src="' + baseUrl + '/avatar/' + value.senderAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                                    htmlChatList += '<img loading="lazy" src="' + baseUrl + '/avatar/' + value.senderAvatar + '" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                                 }
                                 htmlChatList += '</div>' +
                                     '<div class="col-md-7" style="padding-left: 0; padding-right: 0;">';
@@ -2485,11 +2362,11 @@ if (Auth::check()) {
                                     if (value.MessageType == "image") {
 
 
-                                        htmlChatList += '<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+                                        htmlChatList += '<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
                                     } else {
 
-                                        htmlChatList += '<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">' + value.LatestMessageFile + '</p>';
+                                        htmlChatList += '<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">' + value.LatestMessageFile + '</p>';
                                     }
                                 }
                                 htmlChatList += '</div>' +
@@ -2529,7 +2406,7 @@ if (Auth::check()) {
                     $("#textChatId").val(resp[0].chat_id);
                     $("#textUserId").val('');
                     if (resp[0].senderId == sessionUserId2) {
-                        htmlHeadhingUserName = '<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="' + baseUrl + '/avatar/' + resp[0].receiverAvatar + '" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
+                        htmlHeadhingUserName = '<h5 class="modal-title" id="messageMainModal-2Label"><img loading="lazy" src="" alt=""><img loading="lazy" src="' + baseUrl + '/avatar/' + resp[0].receiverAvatar + '" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
                         if (resp[0].receiverName !== "") {
 
                             htmlHeadhingUserName += '<span style="font-size: 16px;">' + resp[0].receiverName + '</span>';
@@ -2540,7 +2417,7 @@ if (Auth::check()) {
                         htmlHeadhingUserName += '</h5>';
                         $("#textUserId").val(resp[0].receiverId);
                     } else {
-                        htmlHeadhingUserName = '<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="' + baseUrl + '/avatar/' + resp[0].senderAvatar + '" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
+                        htmlHeadhingUserName = '<h5 class="modal-title" id="messageMainModal-2Label"><img loading="lazy" src="" alt=""><img loading="lazy" src="' + baseUrl + '/avatar/' + resp[0].senderAvatar + '" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
                         if (resp[0].senderName !== "") {
                             htmlHeadhingUserName += '<span style="font-size: 16px;">' + resp[0].senderName + '</span>';
                         } else {
@@ -2580,7 +2457,7 @@ if (Auth::check()) {
                                 if (value.file_type == "image") {
                                     if (value.sender_id != sessionUserId) {
                                         htmlSingleChatList += '<div class="col-md-6 hover-show-download " style="border-radius:10px; margin-right: 1px;">' +
-                                            '<img src="' + baseUrl + '/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">' +
+                                            '<img loading="lazy" src="' + baseUrl + '/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">' +
                                             '<span class="download-btn" id="spanDownloadHover">' +
                                             '<a download="' + value.message_file + '" href="' + baseUrl + '/chats_images/' + value.message_file + '" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>' +
                                             '</span>' +
@@ -2588,7 +2465,7 @@ if (Auth::check()) {
                                             '</div>';
                                     } else {
                                         htmlSingleChatList += '<div class="col-md-6 hover-show-download offset-md-6" style="border-radius:10px; " >' +
-                                            '<img src="' + baseUrl + '/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">' +
+                                            '<img loading="lazy" src="' + baseUrl + '/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">' +
                                             '<span class="download-btn" id="spanDownloadHover">' +
                                             '<a download="' + value.message_file + '" href="' + baseUrl + '/chats_images/' + value.message_file + '" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>' +
                                             '</span>' +
@@ -2599,9 +2476,9 @@ if (Auth::check()) {
                                     if (value.sender_id != sessionUserId) {
                                         htmlSingleChatList += '<div class="col-md-12" >';
                                         if (value.message_file.split('.')[1] == "pdf") {
-                                            htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="' + baseUrl + '/img/pdf.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                            htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img loading="lazy" src="' + baseUrl + '/img/pdf.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                         } else {
-                                            htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="' + baseUrl + '/img/doc2.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                            htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img loading="lazy" src="' + baseUrl + '/img/doc2.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                         }
                                         htmlSingleChatList += value.message_file +
                                             '<span><a download="' + value.message_file + '" href="' + baseUrl + '/chats_images/' + value.message_file + '" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>' +
@@ -2611,9 +2488,9 @@ if (Auth::check()) {
                                     } else {
                                         htmlSingleChatList += '<div class="col-md-12" >';
                                         if (value.message_file.split('.')[1] == "pdf") {
-                                            htmlSingleChatList += '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img src="' + baseUrl + '/img/pdf.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                            htmlSingleChatList += '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img loading="lazy" src="' + baseUrl + '/img/pdf.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                         } else {
-                                            htmlSingleChatList += '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img src="' + baseUrl + '/img/doc2.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                            htmlSingleChatList += '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img loading="lazy" src="' + baseUrl + '/img/doc2.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                         }
                                         htmlSingleChatList += value.message_file +
                                             '<span><a download="' + value.message_file + '" href="' + baseUrl + '/chats_images/' + value.message_file + '" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>' +
@@ -2777,7 +2654,7 @@ if (Auth::check()) {
                                             if (value.file_type == "image") {
                                                 if (value.sender_id != sessionUserId) {
                                                     htmlSingleChatList += '<div class="col-md-6 hover-show-download " style="border-radius:10px;">' +
-                                                        '<img src="' + baseUrl + '/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #000; border-radius: 12px;">' +
+                                                        '<img loading="lazy" src="' + baseUrl + '/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #000; border-radius: 12px;">' +
                                                         '<span class="download-btn" id="spanDownloadHover">' +
                                                         '<a download="' + value.message_file + '" href="' + baseUrl + '/chats_images/' + value.message_file + '" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>' +
                                                         '</span>' +
@@ -2785,7 +2662,7 @@ if (Auth::check()) {
                                                         '</div>';
                                                 } else {
                                                     htmlSingleChatList += '<div class="col-md-6 hover-show-download offset-md-6" style="border-radius:10px;" >' +
-                                                        '<img src="' + baseUrl + '/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">' +
+                                                        '<img loading="lazy" src="' + baseUrl + '/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">' +
                                                         '<span class="download-btn" id="spanDownloadHover">' +
                                                         '<a download="' + value.message_file + '" href="' + baseUrl + '/chats_images/' + value.message_file + '" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>' +
                                                         '</span>' +
@@ -2796,9 +2673,9 @@ if (Auth::check()) {
                                                 if (value.sender_id != sessionUserId) {
                                                     htmlSingleChatList += '<div class="col-md-12" >';
                                                     if (value.message_file.split('.')[1] == "pdf") {
-                                                        htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="' + baseUrl + '/img/pdf.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                                        htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img loading="lazy" src="' + baseUrl + '/img/pdf.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                                     } else {
-                                                        htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="' + baseUrl + '/img/doc2.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                                        htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img loading="lazy" src="' + baseUrl + '/img/doc2.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                                     }
                                                     htmlSingleChatList += value.message_file +
                                                         '<span><a download="' + value.message_file + '" href="' + baseUrl + '/chats_images/' + value.message_file + '" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>' +
@@ -2808,9 +2685,9 @@ if (Auth::check()) {
                                                 } else {
                                                     htmlSingleChatList += '<div class="col-md-12" >';
                                                     if (value.message_file.split('.')[1] == "pdf") {
-                                                        htmlSingleChatList += '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto; margin-bottom: 14px"><span><img src="' + baseUrl + '/img/pdf.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                                        htmlSingleChatList += '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto; margin-bottom: 14px"><span><img loading="lazy" src="' + baseUrl + '/img/pdf.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                                     } else {
-                                                        htmlSingleChatList += '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img src="' + baseUrl + '/img/doc2.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                                        htmlSingleChatList += '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;  margin-bottom: 14px"><span><img loading="lazy" src="' + baseUrl + '/img/doc2.png' + '" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                                     }
                                                     htmlSingleChatList += value.message_file +
                                                         '<span><a download="' + value.message_file + '" href="' + baseUrl + '/chats_images/' + value.message_file + '" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>' +
@@ -3270,7 +3147,7 @@ if (Auth::check()) {
                 beforeSend: function () {
                     var html = '<div class="col-md-4"></div>' +
                         '<div class="col-md-4"><div id="loaderDiv">' +
-                        '<img src="{{{ asset('loader/loader.gif')}}}">' +
+                        '<img loading="lazy" src="{{{ asset('loader/loader.gif')}}}">' +
                         '</div></div>' +
                         '<div class="col-md-4"></div>';
                     $(".innr-content-" + CategorySlug).html(html);
@@ -3424,7 +3301,7 @@ if (Auth::check()) {
                             '<div class="pt-4 pb-4 pl-3 pr-3">' +
                             '<div class="">' +
                             '<a data-fancybox href="' + baseUrl + '/avatar/' + value[0].avatar + '">' +
-                            '<img src="' + baseUrl + '/avatar/' + value[0].avatar + '" alt="" class="photographer-thimbnial">' +
+                            '<img loading="lazy" src="' + baseUrl + '/avatar/' + value[0].avatar + '" alt="" class="photographer-thimbnial">' +
                             '</a>' +
                             '<h4 class="title-this-photographer">' + value[0].username + '</h4>' +
                             '<p class="tag-one-photographer">' + value[0].type_name + '</p>' +
@@ -3438,7 +3315,7 @@ if (Auth::check()) {
                                 for (var i = 0; i < 4; i++) {
                                     if (splitImgs[i] != undefined) {
                                         htmlDiv += '<a data-fancybox href="' + baseUrl + '/uploads/preview/' + splitImgs[i] + '">' +
-                                            '<img src="' + baseUrl + '/uploads/preview/' + splitImgs[i] + '" alt="" class="set-img-size">' +
+                                            '<img loading="lazy" src="' + baseUrl + '/uploads/preview/' + splitImgs[i] + '" alt="" class="set-img-size">' +
                                             '</a>';
                                     }
                                 }
@@ -3456,7 +3333,7 @@ if (Auth::check()) {
                                         var getFileNameScreenShot = splitVids[i].split('.')[0] + '.png';
                                         //   console.log('asd ==>'+ getFileNameScreenShot);
                                         htmlDiv += '<a data-fancybox href="' + baseUrl + '/uploads/video/water_mark_large/watermark-' + realFileName + '">' +
-                                            '<img src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + getFileNameScreenShot + '" alt="" class="set-img-size">' +
+                                            '<img loading="lazy" src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + getFileNameScreenShot + '" alt="" class="set-img-size">' +
                                             '</a>';
                                     }
                                 }
@@ -3475,7 +3352,7 @@ if (Auth::check()) {
                                         var getFileNameScreenShotAni = splitAnis[i].split('.')[0] + '.png';
                                         //   console.log('asd ==>'+ getFileNameScreenShotAni);
                                         htmlDiv += '<a data-fancybox href="' + baseUrl + '/uploads/video/water_mark_large/watermark-' + realFileNameAni + '">' +
-                                            '<img src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + getFileNameScreenShotAni + '" alt="" class="set-img-size">' +
+                                            '<img loading="lazy" src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + getFileNameScreenShotAni + '" alt="" class="set-img-size">' +
                                             '</a>';
                                     }
                                 }
@@ -3490,7 +3367,7 @@ if (Auth::check()) {
                                     if (splitMus[i] != undefined) {
                                         // htmlDiv +='<div class="qwewave" data-path="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'">'+
                                         // '<button type="button" id="baton#'+ splitMus[i] + '">Play / Pause</button>'+
-                                        //     					   // '<img src="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'" alt="" class="set-img-size">'+
+                                        //     					   // '<img loading="lazy" src="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'" alt="" class="set-img-size">'+
                                         //     					    '<div class="wave-container"></div>'+
                                         //         			    '</div>';
 
@@ -3532,7 +3409,7 @@ if (Auth::check()) {
                         // 							'<div class="header-photographer">'+
                         // 								'<div class="row">'+
                         // 									'<div class="col-md-4">'+
-                        // 										'<img src="' + baseUrl + '/avatar/' + value[0].avatar +'" alt="" class="set-img-size">'+
+                        // 										'<img loading="lazy" src="' + baseUrl + '/avatar/' + value[0].avatar +'" alt="" class="set-img-size">'+
                         // 									'</div>'+
                         // 									'<div class="col-md-7 offset-md-1">'+
                         // 										'<h4 class="title-this">' + value[0].username + '</h4>'+

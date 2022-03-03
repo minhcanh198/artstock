@@ -6,7 +6,7 @@
 			@if($getRouteDetails != "")
 				@if($getRouteDetails->route_img != "")
 					<div class="col-md-6 pl-0">
-						<img src="{{ url('/').'/img-route/'.$getRouteDetails->route_img }}" alt="" class="img-fluid img-banner-destinations-city">
+						<img loading="lazy" src="{{ url('/').'/img-route/'.$getRouteDetails->route_img }}" alt="" class="img-fluid img-banner-destinations-city">
 					</div>
 					<div class="col-md-5 align-self-center">
 				@else
@@ -57,7 +57,7 @@
 											$watermarkedVideoPath = 'uploads/video/water_mark_large/';
 										@endphp
 										<div>
-											<img src="{{ asset($thumbnail) }}" alt="" class="img-fluid destinations-city-s2-slider-img">
+											<img loading="lazy" src="{{ asset($thumbnail) }}" alt="" class="img-fluid destinations-city-s2-slider-img">
 										</div>
 									@endforeach
 								@elseif($usersData->user_type_id == "3")
@@ -72,7 +72,7 @@
 										@endphp
 
 										<div>
-											<img src="{{ asset($screenShotVideoPath) }}" alt="" class="img-fluid destinations-city-s2-slider-img">
+											<img loading="lazy" src="{{ asset($screenShotVideoPath) }}" alt="" class="img-fluid destinations-city-s2-slider-img">
 										</div>
 									@endforeach
 								@elseif($usersData->user_type_id == "2")
@@ -87,7 +87,7 @@
 										@endphp
 
 										<div>
-											<img src="{{ asset($screenShotVideoPath) }}" alt="" class="img-fluid destinations-city-s2-slider-img">
+											<img loading="lazy" src="{{ asset($screenShotVideoPath) }}" alt="" class="img-fluid destinations-city-s2-slider-img">
 										</div>
 									@endforeach
 								@elseif($usersData->user_type_id == "4")
@@ -113,7 +113,7 @@
 							<div class="box-conten">
 								<h3 class="title mt-4 mb-4">{{ ($usersData->name != "") ? $usersData->name : $usersData->username }}</h3>
 								<div class="round-image-box">
-									<img src="{{ asset('avatar').'/'.$usersData->avatar }}" alt="" class="img-fluid">
+									<img loading="lazy" src="{{ asset('avatar').'/'.$usersData->avatar }}" alt="" class="img-fluid">
 								</div>
 								<p class="mb-4">
 								{{ $usersData->bio }}

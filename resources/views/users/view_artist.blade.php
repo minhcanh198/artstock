@@ -34,32 +34,32 @@
     <!--<h1 class="text-center artist-title mt-4 mb-4">portfolio</h1>-->
     <div class="">
         <div class="item">
-            <img src="{{ url('').'/cover/'. $artistDetails->cover }}" class="img-fluid img" style="display: block;
+            <img loading="lazy" src="{{ url('').'/cover/'. $artistDetails->cover }}" class="img-fluid img" style="display: block;
     width: 100%;">
         </div>
         <!--<div class="item">-->
-        <!--    <img src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
+        <!--    <img loading="lazy" src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
         <!--</div>-->
         <!--<div class="item">-->
-        <!--    <img src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
+        <!--    <img loading="lazy" src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
         <!--</div>-->
         <!--<div class="item">-->
-        <!--    <img src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
+        <!--    <img loading="lazy" src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
         <!--</div>-->
         <!--<div class="item">-->
-        <!--    <img src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
+        <!--    <img loading="lazy" src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
         <!--</div>-->
         <!--<div class="item">-->
-        <!--    <img src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
+        <!--    <img loading="lazy" src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
         <!--</div>-->
         <!--<div class="item">-->
-        <!--    <img src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
+        <!--    <img loading="lazy" src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
         <!--</div>-->
         <!--<div class="item">-->
-        <!--    <img src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
+        <!--    <img loading="lazy" src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
         <!--</div>-->
         <!--<div class="item">-->
-        <!--    <img src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
+        <!--    <img loading="lazy" src="{{ url('').'/img/bg-new.jpeg' }}" class="img-fluid img">-->
         <!--</div>-->
     </div>
     <section class="profile">
@@ -78,7 +78,7 @@
                     <div class="col-md-3">
                         <div class="profile-inner">
                             <div class="img">
-                                <img src="<?php echo url('/').'/avatar/'. $artistDetails->avatar; ?>" class="img-fluid">
+                                <img loading="lazy" src="<?php echo url('/').'/avatar/'. $artistDetails->avatar; ?>" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -168,7 +168,7 @@
 								@endphp
                                 <li class="col-md-3 mb-3 col-6 position-relative">
                                     <a data-fancybox href="{{ asset($thumbnail) }}">
-                                        <img src="{{ asset($thumbnail) }}" class="img-fluid img">
+                                        <img loading="lazy" src="{{ asset($thumbnail) }}" class="img-fluid img">
                                     </a>
                                     <div class="img-overlay-price">
                                         <a data-fancybox data-price="{{ $ImageData->price }}" data-id="{{ $ImageData->id }}" data-title="{{ $ImageData->title }}" data-slug="{{ str_slug($ImageData->title) }}" data-description="{{ $ImageData->description }}" data-typee="{{ $ImageData->is_type }}" href="{{ asset($thumbnail) }}">{{$settings->currency_symbol.$ImageData->price}}</a>
@@ -200,7 +200,7 @@
         								@endphp
                                         <li class="col-md-3 mb-3 col-6">
                                             <a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}">
-                                                <img src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" class="img-fluid img">
+                                                <img loading="lazy" src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" class="img-fluid img">
                 					        </a>
                                         </li>
                                 <?php
@@ -230,7 +230,7 @@
 
                                         <li class="col-md-3 mb-3 col-6">
                                             <a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}">
-                                                <img src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" class="img-fluid img">
+                                                <img loading="lazy" src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" class="img-fluid img">
                                             </a>
                                         </li>
                                 <?php
@@ -285,7 +285,7 @@
                         @foreach($getReviewOfUserById as $reviewResult)
                         <div class="row customer-review-box">
                             <div class="col-3 pr-0">
-                                <img src="<?php echo url('/').'/review_images/'. $reviewResult->review_image; ?>" class="img-fluid  unique-viewartist-img">
+                                <img loading="lazy" src="<?php echo url('/').'/review_images/'. $reviewResult->review_image; ?>" class="img-fluid  unique-viewartist-img">
                             </div>
                             <div class="col-9">
                             <div class="d-flex mt-3">

@@ -111,7 +111,7 @@ max-width: 1000px !important;
             <input type="hidden" name="baseTxtImg" id="baseTxtImg" value="">
 			<!--<input type="file" accept="image/*" name="photo" id="filePhoto" class="input-big-image">-->
 			<!--<input type="file" accept="image/*"  name="photo"  class="img-upload-input-bs" editor="#img-upload-panel" target="#image" status="#status" passurl=""  pshape="square" w=300 h=300 size="viewport"/>
-<img src="" alt="" id="image"/>-->
+<img loading="lazy" src="" alt="" id="image"/>-->
             <input type="file" name="photo" id="uploadPhoto" class="image" onchange="loadFile(event)">
 			<!-- previewPhoto -->
                 <!--<div class="previewPhoto" style="visibility: hidden;" data-cropzee="filePhoto"></div>-->

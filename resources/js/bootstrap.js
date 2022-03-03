@@ -1,4 +1,3 @@
-
 window._ = require('lodash');
 
 /**
@@ -12,7 +11,8 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
-} catch (e) {}
+} catch (e) {
+}
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -26,8 +26,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.axios.defaults.baseURL = document.head.querySelector('meta[name="api-base-url"]').content;
 
-console.log('ider ider');
-console.log(window.axios.defaults.baseURL);
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
  * all outgoing HTTP requests automatically have it attached. This is just

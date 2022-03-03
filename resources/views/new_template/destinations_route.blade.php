@@ -7,7 +7,7 @@
                     @if($getRouteDetails != "")
                         @if($getRouteDetails->route_img != "")
                             <div class="col-md-6 padding-left-0">
-                                <img src="<?php echo asset('destination_page_new/destination-1.jpg') ?>" alt="" class="img-responsive set-height-450">
+                                <img loading="lazy" src="<?php echo asset('destination_page_new/destination-1.jpg') ?>" alt="" class="img-responsive set-height-450">
                             </div>
                         @else
 					        <div class="col-md-8 offset-md-2 pt-4 pb-4">
@@ -75,9 +75,9 @@
                                     <div class="popular-destination-box">
                                         <div class="img">
                                             @if($routesData->route_img != "")
-                                                <img src="{{ url('/').'/img-route/'.$routesData->route_img }}" alt="" class="img-responsive">
+                                                <img loading="lazy" src="{{ url('/').'/img-route/'.$routesData->route_img }}" alt="" class="img-responsive">
                                             @else
-                                                <img src="{{ url('/').'/destination_page_new/greece.jpg' }}" alt="" class="img-responsive">
+                                                <img loading="lazy" src="{{ url('/').'/destination_page_new/greece.jpg' }}" alt="" class="img-responsive">
                                             @endif
                                             <div class="img-content">
                                                 <h3>

@@ -16,7 +16,7 @@
 <tr>
 	<td style="padding:30px 0 50px 0">
 		<div style="text-align:center">
-			<img src="{{{URL::asset('avatar/default.jpg')}}}" style="width:72px; border-radius: 50px;">
+			<img loading="lazy" src="{{{URL::asset('avatar/default.jpg')}}}" style="width:72px; border-radius: 50px;">
 			<div style="margin:10px 0 5px 0;font-size:26px;font-weight:bold;line-height:24px;letter-spacing:-1px">
 			{{{ trans('auth.password_reset_2') }}}
 			</div>

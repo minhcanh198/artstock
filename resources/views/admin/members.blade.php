@@ -85,7 +85,7 @@
                   @foreach( $data as $user )
                     <tr>
                       <td>{{ $user->id }}</td>
-					  <td><img src="{{asset('avatar').'/'.$user->avatar}}" width="20" height="20" class="img-circle" /> {{ $user->username }}</td>
+					  <td><img loading="lazy" src="{{asset('avatar').'/'.$user->avatar}}" width="20" height="20" class="img-circle" /> {{ $user->username }}</td>
 					  <td>
 						@if($user->user_type_id != "")
 							@foreach($types as $type)

@@ -17,14 +17,14 @@
     <!--    	<div class="choose-photographer-box">-->
     <!--    		<div class="pt-4 pb-4 pl-3 pr-3">-->
     <!--    			<div class="">-->
-    <!--					<img src="https://projects.hexawebstudio.com/darquise-nantel/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="photographer-thimbnial">-->
+    <!--					<img loading="lazy" src="https://projects.hexawebstudio.com/darquise-nantel/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="photographer-thimbnial">-->
     <!--    			    <h4 class="title-this-photographer">qwioeu</h4>-->
     <!--                    <p class="tag-one-photographer">Photographer</p>-->
     <!--    			    <div class="mt-4" style="text-align: center;">-->
-    <!--    					<img src="https://projects.hexawebstudio.com/darquise-nantel/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="set-img-size">-->
-    <!--    					<img src="https://projects.hexawebstudio.com/darquise-nantel/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="set-img-size">-->
-    <!--    					<img src="https://projects.hexawebstudio.com/darquise-nantel/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="set-img-size">-->
-    <!--    					<img src="https://projects.hexawebstudio.com/darquise-nantel/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="set-img-size">-->
+    <!--    					<img loading="lazy" src="https://projects.hexawebstudio.com/darquise-nantel/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="set-img-size">-->
+    <!--    					<img loading="lazy" src="https://projects.hexawebstudio.com/darquise-nantel/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="set-img-size">-->
+    <!--    					<img loading="lazy" src="https://projects.hexawebstudio.com/darquise-nantel/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="set-img-size">-->
+    <!--    					<img loading="lazy" src="https://projects.hexawebstudio.com/darquise-nantel/avatar/noah-161600214940dqr9ufqug8.jpg" alt="" class="set-img-size">-->
     <!--					</div>-->
     <!--			    </div>-->
     <!--		    </div>    -->

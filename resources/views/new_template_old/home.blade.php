@@ -273,8 +273,8 @@
 
     <div class="inner-img">
 
-        <!-- <img src="{{{ asset('new_template/images/p-1.png') }}}" class="img-fluid"> -->
-        <img src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section1_image }}" class="img-fluid">
+        <!-- <img loading="lazy" src="{{{ asset('new_template/images/p-1.png') }}}" class="img-fluid"> -->
+        <img loading="lazy" src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section1_image }}" class="img-fluid">
     </div>
     </div>
 <div class="col-md-7" data-aos="fade-left">
@@ -309,8 +309,8 @@
     <div class="col-md-5">
 
     <div class="inner-img" data-aos="zoom-in">
-    <!-- <img src="{{{ asset('new_template/images/p-2.png') }}}" class="img-fluid"> -->
-        <img src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section2_image }}" class="img-fluid">
+    <!-- <img loading="lazy" src="{{{ asset('new_template/images/p-2.png') }}}" class="img-fluid"> -->
+        <img loading="lazy" src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section2_image }}" class="img-fluid">
     </div>
     </div>
 </div>
@@ -320,8 +320,8 @@
     <div class="col-md-5" data-aos="zoom-in">
 
     <div class="inner-img">
-    <!-- <img src="{{{ asset('new_template/images/p-3.png') }}}" class="img-fluid"> -->
-        <img src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section3_image }}" class="img-fluid">
+    <!-- <img loading="lazy" src="{{{ asset('new_template/images/p-3.png') }}}" class="img-fluid"> -->
+        <img loading="lazy" src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section3_image }}" class="img-fluid">
     </div>
     </div>
 <div class="col-md-7" data-aos="fade-left">
@@ -355,8 +355,8 @@
     <div class="col-md-5">
 
     <div class="inner-img aos-init aos-animate" data-aos="zoom-in">
-        <!-- <img src="{{{ asset('new_template/images/p-4.png') }}}" class="img-fluid"> -->
-        <img src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section4_image }}" class="img-fluid">
+        <!-- <img loading="lazy" src="{{{ asset('new_template/images/p-4.png') }}}" class="img-fluid"> -->
+        <img loading="lazy" src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section4_image }}" class="img-fluid">
     </div>
     </div>
 </div>

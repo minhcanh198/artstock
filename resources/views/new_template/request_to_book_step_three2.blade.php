@@ -101,7 +101,7 @@
                         <input type="text" id="photographerId" name="photographerId" hidden value="{{ $photographerId }}">
                         <input type="text" id="cityId" name="cityId" hidden value="{{ $cityId }}">
                         <!-- comming from before step one Data End -->
-                        
+
                         <!-- comming from before step two (meaning comming from step one) Data Start -->
                         <input type="text" id="DatePrefered" name="DatePrefered" hidden value="{{ $datePrefered }}">
                         <input type="text" id="timeOfDay" name="timeOfDay" hidden value="{{ $timeDay }}">
@@ -141,11 +141,11 @@
                                                 <div class="rout-box " id="box-route-custom_{{ $routes->id }}">
                                                     <!-- <p class="flag-two">Iconic Sights</p> -->
                                                     <div class="box-img" id="rout-box-img_{{ $routes->id }}">
-                                                        
+
                                                         @if($routes->route_img != null)
-                                                            <img src="./imran_images_dummy/barcelona-solo-adventure-solo-plants_500.jpeg" alt="" class="img-fluid">
+                                                            <img loading="lazy" src="./imran_images_dummy/barcelona-solo-adventure-solo-plants_500.jpeg" alt="" class="img-fluid">
                                                         @else
-                                                            <img src="{{ url('/') . '/no_image/no_image_found.jpg' }}" alt="" class="img-fluid">
+                                                            <img loading="lazy" src="{{ url('/') . '/no_image/no_image_found.jpg' }}" alt="" class="img-fluid">
                                                         @endif
                                                     </div>
                                                     <div class="box-content mt-2">
@@ -167,14 +167,14 @@
                                                     <div class="box-rout-detail" id="box-rout-closebtn_{{ $routes->id }}" style="display:none;">
                                                         <i class="fas fa-times"></i> <span>Close Details</span>
                                                     </div>
-                                                </div>	
+                                                </div>
                                             </div>
                                         @endforeach
                                         <div class="col-md-3 mb-4">
                                             <div class="rout-box " id="box-route-custom_Custom">
                                                 <!-- <p class="flag-two">Iconic Sights</p> -->
                                                 <div class="box-img" id="rout-box-img_Custom">
-                                                        <img src="{{ url('/') . '/no_image/no_image_found.jpg' }}" alt="" class="img-fluid">
+                                                        <img loading="lazy" src="{{ url('/') . '/no_image/no_image_found.jpg' }}" alt="" class="img-fluid">
                                                 </div>
                                                 <div class="box-content mt-2">
                                                     <h3 class="custom-route-div-specific-location">
@@ -195,7 +195,7 @@
                                                 <div class="box-rout-detail" id="box-rout-closebtn_Custom" style="display:none;">
                                                     <i class="fas fa-times"></i> <span>Close Details</span>
                                                 </div>
-                                            </div>	
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -212,9 +212,9 @@
                                 <div id="errorMeetArtistDiv"></div>
                                 <div class="mt-4" id="scrollDivImportantInformation">
                                     <label for="">Please tell us any ideas of what you would like to see for your photo shoot or important information that would be helpful for your photographer to know. <span style="color:red;"> *</span></label>
-                                    <textarea class="form-control" id="txtAreaImportantInformation" name="important_information_for_artist" rows="6" placeholder="Examples include: 
-                                        1) any specific landmarks or location elements you would like in the background 
-                                        2) photo style, such as romantic, fun, playful, etc. 
+                                    <textarea class="form-control" id="txtAreaImportantInformation" name="important_information_for_artist" rows="6" placeholder="Examples include:
+                                        1) any specific landmarks or location elements you would like in the background
+                                        2) photo style, such as romantic, fun, playful, etc.
                                         3) must-have shots"></textarea>
                                 </div>
                                 <div id="errorImportantInformationDiv"></div>
@@ -276,7 +276,7 @@
                     setTimeout(function(){
                         $('#errorRouteDiv').text('');
                     }, 3000);
-                    
+
                 }else if(routeId == "Custom" && describeRoute == ""){
                     $("#errorDescribeRouteDiv").text('This field is required');
                     $("#errorDescribeRouteDiv").css('color','red');

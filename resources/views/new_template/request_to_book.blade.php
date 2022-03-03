@@ -32,7 +32,7 @@
                 <!-- hire-more-active -->
                     <div class="hire-more-box  " id="box_photoshoot_type-{{ $photoShoot->id }}">
                         <div class="img">
-                            <img src="<?php echo url('/').'/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
+                            <img loading="lazy" src="<?php echo url('/').'/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
                         </div>
                         <div class="txt">
                         <!-- <i class="fas fa-check"></i> -->
@@ -57,7 +57,7 @@
                             <!-- hire-more-active -->
                             <div class="hire-more-box  " id="box_photoshoot_type-{{ $photoShoot->id }}">
                                 <div class="img">
-                                    <img src="<?php echo url('/').'/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
+                                    <img loading="lazy" src="<?php echo url('/').'/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
                                 </div>
                                 <div class="txt">
                                 <!-- <i class="fas fa-check"></i> -->
@@ -83,7 +83,7 @@
                             <!-- hire-more-active -->
                             <div class="hire-more-box  " id="box_photoshoot_type-{{ $photoShoot->id }}">
                                 <div class="img">
-                                    <img src="<?php echo url('/').'/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
+                                    <img loading="lazy" src="<?php echo url('/').'/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
                                 </div>
                                 <div class="txt">
                                 <!-- <i class="fas fa-check"></i> -->
@@ -109,7 +109,7 @@
                             <!-- hire-more-active -->
                             <div class="hire-more-box  " id="box_photoshoot_type-{{ $photoShoot->id }}">
                                 <div class="img">
-                                    <img src="<?php echo url('/').'/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
+                                    <img loading="lazy" src="<?php echo url('/').'/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
                                 </div>
                                 <div class="txt">
                                 <!-- <i class="fas fa-check"></i> -->
@@ -135,7 +135,7 @@
                             <!-- hire-more-active -->
                             <div class="hire-more-box  " id="box_photoshoot_type-{{ $photoShoot->id }}">
                                 <div class="img">
-                                    <img src="<?php echo url('/').'/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
+                                    <img loading="lazy" src="<?php echo url('/').'/img-photoshoot_type/'.$photoShoot->photoshoot_icon_img; ?>" alt="" class="img-fluid">
                                 </div>
                                 <div class="txt">
                                 <!-- <i class="fas fa-check"></i> -->
@@ -178,7 +178,7 @@
     <!--Content-->
     <div class="modal-content">
         <div class="logo-modal">
-            <img src="<?php echo url('/').'/img/commercial-1.svg' ?>" alt="" class="img-fluid">
+            <img loading="lazy" src="<?php echo url('/').'/img/commercial-1.svg' ?>" alt="" class="img-fluid">
         </div>
       <!--Modal cascading tabs-->
         <div class="d-flex justify-content-center mt-4 mb-4">

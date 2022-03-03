@@ -85,15 +85,15 @@
                   @foreach( $data as $image )
                     <tr>
                       <td>{{ $image->id }}</td>
-                      <!--<td><img src="{{asset('uploads/thumbnail').'/'.$image->thumbnail}}" width="50" /></td>-->
+                      <!--<td><img loading="lazy" src="{{asset('uploads/thumbnail').'/'.$image->thumbnail}}" width="50" /></td>-->
                       <td>
                           @if($image->is_type=='image')
-                                <img src="{{asset('uploads/thumbnail').'/'.$image->thumbnail}}" width="50" />
+                                <img loading="lazy" src="{{asset('uploads/thumbnail').'/'.$image->thumbnail}}" width="50" />
                           @else
                             <?php $imgg = explode(".",$image->thumbnail); $imggg = 'screen-shot-'.$imgg[0].'.png'; ?>
-                                <img src="{{asset('uploads/video/screen_shot/'.$imggg)}}" width="50" />
+                                <img loading="lazy" src="{{asset('uploads/video/screen_shot/'.$imggg)}}" width="50" />
                           @endif
-                          <!--<img src="@if($image->is_type=='image') {{asset('uploads/thumbnail').'/'.$image->thumbnail}}  @else {{asset('uploads/video/screen_shot').'/screen-shot-'.$image->thumbnail}}  @endif" width="50" />-->
+                          <!--<img loading="lazy" src="@if($image->is_type=='image') {{asset('uploads/thumbnail').'/'.$image->thumbnail}}  @else {{asset('uploads/video/screen_shot').'/screen-shot-'.$image->thumbnail}}  @endif" width="50" />-->
                       </td>
                       <td><a href="@if($image->is_type=='image') {{ url('photo', $image->id) }}  @else {{ url('video', $image->id) }}  @endif" title="{{$image->title}}" target="_blank">{{ str_limit($image->title, 20, '...') }} <i class="fa fa-external-link-square"></i></a></td>
                       <!--<td><a href="{{ url('photo', $image->id) }}" title="{{$image->title}}" target="_blank">{{ str_limit($image->title, 20, '...') }} <i class="fa fa-external-link-square"></i></a></td>-->

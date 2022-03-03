@@ -6,7 +6,7 @@
 			<div class="col-md-6">
 				<div class="d-flex">
 					<div class="img-person mr-3">
-						<img src="{{ url('/')}}images/thiago-matos-184.jpeg" alt="" class="img-fluid">
+						<img loading="lazy" src="{{ url('/')}}images/thiago-matos-184.jpeg" alt="" class="img-fluid">
 					</div>
 					<div class="img-person-txt align-self-center">
 						<div class="d-flex">
@@ -51,7 +51,7 @@
 		</div>
 		<div class="row">
 			<div class="col-12 text-center img-info-box">
-				<img src="images/9.png" alt="" class="img-fluid">
+				<img loading="lazy" src="images/9.png" alt="" class="img-fluid">
 				<div class="d-flex justify-content-center mt-3">
 					<p class="mr-4"><i class="fas fa-eye"></i>1.43k views</p>
 					<p><a href=""><i class="far fa-check-circle"></i>Free to use</a></p>

@@ -15,7 +15,7 @@
             <div class="filters-head-area row">
                 <div class="col-6 align-self-center" id="filterBtnDiv">
                     <h6 class="toggleFiltersBtn">
-                        <img src="{{ asset('search-page-img/filters.png') }}" alt="" class="set-filter-icon">
+                        <img loading="lazy" src="{{ asset('search-page-img/filters.png') }}" alt="" class="set-filter-icon">
                         <span>Filters</span>
                     </h6>
                 </div>
@@ -551,7 +551,7 @@
                                         <div class="choose-photographer-box">
                                 		<div class="pt-4 pb-1 pl-3 pr-3">
                                 			<div class="">
-                            					<img src="<?php echo url('/')?>/avatar/<?php echo $image->avatar; ?>" alt="" class="photographer-thimbnial">
+                            					<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $image->avatar; ?>" alt="" class="photographer-thimbnial">
                                 			    <h4 class="title-this-photographer">{{ $image->username }}</h4>
                                                 <p class="tag-one-photographer">{{ $image->type_name }}</p>
                                                 <p class="tag-one-photographer" style="    margin-left: 77px;">{{ $image->CountryName }}</p>
@@ -578,15 +578,15 @@
                                     								@endphp
                                     								<a data-fancybox href="{{ asset($thumbnail) }}">
 
-                                                					    <img src="{{ asset($thumbnail) }}" alt="" class="set-img-size">
+                                                					    <img loading="lazy" src="{{ asset($thumbnail) }}" alt="" class="set-img-size">
                                                     			    </a>
                                             					@endforeach
                                             					<?php
                                                                 }
                                         					?>
-                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
-                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
-                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
                                         					</div>
                                                         <?php
                                                             }else if($image->user_type_id == "3"){
@@ -617,15 +617,15 @@
                                                 								$realVideoFileName = $dataUserVideos->thumbnail;
                                             								@endphp
                                             								<a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$realVideoFileName }}">
-                                                    					        <img src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" alt="" class="set-img-size">
+                                                    					        <img loading="lazy" src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" alt="" class="set-img-size">
                                                     					    </a>
                                                     					@endforeach
                                                 					<?php
                                                                         }
                                                 					?>
-                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
-                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
-                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
                                         					   </div>
                                                         <?php
                                                             }else if($image->user_type_id == "2"){
@@ -655,12 +655,12 @@
                                                 								$realVideoFileName = $dataUserAnimations->thumbnail;
                                             								@endphp
                                             								<a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$realVideoFileName }}">
-                                                    					        <img src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">
+                                                    					        <img loading="lazy" src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">
                                                 					        </a>
                                                     					@endforeach
-                                                    					<!--<img src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                                                    					<!--<img src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                                                    					<!--<img src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                                    					<!--<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                                    					<!--<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                                    					<!--<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
                                                     					<?php
                                                                         }else{
                                                                     ?>
@@ -850,7 +850,7 @@
                                     <div class="choose-photographer-box">
                                 		<div class="pt-4 pb-1 pl-3 pr-3">
                                 			<div class="">
-                            					<img src="<?php echo url('/')?>/avatar/<?php echo $image->avatar; ?>" alt="" class="photographer-thimbnial">
+                            					<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $image->avatar; ?>" alt="" class="photographer-thimbnial">
                                 			    <h4 class="title-this-photographer">{{ $image->username }}</h4>
                                                 <p class="tag-one-photographer">{{ $image->type_name }}</p>
                                                 <p class="tag-one-photographer" style="    margin-left: 77px;">{{ $image->CountryName }}</p>
@@ -877,15 +877,15 @@
                                     								@endphp
                                     								<a data-fancybox href="{{ asset($thumbnail) }}">
 
-                                                					    <img src="{{ asset($thumbnail) }}" alt="" class="set-img-size">
+                                                					    <img loading="lazy" src="{{ asset($thumbnail) }}" alt="" class="set-img-size">
                                                     			    </a>
                                             					@endforeach
                                             					<?php
                                                                 }
                                         					?>
-                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
-                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
-                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userPhotographer->avatar; ?>" alt="" class="set-img-size">-->
                                         					</div>
                                                         <?php
                                                             }else if($image->user_type_id == "3"){
@@ -916,15 +916,15 @@
                                                 								$realVideoFileName = $dataUserVideos->thumbnail;
                                             								@endphp
                                             								<a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$realVideoFileName }}">
-                                                    					        <img src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" alt="" class="set-img-size">
+                                                    					        <img loading="lazy" src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" alt="" class="set-img-size">
                                                     					    </a>
                                                     					@endforeach
                                                 					<?php
                                                                         }
                                                 					?>
-                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
-                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
-                                            					<!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
+                                            					<!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
                                         					   </div>
                                                         <?php
                                                             }else if($image->user_type_id == "2"){
@@ -956,12 +956,12 @@
                                                 								$realVideoFileName = $dataUserAnimations->thumbnail;
                                             								@endphp
                                             								<a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$realVideoFileName }}">
-                                                    					        <img src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">
+                                                    					        <img loading="lazy" src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">
                                                 					        </a>
                                                     					@endforeach
-                                                    					<!--<img src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                                                    					<!--<img src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                                                    					<!--<img src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                                    					<!--<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                                    					<!--<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                                    					<!--<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
                                                     					<?php
                                                                         }else{
                                                                     ?>

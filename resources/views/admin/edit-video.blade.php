@@ -147,7 +147,7 @@
                 <?php
                     $explodeVideoThumbnail = explode(".", $data->thumbnail)[0] . '.png';
                 ?>
-        		<img src="{{ asset('uploads/video/screen_shot/').'/screen-shot-'.$explodeVideoThumbnail }}" class="thumbnail img-responsive">
+        		<img loading="lazy" src="{{ asset('uploads/video/screen_shot/').'/screen-shot-'.$explodeVideoThumbnail }}" class="thumbnail img-responsive">
         	</div>
 
         	<a href="{{ url('photo',$data->id) }}" target="_blank" class="btn btn-lg btn-success btn-block margin-bottom-10">{{ trans('admin.view') }} <i class="fa fa-external-link-square"></i> </a>

@@ -105,7 +105,7 @@
 
                     <tr>
                       <td>{{ $purchase->id }}</td>
-                      <td><img src="{{$image_photo}}" width="50" onerror="" /></td>
+                      <td><img loading="lazy" src="{{$image_photo}}" width="50" onerror="" /></td>
                       <td><a href="{{ $image_url }}" title="{{$image_title}}" target="_blank">{{ str_limit($image_title, 25, '...') }} <i class="fa fa-external-link-square"></i></a></td>
                       <td>{{ $type }}</td>
                       <td>{{$license}}</td>

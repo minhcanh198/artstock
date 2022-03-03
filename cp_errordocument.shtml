@@ -185,7 +185,7 @@
                 <div class="additional-info-items">
                     <ul>
                         <li>
-                            <img src="/img-sys/server_misconfigured.png" class="info-image" />
+                            <img loading="lazy" src="/img-sys/server_misconfigured.png" class="info-image" />
                             <div class="info-heading">
                                 <!--#echo var="HTTP_HOST" --><!--#echo var="REQUEST_URI" --> (port <!--#echo var="SERVER_PORT" -->)
                             </div>
@@ -198,7 +198,7 @@
         <footer>
             <div class="container">
                 <a href="http://cpanel.com/?utm_source=cpanelwhm&utm_medium=cplogo&utm_content=logolink&utm_campaign=<!--#echo var='code' -->referral" target="cpanel" title="cPanel, Inc.">
-                    <img src="/img-sys/powered_by_cpanel.svg" height="20" alt="cPanel, Inc." />
+                    <img loading="lazy" src="/img-sys/powered_by_cpanel.svg" height="20" alt="cPanel, Inc." />
                 </a>
                     <div class="copyright"><a href="http://cpanel.com/?utm_source=cpanelwhm&utm_medium=cplogo&utm_content=logolink&utm_campaign=<!--#echo var='code' -->referral" target="cpanel" title="cPanel, Inc.">Copyright © 2020 cPanel, L.L.C.</a>
                     <br /><a href="https://go.cpanel.net/privacy" target="_blank">Privacy Policy</a></div>

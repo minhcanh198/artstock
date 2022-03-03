@@ -80,7 +80,7 @@
 		<div class="row">
 			<div class="col-md-10 offset-md-1">
 				<div class="login-logo text-center">
-					<a href="{{ url('/') }}"><img src="{{ asset('custom-css/images/logosvg.svg') }}" width="500" height="100" alt="" class="img-fluid"></a>
+					<a href="{{ url('/') }}"><img loading="lazy" src="{{ asset('custom-css/images/logosvg.svg') }}" width="500" height="100" alt="" class="img-fluid"></a>
 				</div>
 				<h1 class="login-title text-center mt-4">Welcome To ArtStock United</h1>
 				{{-- <div class="text-center mt-4 joinfb">

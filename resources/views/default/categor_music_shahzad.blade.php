@@ -95,7 +95,7 @@
                                 <div class="col-md-6">
                                     <span class="d-block">
                             			<h5 class="text-overflow author-label mg-bottom-xs" title="{{ $userDetails->username }}">
-                            				<img src="{{ url('/') .'/avatar/'. $userDetails->avatar }}" alt="User" class="img-circle img-circle-2">
+                            				<img loading="lazy" src="{{ url('/') .'/avatar/'. $userDetails->avatar }}" alt="User" class="img-circle img-circle-2">
                             				<span class="color-black">{{ $userDetails->username }}</span>
                         				</h5>
                             				<span class="timeAgo btn-block date-color text-overflow" data="{{ $imge->date }}"></span>
@@ -248,7 +248,7 @@
                                         <!--    <div class="header-photographer">-->
                                         <!--        <div class="row">-->
                                         <!--            <div class="col-sm-4">-->
-                                        <!--                <img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
+                                        <!--                <img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
                                         <!--            </div>-->
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
@@ -279,7 +279,7 @@
                                         <div class="choose-photographer-box">
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
-                                					<img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
+                                					<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
                                     			    <h4 class="title-this-photographer">{{ $users->username }}</h4>
                                                     <p class="tag-one-photographer">{{ $users->type_name }}</p>
                                     			    <div class="mt-4" style="text-align: center;">
@@ -304,11 +304,11 @@
 
                                     								$AnimationFileScreenShotName = explode('.', $dataUserAnimations->thumbnail)[0];
                                 								@endphp
-                                        					    <img src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">
+                                        					    <img loading="lazy" src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">
                                         					@endforeach
-                                        					<!--<img src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                                        					<!--<img src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                                        					<!--<img src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                        					<!--<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                        					<!--<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                        					<!--<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
                                         					<?php
                                                             }else{
                                                         ?>
@@ -370,7 +370,7 @@
                                         <!--    <div class="header-photographer">-->
                                         <!--        <div class="row">-->
                                         <!--            <div class="col-sm-4">-->
-                                        <!--                <img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
+                                        <!--                <img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
                                         <!--            </div>-->
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
@@ -401,7 +401,7 @@
                                         <div class="choose-photographer-box">
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
-                                					<img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
+                                					<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
                                     			    <h4 class="title-this-photographer">{{ $users->username }}</h4>
                                                     <p class="tag-one-photographer">{{ $users->type_name }}</p>
                                     			    <div class="mt-4" style="text-align: center;">
@@ -422,7 +422,7 @@
                                         								$thumbnail = 'uploads/small/'.$stockImage->name;
                                     								}
                                 								@endphp
-                                        					    <img src="{{ asset($thumbnail) }}" alt="" class="set-img-size">
+                                        					    <img loading="lazy" src="{{ asset($thumbnail) }}" alt="" class="set-img-size">
                                         					@endforeach
                                         				<?php
                                                             }else{
@@ -480,7 +480,7 @@
                                         <!--    <div class="header-photographer">-->
                                         <!--        <div class="row">-->
                                         <!--            <div class="col-sm-4">-->
-                                        <!--                <img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
+                                        <!--                <img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
                                         <!--            </div>-->
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
@@ -510,7 +510,7 @@
                                         <div class="choose-photographer-box">
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
-                                					<img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
+                                					<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
                                     			    <h4 class="title-this-photographer">{{ $users->username }}</h4>
                                                     <p class="tag-one-photographer">{{ $users->type_name }}</p>
                                     			    <div class="mt-4" style="text-align: center;">
@@ -535,7 +535,7 @@
 
                                     								$VideoFileScreenShotName = explode('.', $dataUserVideos->thumbnail)[0];
                                 								@endphp
-                                        					    <img src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" alt="" class="set-img-size">
+                                        					    <img loading="lazy" src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" alt="" class="set-img-size">
                                         					@endforeach
                                     				<?php
                                                             }else{
@@ -594,7 +594,7 @@
                                         <!--    <div class="header-photographer">-->
                                         <!--        <div class="row">-->
                                         <!--            <div class="col-sm-4">-->
-                                        <!--                <img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
+                                        <!--                <img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
                                         <!--            </div>-->
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
@@ -624,7 +624,7 @@
                                         <div class="choose-photographer-box">
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
-                                					<img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
+                                					<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
                                     			    <h4 class="title-this-photographer">{{ $users->username }}</h4>
                                                     <p class="tag-one-photographer">{{ $users->type_name }}</p>
                                                     <p class="tag-one-photographer" style="    margin-left: 77px;">{{ $users->CountryName }}</p>

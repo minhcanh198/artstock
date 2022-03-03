@@ -11,7 +11,7 @@
                 <div class="col-md-4 mb-5">
                     <div class="hire-more-box hire-more-active">
                         <div class="img">
-                            <img src="<?php echo url('/').'/img/vacation-1.svg' ?>" alt="" class="img-fluid">
+                            <img loading="lazy" src="<?php echo url('/').'/img/vacation-1.svg' ?>" alt="" class="img-fluid">
                         </div>
                         <div class="txt">
                         <!-- <i class="fas fa-check"></i> -->
@@ -19,12 +19,12 @@
                                 I want a photo shoot to capture my vacation
                             </p>
                         </div>
-                    </div>  
+                    </div>
                 </div>
                 <div class="col-md-4 mb-5">
                     <div class="hire-more-box hire-more-active">
                         <div class="img">
-                            <img src="<?php echo url('/').'/img/hometown-1.svg' ?>" alt="" class="img-fluid">
+                            <img loading="lazy" src="<?php echo url('/').'/img/hometown-1.svg' ?>" alt="" class="img-fluid">
                         </div>
                         <div class="txt">
                         <!-- <i class="fas fa-check"></i> -->
@@ -32,12 +32,12 @@
                                 I want a photo shoot to capture my vacation
                             </p>
                         </div>
-                    </div>  
+                    </div>
                 </div>
                 <div class="col-md-4 mb-5">
                     <div class="hire-more-box hire-more-active">
                         <div class="img">
-                            <img src="<?php echo url('/').'/img/proposal-1.svg' ?>" alt="" class="img-fluid">
+                            <img loading="lazy" src="<?php echo url('/').'/img/proposal-1.svg' ?>" alt="" class="img-fluid">
                         </div>
                         <div class="txt">
                         <!-- <i class="fas fa-check"></i> -->
@@ -45,12 +45,12 @@
                                 I want a photo shoot to capture my vacation
                             </p>
                         </div>
-                    </div>  
+                    </div>
                 </div>
                 <div class="col-md-4 mb-5 offset-md-2">
                     <div class="hire-more-box hire-more-active">
                         <div class="img">
-                            <img src="<?php echo url('/').'/img/coordinated-1.svg' ?>" alt="" class="img-fluid">
+                            <img loading="lazy" src="<?php echo url('/').'/img/coordinated-1.svg' ?>" alt="" class="img-fluid">
                         </div>
                         <div class="txt">
                         <!-- <i class="fas fa-check"></i> -->
@@ -58,12 +58,12 @@
                                 I want a photo shoot to capture my vacation
                             </p>
                         </div>
-                    </div>  
+                    </div>
                 </div>
                 <div class="col-md-4 mb-5">
                     <div class="hire-more-box hire-more-active">
                         <div class="img">
-                            <img src="<?php echo url('/').'/img/commercial-1.svg' ?>" alt="" class="img-fluid">
+                            <img loading="lazy" src="<?php echo url('/').'/img/commercial-1.svg' ?>" alt="" class="img-fluid">
                         </div>
                         <div class="txt">
                         <!-- <i class="fas fa-check"></i> -->
@@ -71,7 +71,7 @@
                                 I want a photo shoot to capture my vacation
                             </p>
                         </div>
-                    </div>  
+                    </div>
                 </div>
                 <div class="col-12 text-center">
                     <div class="popup-hire-more">
@@ -93,7 +93,7 @@
             <!--Content-->
             <div class="modal-content">
                 <div class="logo-modal">
-                    <img src="<?php echo url('/').'/img/commercial-1.svg' ?>" alt="" class="img-fluid">
+                    <img loading="lazy" src="<?php echo url('/').'/img/commercial-1.svg' ?>" alt="" class="img-fluid">
                 </div>
                 <!--Modal cascading tabs-->
                 <div class="d-flex justify-content-center mt-4 mb-4">

@@ -146,7 +146,7 @@
 
                             <div class="col-sm-6">
                                 <!--<div class="form-group" id="scrollDivTripReason">-->
-                                <!--    <label for="tripReason" class="label-form-photo-shoot mb-14">What is the reason for your trip? <span class="tooltip-span"> <img src="images/Iconly-Bold-Info Square.svg" alt="" data-toggle="tooltip" data-placement="top" title="Once your shoot is booked, the photographer will set the best start time for the photo shoot within your preferred time range, based on the route, season, and other bookings that day."></span></label>-->
+                                <!--    <label for="tripReason" class="label-form-photo-shoot mb-14">What is the reason for your trip? <span class="tooltip-span"> <img loading="lazy" src="images/Iconly-Bold-Info Square.svg" alt="" data-toggle="tooltip" data-placement="top" title="Once your shoot is booked, the photographer will set the best start time for the photo shoot within your preferred time range, based on the route, season, and other bookings that day."></span></label>-->
                                 <!--    <select class="form-control form-height" name="trip_reason" id="trip_reason">-->
                                 <!--        <option value="">Select Trip Reason</option>-->
                                 <!--       {{-- @foreach($getTripReason as $tp)-->
@@ -157,7 +157,7 @@
                                 <!--<div id="errorTripReasonDiv"></div>-->
 
                                 <div class="form-group form-disc-one">
-                                    <label for="restrictionsPhotographer" class="label-form-photo-shoot mb-14">Do you have any time restrictions your {{ $getTypeDetails->type_name }} needs to know about? <span class="tooltip-span"><img src="images/Iconly-Bold-Info Square.svg" alt="" data-toggle="tooltip" data-placement="top" title="Once your shoot is booked, the photographer will set the best start time for the photo shoot within your preferred time range, based on the route, season, and other bookings that day."></span></label>
+                                    <label for="restrictionsPhotographer" class="label-form-photo-shoot mb-14">Do you have any time restrictions your {{ $getTypeDetails->type_name }} needs to know about? <span class="tooltip-span"><img loading="lazy" src="images/Iconly-Bold-Info Square.svg" alt="" data-toggle="tooltip" data-placement="top" title="Once your shoot is booked, the photographer will set the best start time for the photo shoot within your preferred time range, based on the route, season, and other bookings that day."></span></label>
                                     <p class="mb-14">(e.g. You request a morning shoot but you have another activity booked at 11am)</p>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" name="time_restrictions_description" rows="6"></textarea>
 
@@ -185,7 +185,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group" id="scrollDivPackage">
-                                    <label for="tripReason" class="label-form-photo-shoot mb-14">Choose your package<span class="tooltip-span"> <img src="images/Iconly-Bold-Info Square.svg" alt="" data-toggle="tooltip" data-placement="top" title="Once your shoot is booked, the photographer will set the best start time for the photo shoot within your preferred time range, based on the route, season, and other bookings that day."></span></label>
+                                    <label for="tripReason" class="label-form-photo-shoot mb-14">Choose your package<span class="tooltip-span"> <img loading="lazy" src="images/Iconly-Bold-Info Square.svg" alt="" data-toggle="tooltip" data-placement="top" title="Once your shoot is booked, the photographer will set the best start time for the photo shoot within your preferred time range, based on the route, season, and other bookings that day."></span></label>
                                     <select class="form-control form-height" name="package" id="package">
                                         <option value="">Select Package</option>
                                         @foreach($getPackage as $p)

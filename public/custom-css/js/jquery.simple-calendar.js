@@ -3,7 +3,7 @@
 ;(function ($, window, document, undefined) {
 
   "use strict";
-  
+
   // Create the defaults once
   var pluginName = "simpleCalendar",
     defaults = {
@@ -81,7 +81,7 @@
 
       //last day of the month
       var lastDay = new Date(y, m + 1, 0);
-      
+
       // Start day of weeks
       var startDayOfWeek = firstDay.getDay();
 
@@ -113,11 +113,11 @@
 
       //For firstDay to lastDay
       for (var day = firstDay; day <= lastDay; day.setDate(day.getDate())) {
-       
+
         var tr = $('<tr></tr>');
         //For each row
         for (var i = 0; i < 7; i++) {
-        
+
           var td = $('<td><div class="day" data-date="' + day.toISOString() + '">' + day.getDate() + '</div></td>');
           var $day = td.find('.day');
 
@@ -150,7 +150,7 @@
           dayAfterTomorrow.setDate(dayAfterTomorrow.getDate() + 2);
           // console.log(dayAfterTomorrow.getDate());
 
-          //day after tommorrow2 
+          //day after tommorrow2
           const dayAfterTomorrow2 = new Date(today);
           dayAfterTomorrow2.setDate(dayAfterTomorrow2.getDate() + 3);
 
@@ -158,15 +158,15 @@
           // if(day.getDate() === tomorrow.getDate() && day.getMonth() === (new Date).getMonth())
           if(day.getDate() === tomorrow.getDate() && day.getMonth() === tomorrow.getMonth())
           {
-            $day.addClass("last-minute");            
+            $day.addClass("last-minute");
           }
-          
+
           //checking day is equals to tomorrow date of current month Then show yellow mark on date.
           if(day.getDate() === dayAfterTomorrow.getDate() && day.getMonth() === dayAfterTomorrow.getMonth())
           {
             $day.addClass("last-minute");
           }
-          
+
           //checking day is equals to tomorrow date of current month Then show yellow mark on date.
           if(day.getDate() === dayAfterTomorrow2.getDate() && day.getMonth() === dayAfterTomorrow2.getMonth())
           {
@@ -201,7 +201,7 @@
       var eventCont = '<div class="event-container">'+
                 '<div class="HeadingDate">Heading</div>'+
                 '<div class="close"></div>'+
-                
+
                 '<div class="event-wrapper">'+
                 '<div class="wrapperHeading" id="wrapperHeaderCalendar">What time of day would you like?</div>'+
                 '<div class="wrapperContent" id="wrapperContentCalendar">Once your shoot is booked, the photographer will set the best start time for the photo shoot within your preferred time range.</div>'+
@@ -272,7 +272,7 @@
         });
 
         const today = new Date();
-         
+
         //tommorrow
         const tomorrow = new Date(today);
         tomorrow.setDate(tomorrow.getDate() + 1);
@@ -281,12 +281,12 @@
         const dayAfterTomorrow = new Date(today);
         dayAfterTomorrow.setDate(dayAfterTomorrow.getDate() + 2);
 
-         //day after tommorrow2 
+         //day after tommorrow2
         const dayAfterTomorrow2 = new Date(today);
         dayAfterTomorrow2.setDate(dayAfterTomorrow2.getDate() + 3);
 
         if(date.getDate() === new Date(today).getDate()){
-          
+
           const base_url = $("#urlBase").val();
           $.ajax({
             url: base_url + '/get-calendar-data',
@@ -299,7 +299,7 @@
                               '</div>'+
                               '<div class="lastMinute-msg">'+ response.calendar_last_minute_content +'</div>'+
                               '<div class="backBtnCalendar">' +
-                              '<a href="javascript:;"name="back-to-calendar" class="back-to-calendar"><img src="https://app.flytographer.com/static/images/icons/request-to-book/chevron-left-icon.svg"><span>Back to calendar</span></a>'+
+                              '<a href="javascript:;"name="back-to-calendar" class="back-to-calendar"><img loading="lazy" src="https://app.flytographer.com/static/images/icons/request-to-book/chevron-left-icon.svg"><span>Back to calendar</span></a>'+
                               '</div>';
                               $(".event-container .event-wrapper").append(eventCont);
             },
@@ -309,7 +309,7 @@
           });
         }else if(date.getDate() === tomorrow.getDate())
         {
-          
+
           const base_url = $("#urlBase").val();
           $.ajax({
             url: base_url + '/get-calendar-data',
@@ -322,7 +322,7 @@
                               '</div>'+
                               '<div class="lastMinute-msg">'+ response.calendar_last_minute_content +'</div>'+
                               '<div class="backBtnCalendar">' +
-                              '<a href="javascript:;"name="back-to-calendar" class="back-to-calendar"><img src="https://app.flytographer.com/static/images/icons/request-to-book/chevron-left-icon.svg"><span>Back to calendar</span></a>'+
+                              '<a href="javascript:;"name="back-to-calendar" class="back-to-calendar"><img loading="lazy" src="https://app.flytographer.com/static/images/icons/request-to-book/chevron-left-icon.svg"><span>Back to calendar</span></a>'+
                               '</div>';
                               $(".event-container .event-wrapper").append(eventCont);
             },
@@ -345,7 +345,7 @@
                               '</div>'+
                               '<div class="lastMinute-msg">'+ response.calendar_last_minute_content +'</div>'+
                               '<div class="backBtnCalendar">' +
-                              '<a href="javascript:;"name="back-to-calendar" class="back-to-calendar"><img src="https://app.flytographer.com/static/images/icons/request-to-book/chevron-left-icon.svg"><span>Back to calendar</span></a>'+
+                              '<a href="javascript:;"name="back-to-calendar" class="back-to-calendar"><img loading="lazy" src="https://app.flytographer.com/static/images/icons/request-to-book/chevron-left-icon.svg"><span>Back to calendar</span></a>'+
                               '</div>';
                               $(".event-container .event-wrapper").append(eventCont);
             },
@@ -368,7 +368,7 @@
                               '</div>'+
                               '<div class="lastMinute-msg">'+ response.calendar_last_minute_content +'</div>'+
                               '<div class="backBtnCalendar">' +
-                              '<a href="javascript:;"name="back-to-calendar" class="back-to-calendar"><img src="https://app.flytographer.com/static/images/icons/request-to-book/chevron-left-icon.svg"><span>Back to calendar</span></a>'+
+                              '<a href="javascript:;"name="back-to-calendar" class="back-to-calendar"><img loading="lazy" src="https://app.flytographer.com/static/images/icons/request-to-book/chevron-left-icon.svg"><span>Back to calendar</span></a>'+
                               '</div>';
                               $(".event-container .event-wrapper").append(eventCont);
             },
@@ -384,7 +384,7 @@
             url: base_url + '/get-calendar-data',
             type:'GET',
             dataType:'json',
-            success:function(response){              
+            success:function(response){
               $(".event-container .event-wrapper").empty();
               var eventCont = '<div class="wrapperHeading" id="wrapperHeaderCalendar">'+ response.calendar_question +'</div>'+
                               '<div class="wrapperContent" id="wrapperContentCalendar">'+ response.calendar_paragraph  +'</div>'+
@@ -435,7 +435,7 @@
       //Binding event container close
       $(plugin.element).on('click', '.event-container .close', function (e) {
         plugin.empty(e.pageX, e.pageY);
-        
+
         $('div[id^="timeDay-"]').removeClass('active');
 				$("#DatePrefered").val('');
 				$("#timeOfDay").val('');
@@ -459,7 +459,7 @@
       var strTime = hours + ':' + minutes + ' ' + ampm;
       return strTime;
     },
-    
+
     // console.log(formatAMPM(new Date));
     displayEvents: function (events) {
       var plugin = this;

@@ -417,14 +417,14 @@ button.enter-chat {
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!-- The user image in the navbar-->
-                  <img src="{{ asset('avatar').'/'.Auth::user()->avatar }}" class="user-image" alt="User Image" />
+                  <img loading="lazy" src="{{ asset('avatar').'/'.Auth::user()->avatar }}" class="user-image" alt="User Image" />
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
                   <span class="hidden-xs">{{ Auth::user()->username }}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
-                    <img src="{{ asset('avatar').'/'.Auth::user()->avatar }}" class="img-circle" alt="User Image" />
+                    <img loading="lazy" src="{{ asset('avatar').'/'.Auth::user()->avatar }}" class="img-circle" alt="User Image" />
                     <p>
                       <small>{{ Auth::user()->username }}</small>
                     </p>
@@ -455,7 +455,7 @@ button.enter-chat {
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="{{ asset('avatar').'/'.Auth::user()->avatar }}" class="img-circle" alt="User Image" />
+              <img loading="lazy" src="{{ asset('avatar').'/'.Auth::user()->avatar }}" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
               <p class="text-overflow">{{ Auth::user()->username }}</p>
@@ -602,7 +602,7 @@ button.enter-chat {
               <div class="" style="margin-left: auto; margin-right: 10px;">
                 <!-- <div class="dropdown">
                   <button class="dropdown-toggle" type="button" data-toggle="dropdown" style="background-color: transparent; border: 0;     background-color: transparent; border: 0; border-radius: 50%; width: 36px; height: 36px; background-color: rgba(0, 0, 0, .05);
-                  opacity: 1; border: 0; display: flex; justify-content: center; align-items: center;"><img src="{{ url('/')}}/img/icons8-menu-vertical-30.png" alt="">
+                  opacity: 1; border: 0; display: flex; justify-content: center; align-items: center;"><img loading="lazy" src="{{ url('/')}}/img/icons8-menu-vertical-30.png" alt="">
                   <span class="caret"></span></button>
                   <ul class="dropdown-menu dropdown-modal-messenger">
                     <li><a href="#">HTML</a></li>
@@ -636,7 +636,7 @@ button.enter-chat {
               <!-- <a href="" type="button" class="" data-toggle="modal" data-target="#messageMainModal2"  style="display: block; color: #000;">
                 <div class="row conversation-persons-modal" style="margin-bottom: 14px;">
                   <div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">
-                    <img src="../img/dummy-avatar.jpg" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">
+                    <img loading="lazy" src="../img/dummy-avatar.jpg" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">
                   </div>
                   <div class="col-md-8" style="padding-left: 0; padding-right: 0;">
                       <p>User Name</p>
@@ -669,7 +669,7 @@ button.enter-chat {
               <div class="" style="margin-left: auto; margin-right: 10px;">
                 <!-- <div class="dropdown">
                   <button class="dropdown-toggle" type="button" data-toggle="dropdown" style="background-color: transparent; border: 0;     background-color: transparent; border: 0; border-radius: 50%; width: 36px; height: 36px; background-color: rgba(0, 0, 0, .05);
-                  opacity: 1; border: 0; display: flex; justify-content: center; align-items: center;"><img src="{{ url('/') }}/img/icons8-menu-vertical-30.png" alt="">
+                  opacity: 1; border: 0; display: flex; justify-content: center; align-items: center;"><img loading="lazy" src="{{ url('/') }}/img/icons8-menu-vertical-30.png" alt="">
 
                   <ul class="dropdown-menu dropdown-modal-messenger">
                     <li><a href="#">HTML</a></li>
@@ -721,7 +721,7 @@ button.enter-chat {
               </div>
 
               <div class="col-sm-1" style="">
-                <button id="sendMsgChat" class="enter-chat"><img src="{{ url('/') }}/img/email.png" alt="" class="img-responsive" style="width: 17px;"></button>
+                <button id="sendMsgChat" class="enter-chat"><img loading="lazy" src="{{ url('/') }}/img/email.png" alt="" class="img-responsive" style="width: 17px;"></button>
               </div>
               <div class="col-sm-1"></div>
             </div>
@@ -953,9 +953,9 @@ button.enter-chat {
                     '<div class="row conversation-persons-modal" style="margin-bottom: 14px;">'+
                       '<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
                       if(value.senderId == sessionUserId){
-                        htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                        htmlChatList +='<img loading="lazy" src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                       }else{
-                        htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                        htmlChatList +='<img loading="lazy" src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                       }
                       htmlChatList +='</div>'+
                       '<div class="col-md-8" style="padding-left: 0; padding-right: 0;">';
@@ -979,10 +979,10 @@ button.enter-chat {
                         }else{
 
                           if(value.MessageType == "image"){
-                            htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+                            htmlChatList +='<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
                           }else{
-                            htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
+                            htmlChatList +='<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
                           }
                         }
                         htmlChatList += '</div>'+
@@ -1018,9 +1018,9 @@ button.enter-chat {
                     '<div class="row conversation-persons-modal" style="margin-bottom: 14px;">'+
                       '<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
                       if(value.senderId == sessionUserId){
-                        htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                        htmlChatList +='<img loading="lazy" src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                       }else{
-                        htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                        htmlChatList +='<img loading="lazy" src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                       }
                       htmlChatList +='</div>'+
                       '<div class="col-md-8" style="padding-left: 0; padding-right: 0;">';
@@ -1044,10 +1044,10 @@ button.enter-chat {
                         }else{
 
                           if(value.MessageType == "image"){
-                            htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+                            htmlChatList +='<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
                           }else{
-                            htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
+                            htmlChatList +='<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
                           }
                         }
                         htmlChatList += '</div>'+
@@ -1085,7 +1085,7 @@ button.enter-chat {
             $("#textChatId").val(resp[0].chat_id);
             $("#textUserId").val('');
             if(resp[0].senderId == sessionUserId2){
-                htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/avatar/' + resp[0].receiverAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
+                htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img loading="lazy" src="" alt=""><img loading="lazy" src="'+ baseUrl + '/avatar/' + resp[0].receiverAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
                 if(resp[0].receiverName !== ""){
 
                   htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].receiverName +'</span>';
@@ -1096,7 +1096,7 @@ button.enter-chat {
               htmlHeadhingUserName +='</h5>';
               $("#textUserId").val(resp[0].receiverId);
             }else{
-              htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/avatar/' + resp[0].senderAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
+              htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img loading="lazy" src="" alt=""><img loading="lazy" src="'+ baseUrl + '/avatar/' + resp[0].senderAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
               if(resp[0].senderName !== ""){
                 htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].senderName +'</span>';
               }else{
@@ -1134,7 +1134,7 @@ button.enter-chat {
                     if(value.file_type == "image"){
                       if(value.sender_id != sessionUserId){
                         htmlSingleChatList += '<div class="col-sm-6 hover-show-download " style="border-radius:10px; margin-right: 1px;">'+
-                                              '<img src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">'+
+                                              '<img loading="lazy" src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">'+
                                               '<span class="download-btn" id="spanDownloadHover">'+
                                               '<a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
                                               '</span>'+
@@ -1142,7 +1142,7 @@ button.enter-chat {
                                               '</div>';
                       }else{
                         htmlSingleChatList += '<div class="col-sm-6 hover-show-download col-sm-offset-6" style="border-radius:10px;" >'+
-                                              '<img src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">'+
+                                              '<img loading="lazy" src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">'+
                                               '<span class="download-btn" id="spanDownloadHover">'+
                                               '<a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
                                               '</span>'+
@@ -1153,9 +1153,9 @@ button.enter-chat {
                       if(value.sender_id != sessionUserId){
                         htmlSingleChatList += '<div class="col-sm-12" >';
                         if(value.message_file.split('.')[1] == "pdf"){
-                          htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                          htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img loading="lazy" src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                         }else{
-                          htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                          htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img loading="lazy" src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                         }
                         htmlSingleChatList  += value.message_file +
                         '<span><a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
@@ -1165,9 +1165,9 @@ button.enter-chat {
                       }else{
                         htmlSingleChatList += '<div class="col-sm-12" >';
                         if(value.message_file.split('.')[1] == "pdf"){
-                          htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;"><span><img src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                          htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;"><span><img loading="lazy" src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                         }else{
-                          htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;"><span><img src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                          htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;"><span><img loading="lazy" src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                         }
                         htmlSingleChatList += value.message_file +
                           '<span><a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
@@ -1268,9 +1268,9 @@ button.enter-chat {
                               '<div class="row conversation-persons-modal" style="margin-bottom: 14px;">'+
                                 '<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
                                 if(value.senderId == sessionUserId){
-                                  htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                                  htmlChatList +='<img loading="lazy" src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                                 }else{
-                                  htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                                  htmlChatList +='<img loading="lazy" src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                                 }
                                 htmlChatList +='</div>'+
                                 '<div class="col-md-8" style="padding-left: 0; padding-right: 0;">';
@@ -1295,11 +1295,11 @@ button.enter-chat {
                                       if(value.MessageType == "image"){
 
 
-                                        htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+                                        htmlChatList +='<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
                                       }else{
 
-                                        htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
+                                        htmlChatList +='<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
                                       }
                                   }
                                     htmlChatList += '</div>'+
@@ -1335,9 +1335,9 @@ button.enter-chat {
                                 '<div class="row conversation-persons-modal" style="margin-bottom: 14px;">'+
                                   '<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
                                   if(value.senderId == sessionUserId){
-                                    htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                                    htmlChatList +='<img loading="lazy" src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                                   }else{
-                                    htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                                    htmlChatList +='<img loading="lazy" src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                                   }
                                   htmlChatList +='</div>'+
                                   '<div class="col-md-8" style="padding-left: 0; padding-right: 0;">';
@@ -1362,11 +1362,11 @@ button.enter-chat {
                                         if(value.MessageType == "image"){
 
 
-                                          htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+                                          htmlChatList +='<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
                                         }else{
 
-                                          htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
+                                          htmlChatList +='<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
                                         }
                                     }
                                       htmlChatList += '</div>'+
@@ -1439,7 +1439,7 @@ button.enter-chat {
                           if(value.file_type == "image"){
                             if(value.sender_id != sessionUserId){
                               htmlSingleChatList += '<div class="col-sm-6 hover-show-download " style="border-radius:10px; margin-right: 1px;">'+
-                                                    '<img src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">'+
+                                                    '<img loading="lazy" src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">'+
                                                     '<span class="download-btn" id="spanDownloadHover">'+
                                                     '<a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
                                                     '</span>'+
@@ -1447,7 +1447,7 @@ button.enter-chat {
                                                     '</div>';
                             }else{
                               htmlSingleChatList += '<div class="col-sm-6 hover-show-download col-sm-offset-6" style="border-radius:10px;" >'+
-                                                    '<img src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">'+
+                                                    '<img loading="lazy" src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">'+
                                                     '<span class="download-btn" id="spanDownloadHover">'+
                                                     '<a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
                                                     '</span>'+
@@ -1458,9 +1458,9 @@ button.enter-chat {
                             if(value.sender_id != sessionUserId){
                               htmlSingleChatList += '<div class="col-sm-12" >';
                               if(value.message_file.split('.')[1] == "pdf"){
-                                htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img loading="lazy" src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                               }else{
-                                htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img loading="lazy" src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                               }
                               htmlSingleChatList  += value.message_file +
                               '<span><a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
@@ -1470,9 +1470,9 @@ button.enter-chat {
                             }else{
                               htmlSingleChatList += '<div class="col-sm-12" >';
                               if(value.message_file.split('.')[1] == "pdf"){
-                                htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;"><span><img src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;"><span><img loading="lazy" src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                               }else{
-                                htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;"><span><img src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;"><span><img loading="lazy" src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                               }
                               htmlSingleChatList += value.message_file +
                                 '<span><a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
@@ -1550,9 +1550,9 @@ button.enter-chat {
                           '<div class="row conversation-persons-modal" style="margin-bottom: 14px;">'+
                             '<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
                             if(value.senderId == sessionUserId){
-                              htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                              htmlChatList +='<img loading="lazy" src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                             }else{
-                              htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                              htmlChatList +='<img loading="lazy" src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                             }
                             htmlChatList +='</div>'+
                             '<div class="col-md-8" style="padding-left: 0; padding-right: 0;">';
@@ -1577,11 +1577,11 @@ button.enter-chat {
                                 if(value.MessageType == "image"){
 
 
-                                  htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+                                  htmlChatList +='<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
                                 }else{
 
-                                  htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
+                                  htmlChatList +='<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
                                 }
                               }
                             htmlChatList += '</div>'+
@@ -1617,9 +1617,9 @@ button.enter-chat {
                           '<div class="row conversation-persons-modal" style="margin-bottom: 14px;">'+
                             '<div class="col-md-2" style="padding-left: 0; padding-right: 0; text-align: center;">';
                             if(value.senderId == sessionUserId){
-                              htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                              htmlChatList +='<img loading="lazy" src="'+ baseUrl + '/avatar/' + value.receiverAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                             }else{
-                              htmlChatList +='<img src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
+                              htmlChatList +='<img loading="lazy" src="'+ baseUrl + '/avatar/' + value.senderAvatar +'" alt="" style="width: 60px; border-radius: 50%; height: 60px; margin: 0 auto;">';
                             }
                             htmlChatList +='</div>'+
                             '<div class="col-md-8" style="padding-left: 0; padding-right: 0;">';
@@ -1644,11 +1644,11 @@ button.enter-chat {
                                 if(value.MessageType == "image"){
 
 
-                                  htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
+                                  htmlChatList +='<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/photo.png" alt="" style="width: 20px;">Photo</p>';
 
                                 }else{
 
-                                  htmlChatList +='<p style="font-style: italic;"><img src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
+                                  htmlChatList +='<p style="font-style: italic;"><img loading="lazy" src="' + baseUrl + '/img/file.png" alt="" style="width: 20px;">'+ value.LatestMessageFile +'</p>';
                                 }
                               }
                             htmlChatList += '</div>'+
@@ -1688,7 +1688,7 @@ button.enter-chat {
               $("#textChatId").val(resp[0].chat_id);
               $("#textUserId").val('');
               if(resp[0].senderId == sessionUserId2){
-                  htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/avatar/' + resp[0].receiverAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
+                  htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img loading="lazy" src="" alt=""><img loading="lazy" src="'+ baseUrl + '/avatar/' + resp[0].receiverAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
                   if(resp[0].receiverName !== ""){
 
                     htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].receiverName +'</span>';
@@ -1699,7 +1699,7 @@ button.enter-chat {
                 htmlHeadhingUserName +='</h5>';
                 $("#textUserId").val(resp[0].receiverId);
               }else{
-                htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img src="" alt=""><img src="'+ baseUrl + '/avatar/' + resp[0].senderAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
+                htmlHeadhingUserName ='<h5 class="modal-title" id="messageMainModal-2Label"><img loading="lazy" src="" alt=""><img loading="lazy" src="'+ baseUrl + '/avatar/' + resp[0].senderAvatar +'" alt="" style="width: 30px; border-radius: 50%; height: 30px;"> ';
                 if(resp[0].senderName !== ""){
                   htmlHeadhingUserName +='<span style="font-size: 16px;">'+ resp[0].senderName +'</span>';
                 }else{
@@ -1739,7 +1739,7 @@ button.enter-chat {
                       if(value.file_type == "image"){
                         if(value.sender_id != sessionUserId){
                           htmlSingleChatList += '<div class="col-sm-6 hover-show-download " style="border-radius:10px; margin-right: 1px;">'+
-                                                '<img src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">'+
+                                                '<img loading="lazy" src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #ef595f; border-radius: 12px;">'+
                                                 '<span class="download-btn" id="spanDownloadHover">'+
                                                 '<a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
                                                 '</span>'+
@@ -1747,7 +1747,7 @@ button.enter-chat {
                                                 '</div>';
                         }else{
                           htmlSingleChatList += '<div class="col-sm-6 hover-show-download col-sm-offset-6" style="border-radius:10px; " >'+
-                                                '<img src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">'+
+                                                '<img loading="lazy" src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">'+
                                                 '<span class="download-btn" id="spanDownloadHover">'+
                                                 '<a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
                                                 '</span>'+
@@ -1758,9 +1758,9 @@ button.enter-chat {
                         if(value.sender_id != sessionUserId){
                           htmlSingleChatList += '<div class="col-sm-12" >';
                           if(value.message_file.split('.')[1] == "pdf"){
-                            htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                            htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img loading="lazy" src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                           }else{
-                            htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                            htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img loading="lazy" src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                           }
                           htmlSingleChatList  += value.message_file +
                           '<span><a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
@@ -1770,9 +1770,9 @@ button.enter-chat {
                         }else{
                           htmlSingleChatList += '<div class="col-sm-12" >';
                           if(value.message_file.split('.')[1] == "pdf"){
-                            htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;"><span><img src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                            htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;"><span><img loading="lazy" src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                           }else{
-                            htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;"><span><img src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                            htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;"><span><img loading="lazy" src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                           }
                           htmlSingleChatList += value.message_file +
                             '<span><a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
@@ -1936,7 +1936,7 @@ button.enter-chat {
                               if(value.file_type == "image"){
                                 if(value.sender_id != sessionUserId){
                                   htmlSingleChatList += '<div class="col-sm-6 hover-show-download " style="border-radius:10px;">'+
-                                                        '<img src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #000; border-radius: 12px;">'+
+                                                        '<img loading="lazy" src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; padding:10px; background-color: #000; border-radius: 12px;">'+
                                                         '<span class="download-btn" id="spanDownloadHover">'+
                                                         '<a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
                                                         '</span>'+
@@ -1944,7 +1944,7 @@ button.enter-chat {
                                                         '</div>';
                                 }else{
                                   htmlSingleChatList += '<div class="col-sm-6 hover-show-download col-sm-offset-6" style="border-radius:10px;" >'+
-                                                        '<img src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">'+
+                                                        '<img loading="lazy" src="'+ baseUrl +'/chats_images/' + value.message_file + '" alt="" class="img-responsive" style="margin-bottom: 10px; margin-left: auto; padding:10px; background-color: #000; border-radius: 12px;">'+
                                                         '<span class="download-btn" id="spanDownloadHover">'+
                                                         '<a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"> <i class="fa fa-download" aria-hidden="true"></i></a>'+
                                                         '</span>'+
@@ -1955,9 +1955,9 @@ button.enter-chat {
                                 if(value.sender_id != sessionUserId){
                                   htmlSingleChatList += '<div class="col-sm-12" >';
                                   if(value.message_file.split('.')[1] == "pdf"){
-                                    htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                    htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img loading="lazy" src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                   }else{
-                                    htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                    htmlSingleChatList += '<p style="background-color: #ef595f;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;"><span><img loading="lazy" src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                   }
                                   htmlSingleChatList  += value.message_file +
                                   '<span><a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+
@@ -1967,9 +1967,9 @@ button.enter-chat {
                                 }else{
                                   htmlSingleChatList += '<div class="col-sm-12" >';
                                   if(value.message_file.split('.')[1] == "pdf"){
-                                    htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;"><span><img src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                    htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;"><span><img loading="lazy" src="'+ baseUrl +'/img/pdf.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                   }else{
-                                    htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;"><span><img src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
+                                    htmlSingleChatList +=   '<p style="background-color: #000;color: #fff;border-radius: 30px;padding: 6px 16px; width: 50%;margin-left: auto;"><span><img loading="lazy" src="'+ baseUrl +'/img/doc2.png'+'" alt="" style="width: 20px; height: 20px; margin-right: 6px;"></span>';
                                   }
                                   htmlSingleChatList += value.message_file +
                                     '<span><a download="'+ value.message_file +'" href="' + baseUrl +'/chats_images/'+ value.message_file +'" style="color: #fff;"><i class="fa fa-download" aria-hidden="true"></i></a>'+

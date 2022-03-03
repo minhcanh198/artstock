@@ -33,7 +33,7 @@ $imageData = App\Models\Images::where('id','=', $image->images_id)->first();
 			</span><!-- Span Out -->
 	</span><!-- hover-content -->
 
-		 {{-- <!-- <img src="{{ url('uploads/thumbnail',$imageCollection) }}" /> --> --}}
+		 {{-- <!-- <img loading="lazy" src="{{ url('uploads/thumbnail',$imageCollection) }}" /> --> --}}
 		<video onmouseover="this.pause()" onmouseout="this.play()"  width="100%" height="100%" autoplay="true" muted loop>
 			@if($imageData->extension == "mp4")
 				<source src="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$imageData->thumbnail }}" type="video/mp4">
@@ -53,7 +53,7 @@ $imageData = App\Models\Images::where('id','=', $image->images_id)->first();
 				</h5>
 
 			<h5 class="text-overflow author-label mg-bottom-xs" title="{{$collection->user()->username}}">
-				<img src="{{ url('avatar',$collection->user()->avatar) }}" alt="User" class="img-circle" style="width: 20px; height: 20px; display: inline-block; margin-right: 5px;">
+				<img loading="lazy" src="{{ url('avatar',$collection->user()->avatar) }}" alt="User" class="img-circle" style="width: 20px; height: 20px; display: inline-block; margin-right: 5px;">
 				<em>{{$collection->user()->username}}</em>
 				</h5>
 				<span class="timeAgo btn-block date-color text-overflow" data="{{ date('c', strtotime( $collection->created_at )) }}"></span>
@@ -63,7 +63,7 @@ $imageData = App\Models\Images::where('id','=', $image->images_id)->first();
 			</span><!-- Span Out -->
 	</span><!-- hover-content -->
 
-		<img src="{{ url('uploads/thumbnail',$imageCollection) }}" />
+		<img loading="lazy" src="{{ url('uploads/thumbnail',$imageCollection) }}" />
 </a><!-- End Item -->
 @endif
 @endforeach

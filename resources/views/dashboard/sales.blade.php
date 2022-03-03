@@ -95,7 +95,7 @@
 
                     <tr>
                       <td>{{ $purchase->id }}</td>
-                      <td><img src="{{$image_photo}}" width="50" onerror="" /></td>
+                      <td><img loading="lazy" src="{{$image_photo}}" width="50" onerror="" /></td>
                       <td><a href="{{ $image_url }}" title="{{$image_title}}" target="_blank">{{ str_limit($image_title, 20, '...') }} <i class="fa fa-external-link-square"></i></a></td>
                       <td><a href="{{url($purchase_username)}}" target="_blank">{{$purchase_username}} <i class="fa fa-external-link-square"></i></a></td>
                       <td>{{ $purchase_email }}</td>

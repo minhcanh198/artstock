@@ -3,7 +3,7 @@
 //** v1.1 (April 7th, 09'):
 //** 1) Adds ability to scroll to an absolute position (from top of page) or specific element on the page instead.
 //** 2) Fixes scroll animation not working in Opera.
-//<img src="'+ URL_BASE +'/img/top.png" class="goTop" />
+//<img loading="lazy" src="'+ URL_BASE +'/img/top.png" class="goTop" />
 var templatepath = $("#templatedirectory").html();
 var scrolltotop={
 	//startline: Integer. Number of pixels from top of doc scrollbar is scrolled before showing control

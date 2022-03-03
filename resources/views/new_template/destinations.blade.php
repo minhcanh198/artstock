@@ -99,7 +99,7 @@
 						<div class="col-lg-4 col-md-6 mb-4-cutom">
 							<div class="destination-location-box">
 								<div class="img">
-									<img src="{{ url('/') }}/img-city/{{ $cities->city_img }}" alt="" class="img-responsive" style="border-radius: 8px;">
+									<img loading="lazy" src="{{ url('/') }}/img-city/{{ $cities->city_img }}" alt="" class="img-responsive" style="border-radius: 8px;">
 								</div>
 								<div class="content row">
 									<div class="heading col-sm-6 padding-xs-0">

@@ -85,7 +85,7 @@
 					<a href="{{ url('/').'/destinations/'. $cities->city_slug }}" style="text-decoration: none; ">
 						<div class="destination-s2-box box-shadow-custom-hover" >
 							<div class="img-destinaion on-hover-wrapper" >
-								<img src="{{ url('/') }}/img-city/{{ $cities->city_img }}" alt="" class="img-fluid on-hover">
+								<img loading="lazy" src="{{ url('/') }}/img-city/{{ $cities->city_img }}" alt="" class="img-fluid on-hover">
 							</div>
 							<div class="content">
 								<h3 class="title">{{ $cities->city_name }}</h3>

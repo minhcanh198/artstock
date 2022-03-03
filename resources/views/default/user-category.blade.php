@@ -138,7 +138,7 @@
 								// 			'<div class="header-photographer">'+
 								// 				'<div class="row">'+
 								// 					'<div class="col-sm-4">'+
-								// 						'<img src="' + baseUrl + '/avatar/' + value[0].avatar + '" alt="" class="set-img-size">'+
+								// 						'<img loading="lazy" src="' + baseUrl + '/avatar/' + value[0].avatar + '" alt="" class="set-img-size">'+
 								// 					'</div>'+
 								// 					'<div class="col-sm-7 offset-md-1">'+
 								// 						'<h4 class="title-this">' + value[0].username + '</h4>'+
@@ -202,7 +202,7 @@
                                             		'<div class="pt-4 pb-4 pl-3 pr-3">'+
                                             			'<div class="">'+
                                             			    '<a data-fancybox href="' + baseUrl + '/avatar/' + value[0].avatar +'">'+
-                                        					    '<img src="' + baseUrl + '/avatar/' + value[0].avatar +'" alt="" class="photographer-thimbnial">'+
+                                        					    '<img loading="lazy" src="' + baseUrl + '/avatar/' + value[0].avatar +'" alt="" class="photographer-thimbnial">'+
                                         					 '</a>'+
                                             			    '<h4 class="title-this-photographer">' + value[0].username + '</h4>'+
                                                             '<p class="tag-one-photographer">' + value[0].type_name + '</p>'+
@@ -216,7 +216,7 @@
                                                 			        for(var i=0; i < 4; i++){
                                                 			            if(splitImgs[i] != undefined){
                                             								html +='<a data-fancybox href="' + baseUrl + '/uploads/preview/' + splitImgs[i] +'">'+
-                                                        					    '<img src="' + baseUrl + '/uploads/preview/' + splitImgs[i] +'" alt="" class="set-img-size">'+
+                                                        					    '<img loading="lazy" src="' + baseUrl + '/uploads/preview/' + splitImgs[i] +'" alt="" class="set-img-size">'+
                                                             			    '</a>';
                                                 			            }
                                                 			        }
@@ -234,7 +234,7 @@
                                                         			            var getFileNameScreenShot = splitVids[i].split('.')[0] + '.png';
                                                         			         //   console.log('asd ==>'+ getFileNameScreenShot);
                                             								html +='<a data-fancybox href="' + baseUrl + '/uploads/video/water_mark_large/watermark-' + realFileName +'">'+
-                                                        					    '<img src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + getFileNameScreenShot +'" alt="" class="set-img-size">'+
+                                                        					    '<img loading="lazy" src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + getFileNameScreenShot +'" alt="" class="set-img-size">'+
                                                             			    '</a>';
                                                 			            }
                                                 			        }
@@ -252,7 +252,7 @@
                                                         			            var getFileNameScreenShotAni = splitAnis[i].split('.')[0] + '.png';
                                                         			         //   console.log('asd ==>'+ getFileNameScreenShotAni);
                                             								html +='<a data-fancybox href="' + baseUrl + '/uploads/video/water_mark_large/watermark-' + realFileNameAni +'">'+
-                                                        					    '<img src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + getFileNameScreenShotAni +'" alt="" class="set-img-size">'+
+                                                        					    '<img loading="lazy" src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + getFileNameScreenShotAni +'" alt="" class="set-img-size">'+
                                                             			    '</a>';
                                                 			            }
                                                 			        }
@@ -269,7 +269,7 @@
                                                 			            if(splitMus[i] != undefined){
                                             								// htmlDiv +='<div class="qwewave" data-path="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'">'+
                                             								// '<button type="button" id="baton#'+ splitMus[i] + '">Play / Pause</button>'+
-                                                    //     					   // '<img src="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'" alt="" class="set-img-size">'+
+                                                    //     					   // '<img loading="lazy" src="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'" alt="" class="set-img-size">'+
                                                     //     					    '<div class="wave-container"></div>'+
                                                     //         			    '</div>';
 
@@ -311,7 +311,7 @@
         //                             		'<div class="pt-4 pb-4 pl-3 pr-3">'+
         //                             			'<div class="">'+
         //                             			    '<a data-fancybox href="' + baseUrl + '/avatar/' + value[0].avatar + '">'+
-        //                         					'<img src="' + baseUrl + '/avatar/' + value[0].avatar + '" alt="" class="photographer-thimbnial">'+
+        //                         					'<img loading="lazy" src="' + baseUrl + '/avatar/' + value[0].avatar + '" alt="" class="photographer-thimbnial">'+
         //                         					'</a>'+
     				// 								'<h4 class="title-this-photographer">' + value[0].username + '</h4>'+
 								// 					'<p class="tag-one-photographer">' + value[0].type_name  + '</p>'+
@@ -327,7 +327,7 @@
         //                                 			               console.log(responseImage);
         //                                 			               $.each( responseImage, function( key, valueImage ) {
         //                                 			                   Imagehtml += '<a data-fancybox href="'+ baseUrl +'/uploads/preview/' + valueImage.preview + '">'+
-        //                                     					                '<img src="'+ baseUrl + '/uploads/preview/' + valueImage.preview + '" alt="" class="set-img-size">'+
+        //                                     					                '<img loading="lazy" src="'+ baseUrl + '/uploads/preview/' + valueImage.preview + '" alt="" class="set-img-size">'+
         //                                     					                '</a>';
         //                                                           });
         //                                                           $("#"+ value[0].id).append(Imagehtml);
@@ -350,7 +350,7 @@
         //         								                        // var splitThumbnail = ;
         //         								                        // alert(JSON.stringify(valueVideo));
         //                                     					         Videohtml += '<a data-fancybox href="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-'+ valueVideo.thumbnail.split('.')[0] + '.png' +'">'+
-        //                                     					        '<img src="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-'+ valueVideo.thumbnail.split('.')[0] + '.png' +'" alt="" class="set-img-size">'+
+        //                                     					        '<img loading="lazy" src="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-'+ valueVideo.thumbnail.split('.')[0] + '.png' +'" alt="" class="set-img-size">'+
         //                                     					        '</a>';
         //                                                           });
         //                                                           $("#"+ value[0].id).append(Videohtml);
@@ -374,7 +374,7 @@
         //                                 			                   console.log(valueAnimation);
         //                                 			                   var splitAnimationThumbnail = valueAnimation.thumbnail.split('.')[0];
         //                                     					        Animationhtml += '<a data-fancybox href="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitAnimationThumbnail + '.png' + '">'+
-        //                                     					            '<img src="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitAnimationThumbnail + '.png' + '" alt="" class="set-img-size">'+
+        //                                     					            '<img loading="lazy" src="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitAnimationThumbnail + '.png' + '" alt="" class="set-img-size">'+
         //                                     					        '</a>';
         //                                                           });
         //                                                           $("#"+ value[0].id).append(Animationhtml);
@@ -541,7 +541,7 @@
 								// 			'<div class="header-photographer">'+
 								// 				'<div class="row">'+
 								// 					'<div class="col-sm-4">'+
-								// 						'<img src="' + baseUrl + '/avatar/' + value[0].avatar + '" alt="" class="set-img-size">'+
+								// 						'<img loading="lazy" src="' + baseUrl + '/avatar/' + value[0].avatar + '" alt="" class="set-img-size">'+
 								// 					'</div>'+
 								// 					'<div class="col-sm-7 offset-md-1">'+
 								// 						'<h4 class="title-this">' + value[0].username + '</h4>'+
@@ -601,7 +601,7 @@
         //                             		'<div class="pt-4 pb-4 pl-3 pr-3">'+
         //                             			'<div class="">'+
         //                             			    '<a data-fancybox href="' + baseUrl + '/avatar/' + value[0].avatar + '">'+
-        //                         					'<img src="' + baseUrl + '/avatar/' + value[0].avatar + '" alt="" class="photographer-thimbnial">'+
+        //                         					'<img loading="lazy" src="' + baseUrl + '/avatar/' + value[0].avatar + '" alt="" class="photographer-thimbnial">'+
         //                         					'</a>'+
     				// 								'<h4 class="title-this-photographer">' + value[0].username + '</h4>'+
 								// 					'<p class="tag-one-photographer">' + value[0].type_name  + '</p>'+
@@ -617,7 +617,7 @@
         //                                 			               console.log(responseImage);
         //                                 			               $.each( responseImage, function( key, valueImage ) {
         //                                 			                   Imagehtml += '<a data-fancybox href="'+ baseUrl +'/uploads/preview/' + valueImage.preview + '">'+
-        //                                     					                '<img src="'+ baseUrl + '/uploads/preview/' + valueImage.preview + '" alt="" class="set-img-size">'+
+        //                                     					                '<img loading="lazy" src="'+ baseUrl + '/uploads/preview/' + valueImage.preview + '" alt="" class="set-img-size">'+
         //                                     					                '</a>';
         //                                                           });
         //                                                           $("#"+ value[0].id).append(Imagehtml);
@@ -640,7 +640,7 @@
         //         								                        // var splitThumbnail = ;
         //         								                        // alert(JSON.stringify(valueVideo));
         //         								                        Videohtml += '<a data-fancybox href="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-'+ valueVideo.thumbnail.split('.')[0] + '.png' +'">'+
-        //                                     					        '<img src="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-'+ valueVideo.thumbnail.split('.')[0] + '.png' +'" alt="" class="set-img-size">'+
+        //                                     					        '<img loading="lazy" src="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-'+ valueVideo.thumbnail.split('.')[0] + '.png' +'" alt="" class="set-img-size">'+
         //                                     					        '</a>';
         //                                                           });
         //                                                           $("#"+ value[0].id).append(Videohtml);
@@ -664,7 +664,7 @@
         //                                 			                   console.log(valueAnimation);
         //                                 			                   var splitAnimationThumbnail = valueAnimation.thumbnail.split('.')[0];
         //                                 			                    Animationhtml += '<a data-fancybox href="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitAnimationThumbnail + '.png' + '">'+
-        //                                     					            '<img src="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitAnimationThumbnail + '.png' + '" alt="" class="set-img-size">'+
+        //                                     					            '<img loading="lazy" src="'+ baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitAnimationThumbnail + '.png' + '" alt="" class="set-img-size">'+
         //                                     					        '</a>';
         //                                                           });
         //                                                           $("#"+ value[0].id).append(Animationhtml);
@@ -697,7 +697,7 @@
                                             		'<div class="pt-4 pb-4 pl-3 pr-3">'+
                                             			'<div class="">'+
                                             			    '<a data-fancybox href="' + baseUrl + '/avatar/' + value[0].avatar +'">'+
-                                        					    '<img src="' + baseUrl + '/avatar/' + value[0].avatar +'" alt="" class="photographer-thimbnial">'+
+                                        					    '<img loading="lazy" src="' + baseUrl + '/avatar/' + value[0].avatar +'" alt="" class="photographer-thimbnial">'+
                                         					 '</a>'+
                                             			    '<h4 class="title-this-photographer">' + value[0].username + '</h4>'+
                                                             '<p class="tag-one-photographer">' + value[0].type_name + '</p>'+
@@ -711,7 +711,7 @@
                                                 			        for(var i=0; i < 4; i++){
                                                 			            if(splitImgs[i] != undefined){
                                             								html +='<a data-fancybox href="' + baseUrl + '/uploads/preview/' + splitImgs[i] +'">'+
-                                                        					    '<img src="' + baseUrl + '/uploads/preview/' + splitImgs[i] +'" alt="" class="set-img-size">'+
+                                                        					    '<img loading="lazy" src="' + baseUrl + '/uploads/preview/' + splitImgs[i] +'" alt="" class="set-img-size">'+
                                                             			    '</a>';
                                                 			            }
                                                 			        }
@@ -725,7 +725,7 @@
                                                 			        for(var i=0; i < 4; i++){
                                                 			            if(splitVids[i] != undefined){
                                             								html +='<a data-fancybox href="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitVids[i] +'">'+
-                                                        					    '<img src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitVids[i] +'" alt="" class="set-img-size">'+
+                                                        					    '<img loading="lazy" src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitVids[i] +'" alt="" class="set-img-size">'+
                                                             			    '</a>';
                                                 			            }
                                                 			        }
@@ -739,7 +739,7 @@
                                                 			        for(var i=0; i < 4; i++){
                                                 			            if(splitAnis[i] != undefined){
                                             								html +='<a data-fancybox href="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitAnis[i] +'">'+
-                                                        					    '<img src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitAnis[i] +'" alt="" class="set-img-size">'+
+                                                        					    '<img loading="lazy" src="' + baseUrl + '/uploads/video/screen_shot/screen-shot-' + splitAnis[i] +'" alt="" class="set-img-size">'+
                                                             			    '</a>';
                                                 			            }
                                                 			        }
@@ -756,7 +756,7 @@
                                                 			            if(splitMus[i] != undefined){
                                             								// htmlDiv +='<div class="qwewave" data-path="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'">'+
                                             								// '<button type="button" id="baton#'+ splitMus[i] + '">Play / Pause</button>'+
-                                                    //     					   // '<img src="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'" alt="" class="set-img-size">'+
+                                                    //     					   // '<img loading="lazy" src="' + baseUrl + '/uploads/audio/large/' + splitMus[i] +'" alt="" class="set-img-size">'+
                                                     //     					    '<div class="wave-container"></div>'+
                                                     //         			    '</div>';
 

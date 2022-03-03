@@ -317,7 +317,7 @@
                                 <!--//customer_file_name-->
                                 <li class="">
                                     <a data-fancybox href="<?php echo url('customer_files/'.$refNo.'/').'/'. $gimg->customer_file_name; ?>">
-                					    <img src="<?php echo url('customer_files/'.$refNo.'/').'/'. $gimg->customer_file_name; ?>" alt="" class="photographer-thimbnial">
+                					    <img loading="lazy" src="<?php echo url('customer_files/'.$refNo.'/').'/'. $gimg->customer_file_name; ?>" alt="" class="photographer-thimbnial">
                 					 </a>
                                 </li>
                                 @endforeach

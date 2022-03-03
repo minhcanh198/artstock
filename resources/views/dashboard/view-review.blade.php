@@ -184,7 +184,7 @@
 
                                     <div class="btn-block margin-bottom-10">
                                         @if($getReviewDetails->review_image != null)
-                                            <img src="{{ url('/review_images/').'/'. $getReviewDetails->review_image }}" style="width:200px">
+                                            <img loading="lazy" src="{{ url('/review_images/').'/'. $getReviewDetails->review_image }}" style="width:200px">
                                         @endif
                                     </div>
 

@@ -49,7 +49,6 @@
                                             <option value="all" data-icon="far fa-images">All</option>
                                             <?php
                                             $getCategoriesSearchBar = \App\Models\Types::get();
-
                                             foreach ($getCategoriesSearchBar as $categSearchBar) {
                                             ?>
                                             <option value="{{ $categSearchBar->types_id }}"
@@ -152,6 +151,7 @@
                                             @elseif($image->is_type == "image")
                                                 <div class="box">
                                                     <a href="{{ url('photo', $image->id ) }}/{{str_slug($image->title)}}"><img
+                                                            loading="lazy"
                                                             class="img-fluid" src="{{ asset($thumbnail) }}"></a>
                                                 </div>
                                             @else
@@ -197,9 +197,9 @@
                         <div class="owl-carousel slide owl-theme">
                             <div class="item">
                                 <div class="inner-img">
-                                    <img
-                                        src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section1_image }}"
-                                        class="img-fluid">
+                                    <img loading="lazy"
+                                         src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section1_image }}"
+                                         class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -228,9 +228,9 @@
                         <div class="owl-carousel slide owl-theme">
                             <div class="item">
                                 <div class="inner-img aos-init aos-animate" data-aos="zoom-in">
-                                    <img
-                                        src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section2_image }}"
-                                        class="img-fluid">
+                                    <img loading="lazy"
+                                         src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section2_image }}"
+                                         class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -243,9 +243,9 @@
                         <div class="owl-carousel slide owl-theme">
                             <div class="item">
                                 <div class="inner-img">
-                                    <img
-                                        src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section3_image }}"
-                                        class="img-fluid">
+                                    <img loading="lazy"
+                                         src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section3_image }}"
+                                         class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -274,9 +274,9 @@
                         <div class="owl-carousel slide owl-theme">
                             <div class="item">
                                 <div class="inner-img aos-init aos-animate" data-aos="zoom-in">
-                                    <img
-                                        src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section4_image }}"
-                                        class="img-fluid">
+                                    <img loading="lazy"
+                                         src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section4_image }}"
+                                         class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -314,9 +314,9 @@
                                 <div class="pt-4 pb-4 pl-3 pr-3">
                                     <div class="">
                                         <a href="<?php echo url('/')?>/artist/<?php echo $userPhotographer->id; ?>">
-                                            <img
-                                                src="<?php echo url('/')?>/avatar/<?php echo $userPhotographer->avatar; ?>"
-                                                alt="" class="photographer-thimbnial">
+                                            <img loading="lazy"
+                                                 src="<?php echo url('/')?>/avatar/<?php echo $userPhotographer->avatar; ?>"
+                                                 alt="" class="photographer-thimbnial">
                                         </a>
                                         <h4 class="title-this-photographer">{{ $userPhotographer->username }}</h4>
                                         <p class="tag-one-photographer">{{ $userPhotographer->type_name }}</p>
@@ -344,12 +344,13 @@
                                                    data-title="{{$dataUserImages->title}}"
                                                    data-description="{{$dataUserImages->description}}"
                                                    data-price="{{$dataUserImages->price}}" data-typee="photo">
-                                                    <img src="{{ asset($thumbnail) }}" alt="" class="set-img-size">
+                                                    <img loading="lazy" src="{{ asset($thumbnail) }}" alt=""
+                                                         class="set-img-size">
                                                 </a>
-                                        @endforeach
-                                        <?php
-                                        }
-                                        ?>
+                                            @endforeach
+                                            <?php
+                                            }
+                                            ?>
                                         </div>
 
                                     </div>
@@ -401,11 +402,11 @@
                             <div class="choose-photographer-box">
                                 <div class="pt-4 pb-4 pl-3 pr-3">
                                     <div class="">
-                                    <!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="photographer-thimbnial">-->
+                                    <!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="photographer-thimbnial">-->
                                         <a href="<?php echo url('/')?>/artist/<?php echo $userVideographer->id; ?>">
-                                            <img
-                                                src="<?php echo url('/')?>/avatar/<?php echo $userVideographer->avatar; ?>"
-                                                alt="" class="photographer-thimbnial">
+                                            <img loading="lazy"
+                                                 src="<?php echo url('/')?>/avatar/<?php echo $userVideographer->avatar; ?>"
+                                                 alt="" class="photographer-thimbnial">
                                         </a>
                                         <h4 class="title-this-photographer">{{ $userVideographer->username }}</h4>
                                         <p class="tag-one-photographer">{{ $userVideographer->type_name }}</p>
@@ -444,17 +445,17 @@
                                                    data-title="{{$dataUserVideos->title}}"
                                                    data-description="{{$dataUserVideos->description}}"
                                                    data-price="{{$dataUserVideos->price}}" data-typee="video">
-                                                    <img
-                                                        src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}"
-                                                        alt="" class="set-img-size">
+                                                    <img loading="lazy"
+                                                         src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}"
+                                                         alt="" class="set-img-size">
                                                 </a>
                                         @endforeach
                                         <?php
                                         }
                                         ?>
-                                        <!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
-                                        <!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
-                                        <!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
+                                        <!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
+                                        <!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
+                                        <!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size">-->
                                         </div>
 
                                     </div>
@@ -481,7 +482,7 @@
                             <!--        <div class="header-photographer">-->
                             <!--            <div class="row">-->
                             <!--                <div class="col-sm-4">-->
-                        <!--                    <img src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
+                        <!--                    <img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userVideographer->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
                             <!--                </div>-->
                             <!--                <div class="col-sm-7 offset-md-1">-->
                         <!--                    <h4 class="title-this">{{ $userVideographer->username }}</h4>-->
@@ -524,11 +525,11 @@
                             <div class="choose-photographer-box">
                                 <div class="pt-4 pb-4 pl-3 pr-3">
                                     <div class="">
-                                    <!--<img src="<?php //echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="photographer-thimbnial">-->
+                                    <!--<img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="photographer-thimbnial">-->
                                         <a href="<?php echo url('/')?>/artist/<?php echo $userAnimator->id; ?>">
-                                            <img
-                                                src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>"
-                                                alt="" class="photographer-thimbnial">
+                                            <img loading="lazy"
+                                                 src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>"
+                                                 alt="" class="photographer-thimbnial">
                                         </a>
                                         <h4 class="title-this-photographer">{{ $userAnimator->username }}</h4>
                                         <p class="tag-one-photographer">{{ $userAnimator->type_name }}</p>
@@ -567,14 +568,14 @@
                                                    data-title="{{$dataUserAnimations->title}}"
                                                    data-description="{{$dataUserAnimations->description}}"
                                                    data-price="{{$dataUserAnimations->price}}" data-typee="video">
-                                                    <img
-                                                        src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}"
-                                                        alt="" class="set-img-size">
+                                                    <img loading="lazy"
+                                                         src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}"
+                                                         alt="" class="set-img-size">
                                                 </a>
                                             @endforeach
-                                        <!--<img src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                                        <!--<img src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                                        <!--<img src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                        <!--<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                        <!--<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                        <!--<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
                                             <?php
                                             }else{
                                             ?>
@@ -609,7 +610,7 @@
                             <!--        <div class="header-photographer">-->
                             <!--            <div class="row">-->
                             <!--                <div class="col-sm-4">-->
-                        <!--                    <img src="<?php //echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
+                        <!--                    <img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
                             <!--                </div>-->
                             <!--                <div class="col-sm-7 offset-md-1">-->
                         <!--                    <h4 class="title-this">{{ $userAnimator->username }}</h4>-->
@@ -654,9 +655,9 @@
                             <div class="choose-photographer-box">
                                 <div class="pt-4 pb-1 pl-3 pr-3">
                                     <div class="">
-                                        <img
-                                            src="<?php echo url('/')?>/avatar/<?php echo $userMusician->avatar; ?>"
-                                            alt="" class="photographer-thimbnial">
+                                        <img loading="lazy"
+                                             src="<?php echo url('/')?>/avatar/<?php echo $userMusician->avatar; ?>"
+                                             alt="" class="photographer-thimbnial">
                                         <h4 class="title-this-photographer">{{ $userMusician->username }}</h4>
                                         <p class="tag-one-photographer">{{ $userMusician->type_name }}</p>
                                         <p class="tag-one-photographer"
@@ -763,7 +764,7 @@
                             <!--        <div class="header-photographer">-->
                             <!--            <div class="row">-->
                             <!--                <div class="col-sm-4">-->
-                        <!--                    <img src="<?php echo url('/')?>/avatar/<?php //echo $userMusician->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
+                        <!--                    <img loading="lazy" src="<?php echo url('/')?>/avatar/<?php //echo $userMusician->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
                             <!--                </div>-->
                             <!--                <div class="col-sm-7 offset-md-1">-->
                         <!--                    <h4 class="title-this">{{ $userMusician->username }}</h4>-->

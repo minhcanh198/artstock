@@ -26,7 +26,7 @@
 				</h5>
 
 			<h5 class="text-overflow author-label mg-bottom-xs" title="{{$image->user()->username}}">
-				<img src="{{ url('avatar/',$image->user()->avatar) }}" alt="User" class="img-circle" style="width: 20px; height: 20px; display: inline-block; margin-right: 5px;">
+				<img loading="lazy" src="{{ url('avatar/',$image->user()->avatar) }}" alt="User" class="img-circle" style="width: 20px; height: 20px; display: inline-block; margin-right: 5px;">
 				<em>{{$image->user()->username}}</em>
 				</h5>
 				<span class="timeAgo btn-block date-color text-overflow" data="{{ date('c', strtotime( $image->date )) }}"></span>
@@ -40,7 +40,7 @@
 			</span><!-- Span Out -->
 	</span><!-- hover-content -->
 
-		<img src="{{ asset($thumbnail) }}" />
+		<img loading="lazy" src="{{ asset($thumbnail) }}" />
 </a><!-- End Item -->
 
 @endforeach

@@ -215,7 +215,7 @@
 
                   <li class="item">
                     <div class="product-img">
-                      <img src="{{ asset('avatar').'/'.$user->avatar }}" style="height: auto !important;" />
+                      <img loading="lazy" src="{{ asset('avatar').'/'.$user->avatar }}" style="height: auto !important;" />
                     </div>
                     <div class="product-info">
                       <a href="{{ url($user->username) }}" target="_blank" class="product-title">@if($user->name !='' ) {{ $user->name }} @else {{ $user->username }} @endif
@@ -265,7 +265,7 @@
                       ?>
                       <li class="item">
                         <div class="product-img">
-                          <img src="{{ asset('uploads/thumbnail/').'/'.$image->thumbnail }}" style="height: auto !important;" />
+                          <img loading="lazy" src="{{ asset('uploads/thumbnail/').'/'.$image->thumbnail }}" style="height: auto !important;" />
                         </div>
                         <div class="product-info">
                           <a href="{{ url('photo') }}/{{$image->id}}" target="_blank" class="product-title">{{ $image->title }}
@@ -326,7 +326,7 @@
                       ?>
                   <li class="item">
                     <div class="product-img">
-                      <img src="{{ asset('uploads/video/screen_shot/').'/screen-shot-'.$explodeVideoThumbnail }}" style="height: auto !important;" />
+                      <img loading="lazy" src="{{ asset('uploads/video/screen_shot/').'/screen-shot-'.$explodeVideoThumbnail }}" style="height: auto !important;" />
                     </div>
                     <div class="product-info">
                       <a href="{{ url('video', $video->id ) }}/{{str_slug($video->title)}}" target="_blank" class="product-title">{{ $video->title }}

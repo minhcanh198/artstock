@@ -79,7 +79,7 @@
 
                         <div class="btn-block margin-bottom-10">
                         @if($aboutPageSettings->header_main_image != null)
-                          <img src="{{url('/about_page/header_assets/').'/'. $aboutPageSettings->header_main_image }}" style="width:200px">
+                          <img loading="lazy" src="{{url('/about_page/header_assets/').'/'. $aboutPageSettings->header_main_image }}" style="width:200px">
                         @endif
                         </div>
 

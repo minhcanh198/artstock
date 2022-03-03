@@ -30,7 +30,7 @@ $i = 0;
 									$watermarkedVideoPath = 'uploads/video/water_mark_large/';
 								@endphp
 								<div>
-									<img src="{{ asset($thumbnail) }}" alt="" class="img-fluid destinations-city-s2-slider-img">
+									<img loading="lazy" src="{{ asset($thumbnail) }}" alt="" class="img-fluid destinations-city-s2-slider-img">
 								</div>
 							@endforeach
 						@elseif($image->user_type_id == "3")
@@ -43,7 +43,7 @@ $i = 0;
 									$screenShotVideoPath = 'uploads/video/screen_shot/'. 'screen-shot-'.$getFileName[0].'.png';
 								@endphp
 								<div>
-									<img src="{{ asset($screenShotVideoPath) }}" alt="" class="img-fluid destinations-city-s2-slider-img">
+									<img loading="lazy" src="{{ asset($screenShotVideoPath) }}" alt="" class="img-fluid destinations-city-s2-slider-img">
 								</div>
 							@endforeach
 						@elseif($image->user_type_id == "2")
@@ -58,7 +58,7 @@ $i = 0;
 								@endphp
 
 								<div>
-									<img src="{{ asset($screenShotVideoPath) }}" alt="" class="img-fluid destinations-city-s2-slider-img">
+									<img loading="lazy" src="{{ asset($screenShotVideoPath) }}" alt="" class="img-fluid destinations-city-s2-slider-img">
 								</div>
 							@endforeach
 						@elseif($image->user_type_id == "4")
@@ -84,7 +84,7 @@ $i = 0;
 					<div class="box-conten">
 						<h3 class="title mt-4 mb-4">{{ ($image->name != "") ? $image->name : $image->username }}</h3>
 						<div class="round-image-box">
-							<img src="{{ asset('avatar').'/'.$image->avatar }}" alt="" class="img-fluid">
+							<img loading="lazy" src="{{ asset('avatar').'/'.$image->avatar }}" alt="" class="img-fluid">
 						</div>
 						<p class="mb-4">
 							{{ $image->bio }}

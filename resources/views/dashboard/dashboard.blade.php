@@ -218,7 +218,7 @@
 
 									 <li class="item">
 										 <div class="product-img">
-											 <img src="{{ url('uploads/thumbnail',$purchase->images()->thumbnail) }}" style="height: auto !important;" />
+											 <img loading="lazy" src="{{ url('uploads/thumbnail',$purchase->images()->thumbnail) }}" style="height: auto !important;" />
 										 </div>
 										 <div class="product-info">
 											 <a href="{{ url('photo',$purchase->images_id) }}" target="_blank" class="product-title">{{ $purchase->images()->title }}
@@ -283,7 +283,7 @@
                        ?>
                     <li class="item">
                       <div class="product-img">
-                        <img src="{{ url('uploads/thumbnail',$image->thumbnail) }}" style="height: auto !important;" />
+                        <img loading="lazy" src="{{ url('uploads/thumbnail',$image->thumbnail) }}" style="height: auto !important;" />
                       </div>
                       <div class="product-info">
                         <a href="{{ url('photo',$image->id) }}" target="_blank" class="product-title">{{ $image->title }}

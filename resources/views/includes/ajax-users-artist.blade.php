@@ -10,7 +10,7 @@ $i = 0;
 				<!--	<div class="header-photographer">-->
 				<!--		<div class="row">-->
 				<!--			<div class="col-sm-4">-->
-				<!--				<img src="<?php //echo url('/'). '/avatar/'. $image[0]->avatar; ?>" alt="" class="set-img-size">-->
+				<!--				<img loading="lazy" src="<?php //echo url('/'). '/avatar/'. $image[0]->avatar; ?>" alt="" class="set-img-size">-->
 				<!--			</div>-->
 				<!--			<div class="col-sm-7 offset-md-1">-->
 				<!--				<h4 class="title-this">{{ $image[0]->username }}</h4>-->
@@ -71,7 +71,7 @@ $i = 0;
             		<div class="pt-4 pb-4 pl-3 pr-3">
             			<div class="">
             			    <a href="<?php echo url('/'). '/artist/'. $image[0]->id; ?>">
-        					<img src="<?php echo url('/'). '/avatar/'. $image[0]->avatar; ?>" alt="" class="photographer-thimbnial">
+        					<img loading="lazy" src="<?php echo url('/'). '/avatar/'. $image[0]->avatar; ?>" alt="" class="photographer-thimbnial">
         					</a>
             			    <h4 class="title-this-photographer">{{ $image[0]->username }}</h4>
                             <p class="tag-one-photographer">{{ $image[0]->type_name }}</p>
@@ -98,7 +98,7 @@ $i = 0;
 
                     					    <a data-fancybox href="{{ asset($thumbnail) }}" data-id="{{$dataUserImages->id}}" data-title="{{$dataUserImages->title}}" data-description="{{$dataUserImages->description}}" data-price="{{$dataUserImages->price}}" data-typee="photo">
 
-                                    		    <img src="{{ asset($thumbnail) }}" alt="" class="set-img-size">
+                                    		    <img loading="lazy" src="{{ asset($thumbnail) }}" alt="" class="set-img-size">
                             			    </a>
                     					@endforeach
                     				<?php
@@ -139,7 +139,7 @@ $i = 0;
             								@endphp
 
                     					    <a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$realVideoFileName }}" data-id="{{$dataUserVideos->id}}" data-title="{{$dataUserVideos->title}}" data-description="{{$dataUserVideos->description}}" data-price="{{$dataUserVideos->price}}" data-typee="video">
-                    					        <img src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" alt="" class="set-img-size">
+                    					        <img loading="lazy" src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" alt="" class="set-img-size">
                 					        </a>
                     					@endforeach
                 				    <?php
@@ -180,7 +180,7 @@ $i = 0;
                 								$realVideoFileName = $dataUserAnimations->thumbnail;
             								@endphp
                     					    <a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$realVideoFileName }}" data-id="{{$dataUserAnimations->id}}" data-title="{{$dataUserAnimations->title}}" data-description="{{$dataUserAnimations->description}}" data-price="{{$dataUserAnimations->price}}" data-typee="video">
-                    					        <img src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">
+                    					        <img loading="lazy" src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">
                 					        </a>
                     					@endforeach
                     					<?php

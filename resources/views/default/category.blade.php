@@ -197,7 +197,7 @@
                                         <!--    <div class="header-photographer">-->
                                         <!--        <div class="row">-->
                                         <!--            <div class="col-sm-4">-->
-                                        <!--                <img src="<?php //echo url('/')?>/avatar/<?php //echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
+                                        <!--                <img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
                                         <!--            </div>-->
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
@@ -228,7 +228,7 @@
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
                                     			    <a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>">
-                                					<img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
+                                					<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
                                 					</a>
                                     			    <h4 class="title-this-photographer">{{ $users->username }}</h4>
                                                     <p class="tag-one-photographer">{{ $users->type_name }}</p>
@@ -261,14 +261,14 @@
 
                             								$realVideoFileName = $dataUserAnimations->thumbnail;
                                 								@endphp
-                                        					    {{-- <!--<img src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">--> --}}
+                                        					    {{-- <!--<img loading="lazy" src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">--> --}}
                                         					    <a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$realVideoFileName }}" data-id="{{$dataUserAnimations->id}}" data-title="{{$dataUserAnimations->title}}" data-description="{{$dataUserAnimations->description}}" data-price="{{$dataUserAnimations->price}}" data-typee="video">
-                                					        <img src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">
+                                					        <img loading="lazy" src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$AnimationFileScreenShotName.'.png' }}" alt="" class="set-img-size">
                             					        </a>
                                         					@endforeach
-                                        					<!--<img src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                                        					<!--<img src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
-                                        					<!--<img src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                        					<!--<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                        					<!--<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
+                                        					<!--<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php //echo $userAnimator->avatar; ?>" alt="" class="set-img-size">-->
                                         					<?php
                                                             }else{
                                                         ?>
@@ -330,7 +330,7 @@
                                         <!--    <div class="header-photographer">-->
                                         <!--        <div class="row">-->
                                         <!--            <div class="col-sm-4">-->
-                                        <!--                <img src="<?php //echo url('/')?>/avatar/<?php //echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
+                                        <!--                <img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
                                         <!--            </div>-->
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
@@ -361,7 +361,7 @@
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
                                     			    <a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>">
-                                					<img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
+                                					<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
                                 					</a>
                                     			    <h4 class="title-this-photographer">{{ $users->username }}</h4>
                                                     <p class="tag-one-photographer">{{ $users->type_name }}</p>
@@ -384,10 +384,10 @@
                                         								$thumbnail = 'uploads/small/'.$stockImage->name;
                                     								}
                                 								@endphp
-                                        					    {{-- <!--<img src="{{ asset($thumbnail) }}" alt="" class="set-img-size">--> --}}
+                                        					    {{-- <!--<img loading="lazy" src="{{ asset($thumbnail) }}" alt="" class="set-img-size">--> --}}
                                         					    	<a data-fancybox href="{{ asset($thumbnail) }}" data-id="{{$dataUserImages->id}}" data-title="{{$dataUserImages->title}}" data-description="{{$dataUserImages->description}}" data-price="{{$dataUserImages->price}}" data-typee="photo">
 
-                                    					    <img src="{{ asset($thumbnail) }}" alt="" class="set-img-size">
+                                    					    <img loading="lazy" src="{{ asset($thumbnail) }}" alt="" class="set-img-size">
                                         			    </a>
                                         					@endforeach
                                         					<?php
@@ -454,7 +454,7 @@
                                         <!--    <div class="header-photographer">-->
                                         <!--        <div class="row">-->
                                         <!--            <div class="col-sm-4">-->
-                                        <!--                <img src="<?php //echo url('/')?>/avatar/<?php //echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
+                                        <!--                <img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
                                         <!--            </div>-->
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
@@ -490,7 +490,7 @@
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
                                     			    <a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>">
-                                					<img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
+                                					<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
                                 					</a>
                                     			    <h4 class="title-this-photographer">{{ $users->username }}</h4>
                                                     <p class="tag-one-photographer">{{ $users->type_name }}</p>
@@ -522,10 +522,10 @@
 
                                         								$realVideoFileName = $dataUserVideos->thumbnail;
                                 								@endphp
-                                        					    {{-- <!--<img src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" alt="" class="set-img-size">--> --}}
+                                        					    {{-- <!--<img loading="lazy" src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" alt="" class="set-img-size">--> --}}
 
                                         					    <a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$realVideoFileName }}" data-id="{{$dataUserVideos->id}}" data-title="{{$dataUserVideos->title}}" data-description="{{$dataUserVideos->description}}" data-price="{{$dataUserVideos->price}}" data-typee="video">
-                                            					        <img src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" alt="" class="set-img-size">
+                                            					        <img loading="lazy" src="{{ asset($watermarkedVideoPathScreenShot) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" alt="" class="set-img-size">
                                             					    </a>
                                         					@endforeach
                                     					<?php
@@ -583,7 +583,7 @@
                                         <!--    <div class="header-photographer">-->
                                         <!--        <div class="row">-->
                                         <!--            <div class="col-sm-4">-->
-                                        <!--                <img src="<?php //echo url('/')?>/avatar/<?php //echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
+                                        <!--                <img loading="lazy" src="<?php //echo url('/')?>/avatar/<?php //echo $users->avatar; ?>" alt="" class="set-img-size" style="width:100px;">-->
                                         <!--            </div>-->
                                         <!--            <div class="col-sm-7 offset-md-1">-->
                                         <!--                <h4 class="title-this">{{ $users->username }}</h4>-->
@@ -614,7 +614,7 @@
                                     		<div class="pt-4 pb-4 pl-3 pr-3">
                                     			<div class="">
                                     			    <a href="<?php echo url('/')?>/artist/<?php echo $users->id; ?>">
-                                					<img src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
+                                					<img loading="lazy" src="<?php echo url('/')?>/avatar/<?php echo $users->avatar; ?>" alt="" class="photographer-thimbnial">
                                 					</a>
                                     			    <h4 class="title-this-photographer">{{ $users->username }}</h4>
                                                     <p class="tag-one-photographer">{{ $users->type_name }}</p>
@@ -781,7 +781,7 @@ $("#btnSubmitTxtIndustrySearch").click(function(){
 							}else{
 								var $thumbnail  = thumbnail;
 								html += '<a href="' + baseUrl + '/photo/' + value.id + '/' + value.title.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-') + '" class="item hovercard"  style="'+ background +';     width: 397px; height: 254px;">'+
-									'<img src="'+ baseUrl +'/'+ thumbnail +'" class="previewImage" />'+
+									'<img loading="lazy" src="'+ baseUrl +'/'+ thumbnail +'" class="previewImage" />'+
 								'</a>';
 							}
 
@@ -908,7 +908,7 @@ $("#btnSubmitTxtIndustrySearch").click(function(){
 
 							}else{
 								html += '<a href="' + baseUrl + '/photo/' + value.id + '/' + value.title.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-') + '" class="item hovercard" style="'+ background +'; ">'+
-									'<img src="'+ baseUrl +'/'+ thumbnail +'" class="previewImage" />'+
+									'<img loading="lazy" src="'+ baseUrl +'/'+ thumbnail +'" class="previewImage" />'+
 								'</a>';
 							}
 

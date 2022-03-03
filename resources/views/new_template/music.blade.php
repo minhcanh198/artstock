@@ -8,7 +8,7 @@
 					<div>
 						<div class="text" data-aos="fade-right">
 							<h1>{{ $homePageSettings->header_description }}</h1>
-							<!-- <div class="icon-play"><img src="{{ asset('custom-css/images/play-icon.png') }}"></div> -->
+							<!-- <div class="icon-play"><img loading="lazy" src="{{ asset('custom-css/images/play-icon.png') }}"></div> -->
 							<div class="form-group width">
 								<input class="form-control" id="" name="" placeholder="Search Here" type="">
 								<p>Suggested: love, harmony, r&b, pop, nature</p>
@@ -133,20 +133,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -162,20 +162,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/1.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -191,20 +191,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/3.jpg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -238,20 +238,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -267,20 +267,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/1.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -296,20 +296,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/3.jpg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -348,20 +348,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -377,20 +377,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/1.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -406,20 +406,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/3.jpg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -453,20 +453,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -482,20 +482,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/1.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -511,20 +511,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/3.jpg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -563,20 +563,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -592,20 +592,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/1.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -621,20 +621,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/3.jpg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -668,20 +668,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -697,20 +697,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/1.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -726,20 +726,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/3.jpg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -778,20 +778,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -807,20 +807,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/1.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -836,20 +836,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/3.jpg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -883,20 +883,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -912,20 +912,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/1.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -941,20 +941,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/3.jpg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -993,20 +993,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -1022,20 +1022,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/1.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -1051,20 +1051,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/3.jpg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -1098,20 +1098,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -1127,20 +1127,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/1.jpeg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -1156,20 +1156,20 @@
 										<div class="col-md-4 popular-images-box">
 											<div class="">
 												<div class="rounded-img">
-													<img src="images/3.jpg" alt="" class="img-fluid">
+													<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 												</div>
 												<div class="row no-gutters rounded-img">
 													<div class="col-3">
-														<img src="images/1.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/1.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/2.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/2.jpeg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/3.jpg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/3.jpg" alt="" class="img-fluid">
 													</div>
 													<div class="col-3">
-														<img src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
+														<img loading="lazy" src="images/pexels-photo-4066291.jpeg" alt="" class="img-fluid">
 													</div>
 												</div>
 												<div class="d-flex popular-content-hover mt-3">
@@ -1276,8 +1276,8 @@
 		    			<div class="owl-carousel slide owl-theme">
     						<div class="item">
 								<div class="inner-img">
-									<!-- <img src="{{ asset('custom-css/images/p-3.png') }}" class="img-fluid"> -->
-									<img src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section1_image }}" class="img-fluid">
+									<!-- <img loading="lazy" src="{{ asset('custom-css/images/p-3.png') }}" class="img-fluid"> -->
+									<img loading="lazy" src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section1_image }}" class="img-fluid">
 								</div>
 							</div>
 						</div>
@@ -1305,8 +1305,8 @@
 		    			<div class="owl-carousel slide owl-theme">
 							<div class="item">
 								<div class="inner-img aos-init" >
-									<!-- <img src="{{ asset('custom-css/images/p-2.png') }}" class="img-fluid"> -->
-									<img src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section2_image }}" class="img-fluid">
+									<!-- <img loading="lazy" src="{{ asset('custom-css/images/p-2.png') }}" class="img-fluid"> -->
+									<img loading="lazy" src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section2_image }}" class="img-fluid">
 								</div>
 							</div>
 						</div>
@@ -1319,8 +1319,8 @@
 		    			<div class="owl-carousel slide owl-theme">
     						<div class="item">
 								<div class="inner-img">
-									<!-- <img src="{{ asset('custom-css/images/p-3.png') }}" class="img-fluid"> -->
-									<img src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section3_image }}" class="img-fluid">
+									<!-- <img loading="lazy" src="{{ asset('custom-css/images/p-3.png') }}" class="img-fluid"> -->
+									<img loading="lazy" src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section3_image }}" class="img-fluid">
 								</div>
 							</div>
 						</div>
@@ -1347,8 +1347,8 @@
 		    			<div class="owl-carousel slide owl-theme">
     						<div class="item">
 								<div class="inner-img aos-init">
-									<!-- <img src="{{ asset('custom-css/images/p-4.png') }}" class="img-fluid"> -->
-									<img src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section4_image }}" class="img-fluid">
+									<!-- <img loading="lazy" src="{{ asset('custom-css/images/p-4.png') }}" class="img-fluid"> -->
+									<img loading="lazy" src="{{ url('/') }}/home_page/sections_assets/{{ $homePageSettings->section4_image }}" class="img-fluid">
 								</div>
 							</div>
 						</div>
