@@ -303,8 +303,8 @@ class ImagesController extends Controller
             file_put_contents($imageFullPath, $image_base64);
             /* Cropped Image Upload end */
 
-            $temp = 'public/uploads/preview/' . $imageName;
-            $watermarkSource = 'public/img/watermark.png';
+            $temp = 'uploads/preview/' . $imageName;
+            $watermarkSource = 'img/watermark.png';
 
             // Add Watermark on Images
             if ($this->settings->show_watermark == '1') {
@@ -351,14 +351,14 @@ class ImagesController extends Controller
         }
 
         // PATHS
-        $temp = 'public/temp/';
-        $path_preview = 'public/uploads/preview/';
-        $path_thumbnail = 'public/uploads/thumbnail/';
-        $path_small = 'public/uploads/small/';
-        $path_medium = 'public/uploads/medium/';
-        $path_large = 'public/uploads/large/';
-        $watermarkSource = 'public/img/watermark.png';
-        $pathFileVector = 'public/uploads/files/';
+        $temp = 'temp/';
+        $path_preview = 'uploads/preview/';
+        $path_thumbnail = 'uploads/thumbnail/';
+        $path_small = 'uploads/small/';
+        $path_medium = 'uploads/medium/';
+        $path_large = 'uploads/large/';
+        $watermarkSource = 'img/watermark.png';
+        $pathFileVector = 'uploads/files/';
 
         $input = $request->all();
 
@@ -575,7 +575,7 @@ class ImagesController extends Controller
         $camera = null;
 
         //=========== Colors
-        $palette = Palette::fromFilename(url('public/temp/') . '/' . $preview);
+        $palette = Palette::fromFilename(url('temp/') . '/' . $preview);
 
         $extractor = new ColorExtractor($palette);
 
@@ -705,17 +705,17 @@ class ImagesController extends Controller
         }
 
         // PATHS
-        $temp = '/public/temp/';
-        $path_preview = '/public/uploads/video/preview/';
-        $path_thumbnail = '/public/uploads/video/thumbnail/';
-        $path_small = '/public/uploads/video/small/';
-        $path_medium = '/public/uploads/video/medium/';
-        $path_large_ss = '/public/uploads/video/screen_shot/';
-        $path_large = '/public/uploads/video/water_mark_large/';
-        $pathnew = '/public/uploads/video/large/';
-        $setPath = '/public/uploads/video/large/';
-        $watermarkSource = '/public/img/watermark.png';
-        $pathFileVector = '/public/uploads/video/files/';
+        $temp = '/temp/';
+        $path_preview = '/uploads/video/preview/';
+        $path_thumbnail = '/uploads/video/thumbnail/';
+        $path_small = '/uploads/video/small/';
+        $path_medium = '/uploads/video/medium/';
+        $path_large_ss = '/uploads/video/screen_shot/';
+        $path_large = '/uploads/video/water_mark_large/';
+        $pathnew = '/uploads/video/large/';
+        $setPath = '/uploads/video/large/';
+        $watermarkSource = '/img/watermark.png';
+        $pathFileVector = '/uploads/video/files/';
 
         $input = $request->all();
         $validator = $this->validatorVideo($input);
@@ -748,28 +748,21 @@ class ImagesController extends Controller
 
                     $videoFile = $request->file('video');
 
-                    $mainPathss = getcwd() . $path_large_ss;              // '/public/uploads/video/screen_shot/';
+                    $mainPathss = getcwd() . $path_large_ss;
                     $mainPath = getcwd() . $path_large;
-                    $newPath = getcwd() . $pathnew;                       // '/public/uploads/video/large/';
+                    $newPath = getcwd() . $pathnew;
                     $waterPath = getcwd() . $watermarkSource;
                     $fileName = "testvid.mp4";
 
 
                     $waterMarkImgTitle = "watermark-" . $thumbnail;
-                    /*$command  = "ffmpeg -i ".$newPath.$thumbnail." -i ".$waterPath."";
-            	    $command .= " -filter_complex \"[0:v][1:v]";
-            	    $command .= " overlay=25:25\"";
-            	    $command .= " -c:a copy ".$mainPath.$waterMarkImgTitle."";
-                    system($command);*/
+
 
                     // Centralize Watermark ...
                     system(' ffmpeg -i ' . $newPath . $thumbnail . ' -i ' . $waterPath . ' -filter_complex "overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2" -codec:a copy ' . $mainPath . $waterMarkImgTitle . '');
 
 
                     $adaty2 = system("ffmpeg -i " . $newPath . '\\' . $thumbnail . " -ss 00:00:01.000 -vframes 1 " . $mainPathss . '\\' . 'screen-shot-' . $thumbnailss . "");//2>&1
-                    //dd($adaty2);
-
-
                 }
             }
 
@@ -825,8 +818,7 @@ class ImagesController extends Controller
         }
 
         //=========== Colors
-// 		$palette = Palette::fromFilename( url('public/temp/').'/'.$preview );
-        $palette = Palette::fromFilename(url('public/uploads/video/screen_shot') . '/' . 'screen-shot-' . $thumbnailss);
+        $palette = Palette::fromFilename(url('uploads/video/screen_shot') . '/' . 'screen-shot-' . $thumbnailss);
 
         $extractor = new ColorExtractor($palette);
 
@@ -917,10 +909,10 @@ class ImagesController extends Controller
         // PATHS
         $path_large = '\public\uploads\audio\water_mark_large\\';
         $pathnew = '\public\uploads\audio\large\\';
-        $setPath = 'public/uploads/audio/large/';
-        $watermarkSource = 'public/img/audio_watermark.mp3';
+        $setPath = 'uploads/audio/large/';
+        $watermarkSource = 'img/audio_watermark.mp3';
         $watermarkSource2 = '\public\img\audio_watermark.mp3';
-        $pathFileVector = 'public/uploads/audio/files/';
+        $pathFileVector = 'uploads/audio/files/';
 
 
         $input = $request->all();
@@ -1095,31 +1087,11 @@ class ImagesController extends Controller
         } else {
             $camera = '';
         }
-
-        //=========== Colors
-        // $palette = Palette::fromFilename( url('public/temp/').'/'.$preview );
-        // $palette = Palette::fromFilename( url('public/uploads/audio/screen_shot').'/'.'screen-shot-'.$thumbnailss );
-
-        // $extractor = new ColorExtractor($palette);
-
-        // it defines an extract method which return the most “representative” colors
-        // $colors = $extractor->extract(5);
-
-        // $palette is an iterator on colors sorted by pixel count
-        // foreach($colors as $color) {
-
-        // 	$_color[]  = trim(Color::fromIntToHex($color), '#') ;
-        // }
-
-        // 	$colors_image = implode( ',', $_color);
-
         if ($this->settings->auto_approve_images == 'on') {
             $status = 'active';
         } else {
             $status = 'pending';
         }
-
-// 		$musicTypes = implode(',',$request->music_type);
 
         $token_id = str_random(200);
 
@@ -1144,7 +1116,6 @@ class ImagesController extends Controller
         $sql->price = $request->price ? $request->price : 0;
         $sql->item_for_sale = $request->item_for_sale ? $request->item_for_sale : 'free';
         $sql->is_type = 'audio';
-// 		$sql->music_type_id		   = $musicTypes;
 
 
         $sql->save();
@@ -1152,37 +1123,8 @@ class ImagesController extends Controller
         // ID INSERT
         $videoID = $sql->id;
 
-        // Save Vector DB
-        // if($request->hasFile('file')) {
-        // 	$stockVector             = new Stock;
-        // 	$stockVector->images_id  = $imageID;
-        // 	$stockVector->name       = $fileVector;
-        // 	$stockVector->type       = 'vector';
-        // 	$stockVector->extension  = $extensionVector;
-        // 	$stockVector->resolution = '';
-        // 	$stockVector->size       = $sizeFileVector;
-        // 	$stockVector->token      = $token_id;
-        // 	$stockVector->save();
-        // }
-
-
-        // INSERT STOCK IMAGES
-
-        // $lResolution = list($w, $h) = getimagesize($temp.$large);
-        // $lSize     = Helper::formatBytes(filesize($temp.$large), 1);
-
-        // $mResolution = list($_w, $_h) = getimagesize($temp.$medium);
-        // $mSize     = Helper::formatBytes(filesize($temp.$medium), 1);
-
-        // $smallResolution = list($__w, $__h) = getimagesize($temp.$small);
-        // $smallSize       = Helper::formatBytes(filesize($temp.$small), 1);
-
-
         $stockImages = [
             ['name' => $thumbnail, 'type' => 'thumbnail'],
-            // ['name' => $large, 'type' => 'large', 'resolution' => $w.'x'.$h, 'size' => $lSize ],
-            // ['name' => $medium, 'type' => 'medium', 'resolution' => $_w.'x'.$_h, 'size' => $mSize ],
-            // ['name' => $small, 'type' => 'small', 'resolution' => $__w.'x'.$__h, 'size' => $smallSize ],
         ];
 
         foreach ($stockImages as $key) {
@@ -1194,27 +1136,9 @@ class ImagesController extends Controller
             $stock->extension = $extension;
             $stock->resolution = '';
             $stock->size = '';
-            // $stock->resolution = $key['resolution'];
-            // $stock->size       = $key['size'];
             $stock->token = $token_id;
             $stock->save();
-
         }
-
-        // \File::copy($temp.$preview, $path_preview.$preview);
-        // \File::delete($temp.$preview);
-
-        // \File::copy($temp.$thumbnail, $path_thumbnail.$thumbnail);
-        // \File::delete($temp.$thumbnail);
-
-        // \File::copy($temp.$small, $path_small.$small);
-        // \File::delete($temp.$small);
-
-        // \File::copy($temp.$medium, $path_medium.$medium);
-        // \File::delete($temp.$medium );
-
-        // \File::copy($temp.$large, $path_large.$large);
-        // \File::delete($temp.$large);
 
         \Session::flash('success_message', trans('admin.success_add'));
 
@@ -1223,334 +1147,6 @@ class ImagesController extends Controller
             'target' => url('home'),
         ]);
     }
-
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    // public function create(Request $request) {
-
-    // 	if( Auth::guest() ) {
-    // 	return response()->json([
-    // 			'session_null' => true,
-    // 			'success' => false,
-    // 		]);
-    // 	}
-
-    // 	// PATHS
-    // 	$temp            = 'public/temp/';
-    // 	$path_preview    = 'public/uploads/preview/';
-    // 	$path_thumbnail  = 'public/uploads/thumbnail/';
-    // 	$path_small      = 'public/uploads/small/';
-    // 	$path_medium     = 'public/uploads/medium/';
-    // 	$path_large      = 'public/uploads/large/';
-    // 	$watermarkSource = 'public/img/watermark.png';
-    // 	$pathFileVector  = 'public/uploads/files/';
-
-    // 	$input = $request->all();
-
-    // 	$validator = $this->validator($input);
-
-    // 	if ($validator->fails()) {
-    // 		return response()->json([
-    // 			'success' => false,
-    // 			'errors' => $validator->getMessageBag()->toArray(),
-    // 		]);
-    //  	} //<-- Validator
-
-    // 	$vectorFile = '';
-
-    // 	// File Vector
-    // 	if($request->hasFile('file')) {
-
-    // 		$extensionVector = strtolower($request->file('file')->getClientOriginalExtension());
-    // 		$fileVector      = strtolower(Auth::user()->id.time().str_random(40).'.'.$extensionVector);
-    // 		$sizeFileVector  = Helper::formatBytes($request->file('file')->getSize(), 1);
-
-    // 		$valid_formats = ['ai', 'psd', 'eps', 'svg'];
-
-    // 		if(!in_array($extensionVector, $valid_formats)) {
-    //         return response()->json([
-    // 		        'success' => false,
-    // 		        'errors' => ['error_file' => trans('misc.file_validation', ['values' => 'AI, EPS, PSD, SVG'])],
-    // 		    ]);
-    // 		}
-
-    // 		if($extensionVector == 'ai') {
-    // 			$mime = ['application/illustrator', 'application/postscript', 'application/vnd.adobe.illustrator', 'application/pdf'];
-
-    // 		} elseif ($extensionVector == 'eps') {
-    // 			$mime = ['application/postscript', 'image/x-eps', 'application/pdf', 'application/octet-stream'];
-
-    // 		} elseif ($extensionVector == 'psd') {
-    // 			$mime = ['application/photoshop', 'application/x-photoshop', 'image/photoshop', 'image/psd', 'image/vnd.adobe.photoshop', 'image/x-photoshop', 'image/x-psd'];
-
-    // 		} elseif ($extensionVector == 'svg') {
-    // 			$mime = ['image/svg+xml'];
-    // 		}
-
-    // 		if(!in_array($request->file('file')->getMimeType(), $mime)) {
-    //         return response()->json([
-    // 		        'success' => false,
-    // 		        'errors' => ['error_file' => trans('misc.file_validation', ['values' => 'AI, EPS, PSD, SVG'])],
-    // 		    ]);
-    // 		}
-
-
-    // 		if($request->file('file')->move($temp, $fileVector)) {
-    // 			//======= Copy Folder Large and Delete...
-    // 			if ( \File::exists($temp.$fileVector) ) {
-    // 					\File::copy($temp.$fileVector, $pathFileVector.$fileVector);
-    // 					\File::delete($temp.$fileVector);
-
-    // 					$vectorFile = 'yes';
-    // 			}//<--- IF FILE EXISTS
-    // 		}
-    // 	}
-
-    //     //<--- HASFILE PHOTO
-    //     if($request->hasFile('photo') )	{
-
-    // 		$extension       = $request->file('photo')->getClientOriginalExtension();
-    // 		$originalName    = Helper::fileNameOriginal($request->file('photo')->getClientOriginalName());
-    // 		$type_mime_img   = $request->file('photo')->getMimeType();
-    // 		$sizeFile        = $request->file('photo')->getSize();
-    // 		$large           = strtolower( Auth::user()->id.time().str_random(100).'.'.$extension );
-    // 		$medium          = strtolower( Auth::user()->id.time().str_random(100).'.'.$extension );
-    // 		$small           = strtolower( Auth::user()->id.time().str_random(100).'.'.$extension );
-    // 		$preview         = strtolower( str_slug( $request->title, '-').'-'.Auth::user()->id.time().str_random(10).'.'.$extension );
-    // 		$thumbnail       = strtolower( str_slug( $request->title, '-').'-'.Auth::user()->id.time().str_random(10).'.'.$extension );
-
-    // 		if($request->file('photo')->move($temp, $large) ) {
-
-    // 			set_time_limit(0);
-
-    // 			$original = $temp.$large;
-    // 			$width    = Helper::getWidth( $original );
-    // 			$height   = Helper::getHeight( $original );
-
-    // 			if ( $width > $height ) {
-
-    // 				if( $width > 1280) : $_scale = 1280; else: $_scale = 900; endif;
-
-    // 				// PREVIEW
-    // 				$scale    = 850 / $width;
-    // 				$uploaded = Helper::resizeImage( $original, $width, $height, $scale, $temp.$preview, $request->rotation );
-
-    // 				// Medium
-    // 				$scaleM   = $_scale / $width;
-    // 				$uploaded = Helper::resizeImage( $original, $width, $height, $scaleM, $temp.$medium, $request->rotation );
-
-    // 				// Small
-    // 				$scaleS   = 640 / $width;
-    // 				$uploaded = Helper::resizeImage( $original, $width, $height, $scaleS, $temp.$small, $request->rotation );
-
-    // 				// Thumbnail
-    // 				$scaleT   = 280 / $width;
-    // 				$uploaded = Helper::resizeImage( $original, $width, $height, $scaleT, $temp.$thumbnail, $request->rotation );
-
-    // 			} else {
-
-    // 				if( $width > 1280) : $_scale = 960; else: $_scale = 800; endif;
-
-    // 				// PREVIEW
-    // 				$scale    = 480 / $width;
-    // 				$uploaded = Helper::resizeImage( $original, $width, $height, $scale, $temp.$preview, $request->rotation );
-
-    // 				// Medium
-    // 				$scaleM   = $_scale / $width;
-    // 				$uploaded = Helper::resizeImage( $original, $width, $height, $scaleM, $temp.$medium, $request->rotation );
-
-    // 				// Small
-    // 				$scaleS   = 480 / $width;
-    // 				$uploaded = Helper::resizeImage( $original, $width, $height, $scaleS, $temp.$small, $request->rotation );
-
-    // 				// Thumbnail
-    // 				$scaleT   = 190 / $width;
-    // 				$uploaded = Helper::resizeImage( $original, $width, $height, $scaleT, $temp.$thumbnail, $request->rotation );
-
-    // 			}
-
-    // 			// Add Watermark on Images
-    // 			if($this->settings->show_watermark == '1') {
-    // 				Helper::watermark($temp.$preview, $watermarkSource);
-    // 			}
-
-    // 		}// End File
-
-    // 	} //<----- HASFILE PHOTO
-
-    // 	if( !empty( $request->description ) ) {
-    // 		$description = Helper::checkTextDb($request->description);
-    // 	} else {
-    // 		$description = '';
-    // 	}
-
-    // 	// Exif Read Data
-    // 	$exif_data = @exif_read_data($temp.$large, 0, true);
-
-    // 	if( isset($exif_data['EXIF']['ISOSpeedRatings'][0]) ) {
-    // 		$ISO = 'ISO '.$exif_data['EXIF']['ISOSpeedRatings'][0];
-    // 	}
-
-    // 	if( isset($exif_data['EXIF']['ExposureTime']) ) {
-    // 		$ExposureTime = $exif_data['EXIF']['ExposureTime'].'s';
-    // 	}
-
-    // 	if( isset($exif_data['EXIF']['FocalLength']) ) {
-    // 		$FocalLength = round($exif_data['EXIF']['FocalLength'], 1).'mm';
-    // 	}
-
-    // 	if( isset($exif_data['COMPUTED']['ApertureFNumber']) ) {
-    // 		$ApertureFNumber = $exif_data['COMPUTED']['ApertureFNumber'];
-    // 	}
-
-    // 	if( !isset($FocalLength) ) {
-    // 		$FocalLength = '';
-    // 	}
-
-    // 	if( !isset($ExposureTime) ) {
-    // 		$ExposureTime = '';
-    // 	}
-
-    // 	if( !isset($ISO) ) {
-    // 		$ISO = '';
-    // 	}
-
-    // 	if( !isset($ApertureFNumber) ) {
-    // 		$ApertureFNumber = '';
-    // 	}
-
-    // 	$exif = $FocalLength.' '.$ApertureFNumber.' '.$ExposureTime. ' '.$ISO;
-
-    // 	if( isset($exif_data['IFD0']['Model']) ) {
-    // 		$camera = $exif_data['IFD0']['Model'];
-    // 	} else {
-    // 		$camera = '';
-    // 	}
-
-    // 	//=========== Colors
-    // 	$palette = Palette::fromFilename( url('public/temp/').'/'.$preview );
-
-    // 	$extractor = new ColorExtractor($palette);
-
-    // 	// it defines an extract method which return the most “representative” colors
-    // 	$colors = $extractor->extract(5);
-
-    // 	// $palette is an iterator on colors sorted by pixel count
-    // 	foreach($colors as $color) {
-
-    // 		$_color[]  = trim(Color::fromIntToHex($color), '#') ;
-    // 	}
-
-    //        $colors_image = implode( ',', $_color);
-
-    // 	if( $this->settings->auto_approve_images == 'on' ) {
-    // 		$status = 'active';
-    // 	} else {
-    // 		$status = 'pending';
-    // 	}
-
-    // 	$token_id = str_random(200);
-
-    // 	$sql = new Images;
-    // 	$sql->thumbnail            = $thumbnail;
-    // 	$sql->preview              = $preview;
-    // 	$sql->title                = trim($request->title);
-    // 	$sql->description          = trim($description);
-    // 	$sql->categories_id        = $request->categories_id;
-    // 	$sql->user_id              = Auth::user()->id;
-    // 	$sql->status               = $status;
-    // 	$sql->token_id             = $token_id;
-    // 	$sql->tags                 = strtolower($request->tags);
-    // 	$sql->extension            = strtolower($extension);
-    // 	$sql->colors               = $colors_image;
-    // 	$sql->exif                 = trim($exif);
-    // 	$sql->camera               = $camera;
-    // 	$sql->how_use_image        = $request->how_use_image;
-    // 	$sql->attribution_required = $request->attribution_required;
-    // 	$sql->original_name        = $originalName;
-    // 	$sql->price                = $request->price ? $request->price : 0;
-    // 	$sql->item_for_sale        = $request->item_for_sale ? $request->item_for_sale: 'free';
-    // 	$sql->vector               = $vectorFile;
-
-    // 	$sql->save();
-
-    // 	// ID INSERT
-    // 	$imageID = $sql->id;
-
-    // 	// Save Vector DB
-    // 	if($request->hasFile('file')) {
-    // 		$stockVector             = new Stock;
-    // 		$stockVector->images_id  = $imageID;
-    // 		$stockVector->name       = $fileVector;
-    // 		$stockVector->type       = 'vector';
-    // 		$stockVector->extension  = $extensionVector;
-    // 		$stockVector->resolution = '';
-    // 		$stockVector->size       = $sizeFileVector;
-    // 		$stockVector->token      = $token_id;
-    // 		$stockVector->save();
-    // 	}
-
-
-    // 	// INSERT STOCK IMAGES
-
-    // 	$lResolution = list($w, $h) = getimagesize($temp.$large);
-    // 	$lSize     = Helper::formatBytes(filesize($temp.$large), 1);
-
-    // 	$mResolution = list($_w, $_h) = getimagesize($temp.$medium);
-    // 	$mSize     = Helper::formatBytes(filesize($temp.$medium), 1);
-
-    // 	$smallResolution = list($__w, $__h) = getimagesize($temp.$small);
-    // 	$smallSize       = Helper::formatBytes(filesize($temp.$small), 1);
-
-
-    // 	$stockImages = [
-    // 		['name' => $large, 'type' => 'large', 'resolution' => $w.'x'.$h, 'size' => $lSize ],
-    // 		['name' => $medium, 'type' => 'medium', 'resolution' => $_w.'x'.$_h, 'size' => $mSize ],
-    // 		['name' => $small, 'type' => 'small', 'resolution' => $__w.'x'.$__h, 'size' => $smallSize ],
-    // 	];
-
-    // 	foreach ($stockImages as $key) {
-
-    // 		$stock             = new Stock;
-    // 		$stock->images_id  = $imageID;
-    // 		$stock->name       = $key['name'];
-    // 		$stock->type       = $key['type'];
-    // 		$stock->extension  = $extension;
-    // 		$stock->resolution = $key['resolution'];
-    // 		$stock->size       = $key['size'];
-    // 		$stock->token      = $token_id;
-    // 		$stock->save();
-
-    // 	}
-
-    // 	\File::copy($temp.$preview, $path_preview.$preview);
-    // 	\File::delete($temp.$preview);
-
-    // 	\File::copy($temp.$thumbnail, $path_thumbnail.$thumbnail);
-    // 	\File::delete($temp.$thumbnail);
-
-    // 	\File::copy($temp.$small, $path_small.$small);
-    // 	\File::delete($temp.$small);
-
-    // 	\File::copy($temp.$medium, $path_medium.$medium);
-    // 	\File::delete($temp.$medium );
-
-    // 	\File::copy($temp.$large, $path_large.$large);
-    // 	\File::delete($temp.$large);
-
-    // 	//\Session::flash('success_message',trans('admin.success_add'));
-
-    // 	return response()->json([
-    // 		'success' => true,
-    // 		'target' => url('photo',$imageID),
-    // 	]);
-
-    // }
-    //<--- End Method
 
     /**
      * Display the specified resource.
@@ -1571,7 +1167,6 @@ class ImagesController extends Controller
         } else if (Auth::guest() && $response->status == 'pending') {
             abort(404);
         }
-        // dd($response);
 
         $uri = $this->request->path();
 
@@ -1840,8 +1435,8 @@ class ImagesController extends Controller
 
         foreach ($stocks as $stock) {
 
-            $stock_path = 'public/uploads/' . $stock->type . '/' . $stock->name;
-            $stock_pathVector = 'public/uploads/files/' . $stock->name;
+            $stock_path = 'uploads/' . $stock->type . '/' . $stock->name;
+            $stock_pathVector = 'uploads/files/' . $stock->name;
 
             // Delete Stock
             if (\File::exists($stock_path)) {
@@ -1857,8 +1452,8 @@ class ImagesController extends Controller
 
         }//<--- End foreach
 
-        $preview_image = 'public/uploads/preview/' . $image->preview;
-        $thumbnail = 'public/uploads/thumbnail/' . $image->thumbnail;
+        $preview_image = 'uploads/preview/' . $image->preview;
+        $thumbnail = 'uploads/thumbnail/' . $image->thumbnail;
 
         // Delete preview
         if (\File::exists($preview_image)) {

@@ -306,8 +306,8 @@ if( $version == '2.7' ) {
 		});
 	}
 
-	if (!file_exists('public/uploads/files')) {
-		mkdir('public/uploads/files', 0777, true);
+	if (!file_exists('uploads/files')) {
+		mkdir('uploads/files', 0777, true);
 	}
 
 	return $upgradeDone;
@@ -374,7 +374,7 @@ if( $version == '3.2' ) {
 								]);
 					}
 				}
-			}// Insert on Purchases	
+			}// Insert on Purchases
 
 			return $upgradeDone;
 

@@ -155,7 +155,7 @@ background: #FFF;
 background-size: contain;
 background-repeat: no-repeat;
 background-position: center center;
-/*background-image: url('http://localhost/gostock/public/uploads/16.jpg');*/
+/*background-image: url('http://localhost/gostock/uploads/16.jpg');*/
 display: none;
 cursor: default;
 }
@@ -183,7 +183,7 @@ right: 20px;
   outline: none;
 }
 
- 
+
 .container{
   max-width: 1175px;
 }
@@ -263,7 +263,7 @@ right: 20px;
   .mobile-menu .navlinks li a:hover {
     text-decoration: none;
   }
-  
+
   .mobile-menu .mobile-cross {
     color: #000;
     font-size: 22px;
@@ -275,9 +275,9 @@ right: 20px;
     align-items: center;
     z-index: 99999;
 }
-  
-  
-  
+
+
+
   .mobile-nav-cate-ul {
         -moz-column-count: 2;
         -moz-column-gap: 1em;
@@ -288,8 +288,8 @@ right: 20px;
         border-bottom: 1px solid #000;
         padding-bottom: 14px;
     }
-  
-  
+
+
 /*RESPONSIVE NAVIGATION*/
 
 .destinations-city-s2-slider-img {
@@ -602,7 +602,7 @@ a.theme-btn:hover {
     letter-spacing: 4px;
     transition: 0.5s;
 }
-  
+
 @keyframes fadeEffect {
    from {
       opacity: 0;
@@ -613,7 +613,7 @@ a.theme-btn:hover {
       margin-left: 0;
    }
 }
-  
+
   /* width */
 
 ::-webkit-scrollbar {
@@ -681,7 +681,7 @@ a.theme-btn:hover {
   form {
     transform: translateX(0);
   }
-  
+
   to {
     opacity: 0;
     transform: translateX(40px);
@@ -1008,7 +1008,7 @@ section.section-popular {
     background: #fff;
 }
 
- 
+
 
 .dropdown-one-header .dropdown-one-content li {
     width: 100%;
@@ -1028,7 +1028,7 @@ section.section-popular {
   font-weight: 700;
 }
 
- 
+
 
 .dropdown-one-header .dropdown-one-content li a:hover {
   color: #fff;
@@ -1245,11 +1245,11 @@ audio::-webkit-media-controls-panel {
 }
 
 .img-person-txt h3 {
-  font-size: 24px; 
+  font-size: 24px;
 }
 
 .img-person-txt h4 {
-  font-size: 18px; 
+  font-size: 18px;
 }
 
 .follow-btn,
@@ -1423,7 +1423,7 @@ audio::-webkit-media-controls-panel {
 .box-div h4 b {
    border-bottom: 3px solid #ef595f;
     padding: 3px 0;
-    
+
 }
 
 .box-img i {
@@ -1448,7 +1448,7 @@ audio::-webkit-media-controls-panel {
 .open .dropdown-menu {
   display: block;
 }
-.new li{ 
+.new li{
   width: 100%;
 }
 .naw .dropdown-menu {
@@ -1924,12 +1924,12 @@ section.profile {
 .reglog-right-border-radius{
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
-  
+
 }
 .reglog-left-border-radius{
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
-  
+
 }
 
 .btn-login-register-active {
@@ -1942,7 +1942,7 @@ section.profile {
   align-items: center;
   width: 200px;
   height: 60px;
- 
+
 }
 .btn-login-register-unactive {
   background-color:#fff;
@@ -1955,7 +1955,7 @@ section.profile {
   align-items: center;
   width: 200px;
   height: 60px;
- 
+
 }
 .modal-login-button:hover {
   background-color: #000;
@@ -2146,7 +2146,7 @@ span.glyphicon-calendar {
   color:#00aced;
 }
 .fa-google-plus {
-  color: #dd4b39;    
+  color: #dd4b39;
 }
 .panel-heading {
   padding: 0 14px;
@@ -2389,7 +2389,7 @@ section.destination-banner {
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: 0.5s;
-  
+
 }
 .request-city:hover {
   color: #fff;
@@ -2400,7 +2400,7 @@ section.destination-banner {
   font-size: 30px;
   text-transform: uppercase;
   font-weight: 700;
-}  
+}
 .count-column-custom {
   -webkit-column-count: 5;
   -moz-column-count: 5;
@@ -2555,7 +2555,7 @@ section.destination-banner {
 .destinations-city-s2-slider .slick-next:before,
 .destinations-city-s2-slider .slick-prev:before {
   font-size: 30px;
-  color:#ef595f; 
+  color:#ef595f;
 }
 
 .destinations-city-s2-slider .slick-prev {
@@ -2925,7 +2925,7 @@ section.destination-banner {
 }
 .rout-box.hire-more-active-one {
   border: 1px solid #ef595f;
-} 
+}
 .request-book-progressbar-bar.completed {
     background-color: #ef595f;
     border-color: #ef595f;
@@ -2961,9 +2961,9 @@ section.destination-banner {
   padding-bottom: 5px;
 }
 option:hover {
-  background-color: !important#488f8f; 
+  background-color: !important#488f8f;
   padding: 10px 0;
-} 
+}
 .flag-two {
     position: absolute;
     left: 0;
@@ -3021,7 +3021,7 @@ option:hover {
   background:white;
   border-radius:5px 5px 0px 0px;
  }
- 
+
  .msg_head {
   background: #ef595f;
   color: white;
@@ -3030,7 +3030,7 @@ option:hover {
   cursor: pointer;
   border-radius: 5px 5px 0px 0px;
 }
- 
+
  .msg_body{
   background:white;
   height:200px;
@@ -3044,11 +3044,11 @@ option:hover {
   height: 40px;
   border: 1px solid white;
   border-top:1px solid #DDDDDD;
-  -webkit-box-sizing: border-box; 
-  -moz-box-sizing: border-box;   
-  box-sizing: border-box;  
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
  }
- 
+
  .close-live-chat {
   float:right;
   cursor:pointer;
@@ -3063,9 +3063,9 @@ option:hover {
   float:right;
   cursor:pointer;
   padding-right:5px;
-  
+
  }
- 
+
  .msg-left{
   position:relative;
   background:#e2e2e2;
@@ -3076,7 +3076,7 @@ option:hover {
   border-radius:5px;
   word-break: break-all;
  }
- 
+
  .msg-right{
   background:#d4e7fa;
   padding:5px;
@@ -3148,7 +3148,7 @@ option:hover {
 }
 
 .btn-chat {
-  text-decoration: none;     
+  text-decoration: none;
 }
 .btn-chat:hover {
   text-decoration: none;
@@ -3164,7 +3164,7 @@ a:hover {
   background: #000;
   border-radius: 15px;
 }
- 
+
 /* Handle */
 #app ::-webkit-scrollbar-thumb {
   background: #ef595f;
@@ -3173,7 +3173,7 @@ a:hover {
 
 /* Handle on hover */
 /* #app ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 } */
 
 .destination-search-box .select2-container {

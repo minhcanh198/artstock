@@ -87,8 +87,8 @@
 /* CSS animation */
 
 @-webkit-keyframes fadeIn {
-    0% { 
-        opacity:0; 
+    0% {
+        opacity:0;
         transform: scale(0.6);
     }
 
@@ -108,7 +108,7 @@
 
 
 
-  .modal-confirm {		
+  .modal-confirm {
 	color: #636363;
 	width: 400px;
 }
@@ -120,7 +120,7 @@
 	font-size: 14px;
 }
 .modal-confirm .modal-header {
-	border-bottom: none;   
+	border-bottom: none;
 	position: relative;
 }
 .modal-confirm h4 {
@@ -138,14 +138,14 @@
 }
 .modal-confirm .modal-footer {
 	border: none;
-	text-align: center;		
+	text-align: center;
 	border-radius: 5px;
 	font-size: 13px;
 	padding: 10px 15px 25px;
 }
 .modal-confirm .modal-footer a {
 	color: #999;
-}		
+}
 .modal-confirm .icon-box {
 	width: 80px;
 	height: 80px;
@@ -216,7 +216,7 @@
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background-image: url('<?php echo url('public/loader/preloader.gif')?>');
+    background-image: url('<?php echo url('loader/preloader.gif')?>');
     background-repeat: no-repeat;
     background-color: #FFF;
     background-position: center;
@@ -247,7 +247,7 @@
   -webkit-column-gap: 1em;
   -moz-column-gap: 1em;
   column-gap: 1em;
-  
+
 }
 
 </style>
@@ -257,12 +257,12 @@
 		<div class="modal-content">
 			<div class="modal-header flex-column">
 				<div class="icon-box">
-				</div>						
-				<h4 class="modal-title w-100">Are you sure?</h4>	
+				</div>
+				<h4 class="modal-title w-100">Are you sure?</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			</div>
 			<div class="modal-body">
-				 <p>Do you really want to reject these files?</p> 
+				 <p>Do you really want to reject these files?</p>
 			</div>
 			<div class="modal-footer justify-content-center">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
@@ -270,13 +270,13 @@
 			</div>
 		</div>
 	</div>
-</div>    
+</div>
 <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h4>
-           {{ trans('admin.admin') }} <i class="fa fa-angle-right margin-separator"></i> {{ trans_choice('misc.my_clients_requests', 0) }} 
+           {{ trans('admin.admin') }} <i class="fa fa-angle-right margin-separator"></i> {{ trans_choice('misc.my_clients_requests', 0) }}
           </h4>
         </section>
 
@@ -305,19 +305,19 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                    @if(count($gImages) > 0) 
+                    @if(count($gImages) > 0)
                         <div class="">
                             <!-- PRELOADER START -->
-                                <div class="preloader"></div> 
+                                <div class="preloader"></div>
                             <!-- PRELOADER END -->
                             <h3 class="title-box-dashboard">Images</h3>
-                         
+
                             <ul class="images-box-dashboard" style="list-style: none;">
                                 @foreach($gImages as $gimg)
                                 <!--//customer_file_name-->
                                 <li class="">
-                                    <a data-fancybox href="<?php echo url('public/customer_files/'.$refNo.'/').'/'. $gimg->customer_file_name; ?>">
-                					    <img src="<?php echo url('public/customer_files/'.$refNo.'/').'/'. $gimg->customer_file_name; ?>" alt="" class="photographer-thimbnial">
+                                    <a data-fancybox href="<?php echo url('customer_files/'.$refNo.'/').'/'. $gimg->customer_file_name; ?>">
+                					    <img src="<?php echo url('customer_files/'.$refNo.'/').'/'. $gimg->customer_file_name; ?>" alt="" class="photographer-thimbnial">
                 					 </a>
                                 </li>
                                 @endforeach
@@ -325,7 +325,7 @@
                         </div>
                       <hr>
                     @endif
-                    @if(count($gVideo) > 0) 
+                    @if(count($gVideo) > 0)
                           <div class="">
                               <h3 class="title-box-dashboard">Videos</h3>
                             <ul class="images-box-dashboard" style="list-style: none;">
@@ -333,24 +333,24 @@
                                 <li class="">
                                     <video onmouseover="this.play()" onmouseout="this.pause()" width="100%" height="100%" muted="" loop="">
         							<!--<source src="https://projects.hexawebstudio.com/darquise-nantel/uploads/video/water_mark_large/watermark-person-slicing-fruits-121599847070rke90rxnwv.mp4" type="video/mp4">-->
-        							<source src="<?php echo url('public/customer_files/'.$refNo.'/').'/'. $gvid->customer_file_name; ?>" type="video/mp4">
+        							<source src="<?php echo url('customer_files/'.$refNo.'/').'/'. $gvid->customer_file_name; ?>" type="video/mp4">
                             						<!-- <source src="movie.ogg" type="video/ogg"> -->
                             			Your browser does not support the video tag.
                             		</video>
                                 </li>
                                 @endforeach
-                                
+
                             </ul>
                           </div>
                           <hr>
                       @endif
-                      @if(count($gAudio) > 0) 
+                      @if(count($gAudio) > 0)
                           <div class="">
                               <h3 class="title-box-dashboard">Music</h3>
                             <ul class="music-box-dashboard" style="list-style: none;">
                                 @foreach($gAudio as $gmus)
                                     <li class="">
-                                        <div class="BigwaveCustomer d-flex" data-path="<?php echo url('public/customer_files/'.$refNo.'/') .'/'. $gmus->customer_file_name; ?>">
+                                        <div class="BigwaveCustomer d-flex" data-path="<?php echo url('customer_files/'.$refNo.'/') .'/'. $gmus->customer_file_name; ?>">
                                             <div class="align-self-center music-col-2">
                                                 <a href="javascript:;" class="btn-music-play" id="BigbatonCustomer-playMusic#<?php echo $gmus->customer_file_name; ?>">
                                                     <i class="fa fa-play" aria-hidden="true"></i>
@@ -359,7 +359,7 @@
                                                     <i class="fa fa-pause" aria-hidden="true"></i>
                                                 </a>
                                             </div>
-                                            
+
                                             <div class="wave-container music-col-10"></div>
                                         </div>
                                     </li>
@@ -384,27 +384,27 @@
               </div><!-- /.box-header -->
 
                 <div class="box-body table-responsive no-padding">
-                 
+
 
 
 
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
-       
+
             </div>
           </div>
 
           <!-- Your Page Content Here -->
 
         </section><!-- /.content -->
-        
+
            <section style="padding: 0px 0px 30px 0px; display:none;" id="sectionUploadFile" >
                 <div class="upload-flies-btn">
                     <h4>Upload Customer files</h4>
                     <form id="formCustomerFiles" method="post" action="{{ url('user/dashboard/upload-file-customer') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
-                        
+
                             <div class="col-lg-6">
                                 <input type="file" name="filesUpload[]" class="customUploadFile" multiple>
                                 <input type="hidden" id="txtReferenceNo" name="txtReferenceNo">
@@ -425,28 +425,28 @@
 <script type="text/javascript">
 document.addEventListener('contextmenu', event => event.preventDefault());
 
-// document.onkeypress = function (event) {  
-// event = (event || window.event);  
-// if (event.keyCode == 123) {  
-// return false;  
-// }  
-// }  
-// document.onmousedown = function (event) {  
-// event = (event || window.event);  
-// if (event.keyCode == 123) {  
-// return false;  
-// }  
-// }  
-// document.onkeydown = function (event) {  
-// event = (event || window.event);  
-// if (event.keyCode == 123) {  
-// return false;  
-// }  
-// }  
+// document.onkeypress = function (event) {
+// event = (event || window.event);
+// if (event.keyCode == 123) {
+// return false;
+// }
+// }
+// document.onmousedown = function (event) {
+// event = (event || window.event);
+// if (event.keyCode == 123) {
+// return false;
+// }
+// }
+// document.onkeydown = function (event) {
+// event = (event || window.event);
+// if (event.keyCode == 123) {
+// return false;
+// }
+// }
 
 // PRELOADER START
 $(document).ready(function() {
-    
+
     // setTimeout(function() {
         $('.preloader').fadeOut('slow');
     // }, 1000);
@@ -462,7 +462,7 @@ $(document).ready(function() {
                 $("#errorCustTermsDiv").hide('slow');
             }, 3000);
         }
-        
+
         const baseUrl = '<?php echo url("/") ?>';
         var refNo = '<?php echo $refNo; ?>';
         var customerAction = 'approved';
@@ -518,7 +518,7 @@ $(document).ready(function() {
         var msg = '';
         var headIcon = '';
       }
-      
+
       let hideData = '<input type="hidden" name="shootId" id="shootId" value="'+ valueId +'">';
       let statusValue = '<input type="hidden" name="statusValue" id="statusValue" value="'+ value +'">';
       $("#myModalCuso .modal-body").append(msg);
@@ -526,7 +526,7 @@ $(document).ready(function() {
       $("#myModalCuso .modal-body").append(statusValue);
       $("#myModalCuso .icon-box").append(headIcon);
       $("#myModalCuso").modal();
-      
+
     }
   });
 
@@ -556,15 +556,15 @@ $(document).ready(function() {
       }
     });
   });
-  
-  //Clicked On Reject Button 
+
+  //Clicked On Reject Button
   $("#custReject").click(function(){
      $("#myModalCustFiles").modal();
   });
-  
-  //Clicked Yes Reject Button 
+
+  //Clicked Yes Reject Button
   $("#btnYesModalCustomerTerm").click(function(){
-      
+
       const baseUrl = '<?php echo url("/") ?>';
        var refNo = '<?php echo $refNo; ?>';
         var customerAction = 'rejected';

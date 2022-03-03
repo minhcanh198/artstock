@@ -235,7 +235,7 @@ class AdminUserController extends Controller {
 
 			foreach($stocks as $stock){
 
-				$stock_path = 'public/uploads/'.$stock->type.'/'.$stock->name;
+				$stock_path = 'uploads/'.$stock->type.'/'.$stock->name;
 
 				// Delete Stock
 				if ( \File::exists($stock_path) ) {
@@ -245,8 +245,8 @@ class AdminUserController extends Controller {
 				$stock->delete();
 			}
 
-			$preview_image = 'public/uploads/preview/'.$image->preview;
-			$thumbnail     = 'public/uploads/thumbnail/'.$image->thumbnail;
+			$preview_image = 'uploads/preview/'.$image->preview;
+			$thumbnail     = 'uploads/thumbnail/'.$image->thumbnail;
 
 			// Delete preview
 			if ( \File::exists($preview_image) ) {

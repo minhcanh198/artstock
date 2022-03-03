@@ -19,7 +19,7 @@ if( Auth::check() ) {
 			<div class="media">
 			  <div class="media-left">
 			    <a href="{{url($user->username)}}">
-			      <img src="{{ url('public/avatar',$user->avatar) }}" class="img-circle avatar-user">
+			      <img src="{{ url('avatar',$user->avatar) }}" class="img-circle avatar-user">
 			    </a>
 			  </div>
 			  <div class="media-body text-overflow">

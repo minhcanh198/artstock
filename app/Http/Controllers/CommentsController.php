@@ -89,7 +89,7 @@ class CommentsController extends Controller {
 	      <div class="media media-comments position-relative" data-id="'.$idComment.'">
 			<span class="pull-left">
 				<a href="'.url(Auth::user()->username).'">
-				<img width="50" height="50" class="media-object img-circle" src="'.url("public/avatar/",Auth::user()->avatar).'">
+				<img width="50" height="50" class="media-object img-circle" src="'.url("avatar/",Auth::user()->avatar).'">
 			</a>
 			</span>
 			<div class="media-body media-body-comments">

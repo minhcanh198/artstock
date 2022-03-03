@@ -245,19 +245,19 @@
                                         			        @foreach($queryAnimationsGetDataById as $dataUserAnimations)
                                             			        @php
                                                 			        if($settings->show_watermark == '1') {
-                                    								    $thumbnail = 'public/uploads/preview/'.$dataUserAnimations->preview;
+                                    								    $thumbnail = 'uploads/preview/'.$dataUserAnimations->preview;
                                     								} else {
                                         								$stockImage = App\Models\Stock::whereImagesId($dataUserAnimations->id)->whereType('small')->select('name')->first();
-                                        								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+                                        								$thumbnail = 'uploads/small/'.$stockImage->name;
                                     								}
 
 
 
-                        									$watermarkedVideoPathScreenShot = 'public/uploads/video/screen_shot/';
+                        									$watermarkedVideoPathScreenShot = 'uploads/video/screen_shot/';
 
                             								$AnimationFileScreenShotName = explode('.', $dataUserAnimations->thumbnail)[0];
 
-                            								$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
+                            								$watermarkedVideoPath = 'uploads/video/water_mark_large/';
 
                             								$realVideoFileName = $dataUserAnimations->thumbnail;
                                 								@endphp
@@ -378,10 +378,10 @@
                                         			        @foreach($queryGetDataById as $dataUserImages)
                                             			        @php
                                                 			        if($settings->show_watermark == '1') {
-                                    								    $thumbnail = 'public/uploads/preview/'.$dataUserImages->preview;
+                                    								    $thumbnail = 'uploads/preview/'.$dataUserImages->preview;
                                     								} else {
                                         								$stockImage = App\Models\Stock::whereImagesId($dataUserImages->id)->whereType('small')->select('name')->first();
-                                        								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+                                        								$thumbnail = 'uploads/small/'.$stockImage->name;
                                     								}
                                 								@endphp
                                         					    {{-- <!--<img src="{{ asset($thumbnail) }}" alt="" class="set-img-size">--> --}}
@@ -507,16 +507,16 @@
                                         			        @foreach($queryVideosGetDataById as $dataUserVideos)
                                             			        @php
                                                 			        if($settings->show_watermark == '1') {
-                                    								    $thumbnail = 'public/uploads/preview/'.$dataUserVideos->preview;
+                                    								    $thumbnail = 'uploads/preview/'.$dataUserVideos->preview;
                                     								} else {
                                         								$stockImage = App\Models\Stock::whereImagesId($dataUserVideos->id)->whereType('small')->select('name')->first();
-                                        								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+                                        								$thumbnail = 'uploads/small/'.$stockImage->name;
                                     								}
 
 
 
-                                    									$watermarkedVideoPathScreenShot = 'public/uploads/video/screen_shot/';
-                                        								$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
+                                    									$watermarkedVideoPathScreenShot = 'uploads/video/screen_shot/';
+                                        								$watermarkedVideoPath = 'uploads/video/water_mark_large/';
 
                                         								$VideoFileScreenShotName = explode('.', $dataUserVideos->thumbnail)[0];
 
@@ -631,13 +631,13 @@
                                                     			        @foreach($queryMusiciansGetDataById as $dataUserMusicians)
                                                         			        @php
                                                             			        if($settings->show_watermark == '1') {
-                                                								    $thumbnail = 'public/uploads/preview/'.$dataUserMusicians->preview;
+                                                								    $thumbnail = 'uploads/preview/'.$dataUserMusicians->preview;
                                                 								} else {
                                                     								$stockImage = App\Models\Stock::whereImagesId($dataUserMusicians->id)->whereType('small')->select('name')->first();
-                                                    								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+                                                    								$thumbnail = 'uploads/small/'.$stockImage->name;
                                                 								}
 
-                                                								$watermarkedMusicPath = 'public/uploads/audio/large/';
+                                                								$watermarkedMusicPath = 'uploads/audio/large/';
 
                                             								@endphp
                                                     					    <!--<audio controls class="audio-one" controlsList="nodownload" oncontextmenu="return false;">-->
@@ -736,13 +736,13 @@ $("#btnSubmitTxtIndustrySearch").click(function(){
 							var color = imgColor.split(",")[0];
 
 							if(value.extension == "png"){
-								var background = 'background : url('+ baseUrl + 'public/img/pixel.gif' + ') repeat center center #e4e4e4;';
+								var background = 'background : url('+ baseUrl + 'img/pixel.gif' + ') repeat center center #e4e4e4;';
 							}else{
 								var background = 'background-color : #'+ color ;
 							}
 
 							if(res.settings.show_watermark == '1'){
-								var thumbnail = 'public/uploads/preview/'+ value.preview;
+								var thumbnail = 'uploads/preview/'+ value.preview;
 							}else{
 
 								var imageId = value.id;
@@ -753,7 +753,7 @@ $("#btnSubmitTxtIndustrySearch").click(function(){
 									success:function(response){
 										console.log(response);
 										if(response != null){
-											var thumbnail = 'public/uploads/small/'+ response.name;
+											var thumbnail = 'uploads/small/'+ response.name;
 										}else{
 											var thumbnail = '';
 										}
@@ -766,7 +766,7 @@ $("#btnSubmitTxtIndustrySearch").click(function(){
 
 							}
 
-							var watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
+							var watermarkedVideoPath = 'uploads/video/water_mark_large/';
 
 							if(value.is_type == "video"){
 
@@ -864,13 +864,13 @@ $("#btnSubmitTxtIndustrySearch").click(function(){
 							var color = imgColor.split(",")[0];
 
 							if(value.extension == "png"){
-								var background = 'background : url('+ baseUrl + 'public/img/pixel.gif' + ') repeat center center #e4e4e4;';
+								var background = 'background : url('+ baseUrl + 'img/pixel.gif' + ') repeat center center #e4e4e4;';
 							}else{
 								var background = 'background-color : #'+ color ;
 							}
 
 							if(res.settings.show_watermark == '1'){
-								var thumbnail = 'public/uploads/preview/'+ value.preview;
+								var thumbnail = 'uploads/preview/'+ value.preview;
 							}else{
 
 								var imageId = value.id;
@@ -881,7 +881,7 @@ $("#btnSubmitTxtIndustrySearch").click(function(){
 									success:function(response){
 										console.log(response);
 										if(response != null){
-											var thumbnail = 'public/uploads/small/'+ response.name;
+											var thumbnail = 'uploads/small/'+ response.name;
 										}else{
 											var thumbnail = '';
 										}
@@ -894,7 +894,7 @@ $("#btnSubmitTxtIndustrySearch").click(function(){
 
 							}
 
-							var watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
+							var watermarkedVideoPath = 'uploads/video/water_mark_large/';
 
 							if(value.is_type == "video"){
 

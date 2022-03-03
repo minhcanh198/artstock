@@ -106,7 +106,7 @@ class AdminController extends Controller {
 		$sql->faq_question        = trim($request->question);
 		$sql->faq_answer        = trim($request->answer);
 		$sql->faq_category_id = trim($request->faq_category);
-		
+
 		$sql->save();
 
 		\Session::flash('success_message', trans('admin.success_add_category'));
@@ -122,7 +122,7 @@ class AdminController extends Controller {
 
 		// return view('admin.edit-faq')->with('faq',$faq);
 		return view('admin.edit-faq', compact('faq', 'data'));
-	
+
 
 	}//<--- END METHOD
 
@@ -130,7 +130,7 @@ class AdminController extends Controller {
 
 
 		$faq  = Faq::find( $request->id );
-		
+
 
 	    if( !isset($faq) ) {
 			return redirect('panel/admin/faq');
@@ -148,7 +148,7 @@ class AdminController extends Controller {
 
 		$this->validate($request, $rules);
 
-		
+
 
 		// UPDATE CATEGORY
 		$faq->faq_question        = $request->question;
@@ -165,7 +165,7 @@ class AdminController extends Controller {
 	public function deleteFaq($id){
 
 		$faq        = Faq::find( $id );
-		
+
 
 		if( !isset($faq) || $faq->id == 1 ) {
 			return redirect('panel/admin/faq');
@@ -196,8 +196,8 @@ class AdminController extends Controller {
 
 	public function storeFaqCategories(Request $request) {
 
-		$temp            = 'public/temp/'; // Temp
-	  $path            = 'public/img-faq-category/'; // Path General
+		$temp            = 'temp/'; // Temp
+	  $path            = 'img-faq-category/'; // Path General
 
 		Validator::extend('ascii_only', function($attribute, $value, $parameters){
     		return !preg_match('/[^x00-x7F\-]/i', $value);
@@ -274,8 +274,8 @@ class AdminController extends Controller {
 
 
 		$categories  = FaqCategories::find( $request->id );
-		$temp            = 'public/temp/'; // Temp
-	    $path            = 'public/img-faq-category/'; // Path General
+		$temp            = 'temp/'; // Temp
+	    $path            = 'img-faq-category/'; // Path General
 
 	    if( !isset($categories) ) {
 			return redirect('panel/admin/faq-categories');
@@ -347,7 +347,7 @@ class AdminController extends Controller {
 	public function deleteFaqCategories($id){
 
 		$categories        = FaqCategories::find( $id );
-		$thumbnail          = 'public/img-faq-category/'.$categories->thumbnail; // Path General
+		$thumbnail          = 'img-faq-category/'.$categories->thumbnail; // Path General
 
 		if( !isset($categories) || $categories->id == 1 ) {
 			return redirect('panel/admin/faq-categories');
@@ -406,7 +406,7 @@ class AdminController extends Controller {
 		$this->validate($request, $rules);
 
 		$sql              = New Continents();
-		$sql->continent_name        = trim($request->continent_name);		
+		$sql->continent_name        = trim($request->continent_name);
 		$sql->save();
 
 		\Session::flash('success_message', trans('admin.success_add_continent'));
@@ -420,7 +420,7 @@ class AdminController extends Controller {
 		$continent        = Continents::find( $id );
 		// dd($continent->country());
 		return view('admin.edit-continents', compact('continent'));
-	
+
 
 	}//<--- END METHOD
 
@@ -428,7 +428,7 @@ class AdminController extends Controller {
 
 
 		$continent  = Continents::find( $request->id );
-		
+
 
 		if( !isset($continent) ) {
 			return redirect('panel/admin/destinations/continents');
@@ -444,7 +444,7 @@ class AdminController extends Controller {
 
 		$this->validate($request, $rules);
 
-	
+
 		// UPDATE CATEGORY
 		$continent->continent_name        = $request->continent_name;
 		$continent->is_active = $request->continent_status;
@@ -459,7 +459,7 @@ class AdminController extends Controller {
 	public function deleteContinent($id){
 
 		$continent        = Continents::find( $id );
-		
+
 
 		if( !isset($continent) || $continent->id == 1 ) {
 			return redirect('panel/admin/destinations/continents');
@@ -510,9 +510,9 @@ class AdminController extends Controller {
 
 // 		$sql              = New Country();
 		$sql              = New NewCountries();
-// 		$sql->country_name        = trim($request->country_name);		
-		$sql->name        = trim($request->country_name);		
-		$sql->continent_id        = trim($request->continent_id);		
+// 		$sql->country_name        = trim($request->country_name);
+		$sql->name        = trim($request->country_name);
+		$sql->continent_id        = trim($request->continent_id);
 		$sql->save();
 
 		\Session::flash('success_message', trans('admin.success_add_country'));
@@ -528,7 +528,7 @@ class AdminController extends Controller {
 		// dd($country->continents());
 		$continentsData = Continents::get();
 		return view('admin.edit-country', compact('country', 'continentsData'));
-	
+
 
 	}//<--- END METHOD
 
@@ -537,7 +537,7 @@ class AdminController extends Controller {
 
 // 		$country  = Country::find( $request->id );
 		$country  = NewCountries::find( $request->id );
-		
+
 
 		if( !isset($country) ) {
 			return redirect('panel/admin/destinations/countries');
@@ -554,7 +554,7 @@ class AdminController extends Controller {
 
 		$this->validate($request, $rules);
 
-	
+
 		// UPDATE CATEGORY
 // 		$country->country_name        = $request->country_name;
 		$country->name        = $request->country_name;
@@ -572,7 +572,7 @@ class AdminController extends Controller {
 
 // 		$country        = Country::find( $id );
 		$country        = NewCountries::find( $id );
-		
+
 
 		if( !isset($country) || $country->id == 1 ) {
 			return redirect('panel/admin/destinations/countries');
@@ -621,8 +621,8 @@ class AdminController extends Controller {
 		$this->validate($request, $rules);
 
 		$sql              = New State();
-		$sql->state_name        = trim($request->state_name);		
-		$sql->country_id        = trim($request->country_id);		
+		$sql->state_name        = trim($request->state_name);
+		$sql->country_id        = trim($request->country_id);
 		$sql->save();
 
 		\Session::flash('success_message', trans('admin.success_add_state'));
@@ -637,7 +637,7 @@ class AdminController extends Controller {
 		// dd($country->continents());
 		$countryData = Country::get();
 		return view('admin.edit-state', compact('state', 'countryData'));
-	
+
 
 	}//<--- END METHOD
 
@@ -645,7 +645,7 @@ class AdminController extends Controller {
 
 
 		$state  = State::find( $request->id );
-		
+
 
 		if( !isset($state) ) {
 			return redirect('panel/admin/destinations/states');
@@ -662,7 +662,7 @@ class AdminController extends Controller {
 
 		$this->validate($request, $rules);
 
-	
+
 		// UPDATE CATEGORY
 		$state->state_name        = $request->state_name;
 		$state->country_id        = $request->country_id;
@@ -678,7 +678,7 @@ class AdminController extends Controller {
 	public function deleteState($id){
 
 		$state        = State::find( $id );
-		
+
 
 		if( !isset($state) || $state->id == 1 ) {
 			return redirect('panel/admin/destinations/states');
@@ -704,7 +704,7 @@ class AdminController extends Controller {
 
 		echo json_encode($getStates);
 	}
-	
+
 	public function getCityByStateId($stateId)
 	{
 		$getCities = Cities::where('state_id','=', $stateId)->get();
@@ -717,7 +717,7 @@ class AdminController extends Controller {
 
 		// $data      = Cities::select('cities.*','country.country_name','state.state_name')->join('country','country.id','=','cities.country_id')->join('state', 'state.id','=', 'cities.state_id')->get();
 		$data      = Cities::select('cities.*','country.country_name')->join('country','country.id','=','cities.country_id')->get();
-		
+
 
 		return view('admin.city')->withData($data);
 
@@ -762,8 +762,8 @@ class AdminController extends Controller {
 
 	public function storeCities(Request $request) {
 
-	  $temp            = 'public/temp/'; // Temp
-	  $path            = 'public/img-city/'; // Path General
+	  $temp            = 'temp/'; // Temp
+	  $path            = 'img-city/'; // Path General
 
 		Validator::extend('ascii_only', function($attribute, $value, $parameters){
     		return !preg_match('/[^x00-x7F\-]/i', $value);
@@ -828,8 +828,8 @@ class AdminController extends Controller {
 
 		$cities  = Cities::find( $request->id );
 		// dd($cities);
-		$temp            = 'public/temp/'; // Temp
-	    $path            = 'public/img-city/'; // Path General
+		$temp            = 'temp/'; // Temp
+	    $path            = 'img-city/'; // Path General
 
 	    if( !isset($cities) ) {
 			return redirect('panel/admin/destinations/cities');
@@ -888,7 +888,7 @@ class AdminController extends Controller {
 	public function deleteCities($id){
 
 		$cities        = Cities::find( $id );
-		$thumbnail          = 'public/img-city/'.$cities->city_img; // Path General
+		$thumbnail          = 'img-city/'.$cities->city_img; // Path General
 
 		// if( !isset($cities) || $cities->id == 1 ) {
 		if(!isset($cities)) {
@@ -912,7 +912,7 @@ class AdminController extends Controller {
 
 		$data      = Routes::select('routes.*','country.country_name','state.state_name','cities.city_name')->join('country','country.id','=','routes.country_id')->join('state', 'state.id','=', 'routes.state_id')->join('cities', 'cities.id','=', 'routes.city_id')->get();
 		// $data      = State::select('state.*','country.country_name')->join('country', 'country.id','=','state.country_id')->get();
-		
+
 
 		return view('admin.route')->withData($data);
 
@@ -930,8 +930,8 @@ class AdminController extends Controller {
 
 	public function storeRoutes(Request $request) {
 
-	  $temp            = 'public/temp/'; // Temp
-	  $path            = 'public/img-route/'; // Path General
+	  $temp            = 'temp/'; // Temp
+	  $path            = 'img-route/'; // Path General
 
 		Validator::extend('ascii_only', function($attribute, $value, $parameters){
     		return !preg_match('/[^x00-x7F\-]/i', $value);
@@ -997,8 +997,8 @@ class AdminController extends Controller {
 
 		$routes  = Routes::find( $request->id );
 		// dd($cities);
-		$temp            = 'public/temp/'; // Temp
-	    $path            = 'public/img-route/'; // Path General
+		$temp            = 'temp/'; // Temp
+	    $path            = 'img-route/'; // Path General
 
 	    if( !isset($routes) ) {
 			return redirect('panel/admin/destinations/routes');
@@ -1058,7 +1058,7 @@ class AdminController extends Controller {
 	public function deleteRoutes($id){
 
 		$routes        = Routes::find( $id );
-		$thumbnail          = 'public/img-route/'.$routes->route_img; // Path General
+		$thumbnail          = 'img-route/'.$routes->route_img; // Path General
 
 		// if( !isset($cities) || $cities->id == 1 ) {
 		if(!isset($routes)) {
@@ -1097,8 +1097,8 @@ class AdminController extends Controller {
 
 	public function storeCategories(Request $request) {
 
-		$temp            = 'public/temp/'; // Temp
-	  $path            = 'public/img-category/'; // Path General
+		$temp            = 'temp/'; // Temp
+	  $path            = 'img-category/'; // Path General
 
 		Validator::extend('ascii_only', function($attribute, $value, $parameters){
     		return !preg_match('/[^x00-x7F\-]/i', $value);
@@ -1171,8 +1171,8 @@ class AdminController extends Controller {
 
 
 		$categories  = Categories::find( $request->id );
-		$temp            = 'public/temp/'; // Temp
-	    $path            = 'public/img-category/'; // Path General
+		$temp            = 'temp/'; // Temp
+	    $path            = 'img-category/'; // Path General
 
 	    if( !isset($categories) ) {
 			return redirect('panel/admin/categories');
@@ -1240,7 +1240,7 @@ class AdminController extends Controller {
 	public function deleteCategories($id){
 
 		$categories        = Categories::find( $id );
-		$thumbnail          = 'public/img-category/'.$categories->thumbnail; // Path General
+		$thumbnail          = 'img-category/'.$categories->thumbnail; // Path General
 
 		if( !isset($categories) || $categories->id == 1 ) {
 			return redirect('panel/admin/categories');
@@ -1287,8 +1287,8 @@ class AdminController extends Controller {
 
 	public function storeSubCategories(Request $request) {
 
-		$temp            = 'public/temp/'; // Temp
-	  	$path            = 'public/img-sub-category/'; // Path General
+		$temp            = 'temp/'; // Temp
+	  	$path            = 'img-sub-category/'; // Path General
 
 		Validator::extend('ascii_only', function($attribute, $value, $parameters){
     		return !preg_match('/[^x00-x7F\-]/i', $value);
@@ -1360,8 +1360,8 @@ class AdminController extends Controller {
 
 
 		$subCategories  = Categories::find( $request->id );
-		$temp            = 'public/temp/'; // Temp
-	    $path            = 'public/img-sub-category/'; // Path General
+		$temp            = 'temp/'; // Temp
+	    $path            = 'img-sub-category/'; // Path General
 
 	    if( !isset($subCategories) ) {
 			return redirect('panel/admin/sub-categories');
@@ -1429,7 +1429,7 @@ class AdminController extends Controller {
 	public function deleteSubCategories($id){
 
 		$subCategories        = Categories::find( $id );
-		$thumbnail          = 'public/img-sub-category/'.$subCategories->thumbnail; // Path General
+		$thumbnail          = 'img-sub-category/'.$subCategories->thumbnail; // Path General
 
 		if( !isset($subCategories) || $subCategories->id == 1 ) {
 			return redirect('panel/admin/subCategories');
@@ -1689,8 +1689,8 @@ class AdminController extends Controller {
 
 		foreach($stocks as $stock){
 
-			$stock_path = 'public/uploads/'.$stock->type.'/'.$stock->name;
-			$stock_pathVector = 'public/uploads/files/'.$stock->name;
+			$stock_path = 'uploads/'.$stock->type.'/'.$stock->name;
+			$stock_pathVector = 'uploads/files/'.$stock->name;
 
 			// Delete Stock
 			if ( \File::exists($stock_path) ) {
@@ -1706,8 +1706,8 @@ class AdminController extends Controller {
 
 		}//<--- End foreach
 
-		$preview_image = 'public/uploads/preview/'.$image->preview;
-		$thumbnail     = 'public/uploads/thumbnail/'.$image->thumbnail;
+		$preview_image = 'uploads/preview/'.$image->preview;
+		$thumbnail     = 'uploads/thumbnail/'.$image->thumbnail;
 
 		// Delete preview
 		if ( \File::exists($preview_image) ) {
@@ -1857,8 +1857,8 @@ class AdminController extends Controller {
 
 		foreach($stocks as $stock){
 
-			$stock_path = 'public/uploads/'.$stock->type.'/'.$stock->name;
-			$stock_pathVector = 'public/uploads/files/'.$stock->name;
+			$stock_path = 'uploads/'.$stock->type.'/'.$stock->name;
+			$stock_pathVector = 'uploads/files/'.$stock->name;
 
 			// Delete Stock
 			if ( \File::exists($stock_path) ) {
@@ -1874,8 +1874,8 @@ class AdminController extends Controller {
 
 		}//<--- End foreach
 
-		$preview_image = 'public/uploads/preview/'.$image->preview;
-		$thumbnail     = 'public/uploads/thumbnail/'.$image->thumbnail;
+		$preview_image = 'uploads/preview/'.$image->preview;
+		$thumbnail     = 'uploads/thumbnail/'.$image->thumbnail;
 
 		// Delete preview
 		if ( \File::exists($preview_image) ) {
@@ -1955,7 +1955,7 @@ class AdminController extends Controller {
 			'youtube'  => 'url',
 
 		);
-		
+
 
 		$this->validate($request, $rules);
 
@@ -2027,8 +2027,8 @@ class AdminController extends Controller {
 
 	public function themeStore(Request $request) {
 
-		$temp  = 'public/temp/'; // Temp
-	  $path  = 'public/img/'; // Path
+		$temp  = 'temp/'; // Temp
+	  $path  = 'img/'; // Path
 
 		$rules = array(
           'logo'   => 'mimes:png,svg',
@@ -2246,7 +2246,7 @@ class AdminController extends Controller {
 		//Header
 		$headerHeading = $postData['header_heading'];
 		$headerDescription = $postData['header_description'];
-		
+
 		//Section1
 		$section1Heading = $postData['section1_heading'];
 		$section1Description = $postData['section1_description'];
@@ -2288,16 +2288,16 @@ class AdminController extends Controller {
 		//Header Updating
 		$homePageSettings->header_heading   = $headerHeading;
 		$homePageSettings->header_description   = $headerDescription;
-		
-		//Header Main Image 
-		if($request->hasFile('header_main_image')){	
+
+		//Header Main Image
+		if($request->hasFile('header_main_image')){
 			$headerMainImage = $postData['header_main_image'];
 			$mainImageName = 'header_main_image_'.time().'.'.$headerMainImage->getClientOriginalExtension();
-		
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+
+			// $destinationPath = url('/').'/home_page/header_assets/';
 			$Path = 'home_page/header_assets/';
 			$destinationPath = public_path($Path);
-		
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
@@ -2313,14 +2313,14 @@ class AdminController extends Controller {
 		}
 
 		//Header Image
-		// if($request->hasFile('header_image')){	
+		// if($request->hasFile('header_image')){
 		// 	$headerImage = $postData['header_image'];
 		// 	$imageName = 'header_image_'.time().'.'.$headerImage->getClientOriginalExtension();
 
-		// 	// $destinationPath = url('/').'/public/home_page/header_assets/';
+		// 	// $destinationPath = url('/').'/home_page/header_assets/';
 		// 	$Path = 'home_page/header_assets/';
 		// 	$destinationPath = public_path($Path);
-			
+
 		// 	if (!file_exists($destinationPath)) {
 		// 		// path does not exist
 		// 		$saveFile = $headerImage->move($destinationPath, $imageName);
@@ -2342,14 +2342,14 @@ class AdminController extends Controller {
 		$homePageSettings->section1_button_link   = $section1ButtonLink;
 
 		//Section1 Image
-		if($request->hasFile('section1_image')){	
+		if($request->hasFile('section1_image')){
 			$section1Image = $postData['section1_image'];
 			$imageName = 'section1_image_'.time().'.'.$section1Image->getClientOriginalExtension();
 
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+			// $destinationPath = url('/').'/home_page/header_assets/';
 			$Path = 'home_page/sections_assets/';
 			$destinationPath = public_path($Path);
-			
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $section1Image->move($destinationPath, $imageName);
@@ -2371,14 +2371,14 @@ class AdminController extends Controller {
 		$homePageSettings->section2_button_link   = $section2ButtonLink;
 
 		//Section2 Image
-		if($request->hasFile('section2_image')){	
+		if($request->hasFile('section2_image')){
 			$section2Image = $postData['section2_image'];
 			$imageName = 'section2_image_'.time().'.'.$section2Image->getClientOriginalExtension();
 
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+			// $destinationPath = url('/').'/home_page/header_assets/';
 			$Path = 'home_page/sections_assets/';
 			$destinationPath = public_path($Path);
-			
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $section2Image->move($destinationPath, $imageName);
@@ -2400,14 +2400,14 @@ class AdminController extends Controller {
 		$homePageSettings->section3_button_link   = $section3ButtonLink;
 
 		//Section3 Image
-		if($request->hasFile('section3_image')){	
+		if($request->hasFile('section3_image')){
 			$section3Image = $postData['section3_image'];
 			$imageName = 'section3_image_'.time().'.'.$section3Image->getClientOriginalExtension();
 
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+			// $destinationPath = url('/').'/home_page/header_assets/';
 			$Path = 'home_page/sections_assets/';
 			$destinationPath = public_path($Path);
-			
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $section3Image->move($destinationPath, $imageName);
@@ -2429,14 +2429,14 @@ class AdminController extends Controller {
 		$homePageSettings->section4_button_link   = $section4ButtonLink;
 
 		//Section4 Image
-		if($request->hasFile('section4_image')){	
+		if($request->hasFile('section4_image')){
 			$section4Image = $postData['section4_image'];
 			$imageName = 'section4_image_'.time().'.'.$section4Image->getClientOriginalExtension();
 
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+			// $destinationPath = url('/').'/home_page/header_assets/';
 			$Path = 'home_page/sections_assets/';
 			$destinationPath = public_path($Path);
-			
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $section4Image->move($destinationPath, $imageName);
@@ -2459,14 +2459,14 @@ class AdminController extends Controller {
 		// $homePageSettings->footer1_button_link   = $footer1ButtonLink;
 
 		// //Footer1 Image
-		// if($request->hasFile('footer1_image')){	
+		// if($request->hasFile('footer1_image')){
 		// 	$footer1Image = $postData['footer1_image'];
 		// 	$imageName = 'footer1_image_'.time().'.'.$footer1Image->getClientOriginalExtension();
 
-		// 	// $destinationPath = url('/').'/public/home_page/header_assets/';
+		// 	// $destinationPath = url('/').'/home_page/header_assets/';
 		// 	$Path = 'home_page/footer_assets/';
 		// 	$destinationPath = public_path($Path);
-			
+
 		// 	if (!file_exists($destinationPath)) {
 		// 		// path does not exist
 		// 		$saveFile = $footer1Image->move($destinationPath, $imageName);
@@ -2488,14 +2488,14 @@ class AdminController extends Controller {
 		// $homePageSettings->footer2_button_link   = $footer2ButtonLink;
 
 		// //Footer2 Image
-		// if($request->hasFile('footer2_image')){	
+		// if($request->hasFile('footer2_image')){
 		// 	$footer2Image = $postData['footer2_image'];
 		// 	$imageName = 'footer2_image_'.time().'.'.$footer2Image->getClientOriginalExtension();
 
-		// 	// $destinationPath = url('/').'/public/home_page/header_assets/';
+		// 	// $destinationPath = url('/').'/home_page/header_assets/';
 		// 	$Path = 'home_page/footer_assets/';
 		// 	$destinationPath = public_path($Path);
-			
+
 		// 	if (!file_exists($destinationPath)) {
 		// 		// path does not exist
 		// 		$saveFile = $footer2Image->move($destinationPath, $imageName);
@@ -2509,17 +2509,17 @@ class AdminController extends Controller {
 		// 		}
 		// 	}
 		// }
-		
 
-			
-			
+
+
+
 
 		$homePageSettings->save();
 
 		\Session::flash('success_message', trans('admin.success_update'));
 
 		return redirect('panel/admin/home-page-settings');
-		
+
 
 	}
 
@@ -2549,9 +2549,9 @@ class AdminController extends Controller {
 		$sectionDescription4 = $postData['section_description_4'];
 		$sectionHeader5 = $postData['section_header_5'];
 		$sectionDescription5 = $postData['section_description_5'];
-		
+
 		// $aboutContent = $postData['content'];
-	
+
 
 		$aboutPageSettings = AboutPageSettings::first();
 
@@ -2568,18 +2568,18 @@ class AdminController extends Controller {
 		$aboutPageSettings->section_description_4   = $sectionDescription4;
 		$aboutPageSettings->section_header_5   = $sectionHeader5;
 		$aboutPageSettings->section_description_5   = $sectionDescription5;
-		
+
 		// $aboutPageSettings->content   = $aboutContent;
-		
-		//Header Main Image 
-		if($request->hasFile('header_main_image')){	
+
+		//Header Main Image
+		if($request->hasFile('header_main_image')){
 			$headerMainImage = $postData['header_main_image'];
 			$mainImageName = 'header_main_image_'.time().'.'.$headerMainImage->getClientOriginalExtension();
-		
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+
+			// $destinationPath = url('/').'/home_page/header_assets/';
 			$Path = 'about_page/header_assets/';
 			$destinationPath = public_path($Path);
-		
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
@@ -2592,15 +2592,15 @@ class AdminController extends Controller {
 					$aboutPageSettings->header_main_image = $mainImageName;
 				}
 			}
-		}			
-			
+		}
+
 
 		$aboutPageSettings->save();
 
 		\Session::flash('success_message', trans('admin.success_update'));
 
 		return redirect('panel/admin/about-page-settings');
-		
+
 
 	}
 
@@ -2635,9 +2635,9 @@ class AdminController extends Controller {
 		$sectionHeader3 = $postData['section_3_heading'];
 		$sectionDescription3 = $postData['section_3_description'];
 		$sectionContent3 = $postData['section_3_content'];
-		
+
 		// $aboutContent = $postData['content'];
-	
+
 		// var_dump($sectionContent2Description1);
 		// die;
 		$licensePageSettings = LicensePageSettings::first();
@@ -2661,18 +2661,18 @@ class AdminController extends Controller {
 		$licensePageSettings->section_3_heading   = $sectionHeader3;
 		$licensePageSettings->section_3_description   = $sectionDescription3;
 		$licensePageSettings->section_3_content   = $sectionContent3;
-		
+
 		// $licensePageSettings->content   = $aboutContent;
-		
-		//Header Main Image 
-		if($request->hasFile('header_main_image')){	
+
+		//Header Main Image
+		if($request->hasFile('header_main_image')){
 			$headerMainImage = $postData['header_main_image'];
 			$mainImageName = 'header_main_image_'.time().'.'.$headerMainImage->getClientOriginalExtension();
-		
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+
+			// $destinationPath = url('/').'/home_page/header_assets/';
 			$Path = 'license_page/header_assets/';
 			$destinationPath = public_path($Path);
-		
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
@@ -2685,17 +2685,17 @@ class AdminController extends Controller {
 					$licensePageSettings->header_main_image = $mainImageName;
 				}
 			}
-		}		
-		
+		}
+
 		//Section_2_content_1_image
-		if($request->hasFile('section_2_content_1_image')){	
+		if($request->hasFile('section_2_content_1_image')){
 			$Section2Content1Image = $postData['section_2_content_1_image'];
 			$Section2Content1ImageName = 'section_2_content_1_image_'.time().'.'.$Section2Content1Image->getClientOriginalExtension();
-		
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+
+			// $destinationPath = url('/').'/home_page/header_assets/';
 			$Path = 'license_page/section_2_content/';
 			$destinationPath = public_path($Path);
-		
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $Section2Content1Image->move($destinationPath, $Section2Content1ImageName);
@@ -2709,16 +2709,16 @@ class AdminController extends Controller {
 				}
 			}
 		}
-		
+
 		//Section_2_content_2_image
-		if($request->hasFile('section_2_content_2_image')){	
+		if($request->hasFile('section_2_content_2_image')){
 			$Section2Content2Image = $postData['section_2_content_2_image'];
 			$Section2Content2ImageName = 'section_2_content_2_image_'.time().'.'.$Section2Content2Image->getClientOriginalExtension();
-		
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+
+			// $destinationPath = url('/').'/home_page/header_assets/';
 			$Path = 'license_page/section_2_content/';
 			$destinationPath = public_path($Path);
-		
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $Section2Content2Image->move($destinationPath, $Section2Content2ImageName);
@@ -2734,14 +2734,14 @@ class AdminController extends Controller {
 		}
 
 		//Section_2_content_3_image
-		if($request->hasFile('section_2_content_3_image')){	
+		if($request->hasFile('section_2_content_3_image')){
 			$Section2Content3Image = $postData['section_2_content_3_image'];
 			$Section2Content3ImageName = 'section_2_content_3_image_'.time().'.'.$Section2Content3Image->getClientOriginalExtension();
-		
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+
+			// $destinationPath = url('/').'/home_page/header_assets/';
 			$Path = 'license_page/section_2_content/';
 			$destinationPath = public_path($Path);
-		
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $Section2Content3Image->move($destinationPath, $Section2Content3ImageName);
@@ -2757,14 +2757,14 @@ class AdminController extends Controller {
 		}
 
 		//Section_2_content_4_image
-		if($request->hasFile('section_2_content_4_image')){	
+		if($request->hasFile('section_2_content_4_image')){
 			$Section2Content4Image = $postData['section_2_content_4_image'];
 			$Section2Content4ImageName = 'section_2_content_4_image_'.time().'.'.$Section2Content4Image->getClientOriginalExtension();
-		
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+
+			// $destinationPath = url('/').'/home_page/header_assets/';
 			$Path = 'license_page/section_2_content/';
 			$destinationPath = public_path($Path);
-		
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $Section2Content4Image->move($destinationPath, $Section2Content4ImageName);
@@ -2778,19 +2778,19 @@ class AdminController extends Controller {
 				}
 			}
 		}
-			
+
 		$licensePageSettings->save();
 
 		\Session::flash('success_message', trans('admin.success_update'));
 
 		return redirect('panel/admin/license-page-settings');
-		
+
 
 	}
 
-	//use guide page settings 
+	//use guide page settings
 	public function useGuidePageSettings() {
-		
+
 		$useGuidePageSettings = UseGuidePageSettings::first();
 		return view('admin.use-guide-page',compact('useGuidePageSettings'));
 
@@ -2815,14 +2815,14 @@ class AdminController extends Controller {
 		$useGuidePageSettings->section_header   = $sectionHeader;
 		$useGuidePageSettings->section_description   = $sectionDescription;
 		$useGuidePageSettings->link_youtube_video   = $linkYoutobeVideo;
-		
-		//Header Main Image 
-		if($request->hasFile('header_main_image')){	
+
+		//Header Main Image
+		if($request->hasFile('header_main_image')){
 			$headerMainImage = $postData['header_main_image'];
 			$mainImageName = 'header_main_image_'.time().'.'.$headerMainImage->getClientOriginalExtension();
 			$Path = 'use_guide_page/header_assets/';
 			$destinationPath = public_path($Path);
-		
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
@@ -2835,7 +2835,7 @@ class AdminController extends Controller {
 					$useGuidePageSettings->header_main_image = $mainImageName;
 				}
 			}
-		}			
+		}
 
 		$useGuidePageSettings->save();
 
@@ -2859,19 +2859,19 @@ class AdminController extends Controller {
 		$postData = $request->all();
 		//Content
 		$imprintContent = $postData['content'];
-		
+
 		$imprintPageSettings = ImprintPageSettings::first();
 
 		//Content Updating
 		$imprintPageSettings->content   = $imprintContent;
-	
-			
+
+
 		$imprintPageSettings->save();
 
 		\Session::flash('success_message', trans('admin.success_update'));
 
 		return redirect('panel/admin/imprint-page-settings');
-		
+
 
 	}
 
@@ -2889,19 +2889,19 @@ class AdminController extends Controller {
 		$postData = $request->all();
 		//Content
 		$privacyPolicyContent = $postData['content'];
-		
+
 		$privacyPolicyPageSettings = PrivacyPolicyPageSettings::first();
 
 		//Content Updating
 		$privacyPolicyPageSettings->content   = $privacyPolicyContent;
-	
-			
+
+
 		$privacyPolicyPageSettings->save();
 
 		\Session::flash('success_message', trans('admin.success_update'));
 
 		return redirect('panel/admin/privacy-policy-page-settings');
-		
+
 
 	}
 
@@ -2919,19 +2919,19 @@ class AdminController extends Controller {
 		$postData = $request->all();
 		//Content
 		$termsContent = $postData['content'];
-		
+
 		$termsPageSettings = TermsPageSettings::first();
 
 		//Content Updating
 		$termsPageSettings->content   = $termsContent;
-	
-			
+
+
 		$termsPageSettings->save();
 
 		\Session::flash('success_message', trans('admin.success_update'));
 
 		return redirect('panel/admin/terms-page-settings');
-		
+
 
 	}
 
@@ -2957,10 +2957,10 @@ class AdminController extends Controller {
 		$secondSectionContent = $postData['second_section_content'];
 		$thirdSectionContent = $postData['third_section_content'];
 		$thirdSectionButtonText = $postData['third_section_button_text'];
-		
-		
+
+
 		// $aboutContent = $postData['content'];
-	
+
 
 		$destinationPageSettings = DestinationPageSettings::first();
 
@@ -2973,18 +2973,18 @@ class AdminController extends Controller {
 		$destinationPageSettings->second_section_content   = $secondSectionContent;
 		$destinationPageSettings->third_section_content   = $thirdSectionContent;
 		$destinationPageSettings->third_section_button_text   = $thirdSectionButtonText;
-		
+
 		// $aboutPageSettings->content   = $aboutContent;
-		
-		//Header Main Image 
-		if($request->hasFile('header_main_image')){	
+
+		//Header Main Image
+		if($request->hasFile('header_main_image')){
 			$headerMainImage = $postData['header_main_image'];
 			$mainImageName = 'header_main_image_'.time().'.'.$headerMainImage->getClientOriginalExtension();
-		
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+
+			// $destinationPath = url('/').'/home_page/header_assets/';
 			$Path = 'destination_page/assets/';
 			$destinationPath = public_path($Path);
-		
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
@@ -2997,17 +2997,17 @@ class AdminController extends Controller {
 					$destinationPageSettings->header_main_image = $mainImageName;
 				}
 			}
-		}		
-		
-		//Third Section Main Image 
-		if($request->hasFile('third_section_main_image')){	
+		}
+
+		//Third Section Main Image
+		if($request->hasFile('third_section_main_image')){
 			$thirdSectionMainImage = $postData['third_section_main_image'];
 			$mainImageName = 'third_section_main_image_'.time().'.'.$thirdSectionMainImage->getClientOriginalExtension();
-		
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+
+			// $destinationPath = url('/').'/home_page/header_assets/';
 			$Path = 'destination_page/assets/';
 			$destinationPath = public_path($Path);
-		
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $thirdSectionMainImage->move($destinationPath, $mainImageName);
@@ -3021,14 +3021,14 @@ class AdminController extends Controller {
 				}
 			}
 		}
-			
+
 
 		$destinationPageSettings->save();
 
 		\Session::flash('success_message', trans('admin.success_update'));
 
 		return redirect('panel/admin/destination-page-settings');
-		
+
 
 	}
 
@@ -3048,26 +3048,26 @@ class AdminController extends Controller {
 		//Header
 		$requestHeading	= $postData['request_heading'];
 		$requestMessage = $postData['request_message'];
-		
-		
+
+
 		// $aboutContent = $postData['content'];
-	
+
 
 		$suggestCityPageSettings = SuggestCityPageSettings::first();
 
 		//Header Updating
 		$suggestCityPageSettings->request_heading	=	$requestHeading;
 		$suggestCityPageSettings->request_message   = 	$requestMessage;
-		
-		//Header Main Image 
-		if($request->hasFile('request_background_img')){	
+
+		//Header Main Image
+		if($request->hasFile('request_background_img')){
 			$headerMainImage = $postData['request_background_img'];
 			$mainImageName = 'request_background_img'.time().'.'.$headerMainImage->getClientOriginalExtension();
-		
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+
+			// $destinationPath = url('/').'/home_page/header_assets/';
 			$Path = 'suggest_a_city/assets/';
 			$destinationPath = public_path($Path);
-		
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
@@ -3080,17 +3080,17 @@ class AdminController extends Controller {
 					$suggestCityPageSettings->request_background_img = $mainImageName;
 				}
 			}
-		}		
+		}
 
-		//request_thankyou_background_img 
-		if($request->hasFile('request_thankyou_background_img')){	
+		//request_thankyou_background_img
+		if($request->hasFile('request_thankyou_background_img')){
 			$thankyouBackgroundImg = $postData['request_thankyou_background_img'];
 			$mainImageName = 'request_thankyou_background_img'.time().'.'.$thankyouBackgroundImg->getClientOriginalExtension();
-		
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+
+			// $destinationPath = url('/').'/home_page/header_assets/';
 			$Path = 'suggest_a_city/assets/';
 			$destinationPath = public_path($Path);
-		
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $thankyouBackgroundImg->move($destinationPath, $mainImageName);
@@ -3103,17 +3103,17 @@ class AdminController extends Controller {
 					$suggestCityPageSettings->request_thankyou_background_img = $mainImageName;
 				}
 			}
-		}		
-		
-		
-			
+		}
+
+
+
 
 		$suggestCityPageSettings->save();
 
 		\Session::flash('success_message', trans('admin.success_update'));
 
 		return redirect('panel/admin/suggest-city-page-settings');
-		
+
 
 	}
 
@@ -3132,10 +3132,10 @@ class AdminController extends Controller {
 		//Header
 		$headerHeading = $postData['header_heading'];
 		$headerDescription = $postData['header_description'];
-		
-		
+
+
 		// $aboutContent = $postData['content'];
-	
+
 		// var_dump($sectionContent2Description1);
 		// die;
 		$faqPageSettings = FaqPageSettings::first();
@@ -3143,19 +3143,19 @@ class AdminController extends Controller {
 		//Header Updating
 		$faqPageSettings->header_heading   = $headerHeading;
 		$faqPageSettings->header_description   = $headerDescription;
-	
-		
+
+
 		// $faqPageSettings->content   = $aboutContent;
-		
-		//Header Main Image 
-		if($request->hasFile('header_main_image')){	
+
+		//Header Main Image
+		if($request->hasFile('header_main_image')){
 			$headerMainImage = $postData['header_main_image'];
 			$mainImageName = 'header_main_image_'.time().'.'.$headerMainImage->getClientOriginalExtension();
-		
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+
+			// $destinationPath = url('/').'/home_page/header_assets/';
 			$Path = 'faq_page/header_assets/';
 			$destinationPath = public_path($Path);
-		
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
@@ -3168,16 +3168,16 @@ class AdminController extends Controller {
 					$faqPageSettings->header_main_image = $mainImageName;
 				}
 			}
-		}		
-		
-		
-			
+		}
+
+
+
 		$faqPageSettings->save();
 
 		\Session::flash('success_message', trans('admin.success_update'));
 
 		return redirect('panel/admin/faq-page-settings');
-		
+
 
 	}
 
@@ -3195,7 +3195,7 @@ class AdminController extends Controller {
 
 		// $data      = Cities::select('cities.*','country.country_name','state.state_name')->join('country','country.id','=','cities.country_id')->join('state', 'state.id','=', 'cities.state_id')->get();
 		$data      = PhotoshootType::get();
-		
+
 
 		return view('admin.photoshoot-type')->withData($data);
 
@@ -3211,8 +3211,8 @@ class AdminController extends Controller {
 
 	public function storePhotoshootType(Request $request) {
 
-	  $temp            = 'public/temp/'; // Temp
-	  $path            = 'public/img-photoshoot_type/'; // Path General
+	  $temp            = 'temp/'; // Temp
+	  $path            = 'img-photoshoot_type/'; // Path General
 
 		Validator::extend('ascii_only', function($attribute, $value, $parameters){
     		return !preg_match('/[^x00-x7F\-]/i', $value);
@@ -3267,8 +3267,8 @@ class AdminController extends Controller {
 
 		$photoshootType  = PhotoshootType::find( $request->id );
 
-		$temp            = 'public/temp/'; // Temp
-	    $path            = 'public/img-photoshoot_type/'; // Path General
+		$temp            = 'temp/'; // Temp
+	    $path            = 'img-photoshoot_type/'; // Path General
 
 	    if( !isset($photoshootType) ) {
 			return redirect('panel/admin/photoshoot-type');
@@ -3301,7 +3301,7 @@ class AdminController extends Controller {
 
 		// UPDATE CATEGORY
 		$photoshootType->photoshoot_name   			= $request->photoshoot_name;
-		$photoshootType->types_id					= $request->userType;	
+		$photoshootType->types_id					= $request->userType;
 		if($request->hasFile('photoshoot_icon_img')){
 
 			$photoshootType->photoshoot_icon_img    = $file;
@@ -3318,7 +3318,7 @@ class AdminController extends Controller {
 	public function deletePhotoshootType($id){
 
 		$photoshootType        = PhotoshootType::find( $id );
-		$thumbnail          = 'public/img-photoshoot_type/'.$photoshootType->photoshoot_icon_img; // Path General
+		$thumbnail          = 'img-photoshoot_type/'.$photoshootType->photoshoot_icon_img; // Path General
 
 		if(!isset($photoshootType)) {
 			return redirect('panel/admin/photoshoot-type');
@@ -3590,7 +3590,7 @@ class AdminController extends Controller {
 		$this->validate($request, $rules);
 
 		// UPDATE CATEGORY
-		
+
 		$package->hours    			= $request->hours;
 		$package->minutes    		= $request->minutes;
 		$package->price    			= $request->price;
@@ -4043,7 +4043,7 @@ class AdminController extends Controller {
 		$getBookingCompletedDetails = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities','cities.id','=','bookings.city_id')->join('users AS userArtist','userArtist.id','=','bookings.artist_id')->join('users AS userCustomer','userCustomer.id','=','bookings.customer_id')->where('bookings.id', '=', $shootId)->first();
     	return view('admin.bookings-completed-details', ['data' => $getBookingCompletedDetails]);
 	}
-	
+
 	public function getPaymentDetails($shootId)
 	{
 	    $getBookingDetailsForPayment = Booking::select('bookings.*', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('users AS userArtist','userArtist.id','=','bookings.artist_id')->join('users AS userCustomer','userCustomer.id','=','bookings.customer_id')->where('bookings.id', '=', $shootId)->first();

@@ -42,7 +42,7 @@ class DashboardController extends Controller
 	{
 		return view('dashboard.dashboard');
   }//<--- End Method
-  
+
   public function myBookings()
   {
     //$getBookingsList = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'users.username AS UserName', 'users.name AS User_Name')->join('cities','cities.id','=','bookings.city_id')->join('users','users.id','=','bookings.customer_id')->where('artist_id', '=', Auth::user()->id)->orderBy('requested_date','ASC')->get();
@@ -67,7 +67,7 @@ class DashboardController extends Controller
     //return $getShootsList;
     return view('dashboard.shoots', ['data' => $getShootsList]);
   }
-  
+
   public function myShootsDetails($shootId)
   {
     $getShootsDetails = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'users.username AS UserName', 'users.name AS User_Name')->join('cities','cities.id','=','bookings.city_id')->join('users','users.id','=','bookings.artist_id')->where('bookings.id', '=', $shootId)->first();
@@ -77,18 +77,18 @@ class DashboardController extends Controller
     }
     return view('dashboard.shoots_details', ['data' => $getShootsDetails]);
   }
-  
+
     public function customCheckOut($refNo)
     {
           $getBookingDetails = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'users.username AS UserName', 'users.name AS User_Name')->join('cities','cities.id','=','bookings.city_id')->join('users','users.id','=','bookings.artist_id')->where('bookings.reference_no', '=', $refNo)->first();
           return view('dashboard.checkout', ['BookingDetails' => $getBookingDetails]);
     }
-    
-    
+
+
     // Photographer Start
     // START
 	public function photographerPackage() {
-        
+
         $artistId = Auth::id();
 		$data      = Package::where('artist_id',$artistId)->where('package_type', 'photographer')->get();
 		return view('dashboard.package')->withData($data);
@@ -104,7 +104,7 @@ class DashboardController extends Controller
 	public function photographerStorePackage(Request $request) {
 
 
-        
+
 
 		$rules = array(
             // 'hours'        		=> 'required',
@@ -160,7 +160,7 @@ class DashboardController extends Controller
 		$this->validate($request, $rules);
 
 		// UPDATE CATEGORY
-		
+
 		$package->hours    			= $request->hours;
 		$package->minutes    		= $request->minutes;
 		$package->price    			= $request->price;
@@ -193,7 +193,7 @@ class DashboardController extends Controller
     // Videographer Start
     // START
 	public function videographerPackage() {
-        
+
         $artistId = Auth::id();
 		$data      = Package::where('artist_id',$artistId)->where('package_type', 'videographer')->get();
 		return view('dashboard.videographer-package')->withData($data);
@@ -266,7 +266,7 @@ class DashboardController extends Controller
 		$this->validate($request, $rules);
 
 		// UPDATE CATEGORY
-		
+
 		$package->videographer_hours    			= $request->videographer_hours;
 		$package->videographer_minutes    		= $request->videographer_minutes;
 		$package->videographer_price    			= $request->videographer_price;
@@ -299,7 +299,7 @@ class DashboardController extends Controller
     // Animator Start
     // START
 	public function animatorPackage() {
-        
+
         $artistId = Auth::id();
 		$data      = Package::where('artist_id',$artistId)->where('package_type', 'animator')->get();
 		return view('dashboard.animator-package')->withData($data);
@@ -372,7 +372,7 @@ class DashboardController extends Controller
 		$this->validate($request, $rules);
 
 		// UPDATE CATEGORY
-		
+
 		$package->animator_hours    			= $request->animator_hours;
 		$package->animator_minutes    		= $request->animator_minutes;
 		$package->animator_price    			= $request->animator_price;
@@ -405,7 +405,7 @@ class DashboardController extends Controller
     // Musician Start
     // START
 	public function musicianPackage() {
-        
+
         $artistId = Auth::id();
 		$data      = Package::where('artist_id',$artistId)->where('package_type', 'musician')->get();
 		return view('dashboard.musician-package')->withData($data);
@@ -478,7 +478,7 @@ class DashboardController extends Controller
 		$this->validate($request, $rules);
 
 		// UPDATE CATEGORY
-		
+
 		$package->muiscian_hours    			= $request->muiscian_hours;
 		$package->muiscian_minutes    		= $request->muiscian_minutes;
 		$package->muiscian_price    			= $request->muiscian_price;
@@ -511,11 +511,11 @@ class DashboardController extends Controller
 
     public function customCheckOutProccess(Request $request)
     {
-      
+
         $mytime = Carbon\Carbon::now();
-          
+
         $postData                 = $request->all();
-          
+
         $firstName                = $postData['firstName'];
         $lastName                 = $postData['lastName'];
         $email                    = $postData['email'];
@@ -528,7 +528,7 @@ class DashboardController extends Controller
         $getAdminPercent          = (5 / 100) * $totalAmount;
         $idCustomer               = Auth::user()->id;
         $createdDate              = $mytime->toDateTimeString();
-      
+
         $insertPayment            = Payments::create([
             'FirstName'           => $firstName,
             'LastName'            => $lastName,
@@ -541,9 +541,9 @@ class DashboardController extends Controller
             'PaymentMethod'       => $paymentMethod,
             'AdminPercentage'     => $getAdminPercent,
             'idCustomer'          => $idCustomer,
-            'CreatedDate'         => $createdDate    
+            'CreatedDate'         => $createdDate
         ]);
-        
+
         if($insertPayment){
             $updateBookingIsPaid  = Booking::where('reference_no','=', $requestReferenceNumber)->update(['isPaid' => '1']);
             if($updateBookingIsPaid){
@@ -552,12 +552,12 @@ class DashboardController extends Controller
     	        return redirect('user/dashboard');
             }else{
                 \Session::flash('success_message', 'Failed to update Paid.');
-    
-        	    return redirect('user/dashboard');    
+
+        	    return redirect('user/dashboard');
             }
-            
-            
-            
+
+
+
         }else{
             \Session::flash('success_message', 'Failed to pay your payment.');
 
@@ -589,27 +589,26 @@ class DashboardController extends Controller
     $shootId                            = $request->shootId;
 
     $saveReview                         = New Review();
-    $saveReview->review_rate            = $reviewStar;         
-    $saveReview->review_description     = $reviewDescription;         
+    $saveReview->review_rate            = $reviewStar;
+    $saveReview->review_description     = $reviewDescription;
     // $saveReview->review_image           = $reviewImage;
     $saveReview->shoot_id               = $shootId;
     $saveReview->mode                   = 'on';
 
-    //Header Main Image 
-		if($request->hasFile('review_image')){	
+    //Header Main Image
+		if($request->hasFile('review_image')){
 			$headerMainImage = $reviewImage;
 			$mainImageName = 'review_image_'.time().'.'.$headerMainImage->getClientOriginalExtension();
-		
-			// $destinationPath = url('/').'/public/home_page/header_assets/';
+
 			$Path = 'review_images/';
 			$destinationPath = public_path($Path);
-		
+
 			if (!file_exists($destinationPath)) {
 				// path does not exist
 				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
 				if($saveFile){
           // $homePageSettings->header_main_image = $mainImageName;
-          
+
           $saveReview->review_image           = $mainImageName;
 				}
 			}else{
@@ -629,7 +628,7 @@ class DashboardController extends Controller
         \Session::flash('success', trans('admin.success_add'));
         return redirect('user/dashboard/my-shoots');
       }
-    } 
+    }
   }
 
   public function viewReview($id)
@@ -648,11 +647,11 @@ class DashboardController extends Controller
   {
     $shootId              = $request->shootId;
     $statusVal            = $request->statusVal;
-    
+
 
     $updateStatusBooking  = Booking::where('id', '=', $shootId)->update(['status' => $statusVal]);
     // dd($updateStatusBooking);
-    
+
     if($updateStatusBooking){
       if($statusVal == "approved"){
         $getBookingData = Booking::where('id','=', $shootId)->first();
@@ -669,7 +668,7 @@ class DashboardController extends Controller
           'created_at' => $dateTime
         ]);
 
-        
+
          if($createChat) {
 
             $messageTxt = "Hey, I have approved your request. Let's talk here!";
@@ -690,12 +689,12 @@ class DashboardController extends Controller
       }else if($statusVal == "completed"){
           echo json_encode('true');
       }
-      
+
     }else{
       echo json_encode('false');
     }
   }
-  
+
     //Customer  File Upload
     public function uploadFileCustomer(Request $request)
     {
@@ -711,31 +710,31 @@ class DashboardController extends Controller
                 }else{
                     mkdir(public_path($Path.$referenceNo), 0777, true);
                     $Path = 'customer_files/'.$referenceNo.'/';
-                    $destinationPath = public_path($Path);    
+                    $destinationPath = public_path($Path);
                 }
             //   dd($destinationPath);
             for($i = 0; $i < count($_FILES['filesUpload']['name']); $i++){
                 /* Getting file name */
                 $filename = $_FILES['filesUpload']['name'][$i];
-                
-                
+
+
                 /* Location */
                 $location = $destinationPath.$filename;
                 // $location = $destinationPath.$newFileName;
                 $imageFileType = pathinfo($location,PATHINFO_EXTENSION);
                 $imageFileType = strtolower($imageFileType);
-        
+
                 $filesize = $_FILES["filesUpload"]["size"][$i];
-           
+
                 $newFileName = str_random(10).$referenceNo. '.'. $imageFileType;
-                
+
                 $finalLocation = $destinationPath.$newFileName;
-        
+
                 /* Valid extensions */
                 $valid_extensions = array("jpg","jpeg","png");
                 $validFile_extensions = array("pdf","docx","doc");
                 $validVideo_extensions = array("flv","mp4","mov","avi","wmv");
-           
+
                 $response = 0;
                 /* Check file extension */
                 if(in_array(strtolower($imageFileType), $valid_extensions)) {
@@ -748,18 +747,18 @@ class DashboardController extends Controller
                         // if(move_uploaded_file($_FILES['filesUpload']['tmp_name'][$i],$location)){
                         if(move_uploaded_file($_FILES['filesUpload']['tmp_name'][$i],$finalLocation)){
                             $response = $finalLocation;
-        
-                    
+
+
                             $mytime = \Carbon\Carbon::now();
                             $dateTime = $mytime->toDateTimeString();
-                    
+
                             $insertFileDB = CustomerFiles::create([
                                 'customer_file_name' => $newFileName,
                                 'file_type' => 'image',
                                 'referenceNo' => $referenceNo,
                                 'CreatedDate' => $dateTime,
                             ]);
-        
+
                             if(!$insertFileDB){
                                 $error += 1;
                                 // echo json_encode(true);
@@ -778,18 +777,18 @@ class DashboardController extends Controller
                         // if(move_uploaded_file($_FILES['filesUpload']['tmp_name'][$i],$location)){
                         if(move_uploaded_file($_FILES['filesUpload']['tmp_name'][$i],$finalLocation)){
                             $response = $finalLocation;
-        
-                    
+
+
                             $mytime = \Carbon\Carbon::now();
                             $dateTime = $mytime->toDateTimeString();
-                    
+
                             $insertFileDB = CustomerFiles::create([
                                 'customer_file_name' => $newFileName,
                                 'file_type' => 'video',
                                 'referenceNo' => $referenceNo,
                                 'CreatedDate' => $dateTime,
                             ]);
-        
+
                             if($insertFileDB){
                                 $error += 1;
                             //     echo json_encode(true);
@@ -804,97 +803,97 @@ class DashboardController extends Controller
                     array_push($fileValidationError, "InValid File "+$_FILES['filesUpload']['name'][$i]);
                 }
             }
-            
+
             if($error == 0 && count($fileValidationError) == 0){
-                
+
                 $updateIsUpload = Booking::where('reference_no','=', $referenceNo)->update(['isUpload' => '1', 'isCustomerAction' => 'pending']);
-                
+
                  \Session::flash('success_message', 'File has been sent.');
 
     	            return redirect('user/dashboard');
             }
         }
     }
-    
+
     public function downloadAllFiles($referenceNo)
     {
-        
+
         $zip_file = public_path('customer_files/'.$referenceNo.'/').$referenceNo.'.zip';
         // dd($zip_file);
         $zip = new ZipArchive();
     	if ( $zip->open($zip_file, ZipArchive::CREATE) !== TRUE) {
     	    exit("message");
     	}
-    	
+
     	$getFiles = CustomerFiles::where('referenceNo','=', $referenceNo)->get();
-    	
+
     	if(count($getFiles) > 0){
     	    for($i= 0; $i<count($getFiles); $i++){
     	        $locationFile = public_path('customer_files/'.$referenceNo.'/').$getFiles[$i]->customer_file_name;
     	        $filePath = public_path('customer_files/').$referenceNo.'/';
-    	       
+
     	        $zip->addFile($locationFile, $getFiles[$i]->customer_file_name);
     	    }
     	}
     	$zip->close();
-    	
-    	
+
+
 	    if(file_exists($zip_file)){
 	        header('Content-type: application/zip');
         	header('Content-Disposition: attachment; filename="'.basename($zip_file).'"');
         // // 	header("Content-length: " . filesize($zip_file));
         // 	header("Pragma: no-cache");
         // 	header("Expires: 0");
-    	
+
 	        readfile($zip_file);
-        	    
+
 	    }
-	    
-	   
+
+
 	    unlink($zip_file);
 	    exit;
-	
+
     }
-    
+
     public function viewAllFiles($referenceNo)
     {
-        
+
         $getImages = CustomerFiles::where('referenceNo','=', $referenceNo)->where('file_type','=', 'image')->get();
         $getVideo = CustomerFiles::where('referenceNo','=', $referenceNo)->where('file_type','=', 'video')->get();
         $getAudio = CustomerFiles::where('referenceNo','=', $referenceNo)->where('file_type','=', 'audio')->get();
-        
+
         // dd($getImages);
 	    return view('dashboard.view_all_files', ['refNo' => $referenceNo,'gImages' => $getImages, 'gVideo' => $getVideo, 'gAudio' => $getAudio]);
     }
-    
+
     public function updateCustomerAction(Request $request)
     {
         $postData = $request->all();
         // dd($postData);
         $updateBookingCustomerAction = Booking::where('reference_no','=', $postData['refNo'])->update(['isCustomerAction' => $postData['customerAction']]);
-        
+
         if($updateBookingCustomerAction){
             echo json_encode('true');
         }else{
             echo json_encode('false');
         }
     }
-    
+
     public function artistPaymentRequest(Request $request)
     {
         $postData = $request->all();
-        
+
         $updateArtistPaymentRequest = Booking::where('reference_no','=',$postData['refNo'])->update(['isArtistPaymentRequest' => '1', 'paypal_email' => $postData['paypalEmail']]);
-        
+
         if($updateArtistPaymentRequest){
             echo json_encode('true');
         }else{
-            
+
             echo json_encode('false');
         }
     }
-    
-    
+
+
 
   public function getChatList($userID)
   {
@@ -972,7 +971,7 @@ class DashboardController extends Controller
       $imageFileType = strtolower($imageFileType);
 
       $filesize = $_FILES["file"]["size"];
-   
+
       $newFileName = str_random(10). '.'. $imageFileType;
 
       $Path = 'chats_images/';
@@ -983,7 +982,7 @@ class DashboardController extends Controller
       /* Valid extensions */
       $valid_extensions = array("jpg","jpeg","png");
       $validFile_extensions = array("pdf","docx","doc");
-   
+
       $response = 0;
       /* Check file extension */
       if(in_array(strtolower($imageFileType), $valid_extensions)) {
@@ -996,10 +995,10 @@ class DashboardController extends Controller
           if(move_uploaded_file($_FILES['file']['tmp_name'],$location)){
             $response = $location;
 
-            
+
             $mytime = \Carbon\Carbon::now();
             $dateTime = $mytime->toDateTimeString();
-            
+
             $insertFileDB = Message::create([
               'chat_id' => $txtChatId,
               'sender_id' => $txtCurrentUserId,
@@ -1025,10 +1024,10 @@ class DashboardController extends Controller
           if(move_uploaded_file($_FILES['file']['tmp_name'],$location)){
             $response = $location;
 
-            
+
             $mytime = \Carbon\Carbon::now();
             $dateTime = $mytime->toDateTimeString();
-            
+
             $insertFileDB = Message::create([
               'chat_id' => $txtChatId,
               'sender_id' => $txtCurrentUserId,
@@ -1095,7 +1094,7 @@ class DashboardController extends Controller
     if(count($getMsg) > 0){
         for($i = 0; $i < count($getMsg); $i++){
             $msgId = $getMsg[$i]->message_id;
-            
+
             $updateUnreadMessages = Message::where('chat_id','=', $chatId)->where('message_id', $msgId)->where('receiver_id', $uid)->update(['is_read' => 'yes']);
         }
         // return $msgId;
@@ -1154,10 +1153,10 @@ class DashboardController extends Controller
 
 		return view('dashboard.photos', ['data' => $data,'query' => $query, 'sort' => $sort ]);
 	}//<--- End Method
-    
+
     public function delete_photo(Request $request)
     {
-        
+
         //<<<<---------------------------------------------
 
 		$image = Images::find($request->id);
@@ -1198,8 +1197,8 @@ class DashboardController extends Controller
 
 		foreach($stocks as $stock){
 
-			$stock_path = 'public/uploads/'.$stock->type.'/'.$stock->name;
-			$stock_pathVector = 'public/uploads/files/'.$stock->name;
+			$stock_path = 'uploads/'.$stock->type.'/'.$stock->name;
+			$stock_pathVector = 'uploads/files/'.$stock->name;
 
 			// Delete Stock
 			if ( \File::exists($stock_path) ) {
@@ -1215,8 +1214,8 @@ class DashboardController extends Controller
 
 		}//<--- End foreach
 
-		$preview_image = 'public/uploads/preview/'.$image->preview;
-		$thumbnail     = 'public/uploads/thumbnail/'.$image->thumbnail;
+		$preview_image = 'uploads/preview/'.$image->preview;
+		$thumbnail     = 'uploads/thumbnail/'.$image->thumbnail;
 
 		// Delete preview
 		if ( \File::exists($preview_image) ) {
@@ -1229,17 +1228,17 @@ class DashboardController extends Controller
 		}//<--- IF FILE EXISTS
 
 		$image->delete();
-    
+
         \Session::flash('success_message', 'Image deleted successfully!');
 		return redirect('user/dashboard/photos');
-        
-        
-        
-    	
-    	
-        
+
+
+
+
+
+
     }
-    
+
   public function sales()
   {
     $data = Purchases::leftJoin('images', function($join) {

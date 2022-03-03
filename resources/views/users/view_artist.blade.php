@@ -1,8 +1,8 @@
 @extends('new_template.layouts.app')
-@section('content') 
+@section('content')
     <style>
-    
-     
+
+
         .img-overlay-price {
             background-color: #00000052;
             position: absolute;
@@ -24,13 +24,13 @@
             font-size: 18px;
             font-weight: bold;
         }
-        
+
         .portfolio-list-one li:hover .img-overlay-price {
             opacity: 1;
         }
-                
+
     </style>
-    
+
     <!--<h1 class="text-center artist-title mt-4 mb-4">portfolio</h1>-->
     <div class="">
         <div class="item">
@@ -72,7 +72,7 @@
 
     <div class="container">
         <div class="row">
-        
+
             <div class="col-md-7">
                 <div class="row mb-5">
                     <div class="col-md-3">
@@ -85,10 +85,10 @@
                     <div class="col-md-9">
                         <div class="text2 text-person-photographer">
                             <h1 class="text-capitalize">
-                                
+
                                 @php
                                     $getArtistType = \DB::table('types')->where('types_id','=', $artistDetails->user_type_id)->first();
-                                    
+
                                 @endphp
                                 @if($artistDetails->name != "")
                                     {{ $artistDetails->name }}
@@ -160,10 +160,10 @@
                                 ?>
                                 @php
                 			        if($settings->show_watermark == '1') {
-    								    $thumbnail = 'public/uploads/preview/'.$ImageData->preview;
+    								    $thumbnail = 'uploads/preview/'.$ImageData->preview;
     								} else {
         								$stockImage = App\Models\Stock::whereImagesId($ImageData->id)->whereType('small')->select('name')->first();
-        								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+        								$thumbnail = 'uploads/small/'.$stockImage->name;
     								}
 								@endphp
                                 <li class="col-md-3 mb-3 col-6 position-relative">
@@ -188,14 +188,14 @@
                                 ?>
                                         @php
                         			        if($settings->show_watermark == '1') {
-            								    $thumbnail = 'public/uploads/preview/'.$AnimationData->preview;
+            								    $thumbnail = 'uploads/preview/'.$AnimationData->preview;
             								} else {
                 								$stockImage = App\Models\Stock::whereImagesId($AnimationData->id)->whereType('small')->select('name')->first();
-                								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+                								$thumbnail = 'uploads/small/'.$stockImage->name;
             								}
-            								
-            								$watermarkedVideoPath = 'public/uploads/video/screen_shot/';
-            								
+
+            								$watermarkedVideoPath = 'uploads/video/screen_shot/';
+
             								$AnimationFileScreenShotName = explode('.', $AnimationData->thumbnail)[0];
         								@endphp
                                         <li class="col-md-3 mb-3 col-6">
@@ -217,17 +217,17 @@
                                 ?>
                                         @php
                         			        if($settings->show_watermark == '1') {
-            								    $thumbnail = 'public/uploads/preview/'.$VideoData->preview;
+            								    $thumbnail = 'uploads/preview/'.$VideoData->preview;
             								} else {
                 								$stockImage = App\Models\Stock::whereImagesId($VideoData->id)->whereType('small')->select('name')->first();
-                								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+                								$thumbnail = 'uploads/small/'.$stockImage->name;
             								}
-            								
-            								$watermarkedVideoPath = 'public/uploads/video/screen_shot/';
-            								
+
+            								$watermarkedVideoPath = 'uploads/video/screen_shot/';
+
             								$VideoFileScreenShotName = explode('.', $VideoData->thumbnail)[0];
         								@endphp
-                    					    
+
                                         <li class="col-md-3 mb-3 col-6">
                                             <a data-fancybox href="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}">
                                                 <img src="{{ asset($watermarkedVideoPath) }}{{ '/screen-shot-'.$VideoFileScreenShotName.'.png' }}" class="img-fluid img">
@@ -236,18 +236,18 @@
                                 <?php
                                     }
                                 ?>
-                                
+
                             </ul>
                     <?php
                         }else{
-                            
-                            
+
+
                             $queryGetAudioDataById = App\Models\Images::where(['is_type' => 'audio', 'user_id' => $artistDetails->id])->limit(4)->get();
                             foreach($queryGetAudioDataById as $AudKey => $AudioData){
                     ?>
-                    
-                            
-                            
+
+
+
                             <!-- Audio start -->
                             <div class="audio-song-box Bigwave" data-path="<?php echo url('/uploads/audio/large/').'/' . $AudioData->thumbnail; ?>">
                                 <!--<button type="button">Play / Pause</button>-->
@@ -264,8 +264,8 @@
                         	    </div>
                             </div>
                             <!-- Audio end -->
-                            
-                            <?php } 
+
+                            <?php }
                         }
                     ?>
                 </div>
@@ -336,11 +336,11 @@
                     </div>
 
                     @endif
-                   
-                    
-                    
+
+
+
                 </div>
-                
+
             </div>
             <div class="col-md-5">
                 <div class="border-calendar">
@@ -363,7 +363,7 @@
                         <p class="mb-3 disc-calender">
 Artists are available for booking for a minimum 30 & 60 minutes session at your requested place.
                         </p>
-                        
+
                     </div>
                 </div>
             </div>

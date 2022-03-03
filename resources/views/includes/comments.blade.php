@@ -3,7 +3,7 @@
 	      <div class="media media-comments position-relative" id="comment{{$comment->id}}">
 			<span class="pull-left">
 				<a href="{{url($comment->user()->username)}}">
-				<img width="50" height="50" class="media-object img-circle" src="{{url('public/avatar/',$comment->user()->avatar)}}">
+				<img width="50" height="50" class="media-object img-circle" src="{{url('avatar/',$comment->user()->avatar)}}">
 			</a>
 			</span>
 			<div class="media-body media-body-comments">

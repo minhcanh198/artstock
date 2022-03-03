@@ -19,5 +19,5 @@
 // //     return false;
 // // }
 // //
-// // require_once __DIR__.'/public/index.php';
-// header('Location: public/');
+// // require_once __DIR__.'/index.php';
+// header('Location: ');

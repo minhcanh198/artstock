@@ -43,18 +43,18 @@
 											$colors = explode(",", $imgData->colors);
 											$color = $colors[0];
 											if($imgData->extension == 'png' ) {
-												$background = 'background: url('.url('public/img/pixel.gif').') repeat center center #e4e4e4;';
+												$background = 'background: url('.url('img/pixel.gif').') repeat center center #e4e4e4;';
 											}  else {
 												$background = 'background-color: #'.$color.'';
 											}
 											if($settings->show_watermark == '1') {
-												$thumbnail = 'public/uploads/preview/'.$imgData->preview;
+												$thumbnail = 'uploads/preview/'.$imgData->preview;
 											} else {
 												$stockImage = App\Models\Stock::whereImagesId($imgData->id)->whereType('small')->select('name')->first();
-												$thumbnail = 'public/uploads/small/'.$stockImage->name;
+												$thumbnail = 'uploads/small/'.$stockImage->name;
 											}
 
-											$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
+											$watermarkedVideoPath = 'uploads/video/water_mark_large/';
 										@endphp
 										<div>
 											<img src="{{ asset($thumbnail) }}" alt="" class="img-fluid destinations-city-s2-slider-img">
@@ -68,7 +68,7 @@
 										@php
 
 											$getFileName = explode(".",$vidData->thumbnail);
-											$screenShotVideoPath = 'public/uploads/video/screen_shot/'. 'screen-shot-'.$getFileName[0].'.png';
+											$screenShotVideoPath = 'uploads/video/screen_shot/'. 'screen-shot-'.$getFileName[0].'.png';
 										@endphp
 
 										<div>
@@ -83,7 +83,7 @@
 										@php
 
 											$getFileName = explode(".",$vidData->thumbnail);
-											$screenShotVideoPath = 'public/uploads/video/screen_shot/'. 'screen-shot-'.$getFileName[0].'.png';
+											$screenShotVideoPath = 'uploads/video/screen_shot/'. 'screen-shot-'.$getFileName[0].'.png';
 										@endphp
 
 										<div>
@@ -98,7 +98,7 @@
 										@php
 
 											$getFileName = explode(".",$vidData->thumbnail);
-											$screenShotVideoPath = 'public/uploads/video/screen_shot/'. 'screen-shot-'.$getFileName[0].'.png';
+											$screenShotVideoPath = 'uploads/video/screen_shot/'. 'screen-shot-'.$getFileName[0].'.png';
 										@endphp
 
 										<div>

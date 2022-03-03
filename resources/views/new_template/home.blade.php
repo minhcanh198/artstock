@@ -674,10 +674,10 @@
                                         @foreach($queryMusiciansGetDataById as $dataUserMusicians)
                                             {{--  @php --}}
                                             <!--if($settings->show_watermark == '1') {-->
-                                                <!-- $thumbnail = 'public/uploads/preview/'.$dataUserMusicians->thumbnail;-->
+                                                <!-- $thumbnail = 'uploads/preview/'.$dataUserMusicians->thumbnail;-->
                                                 <!--} else {-->
                                                 <!--				$stockImage = App\Models\Stock::whereImagesId($dataUserMusicians->id)->whereType('small')->select('name')->first();-->
-                                                <!--				$thumbnail = 'public/uploads/small/'.$stockImage->name;-->
+                                                <!--				$thumbnail = 'uploads/small/'.$stockImage->name;-->
                                                 <!--}-->
 
                                                 $watermarkedMusicPath = 'uploads/audio/large/';

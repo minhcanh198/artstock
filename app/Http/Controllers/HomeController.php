@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input as Input;
 use App\Http\Requests;
 use App\Models\User;
@@ -27,7 +28,6 @@ class HomeController extends Controller
 
     public function __construct(HomePageSettings $homePageSettings)
     {
-        // dd(1);
         $this->homePageSettings = $homePageSettings::first();
     }
 
@@ -39,12 +39,9 @@ class HomeController extends Controller
     public function index()
     {
         $homePageData = HomePageSettings::first();
-        // dd($homePageData);
-        // $categories = Categories::where('mode','on')->orderBy('name')->paginate(12);
         $categories = Categories::where('mode', 'on')->orderBy('name')->paginate(12);
 
         $images = Query::latestImages();
-        // $images     = Query::RecentImages();
 
         $featured = Query::featuredImages();
         $popularCategories = Categories::withCount('images')->latest('images_count')->has('images')->take(5)->with('images')->get();
@@ -61,39 +58,30 @@ class HomeController extends Controller
         $getCategoriesList = Categories::where('slug', '!=', 'uncategorized')->where('parent_id', '=', '0')->limit('8')->get();
 
         $totalArtistCount = 0;
-// 		$getUserArtistListPhotographer = User::join('types', 'users.user_type_id','=','types.types_id')->where('user_type_id', '!=', '')->where('user_type_id','=', '1')->limit('2')->get();
+
         $getUserArtistListPhotographer = User::select('users.*', 'types.*', 'new_countries.name AS CountryName')->join('types', 'users.user_type_id', '=', 'types.types_id')->join('new_countries', 'users.country_id', '=', 'new_countries.id')->where('user_type_id', '!=', '')->where('user_type_id', '=', '1')->limit('2')->get();
-// 		dd($getUserArtistListPhotographer);
-// 		$getUserArtistListAnimator = User::join('types', 'users.user_type_id','=','types.types_id')->where('user_type_id', '!=', '')->where('user_type_id','=', '2')->limit('2')->get();
         $getUserArtistListAnimator = User::select('users.*', 'types.*', 'new_countries.name AS CountryName')->join('types', 'users.user_type_id', '=', 'types.types_id')->join('new_countries', 'users.country_id', '=', 'new_countries.id')->where('user_type_id', '!=', '')->where('user_type_id', '=', '2')->limit('2')->get();
-        // dd($getUserArtistListAnimator);
-// 		$getUserArtistListVideographer = User::join('types', 'users.user_type_id','=','types.types_id')->where('user_type_id', '!=', '')->where('user_type_id','=', '3')->limit('2')->get();
         $getUserArtistListVideographer = User::select('users.*', 'types.*', 'new_countries.name AS CountryName')->join('types', 'users.user_type_id', '=', 'types.types_id')->join('new_countries', 'users.country_id', '=', 'new_countries.id')->where('user_type_id', '!=', '')->where('user_type_id', '=', '3')->limit('2')->get();
-// 		$getUserArtistListMusician = User::join('types', 'users.user_type_id','=','types.types_id')->where('user_type_id', '!=', '')->where('user_type_id','=', '4')->limit('2')->get();
         $getUserArtistListMusician = User::select('users.*', 'types.*', 'new_countries.name AS CountryName')->join('types', 'users.user_type_id', '=', 'types.types_id')->join('new_countries', 'users.country_id', '=', 'new_countries.id')->where('user_type_id', '!=', '')->where('user_type_id', '=', '4')->limit('2')->get();
-        // dd($getUserArtistList);
         $totalArtistCount += $getUserArtistListPhotographer->count();
         $totalArtistCount += $getUserArtistListAnimator->count();
         $totalArtistCount += $getUserArtistListVideographer->count();
         $totalArtistCount += $getUserArtistListMusician->count();
         return view(
             'new_template.home', [
-            //   'index.home', [
             'homePageSettings' => $homePageData,
             'categories' => $categories,
             'images' => $images,
             'featured' => $featured,
             'categoryPopular' => $categoryPopular,
             'categoriesList' => $getCategoriesList,
-            // 'userArtistList'   => $getUserArtistList
             'userArtistListPhotographer' => $getUserArtistListPhotographer,
             'userArtistListAnimator' => $getUserArtistListAnimator,
             'userArtistListVideographer' => $getUserArtistListVideographer,
             'userArtistListMusician' => $getUserArtistListMusician,
             'totalArtistCount' => $totalArtistCount
         ]);
-
-    }// End Method
+    }
 
     public function getAllCategory()
     {
@@ -271,11 +259,8 @@ class HomeController extends Controller
 
     }
 
-    //vuejs component functionality
     public function getUsersByCategory($categorySlug)
     {
-
-        // dd($categorySlug);
         $getCategoryDetails = Categories::where('slug', '=', $categorySlug)->first();
 
         $user = Auth::user();
@@ -358,21 +343,10 @@ class HomeController extends Controller
         echo json_encode($getLimitImages);
     }
 
-// 	public function getLimitVideosByUserId($userId)
-// 	{
-// 	    $getLimitImages = Images::where(['is_type' => 'video', 'user_id' => $userId])->limit(4)->get();
-
-//         echo json_encode($getLimitImages);
-// 	}
-
     public function subCategory($slug)
     {
         $images = Query::subCategoryImages($slug);
-        // if(strpos($slug, '-') !== false){
-        // 	// echo "Word Found!";
-        // 	return view('default.user-category')->with($images);
-        // } else{
-        // echo "Word Not Found!";
+
         return view('default.sub_category')->with($images);
         // }
 
@@ -382,12 +356,7 @@ class HomeController extends Controller
     {
 
         $images = Query::subCategoryMusic($slug);
-        // if(strpos($slug, '-') !== false){
-        // 	// echo "Word Found!";
-        // 	return view('default.user-category')->with($images);
-        // } else{
-        // echo "Word Not Found!";
-        // dd($images);
+
         return view('default.sub_category_music')->with($images);
         // }
 
@@ -432,30 +401,20 @@ class HomeController extends Controller
 
     public function searchByIndustry(Request $request)
     {
-
-        // dd($request);
-        // if(isset($request->searchIndustryValue)){
-        // 	$q = $request->searchIndustryValue;
-        // }else{
-        // 	$q = '';
-        // }
         if (isset($request->txt_search_industry)) {
             $q = $request->txt_search_industry;
         } else {
             $q = '';
         }
 
-        // $industryId = $request->searchIndustryId;
         $industryId = $request->txt_search_industry_id;
-        // dd($industryId);
         if (isset($request->slug) && $request->slug == "music") {
             $slugMusic = "music";
         } else {
             $slugMusic = "";
         }
         $images = Query::searchIndustryData($q, $industryId, $slugMusic);
-        // dd($images);
-        // echo json_encode($images);
+
         if (isset($request->slug) && $request->slug == "music") {
 
             return view('default.categor_music')->with($images);
@@ -463,8 +422,6 @@ class HomeController extends Controller
 
             return view('default.category')->with($images);
         }
-        // return view('default.search_new2',compact('images', 'q'));
-
     }
 
     public function searchBySubCategoryIndustry(Request $request)
@@ -475,14 +432,10 @@ class HomeController extends Controller
             $q = '';
         }
 
-        // $industryId = $request->searchIndustryId;
         $industryId = $request->txt_search_industry_id;
-        // dd($industryId);
         $images = Query::searchSubIndustryData($q, $industryId, $slugMusic);
-        // dd($images);
-        // echo json_encode($images);
+
         return view('default.sub_category')->with($images);
-        // return view('default.search_new2',compact('images', 'q'));
     }
 
     public function searchMusicBySubCategoryIndustry(Request $request)
@@ -502,14 +455,12 @@ class HomeController extends Controller
             $slugMusic = "";
         }
         $images = Query::searchMusicSubIndustryData($q, $industryId, $slugMusic);
-        // dd($images);
-        // echo json_encode($images);
+
         if (isset($request->slug) && $request->slug == "music") {
             return view('default.sub_category_music')->with($images);
         } else {
             return view('default.sub_category')->with($images);
         }
-        // return view('default.search_new2',compact('images', 'q'));
     }
 
     public function tags($slug)
@@ -598,5 +549,4 @@ class HomeController extends Controller
 
         echo json_encode($stock);
     }
-
 }

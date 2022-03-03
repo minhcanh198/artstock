@@ -2,9 +2,9 @@
 
 @section('title'){{ $aboutPageSettings->title.' - ' }}@endsection
 
-@section('content') 
+@section('content')
 <!-- <div class="jumbotron md  jumbotron_set jumbotron-cover" style="background-image: {{ url('/') }}/about_page/header_assets/{{ $aboutPageSettings->header_main_image }} !important"> -->
-<div class="bg-license" style="background-image:url(<?php echo url('public/about_page/header_assets/').'/'.$aboutPageSettings->header_main_image; ?>);">
+<div class="bg-license" style="background-image:url(<?php echo url('about_page/header_assets/').'/'.$aboutPageSettings->header_main_image; ?>);">
       <div class="container wrap-jumbotron position-relative">
         <h1 class="title-site">{{ $aboutPageSettings->header_heading }}</h1>
         <p>{{ $aboutPageSettings->header_description }}</p>
@@ -33,7 +33,7 @@
     <!--					<div class="d-md-flex">-->
     <!--						<a href="https://projects.hexawebstudio.com/darquise-nantel/artist/16" class="btn-portfolio-one w-100 mt-0">Portfolio</a>-->
     <!--						<a href="https://projects.hexawebstudio.com/darquise-nantel/request-to-book?photographerId=16&amp;cityId=4 " class="button-book-one w-100">Book artist</a>-->
-    						
+
     <!--					</div>-->
     <!--				</div>-->
     <!--			</div>-->
@@ -41,11 +41,11 @@
     <!--    </div>-->
     <!--</div>-->
 <!-- Col MD -->
-<div class="col-md-12">	
-		
-	
-     	
-<div class="row">     
+<div class="col-md-12">
+
+
+
+<div class="row">
      		<?php //echo html_entity_decode($aboutPageSettings->content) ?>
     <div class="col-12 text-center">
         <div class="box-div about-new-box-1">
@@ -91,7 +91,7 @@
     </div>
 </div>
  </div><!-- /COL MD -->
- 
+
  </div><!-- container wrap-ui -->
 @endsection
 

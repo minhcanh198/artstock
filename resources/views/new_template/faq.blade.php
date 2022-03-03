@@ -2,10 +2,10 @@
 
 @section('title'){{ $faqPageSettings->title.' - ' }}@endsection
 
-@section('content') 
+@section('content')
 
 <!-- <div class="jumbotron md  jumbotron_set jumbotron-cover" style="background-image: {{ url('/') }}/about_page/header_assets/{{ $faqPageSettings->header_main_image }} !important"> -->
-<div class="bg-license" style="background-image:url(<?php echo url('public/faq_page/header_assets/').'/'.$faqPageSettings->header_main_image; ?>); background-size: cover;">
+<div class="bg-license" style="background-image:url(<?php echo url('faq_page/header_assets/').'/'.$faqPageSettings->header_main_image; ?>); background-size: cover;">
       <div class="container wrap-jumbotron position-relative">
         <h1 class="title-site">{{ $faqPageSettings->header_heading }}</h1>
         <p>{{ $faqPageSettings->header_description }}</p>
@@ -13,9 +13,9 @@
     </div>
 
 <div class="container margin-bottom-40">
-	
+
 <!-- Col MD -->
-<div class="col-md-12">	
+<div class="col-md-12">
   <div class="tab-custom">
     @php
       $i = 0;
@@ -32,15 +32,15 @@
             <!-- <button class="tablinks-custom" onclick="openCity(event, 'Photographers')" style="font-weight:600">Photographers</button> -->
           </div>
 	<!-- <ol class="breadcrumb bg-none">
-          	<li><a href="{{ url('/') }}"><i class="fa fa-home myicon-right"></i></a></li> / 
+          	<li><a href="{{ url('/') }}"><i class="fa fa-home myicon-right"></i></a></li> /
           	<li class="active">FAQ</li>
           </ol> -->
 	<hr />
-     	
-  <div class="div-container" style="text-align:center;">     
-    
+
+  <div class="div-container" style="text-align:center;">
+
   </div>
-  
+
   <section class="section knowledge-base">
     <div class="container">
       <div class="row">
@@ -62,7 +62,7 @@
               $faqData = \App\Models\FaqCategories::where('parent_id','=', $pCategories->id)->get();
             @endphp
             @foreach($faqData as $data)
-            <div class="col-md-4"> 
+            <div class="col-md-4">
               <div class="custom-tabs-box">
                 <h3 style="margin-bottom: 0; font-weight: bold;">
                  {{ $data->name }}
@@ -85,7 +85,7 @@
               </div>
             </div>
             @endforeach
-            
+
           </div>
         </div>
       @else
@@ -95,7 +95,7 @@
               $faqData = \App\Models\FaqCategories::where('parent_id','=', $pCategories->id)->get();
             @endphp
             @foreach($faqData as $data)
-            <div class="col-md-4"> 
+            <div class="col-md-4">
               <div class="custom-tabs-box">
                 <h3 style="margin-bottom: 0; font-weight: bold;">
                  {{ $data->name }}
@@ -118,7 +118,7 @@
               </div>
             </div>
             @endforeach
-            
+
           </div>
         </div>
       @endif
@@ -127,97 +127,97 @@
 
       <!-- <div class="tabcontent-custom" id="Photographers" style="display:block;">
         <div class="row">
-          <div class="col-md-4"> 
+          <div class="col-md-4">
             <div class="custom-tabs-box">
               <h2>
                 New to ?
               </h2>
               <p>
                 <a href="">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio 
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio
                 </a>
               </p>
               <p>
                 <a href="">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio 
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio
                 </a>
               </p>
               <p>
                 <a href="">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio 
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio
                 </a>
               </p>
             </div>
           </div>
-          <div class="col-md-4"> 
+          <div class="col-md-4">
             <div class="custom-tabs-box">
               <h2>
                 New to Pexels?
               </h2>
               <p>
                 <a href="">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio 
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio
                 </a>
               </p>
               <p>
                 <a href="">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio 
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio
                 </a>
               </p>
               <p>
                 <a href="">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio 
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio
                 </a>
               </p>
             </div>
           </div>
-          <div class="col-md-4"> 
+          <div class="col-md-4">
             <div class="custom-tabs-box">
               <h2>
                 New to Pexels?
               </h2>
               <p>
                 <a href="">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio 
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio
                 </a>
               </p>
               <p>
                 <a href="">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio 
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio
                 </a>
               </p>
               <p>
                 <a href="">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio 
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio
                 </a>
               </p>
             </div>
           </div>
-          <div class="col-md-4"> 
+          <div class="col-md-4">
             <div class="custom-tabs-box">
               <h2>
                 New to Pexels?
               </h2>
               <p>
                 <a href="">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio 
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio
                 </a>
               </p>
               <p>
                 <a href="">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio 
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio
                 </a>
               </p>
               <p>
                 <a href="">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio 
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla optio
                 </a>
               </p>
             </div>
           </div>
         </div>
       </div> -->
-      
+
       <!-- <div id="London" class="tabcontent-custom">
         <h3>London</h3>
         <p>London is the capital city of England.</p>
@@ -225,15 +225,15 @@
 
       <div id="Paris" class="tabcontent-custom">
         <h3>Paris</h3>
-        <p>Paris is the capital of France.</p> 
+        <p>Paris is the capital of France.</p>
       </div>
     </div>
-    
+
     </div>
   </section>
 
  </div><!-- /COL MD -->
- 
+
  </div><!-- container wrap-ui -->
 
  <script>

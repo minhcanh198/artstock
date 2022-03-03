@@ -10,7 +10,7 @@
 			if( $user->cover == '' ) {
 				$cover = 'background: #232a29;';
 			}	else {
-				$cover = "background: url('public/cover/$user->cover') no-repeat center center #232a29; background-size: cover;";
+				$cover = "background: url('cover/$user->cover') no-repeat center center #232a29; background-size: cover;";
 			}
 
 			$purchases = App\Models\Purchases::leftJoin('images', function($join) {
@@ -595,7 +595,7 @@ function cropGif(){
 	var cropImage = cropper.getCroppedCanvas().toDataURL();
 	canvas.toBlob(function(blob) {
 	url = URL.createObjectURL(blob);
-	
+
 	var reader = new FileReader();
 	var myBlob;
 	var xhr = new XMLHttpRequest();
@@ -635,7 +635,7 @@ function cropGif(){
 					alert("Avatar changed Successfully!");
 					$('#uploadAvatar').val('');
 					$('.img-circle').attr('src', e.avatar);
-					
+
 				}
 
 			}//<-- e
@@ -650,7 +650,7 @@ function cropGif(){
 						$('#uploadAvatar').val('');
 			}
 		}//<----- SUCCESS
-		
+
 		});
 		}
 	}

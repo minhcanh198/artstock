@@ -89,10 +89,10 @@ $i = 0;
                     			        @foreach($queryGetDataById as $dataUserImages)
                         			        @php
                             			        if($settings->show_watermark == '1') {
-                								    $thumbnail = 'public/uploads/preview/'.$dataUserImages->preview;
+                								    $thumbnail = 'uploads/preview/'.$dataUserImages->preview;
                 								} else {
                     								$stockImage = App\Models\Stock::whereImagesId($dataUserImages->id)->whereType('small')->select('name')->first();
-                    								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+                    								$thumbnail = 'uploads/small/'.$stockImage->name;
                 								}
             								@endphp
 
@@ -124,14 +124,14 @@ $i = 0;
                     			        @foreach($queryVideosGetDataById as $dataUserVideos)
                         			        @php
                             			        if($settings->show_watermark == '1') {
-                								    $thumbnail = 'public/uploads/preview/'.$dataUserVideos->preview;
+                								    $thumbnail = 'uploads/preview/'.$dataUserVideos->preview;
                 								} else {
                     								$stockImage = App\Models\Stock::whereImagesId($dataUserVideos->id)->whereType('small')->select('name')->first();
-                    								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+                    								$thumbnail = 'uploads/small/'.$stockImage->name;
                 								}
 
-                								$watermarkedVideoPathScreenShot = 'public/uploads/video/screen_shot/';
-                								$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
+                								$watermarkedVideoPathScreenShot = 'uploads/video/screen_shot/';
+                								$watermarkedVideoPath = 'uploads/video/water_mark_large/';
 
                 								$VideoFileScreenShotName = explode('.', $dataUserVideos->thumbnail)[0];
 
@@ -165,17 +165,17 @@ $i = 0;
                     			        @foreach($queryAnimationsGetDataById as $dataUserAnimations)
                         			        @php
                             			        if($settings->show_watermark == '1') {
-                								    $thumbnail = 'public/uploads/preview/'.$dataUserAnimations->preview;
+                								    $thumbnail = 'uploads/preview/'.$dataUserAnimations->preview;
                 								} else {
                     								$stockImage = App\Models\Stock::whereImagesId($dataUserAnimations->id)->whereType('small')->select('name')->first();
-                    								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+                    								$thumbnail = 'uploads/small/'.$stockImage->name;
                 								}
 
-                								$watermarkedVideoPathScreenShot = 'public/uploads/video/screen_shot/';
+                								$watermarkedVideoPathScreenShot = 'uploads/video/screen_shot/';
 
                 								$AnimationFileScreenShotName = explode('.', $dataUserAnimations->thumbnail)[0];
 
-                								$watermarkedVideoPath = 'public/uploads/video/water_mark_large/';
+                								$watermarkedVideoPath = 'uploads/video/water_mark_large/';
 
                 								$realVideoFileName = $dataUserAnimations->thumbnail;
             								@endphp
@@ -206,13 +206,13 @@ $i = 0;
                                 			        @foreach($queryMusiciansGetDataById as $dataUserMusicians)
                                     			        @php
                                         			        if($settings->show_watermark == '1') {
-                            								    $thumbnail = 'public/uploads/preview/'.$dataUserMusicians->preview;
+                            								    $thumbnail = 'uploads/preview/'.$dataUserMusicians->preview;
                             								} else {
                                 								$stockImage = App\Models\Stock::whereImagesId($dataUserMusicians->id)->whereType('small')->select('name')->first();
-                                								$thumbnail = 'public/uploads/small/'.$stockImage->name;
+                                								$thumbnail = 'uploads/small/'.$stockImage->name;
                             								}
 
-                            								$watermarkedMusicPath = 'public/uploads/audio/large/';
+                            								$watermarkedMusicPath = 'uploads/audio/large/';
 
                         								@endphp
                                 					    <!--<audio controls class="audio-one" controlsList="nodownload" oncontextmenu="return false;">-->

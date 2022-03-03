@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicons
     ================================================== -->
-    <link rel="shortcut icon" href="{{url('public/img/favicon.png')}}" />
+    <link rel="shortcut icon" href="{{url('img/favicon.png')}}" />
     <title>We will be back in a few minutes...</title>
 
     <!-- Web Fonts

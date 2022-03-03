@@ -352,7 +352,7 @@ class UserController extends Controller
     }//<--- End Method
 
     public function upload_avatar(Request $request)
-    {   
+    {
         $path = 'avatar/';
         $avatar = strtolower(Auth::user()->username . '-' . Auth::user()->id . time() . str_random(10) . '.png');
         $folderPath = public_path('avatar/');
@@ -370,7 +370,7 @@ class UserController extends Controller
             'success' => true,
             'avatar' => url($path . $avatar),
         ]);
-            
+
     }//<--- End Method Avatar
 
     public function upload_cover(Request $request)
@@ -391,8 +391,8 @@ class UserController extends Controller
         }
 
         // PATHS
-        $temp = 'public/temp/';
-        $path = 'public/cover/';
+        $temp = 'temp/';
+        $path = 'cover/';
         $imgOld = $path . Auth::user()->cover;
 
         //<--- HASFILE PHOTO

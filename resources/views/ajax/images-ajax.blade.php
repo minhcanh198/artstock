@@ -5,16 +5,16 @@
 		$colors = explode(",", $image->colors);
 		$color = $colors[0];
 		if($image->extension == 'png' ) {
-			$background = 'background: url('.url('public/img/pixel.gif').') repeat center center #e4e4e4;';
+			$background = 'background: url('.url('img/pixel.gif').') repeat center center #e4e4e4;';
 		}  else {
 			$background = 'background-color: #'.$color.'';
 		}
 
 		if($settings->show_watermark == '1') {
-			$thumbnail = 'public/uploads/preview/'.$image->preview;
+			$thumbnail = 'uploads/preview/'.$image->preview;
 		} else {
 			$stockImages = $image->stock;;
-			$thumbnail = 'public/uploads/small/'.$stockImages[0]->name;
+			$thumbnail = 'uploads/small/'.$stockImages[0]->name;
 		}
 	@endphp
 <!-- Start Item -->
@@ -26,7 +26,7 @@
 				</h5>
 
 			<h5 class="text-overflow author-label mg-bottom-xs" title="{{$image->user()->username}}">
-				<img src="{{ url('public/avatar/',$image->user()->avatar) }}" alt="User" class="img-circle" style="width: 20px; height: 20px; display: inline-block; margin-right: 5px;">
+				<img src="{{ url('avatar/',$image->user()->avatar) }}" alt="User" class="img-circle" style="width: 20px; height: 20px; display: inline-block; margin-right: 5px;">
 				<em>{{$image->user()->username}}</em>
 				</h5>
 				<span class="timeAgo btn-block date-color text-overflow" data="{{ date('c', strtotime( $image->date )) }}"></span>

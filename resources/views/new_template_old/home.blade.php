@@ -59,15 +59,15 @@
                                     $colors = explode(",", $image->colors);
                                     $color = $colors[0];
                                     if($image->extension == 'png' ) {
-                                        $background = 'background: url('.url('public/img/pixel.gif').') repeat center center #e4e4e4;';
+                                        $background = 'background: url('.url('img/pixel.gif').') repeat center center #e4e4e4;';
                                     }  else {
                                         $background = 'background-color: #'.$color.'';
                                     }
                                     if($settings->show_watermark == '1') {
-                                        $thumbnail = 'public/uploads/preview/'.$image->preview;
+                                        $thumbnail = 'uploads/preview/'.$image->preview;
                                     } else {
                                         $stockImage = App\Models\Stock::whereImagesId($image->id)->whereType('small')->select('name')->first();
-                                        $thumbnail = 'public/uploads/small/'.$stockImage->name;
+                                        $thumbnail = 'uploads/small/'.$stockImage->name;
                                     }
                                 @endphp
                                     @if($i == 0)

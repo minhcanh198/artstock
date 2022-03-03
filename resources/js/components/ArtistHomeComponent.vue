@@ -67,7 +67,7 @@
                             </div>
                         </div>
 
-                        <div class="bottom" v-else-if="photoUser.type_name == 'Videographer'" :style="{backgroundImage: 'url('+ baUrl + '/public/uploads/video/screen_shot/' + photoUser.ScreenShot +')'}">
+                        <div class="bottom" v-else-if="photoUser.type_name == 'Videographer'" :style="{backgroundImage: 'url('+ baUrl + '/uploads/video/screen_shot/' + photoUser.ScreenShot +')'}">
                             <div class="row">
                                 <div class="col-5 offset-7">
                                     <a :href="baUrl +'/artist/'+ photoUser.id" class="btn-portfolio-one mb-2">Portfolio</a>
@@ -76,7 +76,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bottom" v-else-if="photoUser.type_name == 'Animator'" :style="{backgroundImage: 'url('+ baUrl + '/public/uploads/video/screen_shot/' + photoUser.ScreenShot +')'}">
+                        <div class="bottom" v-else-if="photoUser.type_name == 'Animator'" :style="{backgroundImage: 'url('+ baUrl + '/uploads/video/screen_shot/' + photoUser.ScreenShot +')'}">
                             <div class="row">
                                 <div class="col-5 offset-7">
                                     <a :href="baUrl +'/artist/'+ photoUser.id" class="btn-portfolio-one mb-2">Portfolio</a>
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bottom" v-else-if="photoUser.type_name == 'Musician'" :style="{backgroundImage: 'url('+ baUrl + '/public/uploads/thumbnail/musicWave.png'+')'}">
+                        <div class="bottom" v-else-if="photoUser.type_name == 'Musician'" :style="{backgroundImage: 'url('+ baUrl + '/uploads/thumbnail/musicWave.png'+')'}">
                             <div class="row">
                                 <div class="col-5 offset-7">
                                     <a :href="baUrl +'/artist/'+ photoUser.id" class="btn-portfolio-one mb-2">Portfolio</a>
@@ -102,7 +102,7 @@
                         <div class="header-photographer">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <img :src="baUrl + '/public/avatar/' + animatorUser.avatar" alt="" class="set-img-size" style="width:100px;">
+                                    <img :src="baUrl + '/avatar/' + animatorUser.avatar" alt="" class="set-img-size" style="width:100px;">
                                 </div>
                                 <div class="col-sm-7 offset-md-1">
                                     <h4 class="title-this">{{ animatorUser.username }}</h4>
@@ -113,7 +113,7 @@
                             </div>
                         </div>
 
-                        <div class="bottom" v-if="animatorUser.type_name == 'Photographer'" :style="{backgroundImage: 'url('+ baUrl + '/public/uploads/thumbnail/' + animatorUser.img +')'}">
+                        <div class="bottom" v-if="animatorUser.type_name == 'Photographer'" :style="{backgroundImage: 'url('+ baUrl + '/uploads/thumbnail/' + animatorUser.img +')'}">
                             <div class="row">
                                 <div class="col-5 offset-7">
                                     <a :href="baUrl +'/artist/'+ animatorUser.id" class="btn-portfolio-one mb-2">Portfolio</a>
@@ -123,7 +123,7 @@
                             </div>
                         </div>
 
-                        <div class="bottom" v-else-if="animatorUser.type_name == 'Videographer'" :style="{backgroundImage: 'url('+ baUrl + '/public/uploads/video/screen_shot/' + animatorUser.ScreenShot +')'}">
+                        <div class="bottom" v-else-if="animatorUser.type_name == 'Videographer'" :style="{backgroundImage: 'url('+ baUrl + '/uploads/video/screen_shot/' + animatorUser.ScreenShot +')'}">
                             <div class="row">
                                 <div class="col-5 offset-7">
                                     <a :href="baUrl +'/artist/'+ animatorUser.id" class="btn-portfolio-one mb-2">Portfolio</a>
@@ -132,7 +132,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bottom" v-else-if="animatorUser.type_name == 'Animator'" :style="{backgroundImage: 'url('+ baUrl + '/public/uploads/video/screen_shot/' + animatorUser.ScreenShot +')'}">
+                        <div class="bottom" v-else-if="animatorUser.type_name == 'Animator'" :style="{backgroundImage: 'url('+ baUrl + '/uploads/video/screen_shot/' + animatorUser.ScreenShot +')'}">
                             <div class="row">
                                 <div class="col-5 offset-7">
                                     <a :href="baUrl +'/artist/'+ animatorUser.id" class="btn-portfolio-one mb-2">Portfolio</a>
@@ -141,7 +141,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bottom" v-else-if="animatorUser.type_name == 'Musician'" :style="{backgroundImage: 'url('+ baUrl + '/public/uploads/thumbnail/musicWave.png'+')'}">
+                        <div class="bottom" v-else-if="animatorUser.type_name == 'Musician'" :style="{backgroundImage: 'url('+ baUrl + '/uploads/thumbnail/musicWave.png'+')'}">
                             <div class="row">
                                 <div class="col-5 offset-7">
                                     <a :href="baUrl +'/artist/'+ animatorUser.id" class="btn-portfolio-one mb-2">Portfolio</a>
@@ -158,7 +158,7 @@
                         <div class="header-photographer">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <img :src="baUrl + '/public/avatar/' + videoUser.avatar" alt="" class="set-img-size" style="width:100px;">
+                                    <img :src="baUrl + '/avatar/' + videoUser.avatar" alt="" class="set-img-size" style="width:100px;">
                                 </div>
                                 <div class="col-sm-7 offset-md-1">
                                     <h4 class="title-this">{{ videoUser.username }}</h4>
@@ -169,7 +169,7 @@
                             </div>
                         </div>
 
-                        <div class="bottom" v-if="videoUser.type_name == 'Photographer'" :style="{backgroundImage: 'url('+ baUrl + '/public/uploads/thumbnail/' + videoUser.img +')'}">
+                        <div class="bottom" v-if="videoUser.type_name == 'Photographer'" :style="{backgroundImage: 'url('+ baUrl + '/uploads/thumbnail/' + videoUser.img +')'}">
                             <div class="row">
                                 <div class="col-5 offset-7">
                                     <a :href="baUrl +'/artist/'+ videoUser.id" class="btn-portfolio-one mb-2">Portfolio</a>
@@ -179,7 +179,7 @@
                             </div>
                         </div>
 
-                        <div class="bottom" v-else-if="videoUser.type_name == 'Videographer'" :style="{backgroundImage: 'url('+ baUrl + '/public/uploads/video/screen_shot/' + videoUser.ScreenShot +')'}">
+                        <div class="bottom" v-else-if="videoUser.type_name == 'Videographer'" :style="{backgroundImage: 'url('+ baUrl + '/uploads/video/screen_shot/' + videoUser.ScreenShot +')'}">
                             <div class="row">
                                 <div class="col-5 offset-7">
                                     <a :href="baUrl +'/artist/'+ videoUser.id" class="btn-portfolio-one mb-2">Portfolio</a>
@@ -188,7 +188,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bottom" v-else-if="videoUser.type_name == 'Animator'" :style="{backgroundImage: 'url('+ baUrl + '/public/uploads/video/screen_shot/' + videoUser.ScreenShot +')'}">
+                        <div class="bottom" v-else-if="videoUser.type_name == 'Animator'" :style="{backgroundImage: 'url('+ baUrl + '/uploads/video/screen_shot/' + videoUser.ScreenShot +')'}">
                             <div class="row">
                                 <div class="col-5 offset-7">
                                     <a :href="baUrl +'/artist/'+ videoUser.id" class="btn-portfolio-one mb-2">Portfolio</a>
@@ -197,7 +197,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bottom" v-else-if="videoUser.type_name == 'Musician'" :style="{backgroundImage: 'url('+ baUrl + '/public/uploads/thumbnail/musicWave.png'+')'}">
+                        <div class="bottom" v-else-if="videoUser.type_name == 'Musician'" :style="{backgroundImage: 'url('+ baUrl + '/uploads/thumbnail/musicWave.png'+')'}">
                             <div class="row">
                                 <div class="col-5 offset-7">
                                     <a :href="baUrl +'/artist/'+ videoUser.id" class="btn-portfolio-one mb-2">Portfolio</a>
@@ -210,13 +210,13 @@
                 </div>
             <!-- <div class="photographer-box "  v-for="photoUser in getUserArtistListPhotographer" :key="photoUser.id" >
                 <div class="photographer-img">
-                    <img alt="" class="img-fluid" style="height: 260px" src="http://projects.hexawebstudio.com/darquise-nantel/public/cover/cover.jpg">
+                    <img alt="" class="img-fluid" style="height: 260px" src="http://projects.hexawebstudio.com/darquise-nantel/cover/cover.jpg">
                 </div>
                 <div class="d-flex">
                     <div class="align-self-center">
                         <a href="javascript:;"  @click="addToActiveChat(photoUser)" class="btn-chat">Let's Chat </a>
                     </div>
-                    <div class="photographer-person-img text-center ml-5"><img style="border-radius: 50%;width: 140px;" alt="" :src="baUrl +'/public/avatar/'+ photoUser.avatar"></div>
+                    <div class="photographer-person-img text-center ml-5"><img style="border-radius: 50%;width: 140px;" alt="" :src="baUrl +'/avatar/'+ photoUser.avatar"></div>
                     <div class="icon-photo">
                         <i class="far fa-images"></i> <small class="photos-count">{{ photoUser.id }}</small>
                     </div>
@@ -233,13 +233,13 @@
             <div class="photographer-box " v-for="videoUser in getUserArtistListAnimator" :key="videoUser.id">
                 <div class="">
                     <div class="photographer-img">
-                        <img alt="" class="img-fluid" style="height: 260px" src="http://projects.hexawebstudio.com/darquise-nantel/public/cover/cover.jpg">
+                        <img alt="" class="img-fluid" style="height: 260px" src="http://projects.hexawebstudio.com/darquise-nantel/cover/cover.jpg">
                     </div>
                     <div class="d-flex">
                         <div class="align-self-center">
                             <a href="javascript:;"  @click="addToActiveChat(videoUser)" class="btn-chat">Let's Chat</a>
                         </div>
-                        <div class="photographer-person-img text-center ml-5"><img style="border-radius: 50%;width: 140px;" alt="" :src="baUrl +'/public/avatar/'+ videoUser.avatar"></div>
+                        <div class="photographer-person-img text-center ml-5"><img style="border-radius: 50%;width: 140px;" alt="" :src="baUrl +'/avatar/'+ videoUser.avatar"></div>
                         <div class="icon-photo">
                             <i class="far fa-images"></i> <small class="photos-count">{{ videoUser.id }}</small>
                         </div>
@@ -258,13 +258,13 @@
             <div class="photographer-box " v-for="videoUser in getUserArtistListVideographer" :key="videoUser.id">
                 <div class="">
                     <div class="photographer-img">
-                        <img alt="" class="img-fluid" style="height: 260px" src="http://projects.hexawebstudio.com/darquise-nantel/public/cover/cover.jpg">
+                        <img alt="" class="img-fluid" style="height: 260px" src="http://projects.hexawebstudio.com/darquise-nantel/cover/cover.jpg">
                     </div>
                 <div class="d-flex">
                         <div class="align-self-center">
                             <a href="javascript:;"  @click="addToActiveChat(videoUser)" class="btn-chat">Let's Chat</a>
                         </div>
-                        <div class="photographer-person-img text-center ml-5"><img style="border-radius: 50%;width: 140px;" alt="" :src="baUrl +'/public/avatar/'+ videoUser.avatar"></div>
+                        <div class="photographer-person-img text-center ml-5"><img style="border-radius: 50%;width: 140px;" alt="" :src="baUrl +'/avatar/'+ videoUser.avatar"></div>
                         <div class="icon-photo">
                             <i class="far fa-images"></i> <small class="photos-count">{{ videoUser.id }}</small>
                         </div>
@@ -283,13 +283,13 @@
             <div class="photographer-box " v-for="musicUser in getUserArtistListMusician" :key="musicUser.id">
                 <div class="">
                     <div class="photographer-img">
-                        <img alt="" class="img-fluid" style="height: 260px" src="http://projects.hexawebstudio.com/darquise-nantel/public/cover/cover.jpg">
+                        <img alt="" class="img-fluid" style="height: 260px" src="http://projects.hexawebstudio.com/darquise-nantel/cover/cover.jpg">
                     </div>
                     <div class="d-flex">
                         <div class="align-self-center">
                             <a href="javascript:;"  @click="addToActiveChat(musicUser)" class="btn-chat">Let's Chat</a>
                         </div>
-                        <div class="photographer-person-img text-center ml-5"><img style="border-radius: 50%;width: 140px;" alt="" :src="baUrl +'/public/avatar/'+ musicUser.avatar"></div>
+                        <div class="photographer-person-img text-center ml-5"><img style="border-radius: 50%;width: 140px;" alt="" :src="baUrl +'/avatar/'+ musicUser.avatar"></div>
                         <div class="icon-photo">
                             <i class="far fa-images"></i> <small class="photos-count">{{ musicUser.id }}</small>
                         </div>

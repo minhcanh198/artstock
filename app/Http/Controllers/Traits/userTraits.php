@@ -118,7 +118,7 @@ trait userTraits {
 
 			foreach($stocks as $stock){
 
-				$stock_path = 'public/uploads/'.$stock->type.'/'.$stock->name;
+				$stock_path = 'uploads/'.$stock->type.'/'.$stock->name;
 
 				// Delete Stock
 				if ( \File::exists($stock_path) ) {
@@ -128,8 +128,8 @@ trait userTraits {
 				$stock->delete();
 			}
 
-			$preview_image = 'public/uploads/preview/'.$image->preview;
-			$thumbnail     = 'public/uploads/thumbnail/'.$image->thumbnail;
+			$preview_image = 'uploads/preview/'.$image->preview;
+			$thumbnail     = 'uploads/thumbnail/'.$image->thumbnail;
 
 			// Delete preview
 			if ( \File::exists($preview_image) ) {
@@ -155,14 +155,14 @@ trait userTraits {
 	}
 
 	//<<<-- Delete Avatar -->>>/
-	$fileAvatar    = 'public/avatar/'.$user->avatar;
+	$fileAvatar    = 'avatar/'.$user->avatar;
 
 		if ( \File::exists($fileAvatar) && $user->avatar != 'default.jpg' ) {
 			\File::delete($fileAvatar);
 		}//<--- IF FILE EXISTS
 
 	//<<<-- Delete Cover -->>>/
-	$fileCover  = 'public/cover/'.$user->cover;
+	$fileCover  = 'cover/'.$user->cover;
 
 		if ( \File::exists($fileCover) && $user->cover != 'cover.jpg' ) {
 			\File::delete($fileCover);
