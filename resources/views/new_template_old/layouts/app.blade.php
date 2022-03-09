@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <link rel="stylesheet" href="{{{ asset('new_template/css/bootstrap.min.css') }}}"/>
     <link rel="stylesheet" href="{{{ asset('new_template/css/font-awesome.css') }}}">
+
     <link rel="stylesheet" href="{{{ asset('new_template/css/owl.carousel.min.css') }}}">
     <link rel="stylesheet" href="{{{ asset('new_template/css/style.css') }}}"/>
     <link rel="stylesheet" href="{{{ asset('new_template/css/responsive.css') }}}"/>

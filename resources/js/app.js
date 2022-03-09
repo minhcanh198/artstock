@@ -22,15 +22,7 @@ Vue.prototype.EventBus = new Vue();
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('users-component', require('./components/UsersComponent.vue').default);
-Vue.component('message-component', require('./components/MessagesComponent.vue').default);
-Vue.component('active-chats-component', require('./components/ActiveChatsComponent.vue').default);
-Vue.component('stream-chat', require('./components/StreamChat.vue').default);
-
-Vue.component('usersliderhome', require('./components/ArtistHomeComponent.vue').default);
-Vue.component('userslidercategory', require('./components/ArtistCategoryComponent.vue').default);
-Vue.component('artistcard', require('./components/ArtistComponent.vue').default);
+Vue.component('chat-panel', require('./components/ChatPanel.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -38,7 +30,6 @@ Vue.component('artistcard', require('./components/ArtistComponent.vue').default)
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-
-const app = new Vue({
-    el: '#app'
+const streamChat = new Vue({
+    el: '#stream-chat'
 });

@@ -77,6 +77,7 @@ if (Auth::check()) {
 <!-- <link href="{{ asset('css/icomoon.css') }}" rel="stylesheet"> -->
     <!-- FONT Awesome CSS -->
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+
     <!-- Sweet Alert -->
     <link href="{{ asset('plugins/sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css"/>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
@@ -536,6 +537,7 @@ if (Auth::check()) {
     <script>
         window.auth_user = {!! json_encode(Auth::user());  !!};
     </script>
+    <script></script>
 
 </head>
 
@@ -547,7 +549,8 @@ if (Auth::check()) {
             <div class="container">
                 <div class="row">
                     <div class="col-6">
-                        <a href="{{ url('/') }}"> <img loading="lazy" src="{{ asset('img/logo.svg') }}" class="img-fluid"></a>
+                        <a href="{{ url('/') }}"> <img loading="lazy" src="{{ asset('img/logo.svg') }}"
+                                                       class="img-fluid"></a>
                     </div>
                     <div class="col-6 align-self-center text-right">
                         <div class="circle" id="navbar">
@@ -567,11 +570,8 @@ if (Auth::check()) {
                                             <li>
                                                 <a href="{{ url('category') }}/artist-{{ $type->type_name }}">{{ $type->type_name }}</a>
                                             </li>
-                                    @endforeach
-                                    <!--<li><a href="#">One</a></li>-->
-                                        <!--<li><a href="#">Two</a></li>-->
-                                        <!--<li><a href="#">Three</a></li>-->
-                                        <!--<li><a href="#">Four</a></li>-->
+                                        @endforeach
+
                                     </ul>
                                     <h3>By Industry </h3>
                                     <ul class="mobile-nav-cate-ul">
@@ -580,17 +580,12 @@ if (Auth::check()) {
                                                 <li>
                                                     <a href="{{ url('category') }}/{{ $category->slug }}">{{ $category->name }}</a>
                                                 </li>
-                                        @endif
-                                    @endforeach
-                                    <!--<li><a href="#">One</a></li>-->
-                                        <!--<li><a href="#">Two</a></li>-->
-                                        <!--<li><a href="#">Three</a></li>-->
-                                        <!--<li><a href="#">Four</a></li>-->
+                                            @endif
+                                        @endforeach
+
                                     </ul>
                                 </li>
-                                <!--<li><a href="#">Locations</a></li>-->
-                                <!--<li><a href="#">License</a></li>-->
-                                <!--<li><a href="#">About</a></li>-->
+
                                 <li><a href="{{ url('/destinations') }}">Locations</a></li>
                                 <li><a href="{{ url('/license') }}">License</a></li>
                                 <li><a href="{{ url('/about')}}">About</a></li>
@@ -614,7 +609,8 @@ if (Auth::check()) {
                 <div class="row">
                     <div class="col-md-2">
                         <div class="logo">
-                            <a href="{{ url('/') }}"><img loading="lazy" src="{{ asset('img/logo.svg') }}" style="width: 200px;"></a>
+                            <a href="{{ url('/') }}"><img loading="lazy" src="{{ asset('img/logo.svg') }}"
+                                                          style="width: 200px;"></a>
                         </div>
                     </div>
                     <div class="col-md-6 d-flex justify-content-center m-auto">
@@ -665,61 +661,20 @@ if (Auth::check()) {
                         </div>
                     </div>
                     <div class="col-md-3 m-auto">
-                        <div class="social-icons ">
+                        <div class="d-flex justify-content-between align-items-center">
                             @if( Auth::check())
-                                <li class="notifations-item notification-icon">
-                                    <a href="{{ url('notifications') }}" title="{{ trans('users.notifications') }}"
-                                       class="font-default text-uppercase">
-                                        <i class="fa fa-bell-o"></i>
-                                        <span class="title-dropdown ">{{ trans('users.notifications') }}</span>
-                                    </a>
-                                    <ul class="dropdown-notifations">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="wrap-center center-block noti-scroll-ne-index">
-
-                                                    <dl class="margin-zero">
-
-                                                        <!-- Start -->
-                                                        <div class="media li-group noty-media">
-                                                            <div class="pull-left">
-                                                                <a href="/darquise-nantel/Frank">
-                                                                    <img width="40" height="40"
-                                                                         class="img-circle myicon-righ media-objectt"
-                                                                         alt="User"
-                                                                         src="/darquise-nantel/avatar/frank-111599843468wmk4ogjwy3.jpg">
-                                                                </a>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <div class="pull-right small">
-                                                                    <span class="timestamp timeAgo"
-                                                                          data="2021-06-01T01:53:20-04:00">6 days ago</span>
-                                                                </div>
-                                                                <h5 class="media-heading"><a
-                                                                        href="/darquise-nantel/Frank">
-                                                                        <strong> Frank </strong> </a></h5>
-
-                                                                <p class="list-grid-block p-text"
-                                                                   style="height: auto; padding: 0 2px;">
-                                                                    <i class="icon-heart ico-btn-like"></i> like you
-                                                                    photo
-
-                                                                    <a href="/darquise-nantel/photo/220">
-                                                                        <strong>TshirtImages1</strong> </a>
-
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End -->
-                                                    </dl>
-                                                </div><!-- wrap center -->
-                                            </div>
+                                <li class="dropdown">
+                                    <div class="dropdown-toggle"
+                                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                         aria-expanded="false">
+                                        <i class="fab fa-facebook-messenger fa-2x text-white"></i>
+                                    </div>
+                                    <div class="dropdown-menu chat-panel" aria-labelledby="dropdownMenuButton">
+                                        <div id="stream-chat">
+                                            <chat-panel
+                                                :user="{{ (Auth::user() != null) ? Auth::user() : '' }}"></chat-panel>
                                         </div>
-
-                                        <div class="addon-btn-noti-nw">
-                                            <a href="javascript:;">Show all notification</a>
-                                        </div>
-                                    </ul>
+                                    </div>
                                 </li>
                                 <li class="dropdown new">
                                     <a href="javascript:void(0);" data-toggle="dropdown"
@@ -811,9 +766,8 @@ if (Auth::check()) {
                                     @if( Auth::user()->authorized_to_upload == 'yes' )
                                     <!-- <a href="{{ url('upload') }}" class="btn btn-h-two mr-2">UPLOAD</a> -->
                                         <div class="dropdown-one-one">
-                                            <button onclick="myFunction()" class="dropbtn-one-one"
-                                                    style="padding: 12px 20px 12px 20px;"><i class="fa fa-upload"></i>
-                                                Upload
+                                            <button onclick="myFunction()" class="dropbtn-one-one">
+                                                <i class="fa fa-upload"></i>
                                             </button>
                                             <div id="myDropdown-one-one" class="dropdown-content-one-one">
                                                 <a href="{{ url('upload/image') }}">Image Upload</a>
@@ -984,7 +938,8 @@ if (Auth::check()) {
                     </div>
 
                     <div class="col-md-1" style="">
-                        <button id="sendMsgChat" class="enter-chat"><img loading="lazy" src="{{ url('/') }}/img/email.png" alt=""
+                        <button id="sendMsgChat" class="enter-chat"><img loading="lazy"
+                                                                         src="{{ url('/') }}/img/email.png" alt=""
                                                                          class="img-responsive" style="width: 17px;">
                         </button>
                     </div>
@@ -998,14 +953,7 @@ if (Auth::check()) {
 
 @yield('content')
 
-
 <footer>
-
-    @if(Auth::user() != null)
-        <stream-chat :autheduser="{{ (Auth::user() != null) ? Auth::user() : '' }}"></stream-chat>
-    @endif
-
-
     <div class="footer-new">
         <div class="container">
             <div class="row">
