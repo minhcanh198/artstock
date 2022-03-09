@@ -3,7 +3,7 @@
         <h3><strong>Messages</strong></h3>
         <div class="divider"></div>
         <div v-for="(message, index) in messages">
-            <div class="d-flex message p-2">
+            <div class="d-flex message py-2">
                 <div class="col-3 pl-1">
                     <strong class="mr-2">{{ message.user }}</strong>
                 </div>
