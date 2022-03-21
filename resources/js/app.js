@@ -5,11 +5,9 @@
  */
 
 require('./bootstrap');
+import store from './store/index'
 
 window.Vue = require('vue');
-
-// For sharing of data between components
-Vue.prototype.EventBus = new Vue();
 
 /**
  * The following block of code may be used to automatically register your
@@ -19,10 +17,8 @@ Vue.prototype.EventBus = new Vue();
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-
 Vue.component('chat-panel', require('./components/ChatPanel.vue').default);
+Vue.component('chat-box', require('./components/ChatBox').default)
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,6 +26,7 @@ Vue.component('chat-panel', require('./components/ChatPanel.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const streamChat = new Vue({
-    el: '#stream-chat'
+const app = new Vue({
+    el: '#app',
+    store,
 });

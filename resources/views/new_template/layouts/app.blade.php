@@ -672,7 +672,8 @@ if (Auth::check()) {
                                     <div class="dropdown-menu chat-panel" aria-labelledby="dropdownMenuButton">
                                         <div id="stream-chat">
                                             <chat-panel
-                                                :user="{{ (Auth::user() != null) ? Auth::user() : '' }}"></chat-panel>
+                                                :user="{{ (Auth::user() != null) ? Auth::user() : '' }}">
+                                            </chat-panel>
                                         </div>
                                     </div>
                                 </li>
@@ -948,6 +949,7 @@ if (Auth::check()) {
             </div>
         </div>
     </div>
+    <chat-box v-show="$store.state.showChatBox"></chat-box>
 </div>
 
 
