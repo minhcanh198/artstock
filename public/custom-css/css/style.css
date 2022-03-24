@@ -4741,4 +4741,5 @@ a.stripeBtn.btn.btn-primary {
 
 .chat-panel {
     min-width: 250px;
+    left: -120px;
 }

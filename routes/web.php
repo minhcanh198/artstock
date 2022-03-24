@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -241,7 +244,6 @@ Route::get('ajax/premium', 'AjaxController@premium');
  |--------- -------------------------
  */
 
-Route::get('/get-users-all', 'ChatController@getUsersAll');
 Route::get('/get-users-by-city-route/{cityslug}/{cityroute}', 'DestinationsController@getUsersByCityRoute');
 Route::get('/get-users-by-cate/{categorslug}', 'HomeController@getUsersByCategory');
 Route::get('/get-subCat-by-category/{slug}', 'HomeController@getSubCategoryByCategory');
@@ -285,20 +287,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     });
 
-    //Vue.js Route Start
-
-    // Chat System Routes Start
-    Route::post('/generate-token', 'ChatController@getnerateToken');
-    Route::get('/get-users', 'ChatController@getUsers');
-
-
-    // Chat System Routes End
-
-
-    //Vue.js Route End
-
-
-    //Hiring Module Routes start
 
     Route::get('artist/{id}', 'UserController@artist');
     // Route::get('hire-more/{id}','ImagesController@hireMore');
@@ -408,6 +396,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('get-artist-customer-details', 'DashboardController@getDetailsArtistCustomer');
 
     //Chat
+    Route::get('chats', 'ChatController@getChats');
+    Route::get('chat/{chatId}', 'ChatController@getMessages');
     Route::get('get-chat-list/{userId}', 'DashboardController@getChatList');
     Route::get('get-single-chat-details/{chatId}', 'DashboardController@getSingleChatDetails');
     Route::post('send-text-msg', 'DashboardController@sendTextMsg');

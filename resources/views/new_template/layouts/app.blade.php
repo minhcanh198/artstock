@@ -661,7 +661,7 @@ if (Auth::check()) {
                         </div>
                     </div>
                     <div class="col-md-3 m-auto">
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-end align-items-center">
                             @if( Auth::check())
                                 <li class="dropdown">
                                     <div class="dropdown-toggle"
@@ -677,7 +677,7 @@ if (Auth::check()) {
                                         </div>
                                     </div>
                                 </li>
-                                <li class="dropdown new">
+                                <li class="dropdown new mx-4">
                                     <a href="javascript:void(0);" data-toggle="dropdown"
                                        class="userAvatar myprofile dropdown-toggle font-default text-uppercase">
                                         <img loading="lazy" src="{{ asset('avatar').'/'.$userAuth->avatar }}" alt="User"
@@ -797,7 +797,7 @@ if (Auth::check()) {
                                 @if( $settings->registration_active == '1' )
                                     <a href="{{ url('register') }}" class="btn btn-h">JOIN</a>
                                 @endif
-                                <a href="{{ url('login') }}" class="btn btn-h-two mr-2">LOGIN</a>
+                                <a href="{{ url('login') }}" class="btn btn-h-two mx-3">LOGIN</a>
                             @endif
                         </div>
                     </div>
@@ -949,7 +949,7 @@ if (Auth::check()) {
             </div>
         </div>
     </div>
-    <chat-box v-show="$store.state.showChatBox"></chat-box>
+    <chat-box v-if="$store.state.showChatBox"></chat-box>
 </div>
 
 

@@ -1,8 +1,8 @@
 <template>
-    <div class="position-fixed z-1000 w-25 h-50 right-10 bottom-0 bg-white rounded-top border">
+    <div class="position-fixed z-1000 w-25 h-50 right-10 bottom-0 bg-white rounded-top border" v-if="currentChatId">
         <div class="d-flex flex-column h-100">
             <div class="px-2 py-1 bg-red rounded-top d-flex justify-content-between align-items-center">
-                <div><strong class="text-white">Chat header</strong></div>
+                <div><strong class="text-white">{{ chatHeader }}</strong></div>
                 <button type="button" class="btn text-white" @click="showChatBoxAction(false)">X</button>
             </div>
             <div class="p-3 h-75 overflow-y-auto" id="messageList">
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import {mapActions} from "vuex";
+import {mapActions, mapState} from "vuex";
 import Message from "./Message";
 
 export default {
@@ -39,6 +39,9 @@ export default {
             messages: []
         }
     },
+    mounted() {
+        this.getMessages();
+    },
     methods: {
         ...mapActions(['showChatBoxAction']),
         sendMessage() {
@@ -46,6 +49,23 @@ export default {
                 this.messages.push(this.message)
                 this.message = ''
             }
+        },
+        async getMessages() {
+            let res = await axios.get(`/chat/${this.currentChatId}`)
+            this.messages = res.data
+            console.log(this.messages)
+        }
+    },
+    computed: {
+        ...mapState(['currentChatId', 'user']),
+        chatHeader() {
+            if (this.messages.length > 0) {
+                if (this.user.id != this.messages[0].sender_id) {
+                    return this.messages[0].sender.name
+                }
+                return this.messages[0].receiver.name
+            }
+            return "Chat Header"
         }
     },
 }
