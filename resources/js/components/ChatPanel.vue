@@ -2,6 +2,9 @@
     <div class="container px-1">
         <h3><strong>Messages</strong></h3>
         <div class="divider"></div>
+        <div class="d-flex font-italic my-5 justify-content-center px-2" v-if="chats.length==0">
+            Your chat history is empty
+        </div>
         <div v-for="(chat, index) in chats">
             <div class="d-flex message py-2 align-items-center"
                  @click="showChatBoxAction(true);selectChat(chat.chat_id);">
