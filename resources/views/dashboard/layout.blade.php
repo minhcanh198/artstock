@@ -1178,40 +1178,7 @@ desired effect
                     $("#messageMainModal").modal('toggle');
                     $("#messageMainModal2").modal();
                     // console.log('here');
-                    $.ajax({
-                        url: baseUrl + '/update-unread-message/' + getAttrId + '/' + sessionUserId,
-                        type: 'get',
-                        datType: 'json',
-                        success: function (response) {
-                            // console.log(response);
-                            const baseUrl = '<?php echo url('/') ?>';
-                            var sessionUId = '<?php echo \Auth::user()->id;?>';
-                            console.log(sessionUId);
-                            $.ajax({
-                                url: baseUrl + '/get-unread-messages/' + sessionUId,
-                                type: 'GET',
-                                dataType: 'json',
-                                success: function (response) {
-                                    // console.log(response.length);
-                                    console.log(response);
-                                    if (response == "empty") {
 
-                                        $("#spanMessageCounter").text('0');
-                                    } else {
-                                        $("#spanMessageCounter").text(response.length);
-
-                                    }
-
-                                },
-                                error: function () {
-
-                                }
-                            });
-                        },
-                        error: function () {
-
-                        }
-                    });
                 }
 
 

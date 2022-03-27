@@ -6,11 +6,13 @@
                 <button type="button" class="btn text-white" @click="showChatBoxAction(false)">X</button>
             </div>
             <div class="p-3 h-75 overflow-y-auto" id="messageList">
-                <message v-for="(message, index) in messages" :key="index" :message="message">
+                <message v-for="message in messages" :key="message.message_id" :message="message"
+                         :avatar="messageAvatar(message)">
                 </message>
             </div>
             <div class="d-flex flex-grow-1 px-1 py-1 align-items-center border-top justify-content-between">
-                <input type="text" class="px-2 m-0 rounded w-80" placeholder="enter your message" v-model="message">
+                <input type="text" class="px-2 m-0 rounded w-80" placeholder="enter your message" v-model="message"
+                       @keypress="triggerSendMessage">
                 <button type="button" class="btn" title="Send" @click="sendMessage">
                     <svg width="20px" height="20px" viewBox="0 0 24 24" class="crt8y2ji">
                         <path
@@ -25,7 +27,7 @@
 </template>
 
 <script>
-import {mapActions, mapState} from "vuex";
+import {mapActions, mapGetters, mapState} from "vuex";
 import Message from "./Message";
 
 export default {
@@ -46,27 +48,50 @@ export default {
         ...mapActions(['showChatBoxAction']),
         sendMessage() {
             if (this.message != "") {
-                this.messages.push(this.message)
+                axios.post(`/chat/${this.currentChatId}/message`, {
+                    'message': this.message,
+                    'to': this.chatMateId
+                })
+                    .then(res => {
+                        this.messages.push(res.data)
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
                 this.message = ''
+            }
+        },
+        triggerSendMessage(event) {
+            if (event.key == 'Enter') {
+                this.sendMessage();
             }
         },
         async getMessages() {
             let res = await axios.get(`/chat/${this.currentChatId}`)
             this.messages = res.data
-            console.log(this.messages)
+        },
+        messageAvatar(message) {
+            return message.sender.avatar
         }
     },
     computed: {
         ...mapState(['currentChatId', 'user']),
+        ...mapGetters(['currentChat']),
         chatHeader() {
             if (this.messages.length > 0) {
-                if (this.user.id != this.messages[0].sender_id) {
-                    return this.messages[0].sender.name
+                if (this.user.id != this.currentChat.sender_id) {
+                    return this.currentChat.sender.name
                 }
-                return this.messages[0].receiver.name
+                return this.currentChat.receiver.name
             }
-            return "Chat Header"
-        }
+            return "Receiver name"
+        },
+        chatMateId() {
+            if (this.user.id == this.currentChat.sender_id) {
+                return this.currentChat.receiver_id
+            }
+            return this.currentChat.sender_id
+        },
     },
 }
 </script>

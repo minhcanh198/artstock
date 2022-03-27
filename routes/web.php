@@ -398,6 +398,8 @@ Route::group(['middleware' => 'auth'], function () {
     //Chat
     Route::get('chats', 'ChatController@getChats');
     Route::get('chat/{chatId}', 'ChatController@getMessages');
+    Route::post('chat/{chatId}/message', 'ChatController@sendMessage');
+
     Route::get('get-chat-list/{userId}', 'DashboardController@getChatList');
     Route::get('get-single-chat-details/{chatId}', 'DashboardController@getSingleChatDetails');
     Route::post('send-text-msg', 'DashboardController@sendTextMsg');

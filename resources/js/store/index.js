@@ -10,6 +10,14 @@ const store = new Vuex.Store({
         chats: [],
         currentChatId: null,
     },
+    getters: {
+        currentChat: state => {
+            let filteredChat = state.chats.filter(chat => {
+                return chat.chat_id == state.currentChatId;
+            })
+            return filteredChat.length != 0 ? filteredChat[0] : null;
+        }
+    },
     actions: {
         showChatBoxAction({commit}, isShow) {
             commit("SHOW_CHAT_BOX", isShow)

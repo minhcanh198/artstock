@@ -1844,39 +1844,6 @@ if (Auth::check()) {
                     $("#messageMainModal").modal('toggle');
                     $("#messageMainModal2").modal();
                     // console.log('here');
-                    $.ajax({
-                        url: baseUrl + '/update-unread-message/' + getAttrId + '/' + sessionUserId2,
-                        type: 'get',
-                        datType: 'json',
-                        success: function (response) {
-                            // console.log(response);
-                            const baseUrl = '<?php echo url('/') ?>';
-                            var sessionUId = '<?php echo (\Auth::user() != null) ? \Auth::user()->id : '';?>';
-                            console.log(sessionUId);
-                            $.ajax({
-                                url: baseUrl + '/get-unread-messages/' + sessionUId,
-                                type: 'GET',
-                                dataType: 'json',
-                                success: function (response) {
-                                    // console.log(response.length);
-                                    if (response == "empty") {
-
-                                        $("#spanMessageCounter").text('0');
-                                    } else {
-                                        $("#spanMessageCounter").text(response.length);
-
-                                    }
-
-                                },
-                                error: function () {
-
-                                }
-                            });
-                        },
-                        error: function () {
-
-                        }
-                    });
                 }
 
 
@@ -2455,41 +2422,6 @@ if (Auth::check()) {
                         $("#singleChatUserDiv").append(htmlSingleChatList);
                         // $("#messageMainModal").modal('toggle');
                         // $("#messageMainModal2").modal();
-
-                        $.ajax({
-                            url: baseUrl + '/update-unread-message/' + getAttrId + '/' + sessionUserId2,
-                            type: 'get',
-                            datType: 'json',
-                            success: function (response) {
-                                // console.log(response);
-                                const baseUrl = '<?php echo url('/') ?>';
-                                var sessionUId = '<?php echo (\Auth::user() != null) ? \Auth::user()->id : '';?>';
-                                console.log(sessionUId);
-                                $.ajax({
-                                    url: baseUrl + '/get-unread-messages/' + sessionUId,
-                                    type: 'GET',
-                                    dataType: 'json',
-                                    success: function (response) {
-                                        // console.log(response.length);
-                                        if (response == "empty") {
-
-                                            $("#spanMessageCounter").text('0');
-                                        } else {
-                                            $("#spanMessageCounter").text(response.length);
-
-                                        }
-
-                                    },
-                                    error: function () {
-
-                                    }
-                                });
-                            },
-                            error: function () {
-
-                            }
-                        });
-
                     }
 
 
@@ -2504,25 +2436,7 @@ if (Auth::check()) {
         const baseUrl = '<?php echo url('/') ?>';
         var sessionUId = '<?php echo (\Auth::user() != null) ? \Auth::user()->id : '';?>';
         // console.log(sessionUId);
-        $.ajax({
-            url: baseUrl + '/get-unread-messages/' + sessionUId,
-            type: 'GET',
-            dataType: 'json',
-            success: function (response) {
-                // console.log(response.length);
-                if (response == "empty") {
 
-                    $("#spanMessageCounter").text('0');
-                } else {
-                    $("#spanMessageCounter").text(response.length);
-
-                }
-
-            },
-            error: function () {
-
-            }
-        });
     }
 
     window.myVar = setInterval(getAllMessageList, 5000);

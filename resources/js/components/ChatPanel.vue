@@ -9,12 +9,12 @@
             <div class="d-flex message py-2 align-items-center"
                  @click="showChatBoxAction(true);selectChat(chat.chat_id);">
                 <div class="col-3 pl-1">
-                    <Avatar></Avatar>
+                    <Avatar :image-url="getChatMateAvatar(chat)"></Avatar>
                 </div>
                 <div class="col-9">
                     <strong class="mr-2" v-if="chat.sender.id!==user.id">{{ chat.sender.name }}</strong>
                     <strong class="mr-2" v-else>{{ chat.receiver.name }}</strong>
-                    <div>{{ chat.last_message.message_text }}</div>
+                    <div v-if="chat.last_message">{{ chat.last_message.message_text }}</div>
                 </div>
             </div>
             <div v-if="index!=chats.length-1" class="divider m-0"></div>
@@ -38,13 +38,21 @@ export default {
         ...mapState(['showChatBox', 'chats']),
     },
     created() {
+        console.log(this.user)
         this.$store.commit("SET_USER", this.user)
     },
     mounted() {
+        console.log("mounted")
         this.getChats()
     },
     methods: {
         ...mapActions(['showChatBoxAction', 'getChats', 'selectChat']),
+        getChatMateAvatar(chat) {
+            if (this.user.id == chat.sender_id) {
+                return chat.receiver.avatar
+            }
+            return chat.sender.avatar
+        }
     }
 }
 </script>

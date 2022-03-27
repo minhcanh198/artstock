@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Channel;
+use Illuminate\Support\Facades\Hash;
 use Session;
 
 class ChatController extends Controller
@@ -31,8 +32,13 @@ class ChatController extends Controller
         return response()->json($messages);
     }
 
-    public function sendMessage(Request $request)
+    public function sendMessage(Request $request, int $chatId): \Illuminate\Http\JsonResponse
     {
-
+        $sender_id = Auth::id();
+        $message = $this->chatService->sendMessage($sender_id, $request->get("to"), [
+            "chat_id" => $chatId,
+            "message" => $request->get("message")
+        ]);
+        return $message ? response()->json($message) : response()->json(['message' => "failed"]);
     }
 }

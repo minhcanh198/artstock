@@ -14,6 +14,9 @@ class Chat
         return ChatModel::with('sender:' . self::userRelations)
             ->with('receiver:' . self::userRelations)
             ->with('lastMessage')
+            ->has('sender')
+            ->has('receiver')
+            ->has('lastMessage')
             ->where('sender_id', $userId)
             ->orWhere('receiver_id', $userId)
             ->get();
@@ -26,6 +29,7 @@ class Chat
             ->where('chat_id', $chatId)
             ->get();
     }
+
 
     public function create()
     {
