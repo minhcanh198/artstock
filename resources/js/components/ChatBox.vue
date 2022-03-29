@@ -5,7 +5,7 @@
                 <div><strong class="text-white">{{ chatHeader }}</strong></div>
                 <button type="button" class="btn text-white" @click="showChatBoxAction(false)">X</button>
             </div>
-            <div class="p-3 h-75 overflow-y-auto" id="messageList">
+            <div class="p-3 h-75 overflow-scroll" ref="messageList">
                 <message v-for="message in messages" :key="message.message_id" :message="message"
                          :avatar="messageAvatar(message)">
                 </message>
@@ -43,39 +43,14 @@ export default {
     },
     mounted() {
         this.getMessages();
+        setInterval(() => {
+            if (this.showChatBox)
+                this.getMessages();
+        }, 10000)
     },
-    methods: {
-        ...mapActions(['showChatBoxAction']),
-        sendMessage() {
-            if (this.message != "") {
-                axios.post(`/chat/${this.currentChatId}/message`, {
-                    'message': this.message,
-                    'to': this.chatMateId
-                })
-                    .then(res => {
-                        this.messages.push(res.data)
-                    })
-                    .catch(err => {
-                        console.log(err)
-                    })
-                this.message = ''
-            }
-        },
-        triggerSendMessage(event) {
-            if (event.key == 'Enter') {
-                this.sendMessage();
-            }
-        },
-        async getMessages() {
-            let res = await axios.get(`/chat/${this.currentChatId}`)
-            this.messages = res.data
-        },
-        messageAvatar(message) {
-            return message.sender.avatar
-        }
-    },
+
     computed: {
-        ...mapState(['currentChatId', 'user']),
+        ...mapState(['currentChatId', 'user', 'showChatBox']),
         ...mapGetters(['currentChat']),
         chatHeader() {
             if (this.messages.length > 0) {
@@ -92,6 +67,44 @@ export default {
             }
             return this.currentChat.sender_id
         },
+    },
+
+    methods: {
+        ...mapActions(['showChatBoxAction']),
+        sendMessage() {
+            if (this.message != "") {
+                axios.post(`/chat/${this.currentChatId}/message`, {
+                    'message': this.message,
+                    'to': this.chatMateId
+                })
+                    .then(res => {
+                        this.messages.push(res.data)
+                        this.scrollBottom()
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+                this.message = ''
+            }
+        },
+        triggerSendMessage(event) {
+            if (event.key == 'Enter') {
+                this.sendMessage();
+            }
+        },
+        async getMessages() {
+            let res = await axios.get(`/chat/${this.currentChatId}`)
+            this.messages = res.data
+            this.scrollBottom()
+        },
+        messageAvatar(message) {
+            return message.sender.avatar
+        },
+        scrollBottom() {
+            setTimeout(() => {
+                this.$refs.messageList.scrollTop = this.$refs.messageList.scrollHeight
+            }, 1)
+        }
     },
 }
 </script>
@@ -113,11 +126,12 @@ export default {
     background: #ef595f
 }
 
-.overflow-y-auto {
-    overflow-y: auto;
+.overflow-scroll {
+    overflow-y: scroll;
 }
 
 .w-80 {
     width: 80%;
 }
+
 </style>

@@ -93,7 +93,7 @@ class UserController extends Controller
         $artistDetails = User::where('id', '=', $id)->first();
 
         $getReviewOfUserById = Review::select('reviews.*', 'userArtist.id AS userArtistID', 'userArtist.username AS userArtistUsername', 'userCustomer.id AS userCustomerID', 'userCustomer.username AS userCustomerUsername')->join('bookings', 'bookings.id', '=', 'reviews.shoot_id')->join('users AS userArtist', 'userArtist.id', '=', 'bookings.artist_id')->join('users AS userCustomer', 'userCustomer.id', '=', 'bookings.customer_id')->where('userArtist.id', '=', $id)->get();
-        // dd($getReviewOfUserById);
+
         return view('users.view_artist', compact('artistDetails', 'getReviewOfUserById'));
     }
 

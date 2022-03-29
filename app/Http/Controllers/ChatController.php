@@ -23,7 +23,13 @@ class ChatController extends Controller
     {
         $userId = Auth::id();
         $chats = $this->chatService->getChats($userId);
+        // $chats = [];
         return response()->json($chats);
+    }
+
+    public function getChat($chatId)
+    {
+        return response()->json($this->chatService->getChat($chatId));
     }
 
     public function getMessages(int $chatId)
@@ -40,5 +46,13 @@ class ChatController extends Controller
             "message" => $request->get("message")
         ]);
         return $message ? response()->json($message) : response()->json(['message' => "failed"]);
+    }
+
+    public function startChat(Request $request)
+    {
+        $sender_id = Auth::id();
+        $newChatId = $this->chatService->startChat($sender_id, $request->get("to"));
+
+        return response()->json($newChatId);
     }
 }

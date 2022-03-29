@@ -7,12 +7,12 @@ use App\Models\Message;
 
 class Chat
 {
-    const userRelations = 'id,avatar,name';
+    const USER_RELATIONSHIP = 'id,avatar,name';
 
     public function getAllByUserId(int $userId)
     {
-        return ChatModel::with('sender:' . self::userRelations)
-            ->with('receiver:' . self::userRelations)
+        return ChatModel::with('sender:' . self::USER_RELATIONSHIP)
+            ->with('receiver:' . self::USER_RELATIONSHIP)
             ->with('lastMessage')
             ->has('sender')
             ->has('receiver')
@@ -22,20 +22,25 @@ class Chat
             ->get();
     }
 
+    public function getChat($chatId)
+    {
+        return ChatModel::with('sender:' . self::USER_RELATIONSHIP)
+            ->with('receiver:' . self::USER_RELATIONSHIP)
+            ->where('chat_id', $chatId)->first();
+    }
+
     public function getAllMessages(int $chatId)
     {
-        return Message::with('sender:' . self::userRelations)
-            ->with('receiver:' . self::userRelations)
+        return Message::with('sender:' . self::USER_RELATIONSHIP)
+            ->with('receiver:' . self::USER_RELATIONSHIP)
             ->where('chat_id', $chatId)
             ->get();
     }
 
 
-    public function create()
+    public function create($payload)
     {
-        return ChatModel::create([
-            ''
-        ]);
+        return ChatModel::create($payload);
     }
 
     public function update()

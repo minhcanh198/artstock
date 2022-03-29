@@ -289,7 +289,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::get('artist/{id}', 'UserController@artist');
-    // Route::get('hire-more/{id}','ImagesController@hireMore');
     Route::get('get-calendar-data', 'UserController@calendarData');
     //Hiring Module Routes end
 
@@ -397,6 +396,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Chat
     Route::get('chats', 'ChatController@getChats');
+    Route::post('chat', 'ChatController@startChat');
+    Route::get('chat/{chatId}/detail', 'ChatController@getChat');
     Route::get('chat/{chatId}', 'ChatController@getMessages');
     Route::post('chat/{chatId}/message', 'ChatController@sendMessage');
 

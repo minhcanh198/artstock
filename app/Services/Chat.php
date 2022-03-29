@@ -24,6 +24,11 @@ class Chat
         return $this->chatRepo->getAllByUserId($userId);
     }
 
+    public function getChat($chatId)
+    {
+        return $this->chatRepo->getChat($chatId);
+    }
+
     public function getMessages(int $chatId)
     {
         return $this->chatRepo->getAllMessages($chatId);
@@ -41,5 +46,14 @@ class Chat
         $newMessage = $this->messageRepo->create($message);
 
         return $this->messageRepo->getMessageById($newMessage->id);
+    }
+
+    public function startChat($from, $to)
+    {
+        return $this->chatRepo->create([
+            'sender_id' => $from,
+            'receiver_id' => $to,
+            "created_at" => now()
+        ])->id;
     }
 }

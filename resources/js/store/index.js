@@ -26,9 +26,13 @@ const store = new Vuex.Store({
             let chats = await axios.get(`/chats`)
             commit('SET_CHATS', chats.data)
         },
+        async getChat({commit}, chatId) {
+            let chats = await axios.get(`/chat/${chatId}/detail`)
+            commit('ADD_CHAT', chats.data)
+        },
         selectChat({commit}, chatId) {
             commit('SET_CURRENT_CHAT', chatId)
-        }
+        },
     },
     mutations: {
         SET_USER(state, user) {
@@ -42,6 +46,9 @@ const store = new Vuex.Store({
         },
         SET_CURRENT_CHAT(state, chatId) {
             state.currentChatId = chatId
+        },
+        ADD_CHAT(state, chat) {
+            state.chats.push(chat)
         }
     },
 })

@@ -950,10 +950,9 @@ if (Auth::check()) {
         </div>
     </div>
     <chat-box v-if="$store.state.showChatBox"></chat-box>
+    @yield('content')
 </div>
 
-
-@yield('content')
 
 <footer>
     <div class="footer-new">

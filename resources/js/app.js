@@ -19,6 +19,7 @@ window.Vue = require('vue');
 
 Vue.component('chat-panel', require('./components/ChatPanel.vue').default);
 Vue.component('chat-box', require('./components/ChatBox').default)
+Vue.component('start-chat', require('./components/StartChatButton').default)
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
