@@ -62,11 +62,9 @@ class DashboardController extends Controller
 
     public function myShoots()
     {
-        //$getShootsList = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'users.username AS UserName', 'users.name AS User_Name')->join('cities','cities.id','=','bookings.city_id')->join('users','users.id','=','bookings.artist_id')->where('customer_id', '=', Auth::user()->id)->orderBy('requested_date','ASC')->get();
+
         $getShootsList = Booking::where('customer_id', '=', Auth::user()->id)->orderBy('requested_date', 'ASC')->get();
-        //echo '<pre>';
-        //dd($getShootsList);
-        //return $getShootsList;
+        // dd($getShootsList);
         return view('dashboard.shoots', ['data' => $getShootsList]);
     }
 
