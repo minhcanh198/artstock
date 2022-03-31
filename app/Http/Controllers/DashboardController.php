@@ -46,8 +46,9 @@ class DashboardController extends Controller
 
     public function myBookings()
     {
-        //$getBookingsList = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'users.username AS UserName', 'users.name AS User_Name')->join('cities','cities.id','=','bookings.city_id')->join('users','users.id','=','bookings.customer_id')->where('artist_id', '=', Auth::user()->id)->orderBy('requested_date','ASC')->get();
-        $getBookingsList = Booking::where('artist_id', '=', Auth::user()->id)->orderBy('requested_date', 'ASC')->get();
+        $getBookingsList = Booking::where('artist_id', '=', Auth::user()->id)
+            ->orderBy('requested_date', 'ASC')
+            ->get();
         // dd($getBookingsList);
         return view('dashboard.bookings', ['data' => $getBookingsList]);
     }

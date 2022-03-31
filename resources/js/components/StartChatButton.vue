@@ -8,7 +8,13 @@ import {mapState} from "vuex";
 export default {
     name: "StartChatButton",
 
-    props: ['receiverId'],
+    props: ['receiverId', 'currentUser'],
+
+    mounted() {
+        if (this.currentUser) {
+            this.$store.commit('SET_USER', this.currentUser)
+        }
+    },
 
     methods: {
         async startChat() {

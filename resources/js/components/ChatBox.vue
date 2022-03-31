@@ -1,5 +1,6 @@
 <template>
-    <div class="position-fixed z-1000 w-25 h-50 right-10 bottom-0 bg-white rounded-top border" v-if="currentChatId">
+    <div class="position-fixed z-1000 w-25 h-50 right-10 bottom-0 bg-white rounded-top border"
+         v-if="currentChatId&&showChatBox">
         <div class="d-flex flex-column h-100">
             <div class="px-2 py-1 bg-red rounded-top d-flex justify-content-between align-items-center">
                 <div><strong class="text-white">{{ chatHeader }}</strong></div>
@@ -93,9 +94,11 @@ export default {
             }
         },
         async getMessages() {
-            let res = await axios.get(`/chat/${this.currentChatId}`)
-            this.messages = res.data
-            this.scrollBottom()
+            if (this.currentChatId) {
+                let res = await axios.get(`/chat/${this.currentChatId}`)
+                this.messages = res.data
+                this.scrollBottom()
+            }
         },
         messageAvatar(message) {
             return message.sender.avatar
