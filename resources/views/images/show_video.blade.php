@@ -1,7 +1,5 @@
 <?php
-
 if (Auth::check()) {
-
     // FOLLOW ACTIVE
     $followActive = App\Models\Followers::where('follower', Auth::user()->id)
         ->where('following', $response->user()->id)
@@ -39,11 +37,8 @@ if (Auth::check()) {
 
 }//<<<<---- *** END AUTH ***
 
-//  dd($response->stock);
-
 // All Images resolutions
 $stockImages = $response->stock;
-// dd($stockImages);
 
 // Similar Photos
 $arrayTags = explode(",", $response->tags);
@@ -81,20 +76,6 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
     <link href="{{ asset('plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css"/>
 
     <meta property="og:type" content="website"/>
-    {{-- <meta property="og:image:width" content="{{App\Helper::getWidth('uploads/video/water_mark_large/'.'watermark-'.$response->thumbnail)}}"/>
-    <meta property="og:image:height" content="{{App\Helper::getHeight('uploads/video/water_mark_large/'.'watermark-'.$response->thumbnail)}}"/>--}}
-    {{-- {{ dd('pourfawouur5') }} --}}
-    {{--<meta property="og:site_name" content="{{$settings->title}}"/>
-    <meta property="og:url" content="{{url("photo/$response->id").'/'.str_slug($response->title)}}"/>
-    <meta property="og:image" content="{{ asset('uploads/preview/') }}/{{$response->preview}}"/>
-    <meta property="og:title" content="{{ $response->title.' - '.trans_choice('misc.photos_plural', 1 ).' #'.$response->id }}"/>
-    <meta property="og:description" content="{{ App\Helper::removeLineBreak( e( $response->description ) ) }}"/>
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="{{ asset('uploads/preview/') }}/{{$response->preview}}" />
-    <meta name="twitter:title" content="{{ $response->title.' - '.trans_choice('misc.photos_plural', 1 ).' #'.$response->id }}" />
-    <meta name="twitter:description" content="{{ App\Helper::removeLineBreak( e( $response->description ) ) }}"/>--}}
-
 @endsection
 
 @section('content')
@@ -244,9 +225,7 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
                 @endphp
 
                 <div class="text-center margin-bottom-20">
-                    {{--<!-- <div style="margin: 0 auto; background: url('{{asset('img/pixel.gif')}}') repeat center center; max-width:{{App\Helper::getWidth('uploads/preview/'.$response->preview)}}px; max-height: {{App\Helper::getHeight('uploads/preview/'.$response->preview)}}px"> --> --}}
                     <div style="margin: 0 auto; background: url('{{asset('img/pixel.gif')}}') repeat center center; ">
-                    <!-- <img class="img-responsive img-rounded" style="display: inline-block;" src="{{url('uploads/preview',$response->preview)}}" /> -->
                         <video width="850" height="510" controls controlsList="nodownload">
                             @if($response->extension == "mp4")
                                 <source src="{{ asset($watermarkedVideoPath) }}{{ '/watermark-'.$response->thumbnail }}"
@@ -571,8 +550,8 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
 
 
                     @if($response->item_for_sale == 'free'
-                        || Auth::check() && Auth::user()->id == $response->user_id && $response->item_for_sale == 'free'
-                        )
+                        || Auth::check() && Auth::user()->id == $response->user_id
+                        && $response->item_for_sale == 'free')
 
                         <form action="{{url('download/stock', $stockImages[0]->token)}}" method="post">
                             {{-- <!-- <form action="{{url('download/stock')}}" method="post"> --> --}}
@@ -633,8 +612,8 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
                         </form>
 
                     @else
-
-                        <form action="{{url('purchase/stock', $stockImages[0]->token)}}" method="post" id="formBuy">
+                        <form action="{{url('purchase/stock', !$stockImages->isEmpty()? $stockImages[0]->token:'')}}"
+                              method="post" id="formBuy">
                             {{-- <!-- <form action="{{url('purchase/stock')}}" method="post" id="formBuy"> --> --}}
                             @csrf
 
@@ -683,7 +662,6 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
                                                        type="radio" value="{{$stock->type}}">
                                                 <span class="input-sm"
                                                       style="width: 95%; float: left; position: absolute; padding: 0 10px; height: auto">
-              {{-- <span class="label label-default myicon-right">{{ $_size }}</span> {{$stock->type == 'vector' ? trans('misc.vector_graphic').' ('.strtoupper($stock->extension).')' : $stock->resolution}} --}}
               <span class="pull-right">{{$stock->size}}</span>
               </span>
                                             </label>
@@ -863,7 +841,8 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
                             <ul class="list-inline pull-right margin-zero" style="float:right !important">
                                 <li><a title="Facebook"
                                        href="https://www.facebook.com/sharer/sharer.php?u={{ url('photo',$response->id) }}"
-                                       target="_blank"><img loading="lazy" src="{{url('img/social')}}/facebook.png" width="20"/></a>
+                                       target="_blank"><img loading="lazy" src="{{url('img/social')}}/facebook.png"
+                                                            width="20"/></a>
                                 </li>
                                 <li><a title="Twitter"
                                        href="https://twitter.com/intent/tweet?url={{ url('photo',$response->id) }}&text={{ e( $response->title ) }}"
@@ -1205,8 +1184,6 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
                 }//<-- $data
             });
         });
-        console.log('auth: {{ Auth::user()->id }}');
-        console.log('response: {{  $response->user()->id }}');
         @if( Auth::check() && Auth::user()->id == $response->user()->id )
 
         var $autor = true;

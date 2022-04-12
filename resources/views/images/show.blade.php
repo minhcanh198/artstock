@@ -239,7 +239,8 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
 
                 <div class="text-center margin-bottom-20">
                     <div
-                        style="margin: 0 auto; background: url('{{asset('img/pixel.gif')}}') repeat center center; max-width:{{App\Helper::getWidth('uploads/preview/'.$response->preview)}}px; max-height: {{App\Helper::getHeight('uploads/preview/'.$response->preview)}}px">
+
+                        style="margin: 0 auto; background: url('{{asset('img/pixel.gif')}}') repeat center center; max-width:{{App\Helper::getWidth('uploads/preview/'.$response->preview )}}px; max-height: {{App\Helper::getHeight('uploads/preview/'.$response->preview)}}px">
                         <a data-fancybox href="{{url('uploads/preview',$response->preview)}}">
                             <img class="img-responsive img-rounded" style="display: inline-block;"
                                  src="{{url('uploads/preview',$response->preview)}}"/>
@@ -882,7 +883,8 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
                             <ul class="list-inline pull-right margin-zero" style="float:right !important">
                                 <li><a title="Facebook"
                                        href="https://www.facebook.com/sharer/sharer.php?u={{ url('photo',$response->id) }}"
-                                       target="_blank"><img loading="lazy" src="{{url('img/social')}}/facebook.png" width="20"/></a>
+                                       target="_blank"><img loading="lazy" src="{{url('img/social')}}/facebook.png"
+                                                            width="20"/></a>
                                 </li>
                                 <li><a title="Twitter"
                                        href="https://twitter.com/intent/tweet?url={{ url('photo',$response->id) }}&text={{ e( $response->title ) }}"

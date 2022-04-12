@@ -234,20 +234,20 @@ class Helper
 
     public static function getHeight($image)
     {
-        if (!file_exists(base_path($image))) {
+        if (!file_exists($image)) {
             return 0;
         }
-        $size = getimagesize(base_path($image));
+        $size = getimagesize($image);
         $height = $size[1];
         return $height;
     }
 
     public static function getWidth($image)
     {
-        if (!file_exists(base_path($image))) {
+        if (!file_exists($image)) {
             return 0;
         }
-        $size = getimagesize(base_path($image));
+        $size = getimagesize($image);
         $width = $size[0];
         return $width;
     }
