@@ -176,7 +176,7 @@ if (Auth::check()) {
                                         <div class="img-container">
                                             <div class="row">
                                                 <div class="col-md-8">
-                                                    <img id="image" src="">
+                                                    <img id="image" src="" style="max-width: 100%">
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="preview"></div>
@@ -548,8 +548,6 @@ if (Auth::check()) {
         $("body").on("change", "#uploadAvatar", function (e) {
             var files = e.target.files;
             var done = function (url) {
-                console.log(image.width);
-                console.log(image.height);
                 image.src = url;
                 $modal.modal('show');
             };
@@ -577,10 +575,12 @@ if (Auth::check()) {
             if ((file = this.files[0])) {
                 img = new Image();
                 img.onload = function () {
+                    console.log("this.width")
+                    console.log(this.width)
+                    console.log(this.height)
                     imgWidth = this.width;
                     imgHeight = this.height;
                 };
-
             }
 
         });

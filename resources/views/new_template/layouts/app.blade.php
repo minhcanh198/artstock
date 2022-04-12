@@ -1186,6 +1186,8 @@ if (Auth::check()) {
         }));
     });
     var destroyPlugin = function ($elem, eventNamespace) {
+        console.log("$elem")
+        console.log($elem)
         var isInstantiated = !!$.data($elem.get(0));
         if (isInstantiated) {
             $.removeData($elem.get(0));
