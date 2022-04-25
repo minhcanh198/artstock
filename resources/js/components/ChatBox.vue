@@ -1,5 +1,5 @@
 <template>
-    <div class="position-fixed z-1000 w-25 h-50 right-10 bottom-0 bg-white rounded-top border"
+    <div class="position-fixed z-1000 w-25 h-50 right-10 bottom-0 bg-white rounded-top border chat-box"
          v-if="currentChatId&&showChatBox">
         <div class="d-flex flex-column h-100">
             <div class="px-2 py-1 bg-red rounded-top d-flex justify-content-between align-items-center">
@@ -112,7 +112,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .right-10 {
     right: 1rem;
 }
@@ -135,6 +135,12 @@ export default {
 
 .w-80 {
     width: 80%;
+}
+
+@media all and (max-width: 768px) {
+    .w-25 {
+        width: 95% !important;
+    }
 }
 
 </style>

@@ -51,8 +51,7 @@ class ChatController extends Controller
     public function startChat(Request $request)
     {
         $sender_id = Auth::id();
-        $newChatId = $this->chatService->startChat($sender_id, $request->get("to"));
-
-        return response()->json($newChatId);
+        $chatId = $this->chatService->startChat($sender_id, $request->get("to"));
+        return response()->json($chatId);
     }
 }

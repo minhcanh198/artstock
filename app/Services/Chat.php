@@ -50,10 +50,15 @@ class Chat
 
     public function startChat($from, $to)
     {
+
+        $existedChat = $this->chatRepo->findExistedChat($from, $to);
+        if ($existedChat) {
+            return $existedChat->chat_id;
+        }
         return $this->chatRepo->create([
             'sender_id' => $from,
             'receiver_id' => $to,
-            "created_at" => now()
+            'created_at' => now()
         ])->id;
     }
 }

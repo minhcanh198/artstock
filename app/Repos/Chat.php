@@ -37,6 +37,16 @@ class Chat
             ->get();
     }
 
+    public function findExistedChat($sender, $receiver)
+    {
+        return ChatModel::where('sender_id', $sender)
+            ->where('receiver_id', $receiver)
+            ->orWhere(function ($query) use ($receiver, $sender) {
+                $query->where('sender_id', $receiver)
+                    ->where('receiver_id', $sender);
+            })
+            ->first();
+    }
 
     public function create($payload)
     {
