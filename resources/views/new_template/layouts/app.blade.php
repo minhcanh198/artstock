@@ -1,15 +1,7 @@
 <?php
 
 $userAuth = Auth::user();
-// if( Auth::check() ) {
-// 	// Notifications
-// 	$notifications_count = App\Models\Notifications::where('destination',Auth::user()->id)->where('status','0')->count();
-// }
 
-/*----------------------------------------------
-	*  SHOW NUMBER NOTIFICATIONS IN BROWSER ( 1 )
-	* --------------------------------------------
-	*/
 if (Auth::check()) {
 
     // Notifications
@@ -556,7 +548,7 @@ if (Auth::check()) {
                         <div class="circle" id="navbar">
                             <i class="fa fa-bars" aria-hidden="true"></i>
                         </div>
-                        <div class="nveMenu text-left">
+                        <div class="nveMenu text-left overflow-auto">
                             <ul class="navlinks p-0 mt-4">
                                 <div class="mobile-cross close-btn-nav" id="navbar"><i class="fas fa-times"
                                                                                        aria-hidden="true"></i></div>
@@ -590,14 +582,24 @@ if (Auth::check()) {
                                 <li><a href="{{ url('/license') }}">License</a></li>
                                 <li><a href="{{ url('/about')}}">About</a></li>
                             </ul>
-                            <ul class="mt-3">
-                                <li class="mb-3">
-                                    <a href="{{ url('register') }}" class="btn btn-h-mobile">JOIN</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('login') }}" class="btn btn-h-two-mobile mr-2">LOGIN</a>
-                                </li>
-                            </ul>
+
+                            @if(!Auth::check())
+                                <ul class="mt-3">
+                                    <li class="mb-3">
+                                        <a href="{{ url('register') }}" class="btn btn-h-mobile">JOIN</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('login') }}" class="btn btn-h-two-mobile mr-2">LOGIN</a>
+                                    </li>
+                                </ul>
+                            @else
+                                <div class="mobile-nav-cate-ul"></div>
+                                <div id="stream-chat">
+                                    <chat-panel
+                                        :user="{{ (Auth::user() != null) ? Auth::user() : '' }}">
+                                    </chat-panel>
+                                </div>
+                            @endif
                         </div>
                         <div class="overlay"></div>
                     </div>
