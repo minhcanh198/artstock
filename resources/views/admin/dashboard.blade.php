@@ -28,7 +28,7 @@ $totalAnimation = App\Models\Images::where('is_type', '=', 'image')
     ->where('extension', 'gif')
     ->count();
 
-$users = App\Models\User::orderBy('id', 'DESC')->take(5)->get();
+$users = App\Models\User::orderBy('id', 'DESC')->take(8)->get();
 
 // Statistics of the month
 
