@@ -409,9 +409,9 @@ $stat_revenue_month = App\Models\Purchases::whereMonth('date', date('m'))
                             <div class="box-body">
                                 <ul class="products-list product-list-in-box">
 
-                                    @foreach( $images as $animations )
+                                    @foreach( $animations as $anime )
                                         <?php
-                                        switch ($image->status) {
+                                        switch ($anime->status) {
                                             case 'active':
                                                 $color_status = 'success';
                                                 $txt_status = trans('misc.active');
@@ -426,17 +426,17 @@ $stat_revenue_month = App\Models\Purchases::whereMonth('date', date('m'))
                                         <li class="item">
                                             <div class="product-img">
                                                 <img loading="lazy"
-                                                     src="{{ asset('uploads/thumbnail/').'/'.$image->thumbnail }}"
+                                                     src="{{ asset('uploads/thumbnail/').'/'.$anime->thumbnail }}"
                                                      style="height: auto !important;"/>
                                             </div>
                                             <div class="product-info">
-                                                <a href="{{ url('photo') }}/{{$image->id}}" target="_blank"
-                                                   class="product-title">{{ $image->title }}
+                                                <a href="{{ url('photo') }}/{{$anime->id}}" target="_blank"
+                                                   class="product-title">{{ $anime->title }}
                                                     <span
                                                         class="label label-{{ $color_status }} pull-right">{{ $txt_status }}</span>
                                                 </a>
                                                 <span class="product-description">
-                            {{ trans('misc.by') }} {{ '@'.$image->user()->username }} / {{ App\Helper::formatDate($image->date) }}
+                            {{ trans('misc.by') }} {{ '@'.$anime->user()->username }} / {{ App\Helper::formatDate($anime->date) }}
                           </span>
                                             </div>
                                         </li><!-- /.item -->
@@ -528,8 +528,6 @@ $stat_revenue_month = App\Models\Purchases::whereMonth('date', date('m'))
 
                     </div>
                 </div>
-
-
 
 
             </div><!-- ./row -->
