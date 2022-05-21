@@ -66,15 +66,13 @@ class AdminController extends Controller
         $this->settings = $settings::first();
     }
 
-    // START
     public function admin()
     {
 
         return view('admin.dashboard');
 
-    }//<--- END METHOD
+    }
 
-    // START
     public function faq()
     {
 

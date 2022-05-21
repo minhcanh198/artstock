@@ -115,6 +115,10 @@ return array(
 	'view_all_images'         			=>      'View All Photos',
 	'latest_videos'           			=>      'Recently Added Videos',
 	'view_all_videos'         			=>      'View All Videos',
+    'latest_audios'           			=>      'Recently Added Music',
+    'view_all_audios'         			=>      'View All Music',
+    'latest_anime'           			=>      'Recently Added Anime',
+    'view_all_anime'         			=>      'View All Anime',
 	'no_result'                 		=>      'No results have been found',
 	'Image'                     		=>      'Photo',
     'actions'                   		=>      'Actions',
@@ -168,20 +172,20 @@ return array(
     'min_width_height_image'    		=>      'Min width height photo',
     'facebook_login' 					=> 		'Facebook login',
 
-	//Reasons reporting		
+	//Reasons reporting
 	'copyright'                 		=>      'Copyright infringement',
     'privacy_issue'             		=>      'Privacy issue',
     'violent_sexual_content'    		=>      'Violent or sexual content',
     'spoofing'                  		=>      'Spoofing',
 
-		// Version 1.6		
+		// Version 1.6
 	'link_terms'            			=>      'Link to Terms and Conditions',
 	'link_privacy'            			=>      'Link to Privacy Policy',
 	'terms_conditions'      			=>      'Terms and Conditions',
 	'privacy_policy'          			=>      'Privacy Policy',
 	'i_agree_gdpr' 						=> 		'I agree with the processing of personal data',
 
-	// Version 2.7		
+	// Version 2.7
 	'show_images_index' 				=> 		'Show images on main page',
 	'both' 								=> 		'Both',
 	'show_watermark' 					=> 		'Watermark on images?',
