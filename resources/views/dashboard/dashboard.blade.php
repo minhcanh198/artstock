@@ -7,9 +7,10 @@ $authUser = App\Models\Images::whereUserId(1)->get();
 $total_images = App\Models\Images::whereUserId(Auth::User()->id)->count();
 $images = App\Models\Images::whereUserId(Auth::User()->id)->orderBy('id', 'DESC')->take(5)->get();
 
-$_purchases = App\Models\Purchases::leftJoin('images', function ($join) {
-    $join->on('purchases.images_id', '=', 'images.id');
-})
+$_purchases = App\Models\Purchases::has('user')
+    ->leftJoin('images', function ($join) {
+        $join->on('purchases.images_id', '=', 'images.id');
+    })
     ->where('images.user_id', Auth::user()->id)
     ->select('purchases.*')
     ->addSelect('images.id')
@@ -215,26 +216,27 @@ $stat_revenue_month = App\Models\Purchases::leftJoin('images', function ($join) 
 
                         @if( $_purchases->count() != 0 )
                             <div class="box-body">
-
                                 <ul class="products-list product-list-in-box">
                                     @foreach( $_purchases->take(5)->get() as $purchase )
-                                        <li class="item">
-                                            <div class="product-img">
-                                                <img loading="lazy"
-                                                     src="{{ url('uploads/thumbnail',$purchase->images()->thumbnail) }}"
-                                                     style="height: auto !important;"/>
-                                            </div>
-                                            <div class="product-info">
-                                                <a href="{{ url('photo',$purchase->images_id) }}" target="_blank"
-                                                   class="product-title">{{ $purchase->images()->title }}
-                                                    <span
-                                                        class="label label-success pull-right">{{App\Helper::amountFormat($purchase->price)}}</span>
-                                                </a>
-                                                <span class="product-description">
+                                        @if($purchase->user)
+                                            <li class="item">
+                                                <div class="product-img">
+                                                    <img loading="lazy"
+                                                         src="{{ url('uploads/thumbnail',$purchase->images()->thumbnail) }}"
+                                                         style="height: auto !important;"/>
+                                                </div>
+                                                <div class="product-info">
+                                                    <a href="{{ url('photo',$purchase->images_id) }}" target="_blank"
+                                                       class="product-title">{{ $purchase->images()->title }}
+                                                        <span
+                                                            class="label label-success pull-right">{{App\Helper::amountFormat($purchase->price)}}</span>
+                                                    </a>
+                                                    <span class="product-description">
 												 {{ trans('misc.buyer') }} {{ $purchase->user->username }} / {{ date('d M, Y', strtotime($purchase->date)) }}
 											 </span>
-                                            </div>
-                                        </li><!-- /.item -->
+                                                </div>
+                                            </li>
+                                        @endif
                                     @endforeach
                                 </ul>
                             </div><!-- /.box-body -->
