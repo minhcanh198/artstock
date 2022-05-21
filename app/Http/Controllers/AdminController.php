@@ -58,3996 +58,4142 @@ use App\Models\UseGuidePageSettings;
 use Mail;
 use File;
 
-class AdminController extends Controller {
+class AdminController extends Controller
+{
 
-	public function __construct(AdminSettings $settings) {
-		$this->settings = $settings::first();
-	}
-	// START
-	public function admin() {
+    public function __construct(AdminSettings $settings)
+    {
+        $this->settings = $settings::first();
+    }
 
-		return view('admin.dashboard');
+    // START
+    public function admin()
+    {
 
-	}//<--- END METHOD
+        return view('admin.dashboard');
 
-	// START
-	public function faq() {
+    }//<--- END METHOD
 
-		$data      = Faq::get();
+    // START
+    public function faq()
+    {
 
-		return view('admin.faq')->withData($data);
+        $data = Faq::get();
 
-	}//<--- END METHOD
+        return view('admin.faq')->withData($data);
 
-	public function addFaq() {
+    }//<--- END METHOD
 
-		$data      = FaqCategories::get();
-		return view('admin.add-faq')->withData($data);
+    public function addFaq()
+    {
 
-	}//<--- END METHOD
+        $data = FaqCategories::get();
+        return view('admin.add-faq')->withData($data);
 
-	public function storeFaq(Request $request) {
+    }//<--- END METHOD
+
+    public function storeFaq(Request $request)
+    {
 
 
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
-
-		$rules = array(
-            'question'        => 'required',
-			'answer'        => 'required',
-			'faq_category' => 'required',
+        $rules = array(
+            'question' => 'required',
+            'answer' => 'required',
+            'faq_category' => 'required',
         );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-		$sql              = New Faq();
-		$sql->faq_question        = trim($request->question);
-		$sql->faq_answer        = trim($request->answer);
-		$sql->faq_category_id = trim($request->faq_category);
+        $sql = new Faq();
+        $sql->faq_question = trim($request->question);
+        $sql->faq_answer = trim($request->answer);
+        $sql->faq_category_id = trim($request->faq_category);
 
-		$sql->save();
+        $sql->save();
 
-		\Session::flash('success_message', trans('admin.success_add_category'));
+        \Session::flash('success_message', trans('admin.success_add_category'));
 
-    	return redirect('panel/admin/faq');
+        return redirect('panel/admin/faq');
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function editFaq($id) {
+    public function editFaq($id)
+    {
 
-		$faq        = Faq::find( $id );
-		$data      = FaqCategories::get();
+        $faq = Faq::find($id);
+        $data = FaqCategories::get();
 
-		// return view('admin.edit-faq')->with('faq',$faq);
-		return view('admin.edit-faq', compact('faq', 'data'));
-
-
-	}//<--- END METHOD
-
-	public function updateFaq( Request $request ) {
+        // return view('admin.edit-faq')->with('faq',$faq);
+        return view('admin.edit-faq', compact('faq', 'data'));
 
 
-		$faq  = Faq::find( $request->id );
+    }//<--- END METHOD
+
+    public function updateFaq(Request $request)
+    {
 
 
-	    if( !isset($faq) ) {
-			return redirect('panel/admin/faq');
-		}
-
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
-
-		$rules = array(
-            'question'        => 'required',
-			'answer'        => 'required',
-			'faq_category' => 'required',
-	     );
-
-		$this->validate($request, $rules);
+        $faq = Faq::find($request->id);
 
 
+        if (!isset($faq)) {
+            return redirect('panel/admin/faq');
+        }
 
-		// UPDATE CATEGORY
-		$faq->faq_question        = $request->question;
-		$faq->faq_answer        = $request->answer;
-		$faq->faq_category_id = $request->faq_category;
-		$faq->save();
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-		\Session::flash('success_message', trans('misc.success_update'));
-
-    	return redirect('panel/admin/faq');
-
-	}//<--- END METHOD
-
-	public function deleteFaq($id){
-
-		$faq        = Faq::find( $id );
-
-
-		if( !isset($faq) || $faq->id == 1 ) {
-			return redirect('panel/admin/faq');
-		} else {
-
-			// Delete Category
-			$faq->delete();
-
-			return redirect('panel/admin/faq');
-		}
-	}//<--- END METHOD
-
-	// START
-	public function faqCategories() {
-
-		$data      = FaqCategories::orderBy('name')->get();
-
-		return view('admin.faq_categories')->withData($data);
-
-	}//<--- END METHOD
-
-	public function addFaqCategories() {
-
-		$data      = FaqCategories::orderBy('name')->get();
-		return view('admin.add-faq-categories')->withData($data);
-
-	}//<--- END METHOD
-
-	public function storeFaqCategories(Request $request) {
-
-		$temp            = 'temp/'; // Temp
-	  $path            = 'img-faq-category/'; // Path General
-
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
-
-		$rules = array(
-            'name'        => 'required',
-	        'slug'        => 'required|ascii_only|unique:categories',
-	        'thumbnail'   => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
+        $rules = array(
+            'question' => 'required',
+            'answer' => 'required',
+            'faq_category' => 'required',
         );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-		if( $request->hasFile('thumbnail') )	{
 
-		$extension              = $request->file('thumbnail')->getClientOriginalExtension();
-		$type_mime_shot   = $request->file('thumbnail')->getMimeType();
-		$sizeFile                 = $request->file('thumbnail')->getSize();
-		$thumbnail              = $request->slug.'-'.str_random(32).'.'.$extension;
+        // UPDATE CATEGORY
+        $faq->faq_question = $request->question;
+        $faq->faq_answer = $request->answer;
+        $faq->faq_category_id = $request->faq_category;
+        $faq->save();
 
-		if( $request->file('thumbnail')->move($temp, $thumbnail) ) {
+        \Session::flash('success_message', trans('misc.success_update'));
 
-			$image = Image::make($temp.$thumbnail);
+        return redirect('panel/admin/faq');
 
-			if(  $image->width() == 457 && $image->height() == 359 ) {
+    }//<--- END METHOD
 
-					\File::copy($temp.$thumbnail, $path.$thumbnail);
-					\File::delete($temp.$thumbnail);
+    public function deleteFaq($id)
+    {
 
-			} else {
-				$image->fit(457, 359)->save($temp.$thumbnail);
+        $faq = Faq::find($id);
 
-				\File::copy($temp.$thumbnail, $path.$thumbnail);
-				\File::delete($temp.$thumbnail);
-			}
 
-			}// End File
-		} // HasFile
+        if (!isset($faq) || $faq->id == 1) {
+            return redirect('panel/admin/faq');
+        } else {
 
-		else {
-			$thumbnail = '';
-		}
+            // Delete Category
+            $faq->delete();
 
-		$sql              = New FaqCategories();
-		$sql->name        = trim($request->name);
-		$sql->slug        = strtolower($request->slug);
-		$sql->thumbnail = $thumbnail;
-		$sql->mode        = $request->mode;
-		if($request->parent_id == "yes"){
-			$sql->parent_id 	= $request->parent_category;
-		}else{
+            return redirect('panel/admin/faq');
+        }
+    }//<--- END METHOD
 
-			$sql->parent_id 	= '0';
-		}
-		$sql->save();
+    // START
+    public function faqCategories()
+    {
 
-		\Session::flash('success_message', trans('admin.success_add_category'));
+        $data = FaqCategories::orderBy('name')->get();
 
-    	return redirect('panel/admin/faq-categories');
+        return view('admin.faq_categories')->withData($data);
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function editFaqCategories($id) {
+    public function addFaqCategories()
+    {
 
-		$categories        = FaqCategories::find( $id );
-		$data      = FaqCategories::orderBy('name')->get();
+        $data = FaqCategories::orderBy('name')->get();
+        return view('admin.add-faq-categories')->withData($data);
 
-		// return view('admin.edit-faq-categories')->with('categories',$categories);
-		return view('admin.edit-faq-categories',compact('categories','data'));
+    }//<--- END METHOD
 
-	}//<--- END METHOD
+    public function storeFaqCategories(Request $request)
+    {
 
-	public function updateFaqCategories( Request $request ) {
+        $temp = 'temp/'; // Temp
+        $path = 'img-faq-category/'; // Path General
 
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-		$categories  = FaqCategories::find( $request->id );
-		$temp            = 'temp/'; // Temp
-	    $path            = 'img-faq-category/'; // Path General
+        $rules = array(
+            'name' => 'required',
+            'slug' => 'required|ascii_only|unique:categories',
+            'thumbnail' => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
+        );
 
-	    if( !isset($categories) ) {
-			return redirect('panel/admin/faq-categories');
-		}
+        $this->validate($request, $rules);
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+        if ($request->hasFile('thumbnail')) {
 
-		$rules = array(
-            'name'        => 'required',
-	        'slug'        => 'required|ascii_only|unique:categories,slug,'.$request->id,
-	        'thumbnail'   => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
-	     );
+            $extension = $request->file('thumbnail')->getClientOriginalExtension();
+            $type_mime_shot = $request->file('thumbnail')->getMimeType();
+            $sizeFile = $request->file('thumbnail')->getSize();
+            $thumbnail = $request->slug . '-' . str_random(32) . '.' . $extension;
 
-		$this->validate($request, $rules);
+            if ($request->file('thumbnail')->move($temp, $thumbnail)) {
 
-		if( $request->hasFile('thumbnail') )	{
+                $image = Image::make($temp . $thumbnail);
 
-		$extension              = $request->file('thumbnail')->getClientOriginalExtension();
-		$type_mime_shot   = $request->file('thumbnail')->getMimeType();
-		$sizeFile                 = $request->file('thumbnail')->getSize();
-		$thumbnail              = $request->slug.'-'.str_random(32).'.'.$extension;
+                if ($image->width() == 457 && $image->height() == 359) {
 
-		if( $request->file('thumbnail')->move($temp, $thumbnail) ) {
+                    \File::copy($temp . $thumbnail, $path . $thumbnail);
+                    \File::delete($temp . $thumbnail);
 
-			$image = Image::make($temp.$thumbnail);
+                } else {
+                    $image->fit(457, 359)->save($temp . $thumbnail);
 
-			if(  $image->width() == 457 && $image->height() == 359 ) {
+                    \File::copy($temp . $thumbnail, $path . $thumbnail);
+                    \File::delete($temp . $thumbnail);
+                }
 
-					\File::copy($temp.$thumbnail, $path.$thumbnail);
-					\File::delete($temp.$thumbnail);
+            }// End File
+        } // HasFile
 
-			} else {
-				$image->fit(457, 359)->save($temp.$thumbnail);
+        else {
+            $thumbnail = '';
+        }
 
-				\File::copy($temp.$thumbnail, $path.$thumbnail);
-				\File::delete($temp.$thumbnail);
-			}
+        $sql = new FaqCategories();
+        $sql->name = trim($request->name);
+        $sql->slug = strtolower($request->slug);
+        $sql->thumbnail = $thumbnail;
+        $sql->mode = $request->mode;
+        if ($request->parent_id == "yes") {
+            $sql->parent_id = $request->parent_category;
+        } else {
 
-			// Delete Old Image
-			\File::delete($path.$categories->thumbnail);
+            $sql->parent_id = '0';
+        }
+        $sql->save();
 
-			}// End File
-		} // HasFile
-		else {
-			$thumbnail = $categories->image;
-		}
+        \Session::flash('success_message', trans('admin.success_add_category'));
 
-		// UPDATE CATEGORY
-		$categories->name        = $request->name;
-		$categories->slug        = strtolower($request->slug);
-		$categories->thumbnail  = $thumbnail;
-		$categories->mode        = $request->mode;
-		if($request->parent_id == "yes"){
-			$categories->parent_id 	= $request->parent_category;
-		}else{
+        return redirect('panel/admin/faq-categories');
 
-			$categories->parent_id 	= '0';
-		}
-		$categories->save();
+    }//<--- END METHOD
 
-		\Session::flash('success_message', trans('misc.success_update'));
+    public function editFaqCategories($id)
+    {
 
-    	return redirect('panel/admin/faq-categories');
+        $categories = FaqCategories::find($id);
+        $data = FaqCategories::orderBy('name')->get();
 
-	}//<--- END METHOD
+        // return view('admin.edit-faq-categories')->with('categories',$categories);
+        return view('admin.edit-faq-categories', compact('categories', 'data'));
 
-	public function deleteFaqCategories($id){
+    }//<--- END METHOD
 
-		$categories        = FaqCategories::find( $id );
-		$thumbnail          = 'img-faq-category/'.$categories->thumbnail; // Path General
+    public function updateFaqCategories(Request $request)
+    {
 
-		if( !isset($categories) || $categories->id == 1 ) {
-			return redirect('panel/admin/faq-categories');
-		} else {
 
-			$images_category   = Images::where('categories_id',$id)->get();
+        $categories = FaqCategories::find($request->id);
+        $temp = 'temp/'; // Temp
+        $path = 'img-faq-category/'; // Path General
 
-			// Delete Category
-			$categories->delete();
+        if (!isset($categories)) {
+            return redirect('panel/admin/faq-categories');
+        }
 
-			// Delete Thumbnail
-			if ( \File::exists($thumbnail) ) {
-				\File::delete($thumbnail);
-			}//<--- IF FILE EXISTS
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-			//Update Categories Images
-			if( isset( $images_category ) ) {
-				foreach ($images_category as $key ) {
-					$key->categories_id = 1;
-					$key->save();
-				}
-			}
+        $rules = array(
+            'name' => 'required',
+            'slug' => 'required|ascii_only|unique:categories,slug,' . $request->id,
+            'thumbnail' => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
+        );
 
-			return redirect('panel/admin/faq-categories');
-		}
-	}//<--- END METHOD
+        $this->validate($request, $rules);
 
+        if ($request->hasFile('thumbnail')) {
 
-	// START
-	public function continent() {
+            $extension = $request->file('thumbnail')->getClientOriginalExtension();
+            $type_mime_shot = $request->file('thumbnail')->getMimeType();
+            $sizeFile = $request->file('thumbnail')->getSize();
+            $thumbnail = $request->slug . '-' . str_random(32) . '.' . $extension;
 
-		$data      = Continents::get();
+            if ($request->file('thumbnail')->move($temp, $thumbnail)) {
 
-		return view('admin.continents')->withData($data);
+                $image = Image::make($temp . $thumbnail);
 
-	}//<--- END METHOD
+                if ($image->width() == 457 && $image->height() == 359) {
 
-	public function addContinent() {
+                    \File::copy($temp . $thumbnail, $path . $thumbnail);
+                    \File::delete($temp . $thumbnail);
 
-		return view('admin.add-continents');
+                } else {
+                    $image->fit(457, 359)->save($temp . $thumbnail);
 
-	}//<--- END METHOD
+                    \File::copy($temp . $thumbnail, $path . $thumbnail);
+                    \File::delete($temp . $thumbnail);
+                }
 
-	public function storeContinent(Request $request) {
+                // Delete Old Image
+                \File::delete($path . $categories->thumbnail);
 
+            }// End File
+        } // HasFile
+        else {
+            $thumbnail = $categories->image;
+        }
 
+        // UPDATE CATEGORY
+        $categories->name = $request->name;
+        $categories->slug = strtolower($request->slug);
+        $categories->thumbnail = $thumbnail;
+        $categories->mode = $request->mode;
+        if ($request->parent_id == "yes") {
+            $categories->parent_id = $request->parent_category;
+        } else {
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-			return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+            $categories->parent_id = '0';
+        }
+        $categories->save();
 
-		$rules = array(
-			'continent_name'        => 'required',
-		);
+        \Session::flash('success_message', trans('misc.success_update'));
 
-		$this->validate($request, $rules);
+        return redirect('panel/admin/faq-categories');
 
-		$sql              = New Continents();
-		$sql->continent_name        = trim($request->continent_name);
-		$sql->save();
+    }//<--- END METHOD
 
-		\Session::flash('success_message', trans('admin.success_add_continent'));
+    public function deleteFaqCategories($id)
+    {
 
-		return redirect('panel/admin/destinations/continents');
+        $categories = FaqCategories::find($id);
+        $thumbnail = 'img-faq-category/' . $categories->thumbnail; // Path General
 
-	}//<--- END METHOD
+        if (!isset($categories) || $categories->id == 1) {
+            return redirect('panel/admin/faq-categories');
+        } else {
 
-	public function editContinent($id) {
+            $images_category = Images::where('categories_id', $id)->get();
 
-		$continent        = Continents::find( $id );
-		// dd($continent->country());
-		return view('admin.edit-continents', compact('continent'));
+            // Delete Category
+            $categories->delete();
 
+            // Delete Thumbnail
+            if (\File::exists($thumbnail)) {
+                \File::delete($thumbnail);
+            }//<--- IF FILE EXISTS
 
-	}//<--- END METHOD
+            //Update Categories Images
+            if (isset($images_category)) {
+                foreach ($images_category as $key) {
+                    $key->categories_id = 1;
+                    $key->save();
+                }
+            }
 
-	public function updateContinent( Request $request ) {
+            return redirect('panel/admin/faq-categories');
+        }
+    }//<--- END METHOD
 
 
-		$continent  = Continents::find( $request->id );
+    // START
+    public function continent()
+    {
 
+        $data = Continents::get();
 
-		if( !isset($continent) ) {
-			return redirect('panel/admin/destinations/continents');
-		}
+        return view('admin.continents')->withData($data);
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-			return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+    }//<--- END METHOD
 
-		$rules = array(
-			'continent_name'        => 'required',
-			);
+    public function addContinent()
+    {
 
-		$this->validate($request, $rules);
+        return view('admin.add-continents');
 
+    }//<--- END METHOD
 
-		// UPDATE CATEGORY
-		$continent->continent_name        = $request->continent_name;
-		$continent->is_active = $request->continent_status;
-		$continent->save();
+    public function storeContinent(Request $request)
+    {
 
-		\Session::flash('success_message', trans('misc.success_update'));
 
-		return redirect('panel/admin/destinations/continents');
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-	}//<--- END METHOD
+        $rules = array(
+            'continent_name' => 'required',
+        );
 
-	public function deleteContinent($id){
+        $this->validate($request, $rules);
 
-		$continent        = Continents::find( $id );
+        $sql = new Continents();
+        $sql->continent_name = trim($request->continent_name);
+        $sql->save();
 
+        \Session::flash('success_message', trans('admin.success_add_continent'));
 
-		if( !isset($continent) || $continent->id == 1 ) {
-			return redirect('panel/admin/destinations/continents');
-		} else {
+        return redirect('panel/admin/destinations/continents');
 
-			// Delete Category
-			$continent->delete();
+    }//<--- END METHOD
 
-			return redirect('panel/admin/destinations/continents');
-		}
-	}//<--- END METHOD
+    public function editContinent($id)
+    {
 
-	// START
-	public function country() {
+        $continent = Continents::find($id);
+        // dd($continent->country());
+        return view('admin.edit-continents', compact('continent'));
+
+
+    }//<--- END METHOD
+
+    public function updateContinent(Request $request)
+    {
+
+
+        $continent = Continents::find($request->id);
+
+
+        if (!isset($continent)) {
+            return redirect('panel/admin/destinations/continents');
+        }
+
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
+
+        $rules = array(
+            'continent_name' => 'required',
+        );
+
+        $this->validate($request, $rules);
+
+
+        // UPDATE CATEGORY
+        $continent->continent_name = $request->continent_name;
+        $continent->is_active = $request->continent_status;
+        $continent->save();
+
+        \Session::flash('success_message', trans('misc.success_update'));
+
+        return redirect('panel/admin/destinations/continents');
+
+    }//<--- END METHOD
+
+    public function deleteContinent($id)
+    {
+
+        $continent = Continents::find($id);
+
+
+        if (!isset($continent) || $continent->id == 1) {
+            return redirect('panel/admin/destinations/continents');
+        } else {
+
+            // Delete Category
+            $continent->delete();
+
+            return redirect('panel/admin/destinations/continents');
+        }
+    }//<--- END METHOD
+
+    // START
+    public function country()
+    {
 
 // 		$data      = Country::select('country.*','continents.continent_name')->join('continents', 'continents.id','=','country.continent_id')->get();
-		$data      = \DB::table('new_countries')->select('new_countries.*')->get();
+        $data = \DB::table('new_countries')->select('new_countries.*')->get();
 
-		// dd($data);
+        // dd($data);
 
-		return view('admin.country')->withData($data);
+        return view('admin.country')->withData($data);
 
-	}//<--- END METHOD
-
-
-	public function addCountry() {
-
-		$continentsData = Continents::get();
-
-		return view('admin.add-country', compact('continentsData'));
-
-	}//<--- END METHOD
-
-	public function storeCountry(Request $request) {
+    }//<--- END METHOD
 
 
+    public function addCountry()
+    {
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-			return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+        $continentsData = Continents::get();
 
-		$rules = array(
-			'country_name'        => 'required',
-			'continent_id'        => 'required',
-		);
+        return view('admin.add-country', compact('continentsData'));
 
-		$this->validate($request, $rules);
+    }//<--- END METHOD
+
+    public function storeCountry(Request $request)
+    {
+
+
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
+
+        $rules = array(
+            'country_name' => 'required',
+            'continent_id' => 'required',
+        );
+
+        $this->validate($request, $rules);
 
 // 		$sql              = New Country();
-		$sql              = New NewCountries();
+        $sql = new NewCountries();
 // 		$sql->country_name        = trim($request->country_name);
-		$sql->name        = trim($request->country_name);
-		$sql->continent_id        = trim($request->continent_id);
-		$sql->save();
+        $sql->name = trim($request->country_name);
+        $sql->continent_id = trim($request->continent_id);
+        $sql->save();
 
-		\Session::flash('success_message', trans('admin.success_add_country'));
+        \Session::flash('success_message', trans('admin.success_add_country'));
 
-		return redirect('panel/admin/destinations/countries');
+        return redirect('panel/admin/destinations/countries');
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function editCountry($id) {
+    public function editCountry($id)
+    {
 
 // 		$country        = Country::find( $id );
-		$country        = NewCountries::find( $id );
-		// dd($country->continents());
-		$continentsData = Continents::get();
-		return view('admin.edit-country', compact('country', 'continentsData'));
+        $country = NewCountries::find($id);
+        // dd($country->continents());
+        $continentsData = Continents::get();
+        return view('admin.edit-country', compact('country', 'continentsData'));
 
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function updateCountry( Request $request ) {
+    public function updateCountry(Request $request)
+    {
 
 
 // 		$country  = Country::find( $request->id );
-		$country  = NewCountries::find( $request->id );
+        $country = NewCountries::find($request->id);
 
 
-		if( !isset($country) ) {
-			return redirect('panel/admin/destinations/countries');
-		}
+        if (!isset($country)) {
+            return redirect('panel/admin/destinations/countries');
+        }
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-			return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-		$rules = array(
-			'country_name'        => 'required',
-			'continent_id'        => 'required',
-		);
+        $rules = array(
+            'country_name' => 'required',
+            'continent_id' => 'required',
+        );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
 
-		// UPDATE CATEGORY
+        // UPDATE CATEGORY
 // 		$country->country_name        = $request->country_name;
-		$country->name        = $request->country_name;
-		$country->continent_id        = $request->continent_id;
-		$country->is_active			  = $request->country_status;
-		$country->save();
+        $country->name = $request->country_name;
+        $country->continent_id = $request->continent_id;
+        $country->is_active = $request->country_status;
+        $country->save();
 
-		\Session::flash('success_message', trans('misc.success_update'));
+        \Session::flash('success_message', trans('misc.success_update'));
 
-		return redirect('panel/admin/destinations/countries');
+        return redirect('panel/admin/destinations/countries');
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function deleteCountry($id){
+    public function deleteCountry($id)
+    {
 
 // 		$country        = Country::find( $id );
-		$country        = NewCountries::find( $id );
+        $country = NewCountries::find($id);
 
 
-		if( !isset($country) || $country->id == 1 ) {
-			return redirect('panel/admin/destinations/countries');
-		} else {
+        if (!isset($country) || $country->id == 1) {
+            return redirect('panel/admin/destinations/countries');
+        } else {
 
-			// Delete Category
-			$country->delete();
+            // Delete Category
+            $country->delete();
 
-			return redirect('panel/admin/destinations/countries');
-		}
-	}//<--- END METHOD
+            return redirect('panel/admin/destinations/countries');
+        }
+    }//<--- END METHOD
 
-	// START
-	public function state() {
+    // START
+    public function state()
+    {
 
-		$data      = State::select('state.*','country.country_name')->join('country', 'country.id','=','state.country_id')->get();
+        $data = State::select('state.*', 'country.country_name')->join('country', 'country.id', '=', 'state.country_id')->get();
 
-		// dd($data);
+        // dd($data);
 
-		return view('admin.state')->withData($data);
+        return view('admin.state')->withData($data);
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
 
-	public function addState() {
+    public function addState()
+    {
 
-		$countryData = Country::get();
+        $countryData = Country::get();
 
-		return view('admin.add-state', compact('countryData'));
+        return view('admin.add-state', compact('countryData'));
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function storeState(Request $request) {
+    public function storeState(Request $request)
+    {
 
 
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-			return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
-
-		$rules = array(
-			'state_name'        => 'required',
-			'country_id'        => 'required',
-		);
-
-		$this->validate($request, $rules);
-
-		$sql              = New State();
-		$sql->state_name        = trim($request->state_name);
-		$sql->country_id        = trim($request->country_id);
-		$sql->save();
-
-		\Session::flash('success_message', trans('admin.success_add_state'));
-
-		return redirect('panel/admin/destinations/states');
-
-	}//<--- END METHOD
-
-	public function editState($id) {
-
-		$state        = State::find( $id );
-		// dd($country->continents());
-		$countryData = Country::get();
-		return view('admin.edit-state', compact('state', 'countryData'));
-
-
-	}//<--- END METHOD
-
-	public function updateState( Request $request ) {
-
-
-		$state  = State::find( $request->id );
-
-
-		if( !isset($state) ) {
-			return redirect('panel/admin/destinations/states');
-		}
-
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-			return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
-
-		$rules = array(
-			'state_name'        => 'required',
-			'country_id'        => 'required',
-		);
-
-		$this->validate($request, $rules);
-
-
-		// UPDATE CATEGORY
-		$state->state_name        = $request->state_name;
-		$state->country_id        = $request->country_id;
-		$state->is_active			  = $request->state_status;
-		$state->save();
-
-		\Session::flash('success_message', trans('misc.success_update'));
-
-		return redirect('panel/admin/destinations/states');
-
-	}//<--- END METHOD
-
-	public function deleteState($id){
-
-		$state        = State::find( $id );
-
-
-		if( !isset($state) || $state->id == 1 ) {
-			return redirect('panel/admin/destinations/states');
-		} else {
-
-			// Delete Category
-			$state->delete();
-
-			return redirect('panel/admin/destinations/states');
-		}
-	}//<--- END METHOD
-
-	public function getCountryByContinentId($continentId)
-	{
-		$getCountries = Country::where('continent_id','=', $continentId)->get();
-
-		echo json_encode($getCountries);
-	}
-
-	public function getStateByCountryId($countryId)
-	{
-		$getStates = State::where('country_id','=', $countryId)->get();
-
-		echo json_encode($getStates);
-	}
-
-	public function getCityByStateId($stateId)
-	{
-		$getCities = Cities::where('state_id','=', $stateId)->get();
-
-		echo json_encode($getCities);
-	}
-
-	// START
-	public function cities() {
-
-		// $data      = Cities::select('cities.*','country.country_name','state.state_name')->join('country','country.id','=','cities.country_id')->join('state', 'state.id','=', 'cities.state_id')->get();
-		$data      = Cities::select('cities.*','country.country_name')->join('country','country.id','=','cities.country_id')->get();
-
-
-		return view('admin.city')->withData($data);
-
-	}//<--- END METHOD
-
-	public function addCities() {
-
-		$continentData = Continents::get();
-		$countryData = Country::get();
-		$stateData = State::get();
-
-		return view('admin.add-city', compact('continentData','countryData','stateData'));
-
-	}//<--- END METHOD
-
-	public static function slugify($text)
-	{
-		// replace non letter or digits by -
-		$text = preg_replace('~[^\pL\d]+~u', '-', $text);
-
-		// transliterate
-		$text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-
-		// remove unwanted characters
-		$text = preg_replace('~[^-\w]+~', '', $text);
-
-		// trim
-		$text = trim($text, '-');
-
-		// remove duplicate -
-		$text = preg_replace('~-+~', '-', $text);
-
-		// lowercase
-		$text = strtolower($text);
-
-		if (empty($text)) {
-			return 'n-a';
-		}
-
-		return $text;
-	}
-
-	public function storeCities(Request $request) {
-
-	  $temp            = 'temp/'; // Temp
-	  $path            = 'img-city/'; // Path General
-
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
-
-		$rules = array(
-            'city_name'        => 'required',
-	        'continent_id'        => 'required',
-	        'country_id'        => 'required',
-			// 'state_id'        => 'required',
-			'city_description'        => 'required',
+        $rules = array(
+            'state_name' => 'required',
+            'country_id' => 'required',
         );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-		//======= City Image
-		if( $request->hasFile('city_img') )	{
-			$city_name = $request->city_name;
-			$cityImageName = str_replace(' ', '', $city_name);
-			$extension = $request->file('city_img')->getClientOriginalExtension();
-			$file      = $cityImageName.'.'.$extension;
+        $sql = new State();
+        $sql->state_name = trim($request->state_name);
+        $sql->country_id = trim($request->country_id);
+        $sql->save();
 
-			if($request->file('city_img')->move($temp, $file) ) {
-				\File::copy($temp.$file, $path.$file);
-				\File::delete($temp.$file);
-			}// End File
-		} // HasFile
+        \Session::flash('success_message', trans('admin.success_add_state'));
 
-		$slug = $this->slugify($request->city_name);
+        return redirect('panel/admin/destinations/states');
 
-		$sql              	= New Cities();
-		$sql->city_name   	= trim($request->city_name);
-		$sql->city_slug 			= $slug;
-		$sql->continent_id  = $request->continent_id;
-		$sql->country_id  	= $request->country_id;
-		// $sql->state_id    = $request->state_id;
-		$sql->description 	= $request->city_description;
-		if($request->hasFile('city_img')){
-		$sql->city_img    	= $file;
-		}
-		$sql->save();
+    }//<--- END METHOD
 
-		\Session::flash('success_message', trans('admin.success_add_city'));
+    public function editState($id)
+    {
 
-    	return redirect('panel/admin/destinations/cities');
-
-	}//<--- END METHOD
-
-	public function editCities($id) {
-
-		$cities        = Cities::find( $id );
-		$country       = Country::get();
-		$continent       = Continents::get();
-		$state       = State::get();
-
-		return view('admin.edit-cities',compact('cities','continent','country','state'));
-
-	}//<--- END METHOD
-
-	public function updateCities( Request $request ) {
+        $state = State::find($id);
+        // dd($country->continents());
+        $countryData = Country::get();
+        return view('admin.edit-state', compact('state', 'countryData'));
 
 
-		$cities  = Cities::find( $request->id );
-		// dd($cities);
-		$temp            = 'temp/'; // Temp
-	    $path            = 'img-city/'; // Path General
+    }//<--- END METHOD
 
-	    if( !isset($cities) ) {
-			return redirect('panel/admin/destinations/cities');
-		}
-
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
-
-		$rules = array(
-            'city_name'        => 'required',
-	        'continent_id'        => 'required',
-	        'country_id'        => 'required',
-	        // 'state_id'        => 'required',
-	        'city_description'        => 'required',
-	        // 'thumbnail'   => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
-	     );
-
-		$this->validate($request, $rules);
-
-		//======= City Image
-		if( $request->hasFile('city_img') )	{
-			$city_name = $request->city_name;
-			$cityImageName = str_replace(' ', '', $city_name);
-			$extension = $request->file('city_img')->getClientOriginalExtension();
-			$file      = $cityImageName.'.'.$extension;
-
-			if($request->file('city_img')->move($temp, $file) ) {
-				\File::copy($temp.$file, $path.$file);
-				\File::delete($temp.$file);
-			}// End File
-		} // HasFile
-
-		$slug = $this->slugify($request->city_name);
-
-		// UPDATE CATEGORY
-		$cities->city_name   = $request->city_name;
-		$cities->city_slug 			= $slug;
-		$cities->continent_id  = $request->continent_id;
-		$cities->country_id  = $request->country_id;
-		// $cities->state_id    = $request->state_id;
-		$cities->description = $request->city_description;
-		if($request->hasFile('city_img')){
-
-			$cities->city_img    = $file;
-		}
-		$cities->is_active   = $request->city_status;
-		$cities->save();
-
-		\Session::flash('success_message', trans('misc.success_update'));
-
-    	return redirect('panel/admin/destinations/cities');
-
-	}//<--- END METHOD
-
-	public function deleteCities($id){
-
-		$cities        = Cities::find( $id );
-		$thumbnail          = 'img-city/'.$cities->city_img; // Path General
-
-		// if( !isset($cities) || $cities->id == 1 ) {
-		if(!isset($cities)) {
-			return redirect('panel/admin/destinations/cities');
-		} else {
-
-			// Delete Category
-			$cities->delete();
-
-			// Delete City Image
-			if ( \File::exists($thumbnail) ) {
-				\File::delete($thumbnail);
-			}
-
-			return redirect('panel/admin/destinations/cities');
-		}
-	}//<--- END METHOD
-
-	// START
-	public function routes() {
-
-		$data      = Routes::select('routes.*','country.country_name','state.state_name','cities.city_name')->join('country','country.id','=','routes.country_id')->join('state', 'state.id','=', 'routes.state_id')->join('cities', 'cities.id','=', 'routes.city_id')->get();
-		// $data      = State::select('state.*','country.country_name')->join('country', 'country.id','=','state.country_id')->get();
+    public function updateState(Request $request)
+    {
 
 
-		return view('admin.route')->withData($data);
+        $state = State::find($request->id);
 
-	}//<--- END METHOD
 
-	public function addRoutes() {
+        if (!isset($state)) {
+            return redirect('panel/admin/destinations/states');
+        }
 
-		$countryData = Country::get();
-		$stateData = State::get();
-		$cityData = Cities::get();
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-		return view('admin.add-route', compact('countryData','stateData', 'cityData'));
-
-	}//<--- END METHOD
-
-	public function storeRoutes(Request $request) {
-
-	  $temp            = 'temp/'; // Temp
-	  $path            = 'img-route/'; // Path General
-
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
-
-		$rules = array(
-            'route_name'        => 'required',
-	        'country_id'        => 'required',
-	        'state_id'        => 'required',
-			'city_id'        => 'required',
-			'route_description'        => 'required',
+        $rules = array(
+            'state_name' => 'required',
+            'country_id' => 'required',
         );
 
-		$this->validate($request, $rules);
-
-		//======= City Image
-		if( $request->hasFile('route_img') )	{
-			$route_name = $request->route_name;
-			$routeImageName = str_replace(' ', '', $route_name);
-			$extension = $request->file('route_img')->getClientOriginalExtension();
-			$file      = $routeImageName.'.'.$extension;
-
-			if($request->file('route_img')->move($temp, $file) ) {
-				\File::copy($temp.$file, $path.$file);
-				\File::delete($temp.$file);
-			}// End File
-		} // HasFile
-
-		$slug = $this->slugify($request->route_name);
-
-		$sql              	= New Routes();
-		$sql->route_name   	= trim($request->route_name);
-		$sql->route_slug	= $slug;
-		$sql->route_tagline	= $request->route_tagline;
-		$sql->country_id  	= $request->country_id;
-		$sql->state_id    	= $request->state_id;
-		$sql->city_id    	= $request->city_id;
-		$sql->description 	= $request->route_description;
-		if($request->hasFile('route_img')){
-			$sql->route_img    = $file;
-		}
-		$sql->save();
-
-		\Session::flash('success_message', trans('admin.success_add_route'));
-
-    	return redirect('panel/admin/destinations/routes');
-
-	}//<--- END METHOD
-
-	public function editRoutes($id) {
-
-		$routes        = Routes::find( $id );
-		$country       = Country::get();
-		$state       = State::get();
-		$city       = Cities::get();
-
-		return view('admin.edit-route',compact('routes','country','state','city'));
-
-	}//<--- END METHOD
-
-	public function updateRoutes( Request $request ) {
+        $this->validate($request, $rules);
 
 
-		$routes  = Routes::find( $request->id );
-		// dd($cities);
-		$temp            = 'temp/'; // Temp
-	    $path            = 'img-route/'; // Path General
+        // UPDATE CATEGORY
+        $state->state_name = $request->state_name;
+        $state->country_id = $request->country_id;
+        $state->is_active = $request->state_status;
+        $state->save();
 
-	    if( !isset($routes) ) {
-			return redirect('panel/admin/destinations/routes');
-		}
+        \Session::flash('success_message', trans('misc.success_update'));
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+        return redirect('panel/admin/destinations/states');
 
-		$rules = array(
-            'route_name'        => 'required',
-	        'country_id'        => 'required',
-	        'state_id'        => 'required',
-	        'city_id'        => 'required',
-	        'route_description'        => 'required',
-	        // 'thumbnail'   => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
-	     );
+    }//<--- END METHOD
 
-		$this->validate($request, $rules);
+    public function deleteState($id)
+    {
 
-		//======= City Image
-		if( $request->hasFile('route_img') )	{
-			$route_name = $request->route_name;
-			$routeImageName = str_replace(' ', '', $route_name);
-			$extension = $request->file('route_img')->getClientOriginalExtension();
-			$file      = $routeImageName.'.'.$extension;
-
-			if($request->file('route_img')->move($temp, $file) ) {
-				\File::copy($temp.$file, $path.$file);
-				\File::delete($temp.$file);
-			}// End File
-		} // HasFile
-
-		$slug = $this->slugify($request->route_name);
-
-		// UPDATE CATEGORY
-		$routes->route_name   = $request->route_name;
-		$routes->route_slug   = $slug;
-		$routes->route_tagline   = $request->route_tagline;
-		$routes->country_id  = $request->country_id;
-		$routes->state_id    = $request->state_id;
-		$routes->city_id    = $request->city_id;
-		$routes->description = $request->route_description;
-		if($request->hasFile('route_img')){
-
-			$routes->route_img    = $file;
-		}
-		$routes->is_active   = $request->route_status;
-		$routes->save();
-
-		\Session::flash('success_message', trans('misc.success_update'));
-
-    	return redirect('panel/admin/destinations/routes');
-
-	}//<--- END METHOD
-
-	public function deleteRoutes($id){
-
-		$routes        = Routes::find( $id );
-		$thumbnail          = 'img-route/'.$routes->route_img; // Path General
-
-		// if( !isset($cities) || $cities->id == 1 ) {
-		if(!isset($routes)) {
-			return redirect('panel/admin/destinations/routes');
-		} else {
-
-			// Delete Category
-			$routes->delete();
-
-			// Delete City Image
-			if ( \File::exists($thumbnail) ) {
-				\File::delete($thumbnail);
-			}
-
-			return redirect('panel/admin/destinations/routes');
-		}
-	}//<--- END METHOD
+        $state = State::find($id);
 
 
-	// START
-	public function categories() {
+        if (!isset($state) || $state->id == 1) {
+            return redirect('panel/admin/destinations/states');
+        } else {
 
-		$data      = Categories::where('parent_id','=', '0')->orderBy('name')->get();
+            // Delete Category
+            $state->delete();
 
-		return view('admin.categories')->withData($data);
+            return redirect('panel/admin/destinations/states');
+        }
+    }//<--- END METHOD
 
-	}//<--- END METHOD
+    public function getCountryByContinentId($continentId)
+    {
+        $getCountries = Country::where('continent_id', '=', $continentId)->get();
 
-	public function addCategories() {
+        echo json_encode($getCountries);
+    }
 
-		$typeData  = Types::orderBy('type_name')->get();
+    public function getStateByCountryId($countryId)
+    {
+        $getStates = State::where('country_id', '=', $countryId)->get();
 
-		return view('admin.add-categories', compact('typeData'));
+        echo json_encode($getStates);
+    }
 
-	}//<--- END METHOD
+    public function getCityByStateId($stateId)
+    {
+        $getCities = Cities::where('state_id', '=', $stateId)->get();
 
-	public function storeCategories(Request $request) {
+        echo json_encode($getCities);
+    }
 
-		$temp            = 'temp/'; // Temp
-	  $path            = 'img-category/'; // Path General
+    // START
+    public function cities()
+    {
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+        // $data      = Cities::select('cities.*','country.country_name','state.state_name')->join('country','country.id','=','cities.country_id')->join('state', 'state.id','=', 'cities.state_id')->get();
+        $data = Cities::select('cities.*', 'country.country_name')->join('country', 'country.id', '=', 'cities.country_id')->get();
 
-		$rules = array(
-            'name'        => 'required',
-	        'slug'        => 'required|ascii_only|unique:categories',
-	        'thumbnail'   => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
+
+        return view('admin.city')->withData($data);
+
+    }//<--- END METHOD
+
+    public function addCities()
+    {
+
+        $continentData = Continents::get();
+        $countryData = Country::get();
+        $stateData = State::get();
+
+        return view('admin.add-city', compact('continentData', 'countryData', 'stateData'));
+
+    }//<--- END METHOD
+
+    public static function slugify($text)
+    {
+        // replace non letter or digits by -
+        $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+
+        // transliterate
+        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+        // remove unwanted characters
+        $text = preg_replace('~[^-\w]+~', '', $text);
+
+        // trim
+        $text = trim($text, '-');
+
+        // remove duplicate -
+        $text = preg_replace('~-+~', '-', $text);
+
+        // lowercase
+        $text = strtolower($text);
+
+        if (empty($text)) {
+            return 'n-a';
+        }
+
+        return $text;
+    }
+
+    public function storeCities(Request $request)
+    {
+
+        $temp = 'temp/'; // Temp
+        $path = 'img-city/'; // Path General
+
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
+
+        $rules = array(
+            'city_name' => 'required',
+            'continent_id' => 'required',
+            'country_id' => 'required',
+            // 'state_id'        => 'required',
+            'city_description' => 'required',
         );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-		if( $request->hasFile('thumbnail') )	{
+        //======= City Image
+        if ($request->hasFile('city_img')) {
+            $city_name = $request->city_name;
+            $cityImageName = str_replace(' ', '', $city_name);
+            $extension = $request->file('city_img')->getClientOriginalExtension();
+            $file = $cityImageName . '.' . $extension;
 
-		$extension              = $request->file('thumbnail')->getClientOriginalExtension();
-		$type_mime_shot   = $request->file('thumbnail')->getMimeType();
-		$sizeFile                 = $request->file('thumbnail')->getSize();
-		$thumbnail              = $request->slug.'-'.str_random(32).'.'.$extension;
+            if ($request->file('city_img')->move($temp, $file)) {
+                \File::copy($temp . $file, $path . $file);
+                \File::delete($temp . $file);
+            }// End File
+        } // HasFile
 
-		if( $request->file('thumbnail')->move($temp, $thumbnail) ) {
+        $slug = $this->slugify($request->city_name);
 
-			$image = Image::make($temp.$thumbnail);
+        $sql = new Cities();
+        $sql->city_name = trim($request->city_name);
+        $sql->city_slug = $slug;
+        $sql->continent_id = $request->continent_id;
+        $sql->country_id = $request->country_id;
+        // $sql->state_id    = $request->state_id;
+        $sql->description = $request->city_description;
+        if ($request->hasFile('city_img')) {
+            $sql->city_img = $file;
+        }
+        $sql->save();
 
-			if(  $image->width() == 457 && $image->height() == 359 ) {
+        \Session::flash('success_message', trans('admin.success_add_city'));
 
-					\File::copy($temp.$thumbnail, $path.$thumbnail);
-					\File::delete($temp.$thumbnail);
+        return redirect('panel/admin/destinations/cities');
 
-			} else {
-				$image->fit(457, 359)->save($temp.$thumbnail);
+    }//<--- END METHOD
 
-				\File::copy($temp.$thumbnail, $path.$thumbnail);
-				\File::delete($temp.$thumbnail);
-			}
+    public function editCities($id)
+    {
 
-			}// End File
-		} // HasFile
+        $cities = Cities::find($id);
+        $country = Country::get();
+        $continent = Continents::get();
+        $state = State::get();
 
-		else {
-			$thumbnail = '';
-		}
+        return view('admin.edit-cities', compact('cities', 'continent', 'country', 'state'));
 
-		$sql              = New Categories();
-		$sql->name        = trim($request->name);
-		$sql->icon_text   = $request->icon_text;
-		$sql->slug        = strtolower($request->slug);
-		$sql->thumbnail	  = $thumbnail;
-		$sql->mode        = $request->mode;
-		$sql->link_with   = $request->link_with;
-		$sql->save();
+    }//<--- END METHOD
 
-		\Session::flash('success_message', trans('admin.success_add_category'));
-
-    	return redirect('panel/admin/categories');
-
-	}//<--- END METHOD
-
-	public function editCategories($id) {
-
-		$categories        = Categories::find( $id );
-
-		$typeData  = Types::orderBy('type_name')->get();
-
-		return view('admin.edit-categories', compact('categories', 'typeData'));
-
-	}//<--- END METHOD
-
-	public function updateCategories( Request $request ) {
+    public function updateCities(Request $request)
+    {
 
 
-		$categories  = Categories::find( $request->id );
-		$temp            = 'temp/'; // Temp
-	    $path            = 'img-category/'; // Path General
+        $cities = Cities::find($request->id);
+        // dd($cities);
+        $temp = 'temp/'; // Temp
+        $path = 'img-city/'; // Path General
 
-	    if( !isset($categories) ) {
-			return redirect('panel/admin/categories');
-		}
+        if (!isset($cities)) {
+            return redirect('panel/admin/destinations/cities');
+        }
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-		$rules = array(
-            'name'        => 'required',
-	        'slug'        => 'required|ascii_only|unique:categories,slug,'.$request->id,
-	        'thumbnail'   => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
-	     );
-
-		$this->validate($request, $rules);
-
-		if( $request->hasFile('thumbnail') )	{
-
-		$extension              = $request->file('thumbnail')->getClientOriginalExtension();
-		$type_mime_shot   = $request->file('thumbnail')->getMimeType();
-		$sizeFile                 = $request->file('thumbnail')->getSize();
-		$thumbnail              = $request->slug.'-'.str_random(32).'.'.$extension;
-
-		if( $request->file('thumbnail')->move($temp, $thumbnail) ) {
-
-			$image = Image::make($temp.$thumbnail);
-
-			if(  $image->width() == 457 && $image->height() == 359 ) {
-
-					\File::copy($temp.$thumbnail, $path.$thumbnail);
-					\File::delete($temp.$thumbnail);
-
-			} else {
-				$image->fit(457, 359)->save($temp.$thumbnail);
-
-				\File::copy($temp.$thumbnail, $path.$thumbnail);
-				\File::delete($temp.$thumbnail);
-			}
-
-			// Delete Old Image
-			\File::delete($path.$categories->thumbnail);
-
-			}// End File
-		} // HasFile
-		else {
-			$thumbnail = $categories->image;
-		}
-
-		// UPDATE CATEGORY
-		$categories->name        = $request->name;
-		$categories->icon_text   = $request->icon_text;
-		$categories->slug        = strtolower($request->slug);
-		$categories->thumbnail   = $thumbnail;
-		$categories->mode        = $request->mode;
-		$categories->link_with   = $request->link_with;
-		$categories->save();
-
-		\Session::flash('success_message', trans('misc.success_update'));
-
-    	return redirect('panel/admin/categories');
-
-	}//<--- END METHOD
-
-	public function deleteCategories($id){
-
-		$categories        = Categories::find( $id );
-		$thumbnail          = 'img-category/'.$categories->thumbnail; // Path General
-
-		if( !isset($categories) || $categories->id == 1 ) {
-			return redirect('panel/admin/categories');
-		} else {
-
-			$images_category   = Images::where('categories_id',$id)->get();
-
-			// Delete Category
-			$categories->delete();
-
-			// Delete Thumbnail
-			if ( \File::exists($thumbnail) ) {
-				\File::delete($thumbnail);
-			}//<--- IF FILE EXISTS
-
-			//Update Categories Images
-			if( isset( $images_category ) ) {
-				foreach ($images_category as $key ) {
-					$key->categories_id = 1;
-					$key->save();
-				}
-			}
-
-			return redirect('panel/admin/categories');
-		}
-	}//<--- END METHOD
-
-	// START
-	public function subCategories() {
-
-		$data      = Categories::where('parent_id','!=', '0')->orderBy('name')->get();
-
-		return view('admin.sub-categories')->withData($data);
-
-	}//<--- END METHOD
-
-	public function addSubCategories() {
-
-		$parentData = Categories::where('parent_id','=', '0')->orderBy('name')->get();
-
-		return view('admin.add-sub-categories', compact('parentData'));
-
-	}//<--- END METHOD
-
-	public function storeSubCategories(Request $request) {
-
-		$temp            = 'temp/'; // Temp
-	  	$path            = 'img-sub-category/'; // Path General
-
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
-
-		$rules = array(
-            'name'        => 'required',
-	        'slug'        => 'required|ascii_only|unique:categories',
-	        'thumbnail'   => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
+        $rules = array(
+            'city_name' => 'required',
+            'continent_id' => 'required',
+            'country_id' => 'required',
+            // 'state_id'        => 'required',
+            'city_description' => 'required',
+            // 'thumbnail'   => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
         );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-		if( $request->hasFile('thumbnail') )	{
+        //======= City Image
+        if ($request->hasFile('city_img')) {
+            $city_name = $request->city_name;
+            $cityImageName = str_replace(' ', '', $city_name);
+            $extension = $request->file('city_img')->getClientOriginalExtension();
+            $file = $cityImageName . '.' . $extension;
 
-		$extension              = $request->file('thumbnail')->getClientOriginalExtension();
-		$type_mime_shot   = $request->file('thumbnail')->getMimeType();
-		$sizeFile                 = $request->file('thumbnail')->getSize();
-		$thumbnail              = $request->slug.'-'.str_random(32).'.'.$extension;
+            if ($request->file('city_img')->move($temp, $file)) {
+                \File::copy($temp . $file, $path . $file);
+                \File::delete($temp . $file);
+            }// End File
+        } // HasFile
 
-		if( $request->file('thumbnail')->move($temp, $thumbnail) ) {
+        $slug = $this->slugify($request->city_name);
 
-			$image = Image::make($temp.$thumbnail);
+        // UPDATE CATEGORY
+        $cities->city_name = $request->city_name;
+        $cities->city_slug = $slug;
+        $cities->continent_id = $request->continent_id;
+        $cities->country_id = $request->country_id;
+        // $cities->state_id    = $request->state_id;
+        $cities->description = $request->city_description;
+        if ($request->hasFile('city_img')) {
 
-			if(  $image->width() == 457 && $image->height() == 359 ) {
+            $cities->city_img = $file;
+        }
+        $cities->is_active = $request->city_status;
+        $cities->save();
 
-					\File::copy($temp.$thumbnail, $path.$thumbnail);
-					\File::delete($temp.$thumbnail);
+        \Session::flash('success_message', trans('misc.success_update'));
 
-			} else {
-				$image->fit(457, 359)->save($temp.$thumbnail);
+        return redirect('panel/admin/destinations/cities');
 
-				\File::copy($temp.$thumbnail, $path.$thumbnail);
-				\File::delete($temp.$thumbnail);
-			}
+    }//<--- END METHOD
 
-			}// End File
-		} // HasFile
+    public function deleteCities($id)
+    {
 
-		else {
-			$thumbnail = '';
-		}
+        $cities = Cities::find($id);
+        $thumbnail = 'img-city/' . $cities->city_img; // Path General
 
-		$sql              = New Categories();
-		$sql->name        = trim($request->name);
-		$sql->slug        = strtolower($request->slug);
-		$sql->thumbnail	  = $thumbnail;
-		$sql->mode        = $request->mode;
-		$sql->link_with   = $request->link_with;
-		$sql->parent_id   = $request->parent_cate;
-		$sql->save();
+        // if( !isset($cities) || $cities->id == 1 ) {
+        if (!isset($cities)) {
+            return redirect('panel/admin/destinations/cities');
+        } else {
 
-		\Session::flash('success_message', trans('admin.success_add_category'));
+            // Delete Category
+            $cities->delete();
 
-    	return redirect('panel/admin/sub-categories');
+            // Delete City Image
+            if (\File::exists($thumbnail)) {
+                \File::delete($thumbnail);
+            }
 
-	}//<--- END METHOD
+            return redirect('panel/admin/destinations/cities');
+        }
+    }//<--- END METHOD
 
-	public function editSubCategories($id) {
+    // START
+    public function routes()
+    {
 
-		$subCategories        = Categories::find( $id );
-		$parentData = Categories::where('parent_id','=', '0')->orderBy('name')->get();
-
-		return view('admin.edit-sub-categories', compact('subCategories', 'parentData'));
-
-	}//<--- END METHOD
-
-	public function updateSubCategories( Request $request ) {
+        $data = Routes::select('routes.*', 'country.country_name', 'state.state_name', 'cities.city_name')->join('country', 'country.id', '=', 'routes.country_id')->join('state', 'state.id', '=', 'routes.state_id')->join('cities', 'cities.id', '=', 'routes.city_id')->get();
+        // $data      = State::select('state.*','country.country_name')->join('country', 'country.id','=','state.country_id')->get();
 
 
-		$subCategories  = Categories::find( $request->id );
-		$temp            = 'temp/'; // Temp
-	    $path            = 'img-sub-category/'; // Path General
+        return view('admin.route')->withData($data);
 
-	    if( !isset($subCategories) ) {
-			return redirect('panel/admin/sub-categories');
-		}
+    }//<--- END METHOD
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+    public function addRoutes()
+    {
 
-		$rules = array(
-            'name'        => 'required',
-	        'slug'        => 'required|ascii_only|unique:categories,slug,'.$request->id,
-	        'thumbnail'   => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
-	     );
+        $countryData = Country::get();
+        $stateData = State::get();
+        $cityData = Cities::get();
 
-		$this->validate($request, $rules);
+        return view('admin.add-route', compact('countryData', 'stateData', 'cityData'));
 
-		if( $request->hasFile('thumbnail') )	{
+    }//<--- END METHOD
 
-		$extension              = $request->file('thumbnail')->getClientOriginalExtension();
-		$type_mime_shot   = $request->file('thumbnail')->getMimeType();
-		$sizeFile                 = $request->file('thumbnail')->getSize();
-		$thumbnail              = $request->slug.'-'.str_random(32).'.'.$extension;
+    public function storeRoutes(Request $request)
+    {
 
-		if( $request->file('thumbnail')->move($temp, $thumbnail) ) {
+        $temp = 'temp/'; // Temp
+        $path = 'img-route/'; // Path General
 
-			$image = Image::make($temp.$thumbnail);
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-			if(  $image->width() == 457 && $image->height() == 359 ) {
-
-					\File::copy($temp.$thumbnail, $path.$thumbnail);
-					\File::delete($temp.$thumbnail);
-
-			} else {
-				$image->fit(457, 359)->save($temp.$thumbnail);
-
-				\File::copy($temp.$thumbnail, $path.$thumbnail);
-				\File::delete($temp.$thumbnail);
-			}
-
-			// Delete Old Image
-			\File::delete($path.$subCategories->thumbnail);
-
-			}// End File
-		} // HasFile
-		else {
-			$thumbnail = $subCategories->image;
-		}
-
-		// UPDATE CATEGORY
-		$subCategories->name        = $request->name;
-		$subCategories->slug        = strtolower($request->slug);
-		$subCategories->thumbnail   = $thumbnail;
-		$subCategories->mode        = $request->mode;
-		$subCategories->link_with   = $request->link_with;
-		$subCategories->parent_id   = $request->parent_cate;
-		$subCategories->save();
-
-		\Session::flash('success_message', trans('misc.success_update'));
-
-    	return redirect('panel/admin/sub-categories');
-
-	}//<--- END METHOD
-
-	public function deleteSubCategories($id){
-
-		$subCategories        = Categories::find( $id );
-		$thumbnail          = 'img-sub-category/'.$subCategories->thumbnail; // Path General
-
-		if( !isset($subCategories) || $subCategories->id == 1 ) {
-			return redirect('panel/admin/subCategories');
-		} else {
-
-			$images_sub_category   = Images::where('categories_id',$id)->get();
-
-			// Delete Category
-			$subCategories->delete();
-
-			// Delete Thumbnail
-			if ( \File::exists($thumbnail) ) {
-				\File::delete($thumbnail);
-			}//<--- IF FILE EXISTS
-
-			//Update Categories Images
-			if( isset( $images_sub_category ) ) {
-				foreach ($images_sub_category as $key ) {
-					$key->categories_id = 1;
-					$key->save();
-				}
-			}
-
-			return redirect('panel/admin/sub-categories');
-		}
-	}//<--- END METHOD
-
-	public function settings() {
-
-		return view('admin.settings');
-
-	}//<--- END METHOD
-
-	public function saveSettings(Request $request) {
-
-		Validator::extend('sell_option_validate', function($attribute, $value, $parameters) {
-			// Count images for sale
-			$imagesForSale = Images::where('item_for_sale', 'sale')->where('status', 'active')->count();
-
-			if($value == 'off' && $imagesForSale > 0) {
-				return false;
-			}
-
-			return true;
-
-		});
-
-		$messages = [
-			'sell_option.sell_option_validate' => trans('misc.sell_option_validate')
-		];
-
-		$rules = array(
-          'title'            => 'required',
-	        'welcome_text' 	   => 'required',
-	        'welcome_subtitle' => 'required',
-	        'keywords'         => 'required',
-	        'description'      => 'required',
-	        'email_no_reply'   => 'required',
-	        'email_admin'      => 'required',
-					'link_terms'      => 'required|url',
-					'link_privacy'      => 'required|url',
-					'link_license'      => 'url',
-					'sell_option' => 'sell_option_validate'
+        $rules = array(
+            'route_name' => 'required',
+            'country_id' => 'required',
+            'state_id' => 'required',
+            'city_id' => 'required',
+            'route_description' => 'required',
         );
 
-		$this->validate($request, $rules, $messages);
-
-
-
-		$sql                      = AdminSettings::first();
-		$sql->title               = $request->title;
-		$sql->welcome_text        = $request->welcome_text;
-		$sql->welcome_subtitle    = $request->welcome_subtitle;
-		$sql->keywords            = $request->keywords;
-		$sql->description         = $request->description;
-		$sql->email_no_reply      = $request->email_no_reply;
-		$sql->email_admin         = $request->email_admin;
-		$sql->link_terms         = $request->link_terms;
-		$sql->link_privacy         = $request->link_privacy;
-		$sql->link_license         = $request->link_license;
-		$sql->captcha             = $request->captcha;
-		$sql->registration_active = $request->registration_active;
-		$sql->email_verification  = $request->email_verification;
-		$sql->facebook_login  = $request->facebook_login;
-		$sql->twitter_login = $request->twitter_login;
-		$sql->google_ads_index    = $request->google_ads_index;
-		$sql->sell_option    = $request->sell_option;
-		$sql->show_images_index    = $request->show_images_index;
-		$sql->show_watermark    = $request->show_watermark;
-		$sql->save();
-
-		\Session::flash('success_message', trans('admin.success_update'));
-
-    	return redirect('panel/admin/settings');
-
-	}//<--- END METHOD
-
-	public function settingsLimits() {
-
-		return view('admin.limits');
-
-	}//<--- END METHOD
-
-	public function saveSettingsLimits(Request $request) {
-
-
-		$sql                      = AdminSettings::first();
-		$sql->result_request      = $request->result_request;
-		$sql->limit_upload_user   = $request->limit_upload_user;
-		$sql->message_length      = $request->message_length;
-		$sql->comment_length      = $request->comment_length;
-		$sql->file_size_allowed   = $request->file_size_allowed;
-		$sql->auto_approve_images = $request->auto_approve_images;
-		$sql->downloads           = $request->downloads;
-		$sql->tags_limit          = $request->tags_limit;
-		$sql->description_length  = $request->description_length;
-		$sql->min_width_height_image = $request->min_width_height_image;
-		$sql->file_size_allowed_vector   = $request->file_size_allowed_vector;
-
-		$sql->save();
-
-		\Session::flash('success_message', trans('admin.success_update'));
-
-    	return redirect('panel/admin/settings/limits');
-
-	}//<--- END METHOD
-
-	public function members_reported() {
-
-		$data = UsersReported::orderBy('id','DESC')->get();
-
-		return view('admin.members_reported')->withData($data);
-
-	}//<--- END METHOD
-
-	public function delete_members_reported(Request $request) {
-
-		$report = UsersReported::find($request->id);
-
-		if( isset( $report ) ) {
-			$report->delete();
-		}
-
-		return redirect('panel/admin/members-reported');
-
-	}//<--- END METHOD
-
-	public function images_reported() {
-
-		$data = ImagesReported::orderBy('id','DESC')->get();
-
-		//dd($data);
-
-		return view('admin.images_reported')->withData($data);
-
-	}//<--- END METHOD
-
-	public function delete_images_reported(Request $request) {
-
-		$report = ImagesReported::find($request->id);
-
-		if( isset( $report ) ) {
-			$report->delete();
-		}
-
-		return redirect('panel/admin/images-reported');
-
-	}//<--- END METHOD
-
-	public function videos() {
-
-		$query = request()->get('q');
-		$sort = request()->get('sort');
-		$pagination = 15;
-
-		$data = Images::where('is_type','=','video')->orderBy('id','desc')->paginate($pagination);
-
-		// Search
-		if( isset( $query ) ) {
-		 	$data = Images::where('title', 'LIKE', '%'.$query.'%')
-			->orWhere('tags', 'LIKE', '%'.$query.'%')
-			->where('is_type','=','video')
-		 	->orderBy('id','desc')->paginate($pagination);
-		 }
-
-		// Sort
-		if( isset( $sort ) && $sort == 'title' ) {
-			$data = Images::where('is_type','=','video')->orderBy('title','asc')->paginate($pagination);
-		}
-
-		if( isset( $sort ) && $sort == 'pending' ) {
-			$data = Images::where('is_type','=','video')->where('status','pending')->paginate($pagination);
-		}
-
-		if( isset( $sort ) && $sort == 'downloads' ) {
-			$data = Images::join('downloads', 'images.id', '=', 'downloads.images_id')
-					->where('is_type','=','video')
-					->groupBy('downloads.images_id')
-					->orderBy( \DB::raw('COUNT(downloads.images_id)'), 'desc' )
-					->select('images.*')
-					->paginate( $pagination );
-		}
-
-		if( isset( $sort ) && $sort == 'likes' ) {
-			$data = Images::join('likes', function($join){
-				$join->on('likes.images_id', '=', 'images.id')->where('likes.status', '=', '1' );
-			})
-					->where('is_type','=','video')
-					->groupBy('likes.images_id')
-					->orderBy( \DB::raw('COUNT(likes.images_id)'), 'desc' )
-					->select('images.*')
-					->paginate( $pagination );
-		}
-
-		return view('admin.videos', ['data' => $data,'query' => $query, 'sort' => $sort ]);
-	}//<--- End Method
-
-	public function delete_video(Request $request) {
-
-		//<<<<---------------------------------------------
-
-		$image = Images::find($request->id);
-
-		// Delete Notification
-		$notifications = Notifications::where('destination',$request->id)
-			->where('type', '2')
-			->orWhere('destination',$request->id)
-			->where('type', '3')
-			->orWhere('destination',$request->id)
-			->where('type', '6')
-			->get();
-
-		if(  isset( $notifications ) ){
-			foreach($notifications as $notification){
-				$notification->delete();
-			}
-		}
-
-		// Collections Images
-	$collectionsImages = CollectionsImages::where('images_id', '=', $request->id)->get();
-	 if( isset( $collectionsImages ) ){
-			foreach($collectionsImages as $collectionsImage){
-				$collectionsImage->delete();
-			}
-		}
-
-		// Images Reported
-		$imagesReporteds = ImagesReported::where('image_id', '=', $request->id)->get();
-		 if( isset( $imagesReporteds ) ){
-				foreach($imagesReporteds as $imagesReported){
-					$imagesReported->delete();
-				}
-			}
-
-		//<---- ALL RESOLUTIONS IMAGES
-		$stocks = Stock::where('images_id', '=', $request->id)->get();
-
-		foreach($stocks as $stock){
-
-			$stock_path = 'uploads/'.$stock->type.'/'.$stock->name;
-			$stock_pathVector = 'uploads/files/'.$stock->name;
-
-			// Delete Stock
-			if ( \File::exists($stock_path) ) {
-				\File::delete($stock_path);
-			}//<--- IF FILE EXISTS
-
-			// Delete Stock Vector
-			if ( \File::exists($stock_pathVector) ) {
-				\File::delete($stock_pathVector);
-			}//<--- IF FILE EXISTS
-
-			$stock->delete();
-
-		}//<--- End foreach
-
-		$preview_image = 'uploads/preview/'.$image->preview;
-		$thumbnail     = 'uploads/thumbnail/'.$image->thumbnail;
-
-		// Delete preview
-		if ( \File::exists($preview_image) ) {
-			\File::delete($preview_image);
-		}//<--- IF FILE EXISTS
-
-		// Delete thumbnail
-		if ( \File::exists($thumbnail) ) {
-			\File::delete($thumbnail);
-		}//<--- IF FILE EXISTS
-
-		$image->delete();
-
-		return redirect('panel/admin/videos');
-
-	}//<--- End Method
-
-	public function edit_video($id) {
-
-		$data = Images::findOrFail($id);
-
-		return view('admin.edit-video', ['data' => $data ]);
-
-	}//<--- End Method
-
-	public function update_video(Request $request) {
-
-		$sql = Images::find($request->id);
-
-		 $rules = array(
-            'title'       => 'required|min:3|max:50',
-            'description' => 'min:2|max:'.$this->settings->description_length.'',
-	        'tags'        => 'required',
-
+        $this->validate($request, $rules);
+
+        //======= City Image
+        if ($request->hasFile('route_img')) {
+            $route_name = $request->route_name;
+            $routeImageName = str_replace(' ', '', $route_name);
+            $extension = $request->file('route_img')->getClientOriginalExtension();
+            $file = $routeImageName . '.' . $extension;
+
+            if ($request->file('route_img')->move($temp, $file)) {
+                \File::copy($temp . $file, $path . $file);
+                \File::delete($temp . $file);
+            }// End File
+        } // HasFile
+
+        $slug = $this->slugify($request->route_name);
+
+        $sql = new Routes();
+        $sql->route_name = trim($request->route_name);
+        $sql->route_slug = $slug;
+        $sql->route_tagline = $request->route_tagline;
+        $sql->country_id = $request->country_id;
+        $sql->state_id = $request->state_id;
+        $sql->city_id = $request->city_id;
+        $sql->description = $request->route_description;
+        if ($request->hasFile('route_img')) {
+            $sql->route_img = $file;
+        }
+        $sql->save();
+
+        \Session::flash('success_message', trans('admin.success_add_route'));
+
+        return redirect('panel/admin/destinations/routes');
+
+    }//<--- END METHOD
+
+    public function editRoutes($id)
+    {
+
+        $routes = Routes::find($id);
+        $country = Country::get();
+        $state = State::get();
+        $city = Cities::get();
+
+        return view('admin.edit-route', compact('routes', 'country', 'state', 'city'));
+
+    }//<--- END METHOD
+
+    public function updateRoutes(Request $request)
+    {
+
+
+        $routes = Routes::find($request->id);
+        // dd($cities);
+        $temp = 'temp/'; // Temp
+        $path = 'img-route/'; // Path General
+
+        if (!isset($routes)) {
+            return redirect('panel/admin/destinations/routes');
+        }
+
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
+
+        $rules = array(
+            'route_name' => 'required',
+            'country_id' => 'required',
+            'state_id' => 'required',
+            'city_id' => 'required',
+            'route_description' => 'required',
+            // 'thumbnail'   => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
         );
 
-		if( $request->featured == 'yes' && $sql->featured == 'no' ) {
-			$featuredDate = \Carbon\Carbon::now();
-		} elseif( $request->featured == 'yes' && $sql->featured == 'yes' ) {
-			$featuredDate = $sql->featured_date;
-		} else {
-			$featuredDate = '';
-		}
+        $this->validate($request, $rules);
 
-		$this->validate($request, $rules);
+        //======= City Image
+        if ($request->hasFile('route_img')) {
+            $route_name = $request->route_name;
+            $routeImageName = str_replace(' ', '', $route_name);
+            $extension = $request->file('route_img')->getClientOriginalExtension();
+            $file = $routeImageName . '.' . $extension;
 
-	    $sql->title         = $request->title;
-		$sql->description   = $request->description;
-		$sql->tags          = $request->tags;
-		$sql->categories_id = $request->categories_id;
-		$sql->status        = $request->status;
-		$sql->featured      = $request->featured;
-		$sql->featured_date = $featuredDate;
+            if ($request->file('route_img')->move($temp, $file)) {
+                \File::copy($temp . $file, $path . $file);
+                \File::delete($temp . $file);
+            }// End File
+        } // HasFile
+
+        $slug = $this->slugify($request->route_name);
+
+        // UPDATE CATEGORY
+        $routes->route_name = $request->route_name;
+        $routes->route_slug = $slug;
+        $routes->route_tagline = $request->route_tagline;
+        $routes->country_id = $request->country_id;
+        $routes->state_id = $request->state_id;
+        $routes->city_id = $request->city_id;
+        $routes->description = $request->route_description;
+        if ($request->hasFile('route_img')) {
+
+            $routes->route_img = $file;
+        }
+        $routes->is_active = $request->route_status;
+        $routes->save();
+
+        \Session::flash('success_message', trans('misc.success_update'));
+
+        return redirect('panel/admin/destinations/routes');
+
+    }//<--- END METHOD
+
+    public function deleteRoutes($id)
+    {
+
+        $routes = Routes::find($id);
+        $thumbnail = 'img-route/' . $routes->route_img; // Path General
+
+        // if( !isset($cities) || $cities->id == 1 ) {
+        if (!isset($routes)) {
+            return redirect('panel/admin/destinations/routes');
+        } else {
+
+            // Delete Category
+            $routes->delete();
+
+            // Delete City Image
+            if (\File::exists($thumbnail)) {
+                \File::delete($thumbnail);
+            }
+
+            return redirect('panel/admin/destinations/routes');
+        }
+    }//<--- END METHOD
 
 
-		$sql->save();
+    // START
+    public function categories()
+    {
 
-	    \Session::flash('success_message', trans('admin.success_update'));
+        $data = Categories::where('parent_id', '=', '0')->orderBy('name')->get();
 
-	    return redirect('panel/admin/videos');
-	}//<--- End Method
+        return view('admin.categories')->withData($data);
 
-	public function images() {
+    }//<--- END METHOD
 
-		$query = request()->get('q');
-		$sort = request()->get('sort');
-		$pagination = 15;
+    public function addCategories()
+    {
 
-		$data = Images::orderBy('id','desc')->paginate($pagination);
+        $typeData = Types::orderBy('type_name')->get();
 
-		// Search
-		if( isset( $query ) ) {
-		 	$data = Images::where('title', 'LIKE', '%'.$query.'%')
-			->orWhere('tags', 'LIKE', '%'.$query.'%')
-		 	->orderBy('id','desc')->paginate($pagination);
-		 }
+        return view('admin.add-categories', compact('typeData'));
 
-		// Sort
-		if( isset( $sort ) && $sort == 'title' ) {
-			$data = Images::orderBy('title','asc')->paginate($pagination);
-		}
+    }//<--- END METHOD
 
-		if( isset( $sort ) && $sort == 'pending' ) {
-			$data = Images::where('status','pending')->paginate($pagination);
-		}
+    public function storeCategories(Request $request)
+    {
 
-		if( isset( $sort ) && $sort == 'downloads' ) {
-			$data = Images::join('downloads', 'images.id', '=', 'downloads.images_id')
-					->groupBy('downloads.images_id')
-					->orderBy( \DB::raw('COUNT(downloads.images_id)'), 'desc' )
-					->select('images.*')
-					->paginate( $pagination );
-		}
+        $temp = 'temp/'; // Temp
+        $path = 'img-category/'; // Path General
 
-		if( isset( $sort ) && $sort == 'likes' ) {
-			$data = Images::join('likes', function($join){
-				$join->on('likes.images_id', '=', 'images.id')->where('likes.status', '=', '1' );
-			})
-					->groupBy('likes.images_id')
-					->orderBy( \DB::raw('COUNT(likes.images_id)'), 'desc' )
-					->select('images.*')
-					->paginate( $pagination );
-		}
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-		return view('admin.images', ['data' => $data,'query' => $query, 'sort' => $sort ]);
-	}//<--- End Method
-
-	public function delete_image(Request $request) {
-
-		//<<<<---------------------------------------------
-
-		$image = Images::find($request->id);
-
-		// Delete Notification
-		$notifications = Notifications::where('destination',$request->id)
-			->where('type', '2')
-			->orWhere('destination',$request->id)
-			->where('type', '3')
-			->orWhere('destination',$request->id)
-			->where('type', '6')
-			->get();
-
-		if(  isset( $notifications ) ){
-			foreach($notifications as $notification){
-				$notification->delete();
-			}
-		}
-
-		// Collections Images
-		$collectionsImages = CollectionsImages::where('images_id', '=', $request->id)->get();
-		if( isset( $collectionsImages ) ){
-			foreach($collectionsImages as $collectionsImage){
-				$collectionsImage->delete();
-			}
-		}
-
-		// Images Reported
-		$imagesReporteds = ImagesReported::where('image_id', '=', $request->id)->get();
-		 if( isset( $imagesReporteds ) ){
-				foreach($imagesReporteds as $imagesReported){
-					$imagesReported->delete();
-				}
-			}
-
-		//<---- ALL RESOLUTIONS IMAGES
-		$stocks = Stock::where('images_id', '=', $request->id)->get();
-
-		foreach($stocks as $stock){
-
-			$stock_path = 'uploads/'.$stock->type.'/'.$stock->name;
-			$stock_pathVector = 'uploads/files/'.$stock->name;
-
-			// Delete Stock
-			if ( \File::exists($stock_path) ) {
-				\File::delete($stock_path);
-			}//<--- IF FILE EXISTS
-
-			// Delete Stock Vector
-			if ( \File::exists($stock_pathVector) ) {
-				\File::delete($stock_pathVector);
-			}//<--- IF FILE EXISTS
-
-			$stock->delete();
-
-		}//<--- End foreach
-
-		$preview_image = 'uploads/preview/'.$image->preview;
-		$thumbnail     = 'uploads/thumbnail/'.$image->thumbnail;
-
-		// Delete preview
-		if ( \File::exists($preview_image) ) {
-			\File::delete($preview_image);
-		}//<--- IF FILE EXISTS
-
-		// Delete thumbnail
-		if ( \File::exists($thumbnail) ) {
-			\File::delete($thumbnail);
-		}//<--- IF FILE EXISTS
-
-		$image->delete();
-
-		return redirect('panel/admin/images');
-
-	}//<--- End Method
-
-	public function edit_image($id) {
-
-		$data = Images::findOrFail($id);
-
-		return view('admin.edit-image', ['data' => $data ]);
-
-	}//<--- End Method
-
-	public function update_image(Request $request) {
-
-		$sql = Images::find($request->id);
-
-		 $rules = array(
-            'title'       => 'required|min:3|max:50',
-            'description' => 'min:2|max:'.$this->settings->description_length.'',
-	        'tags'        => 'required',
-
+        $rules = array(
+            'name' => 'required',
+            'slug' => 'required|ascii_only|unique:categories',
+            'thumbnail' => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
         );
 
-		if( $request->featured == 'yes' && $sql->featured == 'no' ) {
-			$featuredDate = \Carbon\Carbon::now();
-		} elseif( $request->featured == 'yes' && $sql->featured == 'yes' ) {
-			$featuredDate = $sql->featured_date;
-		} else {
-			$featuredDate = '';
-		}
+        $this->validate($request, $rules);
 
-		$this->validate($request, $rules);
+        if ($request->hasFile('thumbnail')) {
 
-	    $sql->title         = $request->title;
-		$sql->description   = $request->description;
-		$sql->tags          = $request->tags;
-		$sql->categories_id = $request->categories_id;
-		$sql->status        = $request->status;
-		$sql->featured      = $request->featured;
-		$sql->featured_date = $featuredDate;
+            $extension = $request->file('thumbnail')->getClientOriginalExtension();
+            $type_mime_shot = $request->file('thumbnail')->getMimeType();
+            $sizeFile = $request->file('thumbnail')->getSize();
+            $thumbnail = $request->slug . '-' . str_random(32) . '.' . $extension;
+
+            if ($request->file('thumbnail')->move($temp, $thumbnail)) {
+
+                $image = Image::make($temp . $thumbnail);
+
+                if ($image->width() == 457 && $image->height() == 359) {
+
+                    \File::copy($temp . $thumbnail, $path . $thumbnail);
+                    \File::delete($temp . $thumbnail);
+
+                } else {
+                    $image->fit(457, 359)->save($temp . $thumbnail);
+
+                    \File::copy($temp . $thumbnail, $path . $thumbnail);
+                    \File::delete($temp . $thumbnail);
+                }
+
+            }// End File
+        } // HasFile
+
+        else {
+            $thumbnail = '';
+        }
+
+        $sql = new Categories();
+        $sql->name = trim($request->name);
+        $sql->icon_text = $request->icon_text;
+        $sql->slug = strtolower($request->slug);
+        $sql->thumbnail = $thumbnail;
+        $sql->mode = $request->mode;
+        $sql->link_with = $request->link_with;
+        $sql->save();
+
+        \Session::flash('success_message', trans('admin.success_add_category'));
+
+        return redirect('panel/admin/categories');
+
+    }//<--- END METHOD
+
+    public function editCategories($id)
+    {
+
+        $categories = Categories::find($id);
+
+        $typeData = Types::orderBy('type_name')->get();
+
+        return view('admin.edit-categories', compact('categories', 'typeData'));
+
+    }//<--- END METHOD
+
+    public function updateCategories(Request $request)
+    {
 
 
-		$sql->save();
+        $categories = Categories::find($request->id);
+        $temp = 'temp/'; // Temp
+        $path = 'img-category/'; // Path General
 
-	    \Session::flash('success_message', trans('admin.success_update'));
+        if (!isset($categories)) {
+            return redirect('panel/admin/categories');
+        }
 
-	    return redirect('panel/admin/images');
-	}//<--- End Method
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-	public function profiles_social(){
-		return view('admin.profiles-social');
-	}//<--- End Method
-
-	public function update_profiles_social(Request $request) {
-
-		$sql = AdminSettings::find(1);
-
-		$rules = array(
-            'twitter'    => 'url',
-            'facebook'   => 'url',
-            'linkedin'   => 'url',
-			'instagram'  => 'url',
-			'pinterest'  => 'url',
-			'youtube'  => 'url',
-
-		);
-
-
-		$this->validate($request, $rules);
-
-	    $sql->twitter       = $request->twitter;
-			$sql->facebook      = $request->facebook;
-			$sql->linkedin      = $request->linkedin;
-			$sql->instagram     = $request->instagram;
-			$sql->instagram     = $request->instagram;
-			$sql->pinterest     = $request->pinterest;
-			$sql->youtube     = $request->youtube;
-
-		$sql->save();
-
-	    \Session::flash('success_message', trans('admin.success_update'));
-
-	    return redirect('panel/admin/profiles-social');
-	}//<--- End Method
-
-	public function google()
-	{
-		return view('admin.google');
-	}//<--- END METHOD
-
-	public function update_google(Request $request)
-	{
-		$sql = AdminSettings::first();
-
-			$sql->google_adsense_index   = $request->google_adsense_index;
-	    $sql->google_adsense   = $request->google_adsense;
-		  $sql->google_analytics = $request->google_analytics;
-
-		$sql->save();
-
-	    \Session::flash('success_message', trans('admin.success_update'));
-
-	    return redirect('panel/admin/google');
-	}//<--- End Method
-
-	//<-- Start Method Booking Calendar
-	public function bookingCalendar()
-	{
-		$calendarPageSettings = BookingCalendar::first();
-		return view('admin.booking_calendar',compact('calendarPageSettings'));
-	}//<-- End Method Booking Calendar
-
-	//<-- Start Method Booking Calendar Store
-	public function bookingCalendarStore(Request $request)
-	{
-
-		$query = BookingCalendar::first();
-		$query->calendar_question = $request->calendar_question;
-		$query->calendar_paragraph = $request->calendar_paragraph;
-		$query->calendar_important_note = $request->calendar_important_note;
-		$query->calendar_last_minute_header = $request->calendar_last_minute_header;
-		$query->calendar_last_minute_content = $request->calendar_last_minute_content;
-		$query->save();
-
-		\Session::flash('success_message', trans('admin.success_update'));
-
-		return redirect('panel/admin/booking-calendar');
-
-	}//<--- End Method Booking Calendar Store
-
-	public function theme()
-	{
-		return view('admin.theme');
-
-	}//<--- End method
-
-	public function themeStore(Request $request) {
-
-		$temp  = 'temp/'; // Temp
-	  $path  = 'img/'; // Path
-
-		$rules = array(
-          'logo'   => 'mimes:png,svg',
-					'favicon'   => 'mimes:png',
-					'index_image_top'   => 'mimes:jpg,jpeg',
-					'index_image_bottom'   => 'mimes:jpg,jpeg',
+        $rules = array(
+            'name' => 'required',
+            'slug' => 'required|ascii_only|unique:categories,slug,' . $request->id,
+            'thumbnail' => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
         );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-		//======= LOGO
-		if( $request->hasFile('logo') )	{
+        if ($request->hasFile('thumbnail')) {
 
-			$extension = $request->file('logo')->getClientOriginalExtension();
-			$file      = 'logo.'.$extension;
+            $extension = $request->file('thumbnail')->getClientOriginalExtension();
+            $type_mime_shot = $request->file('thumbnail')->getMimeType();
+            $sizeFile = $request->file('thumbnail')->getSize();
+            $thumbnail = $request->slug . '-' . str_random(32) . '.' . $extension;
 
-			if($request->file('logo')->move($temp, $file) ) {
-				\File::copy($temp.$file, $path.$file);
-				\File::delete($temp.$file);
-			}// End File
-		} // HasFile
+            if ($request->file('thumbnail')->move($temp, $thumbnail)) {
 
-		//======== FAVICON
-		if($request->hasFile('favicon') )	{
+                $image = Image::make($temp . $thumbnail);
 
-			$extension  = $request->file('favicon')->getClientOriginalExtension();
-			$file       = 'favicon.'.$extension;
+                if ($image->width() == 457 && $image->height() == 359) {
 
-			if( $request->file('favicon')->move($temp, $file) ) {
-				\File::copy($temp.$file, $path.$file);
-				\File::delete($temp.$file);
-				}// End File
-		} // HasFile
+                    \File::copy($temp . $thumbnail, $path . $thumbnail);
+                    \File::delete($temp . $thumbnail);
 
-		//======= FOOTER LOGO
-		if( $request->hasFile('footer_logo') )	{
+                } else {
+                    $image->fit(457, 359)->save($temp . $thumbnail);
 
-			$extension = $request->file('footer_logo')->getClientOriginalExtension();
-			$file      = 'footer_logo.'.$extension;
+                    \File::copy($temp . $thumbnail, $path . $thumbnail);
+                    \File::delete($temp . $thumbnail);
+                }
 
-			if($request->file('footer_logo')->move($temp, $file) ) {
-				\File::copy($temp.$file, $path.$file);
-				\File::delete($temp.$file);
-			}// End File
-		} // HasFile
+                // Delete Old Image
+                \File::delete($path . $categories->thumbnail);
 
-		//======== index_image_top
-		// if($request->hasFile('index_image_top') )	{
+            }// End File
+        } // HasFile
+        else {
+            $thumbnail = $categories->image;
+        }
 
-		// 	$extension  = $request->file('index_image_top')->getClientOriginalExtension();
-		// 	$file       = 'header_index.'.$extension;
+        // UPDATE CATEGORY
+        $categories->name = $request->name;
+        $categories->icon_text = $request->icon_text;
+        $categories->slug = strtolower($request->slug);
+        $categories->thumbnail = $thumbnail;
+        $categories->mode = $request->mode;
+        $categories->link_with = $request->link_with;
+        $categories->save();
 
-		// 	if( $request->file('index_image_top')->move($temp, $file) ) {
-		// 		\File::copy($temp.$file, $path.$file);
-		// 		\File::delete($temp.$file);
-		// 	}// End File
-		// } // HasFile
+        \Session::flash('success_message', trans('misc.success_update'));
 
-		//======== index_image_bottom
-		// if($request->hasFile('index_image_bottom') )	{
+        return redirect('panel/admin/categories');
 
-		// 	$extension  = $request->file('index_image_bottom')->getClientOriginalExtension();
-		// 	$file       = 'cover.'.$extension;
+    }//<--- END METHOD
 
-		// 	if( $request->file('index_image_bottom')->move($temp, $file) ) {
-		// 		\File::copy($temp.$file, $path.$file);
-		// 		\File::delete($temp.$file);
-		// 	}// End File
-		// } // HasFile
+    public function deleteCategories($id)
+    {
+
+        $categories = Categories::find($id);
+        $thumbnail = 'img-category/' . $categories->thumbnail; // Path General
+
+        if (!isset($categories) || $categories->id == 1) {
+            return redirect('panel/admin/categories');
+        } else {
+
+            $images_category = Images::where('categories_id', $id)->get();
+
+            // Delete Category
+            $categories->delete();
+
+            // Delete Thumbnail
+            if (\File::exists($thumbnail)) {
+                \File::delete($thumbnail);
+            }//<--- IF FILE EXISTS
+
+            //Update Categories Images
+            if (isset($images_category)) {
+                foreach ($images_category as $key) {
+                    $key->categories_id = 1;
+                    $key->save();
+                }
+            }
+
+            return redirect('panel/admin/categories');
+        }
+    }//<--- END METHOD
+
+    // START
+    public function subCategories()
+    {
+
+        $data = Categories::where('parent_id', '!=', '0')->orderBy('name')->get();
+
+        return view('admin.sub-categories')->withData($data);
+
+    }//<--- END METHOD
+
+    public function addSubCategories()
+    {
+
+        $parentData = Categories::where('parent_id', '=', '0')->orderBy('name')->get();
+
+        return view('admin.add-sub-categories', compact('parentData'));
+
+    }//<--- END METHOD
+
+    public function storeSubCategories(Request $request)
+    {
+
+        $temp = 'temp/'; // Temp
+        $path = 'img-sub-category/'; // Path General
+
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
+
+        $rules = array(
+            'name' => 'required',
+            'slug' => 'required|ascii_only|unique:categories',
+            'thumbnail' => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
+        );
+
+        $this->validate($request, $rules);
+
+        if ($request->hasFile('thumbnail')) {
+
+            $extension = $request->file('thumbnail')->getClientOriginalExtension();
+            $type_mime_shot = $request->file('thumbnail')->getMimeType();
+            $sizeFile = $request->file('thumbnail')->getSize();
+            $thumbnail = $request->slug . '-' . str_random(32) . '.' . $extension;
+
+            if ($request->file('thumbnail')->move($temp, $thumbnail)) {
+
+                $image = Image::make($temp . $thumbnail);
+
+                if ($image->width() == 457 && $image->height() == 359) {
+
+                    \File::copy($temp . $thumbnail, $path . $thumbnail);
+                    \File::delete($temp . $thumbnail);
+
+                } else {
+                    $image->fit(457, 359)->save($temp . $thumbnail);
+
+                    \File::copy($temp . $thumbnail, $path . $thumbnail);
+                    \File::delete($temp . $thumbnail);
+                }
+
+            }// End File
+        } // HasFile
+
+        else {
+            $thumbnail = '';
+        }
+
+        $sql = new Categories();
+        $sql->name = trim($request->name);
+        $sql->slug = strtolower($request->slug);
+        $sql->thumbnail = $thumbnail;
+        $sql->mode = $request->mode;
+        $sql->link_with = $request->link_with;
+        $sql->parent_id = $request->parent_cate;
+        $sql->save();
+
+        \Session::flash('success_message', trans('admin.success_add_category'));
+
+        return redirect('panel/admin/sub-categories');
+
+    }//<--- END METHOD
+
+    public function editSubCategories($id)
+    {
+
+        $subCategories = Categories::find($id);
+        $parentData = Categories::where('parent_id', '=', '0')->orderBy('name')->get();
+
+        return view('admin.edit-sub-categories', compact('subCategories', 'parentData'));
+
+    }//<--- END METHOD
+
+    public function updateSubCategories(Request $request)
+    {
 
 
-		\Artisan::call('cache:clear');
+        $subCategories = Categories::find($request->id);
+        $temp = 'temp/'; // Temp
+        $path = 'img-sub-category/'; // Path General
 
-		return redirect('panel/admin/theme')
-			 ->with('success_message', trans('misc.success_update'));
+        if (!isset($subCategories)) {
+            return redirect('panel/admin/sub-categories');
+        }
 
-	}//<--- End method
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-	public function payments(){
-		return view('admin.payments-settings');
-	}//<--- End Method
+        $rules = array(
+            'name' => 'required',
+            'slug' => 'required|ascii_only|unique:categories,slug,' . $request->id,
+            'thumbnail' => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
+        );
 
-	public function savePayments(Request $request) {
+        $this->validate($request, $rules);
 
-		$sql = AdminSettings::first();
+        if ($request->hasFile('thumbnail')) {
 
-		$rules = [
-						'currency_code' => 'required|alpha',
-						'currency_symbol' => 'required',
+            $extension = $request->file('thumbnail')->getClientOriginalExtension();
+            $type_mime_shot = $request->file('thumbnail')->getMimeType();
+            $sizeFile = $request->file('thumbnail')->getSize();
+            $thumbnail = $request->slug . '-' . str_random(32) . '.' . $extension;
+
+            if ($request->file('thumbnail')->move($temp, $thumbnail)) {
+
+                $image = Image::make($temp . $thumbnail);
+
+                if ($image->width() == 457 && $image->height() == 359) {
+
+                    \File::copy($temp . $thumbnail, $path . $thumbnail);
+                    \File::delete($temp . $thumbnail);
+
+                } else {
+                    $image->fit(457, 359)->save($temp . $thumbnail);
+
+                    \File::copy($temp . $thumbnail, $path . $thumbnail);
+                    \File::delete($temp . $thumbnail);
+                }
+
+                // Delete Old Image
+                \File::delete($path . $subCategories->thumbnail);
+
+            }// End File
+        } // HasFile
+        else {
+            $thumbnail = $subCategories->image;
+        }
+
+        // UPDATE CATEGORY
+        $subCategories->name = $request->name;
+        $subCategories->slug = strtolower($request->slug);
+        $subCategories->thumbnail = $thumbnail;
+        $subCategories->mode = $request->mode;
+        $subCategories->link_with = $request->link_with;
+        $subCategories->parent_id = $request->parent_cate;
+        $subCategories->save();
+
+        \Session::flash('success_message', trans('misc.success_update'));
+
+        return redirect('panel/admin/sub-categories');
+
+    }//<--- END METHOD
+
+    public function deleteSubCategories($id)
+    {
+
+        $subCategories = Categories::find($id);
+        $thumbnail = 'img-sub-category/' . $subCategories->thumbnail; // Path General
+
+        if (!isset($subCategories) || $subCategories->id == 1) {
+            return redirect('panel/admin/subCategories');
+        } else {
+
+            $images_sub_category = Images::where('categories_id', $id)->get();
+
+            // Delete Category
+            $subCategories->delete();
+
+            // Delete Thumbnail
+            if (\File::exists($thumbnail)) {
+                \File::delete($thumbnail);
+            }//<--- IF FILE EXISTS
+
+            //Update Categories Images
+            if (isset($images_sub_category)) {
+                foreach ($images_sub_category as $key) {
+                    $key->categories_id = 1;
+                    $key->save();
+                }
+            }
+
+            return redirect('panel/admin/sub-categories');
+        }
+    }//<--- END METHOD
+
+    public function settings()
+    {
+
+        return view('admin.settings');
+
+    }//<--- END METHOD
+
+    public function saveSettings(Request $request)
+    {
+
+        Validator::extend('sell_option_validate', function ($attribute, $value, $parameters) {
+            // Count images for sale
+            $imagesForSale = Images::where('item_for_sale', 'sale')->where('status', 'active')->count();
+
+            if ($value == 'off' && $imagesForSale > 0) {
+                return false;
+            }
+
+            return true;
+
+        });
+
+        $messages = [
+            'sell_option.sell_option_validate' => trans('misc.sell_option_validate')
         ];
 
-		$this->validate($request, $rules);
+        $rules = array(
+            'title' => 'required',
+            'welcome_text' => 'required',
+            'welcome_subtitle' => 'required',
+            'keywords' => 'required',
+            'description' => 'required',
+            'email_no_reply' => 'required',
+            'email_admin' => 'required',
+            'link_terms' => 'required|url',
+            'link_privacy' => 'required|url',
+            'link_license' => 'url',
+            'sell_option' => 'sell_option_validate'
+        );
 
-		$sql->currency_symbol  = $request->currency_symbol;
-		$sql->currency_code    = strtoupper($request->currency_code);
-		$sql->currency_position    = $request->currency_position;
-		$sql->min_sale_amount   = $request->min_sale_amount;
-		$sql->max_sale_amount   = $request->max_sale_amount;
-		$sql->min_deposits_amount   = $request->min_deposits_amount;
-		$sql->max_deposits_amount   = $request->max_deposits_amount;
-		$sql->fee_commission        = $request->fee_commission;
-		$sql->amount_min_withdrawal    = $request->amount_min_withdrawal;
-		$sql->decimal_format = $request->decimal_format;
+        $this->validate($request, $rules, $messages);
 
-		$sql->save();
 
-	    \Session::flash('success_message', trans('admin.success_update'));
+        $sql = AdminSettings::first();
+        $sql->title = $request->title;
+        $sql->welcome_text = $request->welcome_text;
+        $sql->welcome_subtitle = $request->welcome_subtitle;
+        $sql->keywords = $request->keywords;
+        $sql->description = $request->description;
+        $sql->email_no_reply = $request->email_no_reply;
+        $sql->email_admin = $request->email_admin;
+        $sql->link_terms = $request->link_terms;
+        $sql->link_privacy = $request->link_privacy;
+        $sql->link_license = $request->link_license;
+        $sql->captcha = $request->captcha;
+        $sql->registration_active = $request->registration_active;
+        $sql->email_verification = $request->email_verification;
+        $sql->facebook_login = $request->facebook_login;
+        $sql->twitter_login = $request->twitter_login;
+        $sql->google_ads_index = $request->google_ads_index;
+        $sql->sell_option = $request->sell_option;
+        $sql->show_images_index = $request->show_images_index;
+        $sql->show_watermark = $request->show_watermark;
+        $sql->save();
 
-	    return redirect('panel/admin/payments');
-	}//<--- End Method
+        \Session::flash('success_message', trans('admin.success_update'));
 
-	public function purchases(){
+        return redirect('panel/admin/settings');
 
-		$data = Purchases::orderBy('id', 'desc')->paginate(30);
+    }//<--- END METHOD
 
-		return view('admin.purchases')->withData($data);
-	}//<--- End Method
+    public function settingsLimits()
+    {
 
-	public function deposits(){
+        return view('admin.limits');
 
-		$data = Deposits::orderBy('id', 'desc')->paginate(30);
+    }//<--- END METHOD
 
-		return view('admin.deposits')->withData($data);
-	}//<--- End Method
+    public function saveSettingsLimits(Request $request)
+    {
 
-	public function withdrawals(){
 
-		$data = Withdrawals::orderBy('id','DESC')->paginate(50);
-		return view('admin.withdrawals', ['data' => $data, 'settings' => $this->settings]);
-	}//<--- End Method
+        $sql = AdminSettings::first();
+        $sql->result_request = $request->result_request;
+        $sql->limit_upload_user = $request->limit_upload_user;
+        $sql->message_length = $request->message_length;
+        $sql->comment_length = $request->comment_length;
+        $sql->file_size_allowed = $request->file_size_allowed;
+        $sql->auto_approve_images = $request->auto_approve_images;
+        $sql->downloads = $request->downloads;
+        $sql->tags_limit = $request->tags_limit;
+        $sql->description_length = $request->description_length;
+        $sql->min_width_height_image = $request->min_width_height_image;
+        $sql->file_size_allowed_vector = $request->file_size_allowed_vector;
 
-	public function withdrawalsView($id){
-		$data = Withdrawals::findOrFail($id);
-		return view('admin.withdrawal-view', ['data' => $data, 'settings' => $this->settings]);
-	}//<--- End Method
+        $sql->save();
 
-	public function withdrawalsPaid(Request $request)
-	{
+        \Session::flash('success_message', trans('admin.success_update'));
 
-		$data = Withdrawals::findOrFail($request->id);
+        return redirect('panel/admin/settings/limits');
 
-		// Set Withdrawal as Paid
-		$data->status    = 'paid';
-		$data->date_paid = \Carbon\Carbon::now();
-		$data->save();
+    }//<--- END METHOD
 
-		$user = $data->user();
+    public function members_reported()
+    {
 
-		// Set Balance a zero
-		$user->balance = 0;
-		$user->save();
+        $data = UsersReported::orderBy('id', 'DESC')->get();
 
-		//<------ Send Email to User ---------->>>
-		$amount       = Helper::amountFormatDecimal($data->amount).' '.$this->settings->currency_code;
-		$sender       = $this->settings->email_no_reply;
-	  $titleSite    = $this->settings->title;
-		$fullNameUser = $user->name ? $user->name : $user->username;
-		$_emailUser   = $user->email;
+        return view('admin.members_reported')->withData($data);
 
-		Mail::send('emails.withdrawal-processed', array(
-					'amount'     => $amount,
-					'fullname'   => $fullNameUser
-		),
-			function($message) use ( $sender, $fullNameUser, $titleSite, $_emailUser)
-				{
-				    $message->from($sender, $titleSite)
-									  ->to($_emailUser, $fullNameUser)
-										->subject( trans('misc.withdrawal_processed').' - '.$titleSite );
-				});
-			//<------ Send Email to User ---------->>>
+    }//<--- END METHOD
 
-		return redirect('panel/admin/withdrawals');
+    public function delete_members_reported(Request $request)
+    {
 
-	}//<--- End Method
+        $report = UsersReported::find($request->id);
 
-	public function paymentsGateways($id) {
+        if (isset($report)) {
+            $report->delete();
+        }
 
-		$data = PaymentGateways::findOrFail($id);
-		$name = ucfirst($data->name);
+        return redirect('panel/admin/members-reported');
 
-		return view('admin.'.str_slug($name).'-settings')->withData($data);
-	}//<--- End Method
+    }//<--- END METHOD
 
-	public function savePaymentsGateways($id, Request $request) {
+    public function images_reported()
+    {
 
-		$data = PaymentGateways::findOrFail($id);
+        $data = ImagesReported::orderBy('id', 'DESC')->get();
 
-		$input = $request->all();
+        //dd($data);
 
-		$this->validate($request, [
-            'email'    => 'email',
+        return view('admin.images_reported')->withData($data);
+
+    }//<--- END METHOD
+
+    public function delete_images_reported(Request $request)
+    {
+
+        $report = ImagesReported::find($request->id);
+
+        if (isset($report)) {
+            $report->delete();
+        }
+
+        return redirect('panel/admin/images-reported');
+
+    }//<--- END METHOD
+
+    public function videos()
+    {
+
+        $query = request()->get('q');
+        $sort = request()->get('sort');
+        $pagination = 15;
+
+        $data = Images::where('is_type', '=', 'video')->orderBy('id', 'desc')->paginate($pagination);
+
+        // Search
+        if (isset($query)) {
+            $data = Images::where('title', 'LIKE', '%' . $query . '%')
+                ->orWhere('tags', 'LIKE', '%' . $query . '%')
+                ->where('is_type', '=', 'video')
+                ->orderBy('id', 'desc')->paginate($pagination);
+        }
+
+        // Sort
+        if (isset($sort) && $sort == 'title') {
+            $data = Images::where('is_type', '=', 'video')->orderBy('title', 'asc')->paginate($pagination);
+        }
+
+        if (isset($sort) && $sort == 'pending') {
+            $data = Images::where('is_type', '=', 'video')->where('status', 'pending')->paginate($pagination);
+        }
+
+        if (isset($sort) && $sort == 'downloads') {
+            $data = Images::join('downloads', 'images.id', '=', 'downloads.images_id')
+                ->where('is_type', '=', 'video')
+                ->groupBy('downloads.images_id')
+                ->orderBy(\DB::raw('COUNT(downloads.images_id)'), 'desc')
+                ->select('images.*')
+                ->paginate($pagination);
+        }
+
+        if (isset($sort) && $sort == 'likes') {
+            $data = Images::join('likes', function ($join) {
+                $join->on('likes.images_id', '=', 'images.id')->where('likes.status', '=', '1');
+            })
+                ->where('is_type', '=', 'video')
+                ->groupBy('likes.images_id')
+                ->orderBy(\DB::raw('COUNT(likes.images_id)'), 'desc')
+                ->select('images.*')
+                ->paginate($pagination);
+        }
+
+        return view('admin.videos', ['data' => $data, 'query' => $query, 'sort' => $sort]);
+    }//<--- End Method
+
+    public function delete_video(Request $request)
+    {
+
+        //<<<<---------------------------------------------
+
+        $image = Images::find($request->id);
+
+        // Delete Notification
+        $notifications = Notifications::where('destination', $request->id)
+            ->where('type', '2')
+            ->orWhere('destination', $request->id)
+            ->where('type', '3')
+            ->orWhere('destination', $request->id)
+            ->where('type', '6')
+            ->get();
+
+        if (isset($notifications)) {
+            foreach ($notifications as $notification) {
+                $notification->delete();
+            }
+        }
+
+        // Collections Images
+        $collectionsImages = CollectionsImages::where('images_id', '=', $request->id)->get();
+        if (isset($collectionsImages)) {
+            foreach ($collectionsImages as $collectionsImage) {
+                $collectionsImage->delete();
+            }
+        }
+
+        // Images Reported
+        $imagesReporteds = ImagesReported::where('image_id', '=', $request->id)->get();
+        if (isset($imagesReporteds)) {
+            foreach ($imagesReporteds as $imagesReported) {
+                $imagesReported->delete();
+            }
+        }
+
+        //<---- ALL RESOLUTIONS IMAGES
+        $stocks = Stock::where('images_id', '=', $request->id)->get();
+
+        foreach ($stocks as $stock) {
+
+            $stock_path = 'uploads/' . $stock->type . '/' . $stock->name;
+            $stock_pathVector = 'uploads/files/' . $stock->name;
+
+            // Delete Stock
+            if (\File::exists($stock_path)) {
+                \File::delete($stock_path);
+            }//<--- IF FILE EXISTS
+
+            // Delete Stock Vector
+            if (\File::exists($stock_pathVector)) {
+                \File::delete($stock_pathVector);
+            }//<--- IF FILE EXISTS
+
+            $stock->delete();
+
+        }//<--- End foreach
+
+        $preview_image = 'uploads/preview/' . $image->preview;
+        $thumbnail = 'uploads/thumbnail/' . $image->thumbnail;
+
+        // Delete preview
+        if (\File::exists($preview_image)) {
+            \File::delete($preview_image);
+        }//<--- IF FILE EXISTS
+
+        // Delete thumbnail
+        if (\File::exists($thumbnail)) {
+            \File::delete($thumbnail);
+        }//<--- IF FILE EXISTS
+
+        $image->delete();
+
+        return redirect('panel/admin/videos');
+
+    }//<--- End Method
+
+    public function edit_video($id)
+    {
+
+        $data = Images::findOrFail($id);
+
+        return view('admin.edit-video', ['data' => $data]);
+
+    }//<--- End Method
+
+    public function update_video(Request $request)
+    {
+
+        $sql = Images::find($request->id);
+
+        $rules = array(
+            'title' => 'required|min:3|max:50',
+            'description' => 'min:2|max:' . $this->settings->description_length . '',
+            'tags' => 'required',
+
+        );
+
+        if ($request->featured == 'yes' && $sql->featured == 'no') {
+            $featuredDate = \Carbon\Carbon::now();
+        } elseif ($request->featured == 'yes' && $sql->featured == 'yes') {
+            $featuredDate = $sql->featured_date;
+        } else {
+            $featuredDate = '';
+        }
+
+        $this->validate($request, $rules);
+
+        $sql->title = $request->title;
+        $sql->description = $request->description;
+        $sql->tags = $request->tags;
+        $sql->categories_id = $request->categories_id;
+        $sql->status = $request->status;
+        $sql->featured = $request->featured;
+        $sql->featured_date = $featuredDate;
+
+
+        $sql->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return redirect('panel/admin/videos');
+    }//<--- End Method
+
+    public function images()
+    {
+
+        $query = request()->get('q');
+        $sort = request()->get('sort');
+        $pagination = 15;
+
+        $data = Images::orderBy('id', 'desc')->paginate($pagination);
+
+        // Search
+        if (isset($query)) {
+            $data = Images::where('title', 'LIKE', '%' . $query . '%')
+                ->orWhere('tags', 'LIKE', '%' . $query . '%')
+                ->orderBy('id', 'desc')->paginate($pagination);
+        }
+
+        // Sort
+        if (isset($sort) && $sort == 'title') {
+            $data = Images::orderBy('title', 'asc')->paginate($pagination);
+        }
+
+        if (isset($sort) && $sort == 'pending') {
+            $data = Images::where('status', 'pending')->paginate($pagination);
+        }
+
+        if (isset($sort) && $sort == 'downloads') {
+            $data = Images::join('downloads', 'images.id', '=', 'downloads.images_id')
+                ->groupBy('downloads.images_id')
+                ->orderBy(\DB::raw('COUNT(downloads.images_id)'), 'desc')
+                ->select('images.*')
+                ->paginate($pagination);
+        }
+
+        if (isset($sort) && $sort == 'likes') {
+            $data = Images::join('likes', function ($join) {
+                $join->on('likes.images_id', '=', 'images.id')->where('likes.status', '=', '1');
+            })
+                ->groupBy('likes.images_id')
+                ->orderBy(\DB::raw('COUNT(likes.images_id)'), 'desc')
+                ->select('images.*')
+                ->paginate($pagination);
+        }
+
+        return view('admin.images', ['data' => $data, 'query' => $query, 'sort' => $sort]);
+    }//<--- End Method
+
+    public function delete_image(Request $request)
+    {
+
+        //<<<<---------------------------------------------
+
+        $image = Images::find($request->id);
+
+        // Delete Notification
+        $notifications = Notifications::where('destination', $request->id)
+            ->where('type', '2')
+            ->orWhere('destination', $request->id)
+            ->where('type', '3')
+            ->orWhere('destination', $request->id)
+            ->where('type', '6')
+            ->get();
+
+        if (isset($notifications)) {
+            foreach ($notifications as $notification) {
+                $notification->delete();
+            }
+        }
+
+        // Collections Images
+        $collectionsImages = CollectionsImages::where('images_id', '=', $request->id)->get();
+        if (isset($collectionsImages)) {
+            foreach ($collectionsImages as $collectionsImage) {
+                $collectionsImage->delete();
+            }
+        }
+
+        // Images Reported
+        $imagesReporteds = ImagesReported::where('image_id', '=', $request->id)->get();
+        if (isset($imagesReporteds)) {
+            foreach ($imagesReporteds as $imagesReported) {
+                $imagesReported->delete();
+            }
+        }
+
+        //<---- ALL RESOLUTIONS IMAGES
+        $stocks = Stock::where('images_id', '=', $request->id)->get();
+
+        foreach ($stocks as $stock) {
+
+            $stock_path = 'uploads/' . $stock->type . '/' . $stock->name;
+            $stock_pathVector = 'uploads/files/' . $stock->name;
+
+            // Delete Stock
+            if (\File::exists($stock_path)) {
+                \File::delete($stock_path);
+            }//<--- IF FILE EXISTS
+
+            // Delete Stock Vector
+            if (\File::exists($stock_pathVector)) {
+                \File::delete($stock_pathVector);
+            }//<--- IF FILE EXISTS
+
+            $stock->delete();
+
+        }//<--- End foreach
+
+        $preview_image = 'uploads/preview/' . $image->preview;
+        $thumbnail = 'uploads/thumbnail/' . $image->thumbnail;
+
+        // Delete preview
+        if (\File::exists($preview_image)) {
+            \File::delete($preview_image);
+        }//<--- IF FILE EXISTS
+
+        // Delete thumbnail
+        if (\File::exists($thumbnail)) {
+            \File::delete($thumbnail);
+        }//<--- IF FILE EXISTS
+
+        $image->delete();
+
+        return redirect('panel/admin/images');
+
+    }//<--- End Method
+
+    public function edit_image($id)
+    {
+
+        $data = Images::findOrFail($id);
+
+        return view('admin.edit-image', ['data' => $data]);
+
+    }//<--- End Method
+
+    public function update_image(Request $request)
+    {
+
+        $sql = Images::find($request->id);
+
+        $rules = array(
+            'title' => 'required|min:3|max:50',
+            'description' => 'min:2|max:' . $this->settings->description_length . '',
+            'tags' => 'required',
+
+        );
+
+        if ($request->featured == 'yes' && $sql->featured == 'no') {
+            $featuredDate = \Carbon\Carbon::now();
+        } elseif ($request->featured == 'yes' && $sql->featured == 'yes') {
+            $featuredDate = $sql->featured_date;
+        } else {
+            $featuredDate = '';
+        }
+
+        $this->validate($request, $rules);
+
+        $sql->title = $request->title;
+        $sql->description = $request->description;
+        $sql->tags = $request->tags;
+        $sql->categories_id = $request->categories_id;
+        $sql->status = $request->status;
+        $sql->featured = $request->featured;
+        $sql->featured_date = $featuredDate;
+
+
+        $sql->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return redirect('panel/admin/images');
+    }//<--- End Method
+
+    public function profiles_social()
+    {
+        return view('admin.profiles-social');
+    }//<--- End Method
+
+    public function update_profiles_social(Request $request)
+    {
+
+        $sql = AdminSettings::find(1);
+
+        $rules = array(
+            'twitter' => 'url',
+            'facebook' => 'url',
+            'linkedin' => 'url',
+            'instagram' => 'url',
+            'pinterest' => 'url',
+            'youtube' => 'url',
+
+        );
+
+
+        $this->validate($request, $rules);
+
+        $sql->twitter = $request->twitter;
+        $sql->facebook = $request->facebook;
+        $sql->linkedin = $request->linkedin;
+        $sql->instagram = $request->instagram;
+        $sql->instagram = $request->instagram;
+        $sql->pinterest = $request->pinterest;
+        $sql->youtube = $request->youtube;
+
+        $sql->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return redirect('panel/admin/profiles-social');
+    }//<--- End Method
+
+    public function google()
+    {
+        return view('admin.google');
+    }//<--- END METHOD
+
+    public function update_google(Request $request)
+    {
+        $sql = AdminSettings::first();
+
+        $sql->google_adsense_index = $request->google_adsense_index;
+        $sql->google_adsense = $request->google_adsense;
+        $sql->google_analytics = $request->google_analytics;
+
+        $sql->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return redirect('panel/admin/google');
+    }//<--- End Method
+
+    //<-- Start Method Booking Calendar
+    public function bookingCalendar()
+    {
+        $calendarPageSettings = BookingCalendar::first();
+        return view('admin.booking_calendar', compact('calendarPageSettings'));
+    }//<-- End Method Booking Calendar
+
+    //<-- Start Method Booking Calendar Store
+    public function bookingCalendarStore(Request $request)
+    {
+
+        $query = BookingCalendar::first();
+        $query->calendar_question = $request->calendar_question;
+        $query->calendar_paragraph = $request->calendar_paragraph;
+        $query->calendar_important_note = $request->calendar_important_note;
+        $query->calendar_last_minute_header = $request->calendar_last_minute_header;
+        $query->calendar_last_minute_content = $request->calendar_last_minute_content;
+        $query->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return redirect('panel/admin/booking-calendar');
+
+    }//<--- End Method Booking Calendar Store
+
+    public function theme()
+    {
+        return view('admin.theme');
+
+    }//<--- End method
+
+    public function themeStore(Request $request)
+    {
+
+        $temp = 'temp/'; // Temp
+        $path = 'img/'; // Path
+
+        $rules = array(
+            'logo' => 'mimes:png,svg',
+            'favicon' => 'mimes:png',
+            'index_image_top' => 'mimes:jpg,jpeg',
+            'index_image_bottom' => 'mimes:jpg,jpeg',
+        );
+
+        $this->validate($request, $rules);
+
+        //======= LOGO
+        if ($request->hasFile('logo')) {
+
+            $extension = $request->file('logo')->getClientOriginalExtension();
+            $file = 'logo.' . $extension;
+
+            if ($request->file('logo')->move($temp, $file)) {
+                \File::copy($temp . $file, $path . $file);
+                \File::delete($temp . $file);
+            }// End File
+        } // HasFile
+
+        //======== FAVICON
+        if ($request->hasFile('favicon')) {
+
+            $extension = $request->file('favicon')->getClientOriginalExtension();
+            $file = 'favicon.' . $extension;
+
+            if ($request->file('favicon')->move($temp, $file)) {
+                \File::copy($temp . $file, $path . $file);
+                \File::delete($temp . $file);
+            }// End File
+        } // HasFile
+
+        //======= FOOTER LOGO
+        if ($request->hasFile('footer_logo')) {
+
+            $extension = $request->file('footer_logo')->getClientOriginalExtension();
+            $file = 'footer_logo.' . $extension;
+
+            if ($request->file('footer_logo')->move($temp, $file)) {
+                \File::copy($temp . $file, $path . $file);
+                \File::delete($temp . $file);
+            }// End File
+        } // HasFile
+
+        //======== index_image_top
+        // if($request->hasFile('index_image_top') )	{
+
+        // 	$extension  = $request->file('index_image_top')->getClientOriginalExtension();
+        // 	$file       = 'header_index.'.$extension;
+
+        // 	if( $request->file('index_image_top')->move($temp, $file) ) {
+        // 		\File::copy($temp.$file, $path.$file);
+        // 		\File::delete($temp.$file);
+        // 	}// End File
+        // } // HasFile
+
+        //======== index_image_bottom
+        // if($request->hasFile('index_image_bottom') )	{
+
+        // 	$extension  = $request->file('index_image_bottom')->getClientOriginalExtension();
+        // 	$file       = 'cover.'.$extension;
+
+        // 	if( $request->file('index_image_bottom')->move($temp, $file) ) {
+        // 		\File::copy($temp.$file, $path.$file);
+        // 		\File::delete($temp.$file);
+        // 	}// End File
+        // } // HasFile
+
+
+        \Artisan::call('cache:clear');
+
+        return redirect('panel/admin/theme')
+            ->with('success_message', trans('misc.success_update'));
+
+    }//<--- End method
+
+    public function payments()
+    {
+        return view('admin.payments-settings');
+    }//<--- End Method
+
+    public function savePayments(Request $request)
+    {
+
+        $sql = AdminSettings::first();
+
+        $rules = [
+            'currency_code' => 'required|alpha',
+            'currency_symbol' => 'required',
+        ];
+
+        $this->validate($request, $rules);
+
+        $sql->currency_symbol = $request->currency_symbol;
+        $sql->currency_code = strtoupper($request->currency_code);
+        $sql->currency_position = $request->currency_position;
+        $sql->min_sale_amount = $request->min_sale_amount;
+        $sql->max_sale_amount = $request->max_sale_amount;
+        $sql->min_deposits_amount = $request->min_deposits_amount;
+        $sql->max_deposits_amount = $request->max_deposits_amount;
+        $sql->fee_commission = $request->fee_commission;
+        $sql->amount_min_withdrawal = $request->amount_min_withdrawal;
+        $sql->decimal_format = $request->decimal_format;
+
+        $sql->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return redirect('panel/admin/payments');
+    }//<--- End Method
+
+    public function purchases()
+    {
+
+        $data = Purchases::has('user')->orderBy('id', 'desc')->paginate(30);
+
+        return view('admin.purchases')->withData($data);
+    }//<--- End Method
+
+    public function deposits()
+    {
+
+        $data = Deposits::orderBy('id', 'desc')->paginate(30);
+
+        return view('admin.deposits')->withData($data);
+    }//<--- End Method
+
+    public function withdrawals()
+    {
+
+        $data = Withdrawals::orderBy('id', 'DESC')->paginate(50);
+        return view('admin.withdrawals', ['data' => $data, 'settings' => $this->settings]);
+    }//<--- End Method
+
+    public function withdrawalsView($id)
+    {
+        $data = Withdrawals::findOrFail($id);
+        return view('admin.withdrawal-view', ['data' => $data, 'settings' => $this->settings]);
+    }//<--- End Method
+
+    public function withdrawalsPaid(Request $request)
+    {
+
+        $data = Withdrawals::findOrFail($request->id);
+
+        // Set Withdrawal as Paid
+        $data->status = 'paid';
+        $data->date_paid = \Carbon\Carbon::now();
+        $data->save();
+
+        $user = $data->user();
+
+        // Set Balance a zero
+        $user->balance = 0;
+        $user->save();
+
+        //<------ Send Email to User ---------->>>
+        $amount = Helper::amountFormatDecimal($data->amount) . ' ' . $this->settings->currency_code;
+        $sender = $this->settings->email_no_reply;
+        $titleSite = $this->settings->title;
+        $fullNameUser = $user->name ? $user->name : $user->username;
+        $_emailUser = $user->email;
+
+        Mail::send('emails.withdrawal-processed', array(
+            'amount' => $amount,
+            'fullname' => $fullNameUser
+        ),
+            function ($message) use ($sender, $fullNameUser, $titleSite, $_emailUser) {
+                $message->from($sender, $titleSite)
+                    ->to($_emailUser, $fullNameUser)
+                    ->subject(trans('misc.withdrawal_processed') . ' - ' . $titleSite);
+            });
+        //<------ Send Email to User ---------->>>
+
+        return redirect('panel/admin/withdrawals');
+
+    }//<--- End Method
+
+    public function paymentsGateways($id)
+    {
+
+        $data = PaymentGateways::findOrFail($id);
+        $name = ucfirst($data->name);
+
+        return view('admin.' . str_slug($name) . '-settings')->withData($data);
+    }//<--- End Method
+
+    public function savePaymentsGateways($id, Request $request)
+    {
+
+        $data = PaymentGateways::findOrFail($id);
+
+        $input = $request->all();
+
+        $this->validate($request, [
+            'email' => 'email',
         ]);
 
-		$data->fill($input)->save();
-
-		\Session::flash('success_message', trans('admin.success_update'));
-
-    return back();
-	}//<--- End Method
-
-	// Cms SITE CONTENT
-	public function homePageSettings() {
-
-		$homePageSettings = HomePageSettings::first();
-		// dd($homePageSettings);
-
-		return view('admin.home-page',compact('homePageSettings'));
-
-	}//<--- END METHOD
-
-	public function saveHomePageSettings(Request $request){
-		$postData = $request->all();
-		// dd($postData);
-
-		//Header
-		$headerHeading = $postData['header_heading'];
-		$headerDescription = $postData['header_description'];
-
-		//Section1
-		$section1Heading = $postData['section1_heading'];
-		$section1Description = $postData['section1_description'];
-		$section1ButtonText = $postData['section1_button_text'];
-		$section1ButtonLink = $postData['section1_button_link'];
-
-		//Section1
-		$section2Heading = $postData['section2_heading'];
-		$section2Description = $postData['section2_description'];
-		$section2ButtonText = $postData['section2_button_text'];
-		$section2ButtonLink = $postData['section2_button_link'];
-
-		//Section3
-		$section3Heading = $postData['section3_heading'];
-		$section3Description = $postData['section3_description'];
-		$section3ButtonText = $postData['section3_button_text'];
-		$section3ButtonLink = $postData['section3_button_link'];
-
-		//Section4
-		$section4Heading = $postData['section4_heading'];
-		$section4Description = $postData['section4_description'];
-		$section4ButtonText = $postData['section4_button_text'];
-		$section4ButtonLink = $postData['section4_button_link'];
-
-		// //Footer1
-		// $footer1Heading = $postData['footer1_heading'];
-		// $footer1Description = $postData['footer1_description'];
-		// $footer1ButtonText = $postData['footer1_button_text'];
-		// $footer1ButtonLink = $postData['footer1_button_link'];
-
-		// //Footer2
-		// $footer2Heading = $postData['footer2_heading'];
-		// $footer2Description = $postData['footer2_description'];
-		// $footer2ButtonText = $postData['footer2_button_text'];
-		// $footer2ButtonLink = $postData['footer2_button_link'];
-
-		$homePageSettings = HomePageSettings::first();
-
-		//Header Updating
-		$homePageSettings->header_heading   = $headerHeading;
-		$homePageSettings->header_description   = $headerDescription;
-
-		//Header Main Image
-		if($request->hasFile('header_main_image')){
-			$headerMainImage = $postData['header_main_image'];
-			$mainImageName = 'header_main_image_'.time().'.'.$headerMainImage->getClientOriginalExtension();
-
-			// $destinationPath = url('/').'/home_page/header_assets/';
-			$Path = 'home_page/header_assets/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$homePageSettings->header_main_image = $mainImageName;
-				}
-			}else{
-				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$homePageSettings->header_main_image = $mainImageName;
-				}
-			}
-		}
-
-		//Header Image
-		// if($request->hasFile('header_image')){
-		// 	$headerImage = $postData['header_image'];
-		// 	$imageName = 'header_image_'.time().'.'.$headerImage->getClientOriginalExtension();
-
-		// 	// $destinationPath = url('/').'/home_page/header_assets/';
-		// 	$Path = 'home_page/header_assets/';
-		// 	$destinationPath = public_path($Path);
-
-		// 	if (!file_exists($destinationPath)) {
-		// 		// path does not exist
-		// 		$saveFile = $headerImage->move($destinationPath, $imageName);
-		// 		if($saveFile){
-		// 			$homePageSettings->header_image = $imageName;
-		// 		}
-		// 	}else{
-		// 		$saveFile = $headerImage->move($destinationPath, $imageName);
-		// 		if($saveFile){
-		// 			$homePageSettings->header_image = $imageName;
-		// 		}
-		// 	}
-		// }
-
-		//Section1 Updating
-		$homePageSettings->section1_heading   = $section1Heading;
-		$homePageSettings->section1_description   = $section1Description;
-		$homePageSettings->section1_button_text   = $section1ButtonText;
-		$homePageSettings->section1_button_link   = $section1ButtonLink;
-
-		//Section1 Image
-		if($request->hasFile('section1_image')){
-			$section1Image = $postData['section1_image'];
-			$imageName = 'section1_image_'.time().'.'.$section1Image->getClientOriginalExtension();
-
-			// $destinationPath = url('/').'/home_page/header_assets/';
-			$Path = 'home_page/sections_assets/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $section1Image->move($destinationPath, $imageName);
-				if($saveFile){
-					$homePageSettings->section1_image = $imageName;
-				}
-			}else{
-				$saveFile = $section1Image->move($destinationPath, $imageName);
-				if($saveFile){
-					$homePageSettings->section1_image = $imageName;
-				}
-			}
-		}
-
-		//Section2 Updating
-		$homePageSettings->section2_heading   = $section2Heading;
-		$homePageSettings->section2_description   = $section2Description;
-		$homePageSettings->section2_button_text   = $section2ButtonText;
-		$homePageSettings->section2_button_link   = $section2ButtonLink;
-
-		//Section2 Image
-		if($request->hasFile('section2_image')){
-			$section2Image = $postData['section2_image'];
-			$imageName = 'section2_image_'.time().'.'.$section2Image->getClientOriginalExtension();
-
-			// $destinationPath = url('/').'/home_page/header_assets/';
-			$Path = 'home_page/sections_assets/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $section2Image->move($destinationPath, $imageName);
-				if($saveFile){
-					$homePageSettings->section2_image = $imageName;
-				}
-			}else{
-				$saveFile = $section2Image->move($destinationPath, $imageName);
-				if($saveFile){
-					$homePageSettings->section2_image = $imageName;
-				}
-			}
-		}
-
-		//Section3 Updating
-		$homePageSettings->section3_heading   = $section3Heading;
-		$homePageSettings->section3_description   = $section3Description;
-		$homePageSettings->section3_button_text   = $section3ButtonText;
-		$homePageSettings->section3_button_link   = $section3ButtonLink;
-
-		//Section3 Image
-		if($request->hasFile('section3_image')){
-			$section3Image = $postData['section3_image'];
-			$imageName = 'section3_image_'.time().'.'.$section3Image->getClientOriginalExtension();
-
-			// $destinationPath = url('/').'/home_page/header_assets/';
-			$Path = 'home_page/sections_assets/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $section3Image->move($destinationPath, $imageName);
-				if($saveFile){
-					$homePageSettings->section3_image = $imageName;
-				}
-			}else{
-				$saveFile = $section3Image->move($destinationPath, $imageName);
-				if($saveFile){
-					$homePageSettings->section3_image = $imageName;
-				}
-			}
-		}
-
-		//Section4 Updating
-		$homePageSettings->section4_heading   = $section4Heading;
-		$homePageSettings->section4_description   = $section4Description;
-		$homePageSettings->section4_button_text   = $section4ButtonText;
-		$homePageSettings->section4_button_link   = $section4ButtonLink;
-
-		//Section4 Image
-		if($request->hasFile('section4_image')){
-			$section4Image = $postData['section4_image'];
-			$imageName = 'section4_image_'.time().'.'.$section4Image->getClientOriginalExtension();
-
-			// $destinationPath = url('/').'/home_page/header_assets/';
-			$Path = 'home_page/sections_assets/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $section4Image->move($destinationPath, $imageName);
-				if($saveFile){
-					$homePageSettings->section4_image = $imageName;
-				}
-			}else{
-				$saveFile = $section4Image->move($destinationPath, $imageName);
-				if($saveFile){
-					$homePageSettings->section4_image = $imageName;
-				}
-			}
-		}
-
-
-		// //Footer1 Updating
-		// $homePageSettings->footer1_heading   = $footer1Heading;
-		// $homePageSettings->footer1_description   = $footer1Description;
-		// $homePageSettings->footer1_button_text   = $footer1ButtonText;
-		// $homePageSettings->footer1_button_link   = $footer1ButtonLink;
-
-		// //Footer1 Image
-		// if($request->hasFile('footer1_image')){
-		// 	$footer1Image = $postData['footer1_image'];
-		// 	$imageName = 'footer1_image_'.time().'.'.$footer1Image->getClientOriginalExtension();
-
-		// 	// $destinationPath = url('/').'/home_page/header_assets/';
-		// 	$Path = 'home_page/footer_assets/';
-		// 	$destinationPath = public_path($Path);
-
-		// 	if (!file_exists($destinationPath)) {
-		// 		// path does not exist
-		// 		$saveFile = $footer1Image->move($destinationPath, $imageName);
-		// 		if($saveFile){
-		// 			$homePageSettings->footer1_image = $imageName;
-		// 		}
-		// 	}else{
-		// 		$saveFile = $footer1Image->move($destinationPath, $imageName);
-		// 		if($saveFile){
-		// 			$homePageSettings->footer1_image = $imageName;
-		// 		}
-		// 	}
-		// }
-
-		// //Footer2 Updating
-		// $homePageSettings->footer2_heading   = $footer2Heading;
-		// $homePageSettings->footer2_description   = $footer2Description;
-		// $homePageSettings->footer2_button_text   = $footer2ButtonText;
-		// $homePageSettings->footer2_button_link   = $footer2ButtonLink;
-
-		// //Footer2 Image
-		// if($request->hasFile('footer2_image')){
-		// 	$footer2Image = $postData['footer2_image'];
-		// 	$imageName = 'footer2_image_'.time().'.'.$footer2Image->getClientOriginalExtension();
-
-		// 	// $destinationPath = url('/').'/home_page/header_assets/';
-		// 	$Path = 'home_page/footer_assets/';
-		// 	$destinationPath = public_path($Path);
-
-		// 	if (!file_exists($destinationPath)) {
-		// 		// path does not exist
-		// 		$saveFile = $footer2Image->move($destinationPath, $imageName);
-		// 		if($saveFile){
-		// 			$homePageSettings->footer2_image = $imageName;
-		// 		}
-		// 	}else{
-		// 		$saveFile = $footer2Image->move($destinationPath, $imageName);
-		// 		if($saveFile){
-		// 			$homePageSettings->footer2_image = $imageName;
-		// 		}
-		// 	}
-		// }
-
-
-
-
-
-		$homePageSettings->save();
-
-		\Session::flash('success_message', trans('admin.success_update'));
-
-		return redirect('panel/admin/home-page-settings');
-
-
-	}
-
-	public function aboutPageSettings() {
-
-		$aboutPageSettings = AboutPageSettings::first();
-		// dd($homePageSettings);
-
-		return view('admin.about-page',compact('aboutPageSettings'));
-
-	}//<--- END METHOD
-
-	public function saveAboutPageSettings(Request $request){
-		$postData = $request->all();
-		// dd($postData);
-
-		//Header
-		$headerHeading = $postData['header_heading'];
-		$headerDescription = $postData['header_description'];
-		$sectionHeader1 = $postData['section_header_1'];
-		$sectionDescription1 = $postData['section_description_1'];
-		$sectionHeader2 = $postData['section_header_2'];
-		$sectionDescription2 = $postData['section_description_2'];
-		$sectionHeader3 = $postData['section_header_3'];
-		$sectionDescription3 = $postData['section_description_3'];
-		$sectionHeader4 = $postData['section_header_4'];
-		$sectionDescription4 = $postData['section_description_4'];
-		$sectionHeader5 = $postData['section_header_5'];
-		$sectionDescription5 = $postData['section_description_5'];
-
-		// $aboutContent = $postData['content'];
-
-
-		$aboutPageSettings = AboutPageSettings::first();
-
-		//Header Updating
-		$aboutPageSettings->header_heading   = $headerHeading;
-		$aboutPageSettings->header_description   = $headerDescription;
-		$aboutPageSettings->section_header_1   = $sectionHeader1;
-		$aboutPageSettings->section_description_1   = $sectionDescription1;
-		$aboutPageSettings->section_header_2   = $sectionHeader2;
-		$aboutPageSettings->section_description_2   = $sectionDescription2;
-		$aboutPageSettings->section_header_3   = $sectionHeader3;
-		$aboutPageSettings->section_description_3   = $sectionDescription3;
-		$aboutPageSettings->section_header_4   = $sectionHeader4;
-		$aboutPageSettings->section_description_4   = $sectionDescription4;
-		$aboutPageSettings->section_header_5   = $sectionHeader5;
-		$aboutPageSettings->section_description_5   = $sectionDescription5;
-
-		// $aboutPageSettings->content   = $aboutContent;
-
-		//Header Main Image
-		if($request->hasFile('header_main_image')){
-			$headerMainImage = $postData['header_main_image'];
-			$mainImageName = 'header_main_image_'.time().'.'.$headerMainImage->getClientOriginalExtension();
-
-			// $destinationPath = url('/').'/home_page/header_assets/';
-			$Path = 'about_page/header_assets/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$aboutPageSettings->header_main_image = $mainImageName;
-				}
-			}else{
-				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$aboutPageSettings->header_main_image = $mainImageName;
-				}
-			}
-		}
-
-
-		$aboutPageSettings->save();
-
-		\Session::flash('success_message', trans('admin.success_update'));
-
-		return redirect('panel/admin/about-page-settings');
-
-
-	}
-
-	public function licensePageSettings() {
-
-		$licensePageSettings = LicensePageSettings::first();
-		// dd($licensePageSettings);
-
-		return view('admin.license-page',compact('licensePageSettings'));
-
-	}//<--- END METHOD
-
-	public function saveLicensePageSettings(Request $request)
-	{
-		$postData = $request->all();
-		//Header
-		$headerHeading = $postData['header_heading'];
-		$headerDescription = $postData['header_description'];
-		$sectionHeader1 = $postData['section_1_heading'];
-		$sectionDescription1 = $postData['section_1_description'];
-		$sectionContent1 = $postData['section_1_content'];
-		$sectionHeader2 = $postData['section_2_heading'];
-		$sectionDescription2 = $postData['section_2_description'];
-		$sectionContent2Header1 = $postData['section_2_content_1_header'];
-		$sectionContent2Header2 = $postData['section_2_content_2_header'];
-		$sectionContent2Header3 = $postData['section_2_content_3_header'];
-		$sectionContent2Header4 = $postData['section_2_content_4_header'];
-		$sectionContent2Description1 = $postData['section_2_content_1_description'];
-		$sectionContent2Description2 = $postData['section_2_content_2_description'];
-		$sectionContent2Description3 = $postData['section_2_content_3_description'];
-		$sectionContent2Description4 = $postData['section_2_content_4_description'];
-		$sectionHeader3 = $postData['section_3_heading'];
-		$sectionDescription3 = $postData['section_3_description'];
-		$sectionContent3 = $postData['section_3_content'];
-
-		// $aboutContent = $postData['content'];
-
-		// var_dump($sectionContent2Description1);
-		// die;
-		$licensePageSettings = LicensePageSettings::first();
-
-		//Header Updating
-		$licensePageSettings->header_heading   = $headerHeading;
-		$licensePageSettings->header_description   = $headerDescription;
-		$licensePageSettings->section_1_heading   = $sectionHeader1;
-		$licensePageSettings->section_1_description   = $sectionDescription1;
-		$licensePageSettings->section_1_content   = $sectionContent1;
-		$licensePageSettings->section_2_heading  = $sectionHeader2;
-		$licensePageSettings->section_2_description   = $sectionDescription2;
-		$licensePageSettings->section_2_content_1_header   = $sectionContent2Header1;
-		$licensePageSettings->section_2_content_2_header   = $sectionContent2Header2;
-		$licensePageSettings->section_2_content_3_header   = $sectionContent2Header3;
-		$licensePageSettings->section_2_content_4_header   = $sectionContent2Header4;
-		$licensePageSettings->section_2_content_1_description   = $sectionContent2Description1;
-		$licensePageSettings->section_2_content_2_description   = $sectionContent2Description2;
-		$licensePageSettings->section_2_content_3_description   = $sectionContent2Description3;
-		$licensePageSettings->section_2_content_4_description   = $sectionContent2Description4;
-		$licensePageSettings->section_3_heading   = $sectionHeader3;
-		$licensePageSettings->section_3_description   = $sectionDescription3;
-		$licensePageSettings->section_3_content   = $sectionContent3;
-
-		// $licensePageSettings->content   = $aboutContent;
-
-		//Header Main Image
-		if($request->hasFile('header_main_image')){
-			$headerMainImage = $postData['header_main_image'];
-			$mainImageName = 'header_main_image_'.time().'.'.$headerMainImage->getClientOriginalExtension();
-
-			// $destinationPath = url('/').'/home_page/header_assets/';
-			$Path = 'license_page/header_assets/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$licensePageSettings->header_main_image = $mainImageName;
-				}
-			}else{
-				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$licensePageSettings->header_main_image = $mainImageName;
-				}
-			}
-		}
-
-		//Section_2_content_1_image
-		if($request->hasFile('section_2_content_1_image')){
-			$Section2Content1Image = $postData['section_2_content_1_image'];
-			$Section2Content1ImageName = 'section_2_content_1_image_'.time().'.'.$Section2Content1Image->getClientOriginalExtension();
-
-			// $destinationPath = url('/').'/home_page/header_assets/';
-			$Path = 'license_page/section_2_content/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $Section2Content1Image->move($destinationPath, $Section2Content1ImageName);
-				if($saveFile){
-					$licensePageSettings->section_2_content_1_image = $Section2Content1ImageName;
-				}
-			}else{
-				$saveFile = $Section2Content1Image->move($destinationPath, $Section2Content1ImageName);
-				if($saveFile){
-					$licensePageSettings->section_2_content_1_image = $Section2Content1ImageName;
-				}
-			}
-		}
-
-		//Section_2_content_2_image
-		if($request->hasFile('section_2_content_2_image')){
-			$Section2Content2Image = $postData['section_2_content_2_image'];
-			$Section2Content2ImageName = 'section_2_content_2_image_'.time().'.'.$Section2Content2Image->getClientOriginalExtension();
-
-			// $destinationPath = url('/').'/home_page/header_assets/';
-			$Path = 'license_page/section_2_content/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $Section2Content2Image->move($destinationPath, $Section2Content2ImageName);
-				if($saveFile){
-					$licensePageSettings->section_2_content_2_image = $Section2Content2ImageName;
-				}
-			}else{
-				$saveFile = $Section2Content2Image->move($destinationPath, $Section2Content2ImageName);
-				if($saveFile){
-					$licensePageSettings->section_2_content_2_image = $Section2Content2ImageName;
-				}
-			}
-		}
-
-		//Section_2_content_3_image
-		if($request->hasFile('section_2_content_3_image')){
-			$Section2Content3Image = $postData['section_2_content_3_image'];
-			$Section2Content3ImageName = 'section_2_content_3_image_'.time().'.'.$Section2Content3Image->getClientOriginalExtension();
-
-			// $destinationPath = url('/').'/home_page/header_assets/';
-			$Path = 'license_page/section_2_content/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $Section2Content3Image->move($destinationPath, $Section2Content3ImageName);
-				if($saveFile){
-					$licensePageSettings->section_2_content_3_image = $Section2Content3ImageName;
-				}
-			}else{
-				$saveFile = $Section2Content3Image->move($destinationPath, $Section2Content3ImageName);
-				if($saveFile){
-					$licensePageSettings->section_2_content_3_image = $Section2Content3ImageName;
-				}
-			}
-		}
-
-		//Section_2_content_4_image
-		if($request->hasFile('section_2_content_4_image')){
-			$Section2Content4Image = $postData['section_2_content_4_image'];
-			$Section2Content4ImageName = 'section_2_content_4_image_'.time().'.'.$Section2Content4Image->getClientOriginalExtension();
-
-			// $destinationPath = url('/').'/home_page/header_assets/';
-			$Path = 'license_page/section_2_content/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $Section2Content4Image->move($destinationPath, $Section2Content4ImageName);
-				if($saveFile){
-					$licensePageSettings->section_2_content_4_image = $Section2Content4ImageName;
-				}
-			}else{
-				$saveFile = $Section2Content4Image->move($destinationPath, $Section2Content4ImageName);
-				if($saveFile){
-					$licensePageSettings->section_2_content_4_image = $Section2Content4ImageName;
-				}
-			}
-		}
-
-		$licensePageSettings->save();
-
-		\Session::flash('success_message', trans('admin.success_update'));
-
-		return redirect('panel/admin/license-page-settings');
-
-
-	}
-
-	//use guide page settings
-	public function useGuidePageSettings() {
-
-		$useGuidePageSettings = UseGuidePageSettings::first();
-		return view('admin.use-guide-page',compact('useGuidePageSettings'));
-
-	}
-
-	public function saveUseGuidePageSettings(Request $request){
-		$postData = $request->all();
-		// dd($postData);die;
-
-		//Header
-		$headerHeading = $postData['header_heading'];
-		$headerDescription = $postData['header_description'];
-		$sectionHeader = $postData['section_header'];
-		$sectionDescription = $postData['section_description'];
-		$linkYoutobeVideo = $postData['link_youtube_video'];
-
-		$useGuidePageSettings = UseGuidePageSettings::first();
-
-		//Header Updating
-		$useGuidePageSettings->header_heading   = $headerHeading;
-		$useGuidePageSettings->header_description   = $headerDescription;
-		$useGuidePageSettings->section_header   = $sectionHeader;
-		$useGuidePageSettings->section_description   = $sectionDescription;
-		$useGuidePageSettings->link_youtube_video   = $linkYoutobeVideo;
-
-		//Header Main Image
-		if($request->hasFile('header_main_image')){
-			$headerMainImage = $postData['header_main_image'];
-			$mainImageName = 'header_main_image_'.time().'.'.$headerMainImage->getClientOriginalExtension();
-			$Path = 'use_guide_page/header_assets/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$useGuidePageSettings->header_main_image = $mainImageName;
-				}
-			}else{
-				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$useGuidePageSettings->header_main_image = $mainImageName;
-				}
-			}
-		}
-
-		$useGuidePageSettings->save();
-
-		\Session::flash('success_message', trans('admin.success_update'));
-
-		return redirect('panel/admin/use-guide-page-settings');
-	}
-
-
-	public function imprintPageSettings() {
-
-		$imprintPageSettings = ImprintPageSettings::first();
-		// dd($imprintPageSettings);
-
-		return view('admin.imprint-page',compact('imprintPageSettings'));
-
-	}//<--- END METHOD
-
-	public function saveImprintPageSettings(Request $request)
-	{
-		$postData = $request->all();
-		//Content
-		$imprintContent = $postData['content'];
-
-		$imprintPageSettings = ImprintPageSettings::first();
-
-		//Content Updating
-		$imprintPageSettings->content   = $imprintContent;
-
-
-		$imprintPageSettings->save();
-
-		\Session::flash('success_message', trans('admin.success_update'));
-
-		return redirect('panel/admin/imprint-page-settings');
-
-
-	}
-
-	public function privacyPolicyPageSettings() {
-
-		$privacyPolicyPageSettings = PrivacyPolicyPageSettings::first();
-		// dd($imprintPageSettings);
-
-		return view('admin.privacy-policy-page',compact('privacyPolicyPageSettings'));
-
-	}//<--- END METHOD
-
-	public function savePrivacyPolicyPageSettings(Request $request)
-	{
-		$postData = $request->all();
-		//Content
-		$privacyPolicyContent = $postData['content'];
-
-		$privacyPolicyPageSettings = PrivacyPolicyPageSettings::first();
-
-		//Content Updating
-		$privacyPolicyPageSettings->content   = $privacyPolicyContent;
-
-
-		$privacyPolicyPageSettings->save();
-
-		\Session::flash('success_message', trans('admin.success_update'));
-
-		return redirect('panel/admin/privacy-policy-page-settings');
-
-
-	}
-
-	public function termsPageSettings() {
-
-		$termsPageSettings = TermsPageSettings::first();
-		// dd($imprintPageSettings);
-
-		return view('admin.terms-page',compact('termsPageSettings'));
-
-	}//<--- END METHOD
-
-	public function saveTermsPageSettings(Request $request)
-	{
-		$postData = $request->all();
-		//Content
-		$termsContent = $postData['content'];
-
-		$termsPageSettings = TermsPageSettings::first();
-
-		//Content Updating
-		$termsPageSettings->content   = $termsContent;
-
-
-		$termsPageSettings->save();
-
-		\Session::flash('success_message', trans('admin.success_update'));
-
-		return redirect('panel/admin/terms-page-settings');
-
-
-	}
-
-	public function destinationPageSettings() {
-
-		$destinationPageSettings = DestinationPageSettings::first();
-		// dd($destinationPageSettings);
-
-		return view('admin.destination-page',compact('destinationPageSettings'));
-
-	}//<--- END METHOD
-
-	public function saveDestinationPageSettings(Request $request){
-		$postData = $request->all();
-		// dd($postData);
-
-		//Header
-		$title = $postData['title'];
-		$headerHeading = $postData['header_heading'];
-		$headerDescription = $postData['header_description'];
-		$firstSectionHeading = $postData['first_section_heading'];
-		$secondSectionHeading = $postData['second_section_heading'];
-		$secondSectionContent = $postData['second_section_content'];
-		$thirdSectionContent = $postData['third_section_content'];
-		$thirdSectionButtonText = $postData['third_section_button_text'];
-
-
-		// $aboutContent = $postData['content'];
-
-
-		$destinationPageSettings = DestinationPageSettings::first();
-
-		//Header Updating
-		$destinationPageSettings->title  = $title;
-		$destinationPageSettings->header_heading   = $headerHeading;
-		$destinationPageSettings->header_description   = $headerDescription;
-		$destinationPageSettings->first_section_header   = $firstSectionHeading;
-		$destinationPageSettings->second_section_header   = $secondSectionHeading;
-		$destinationPageSettings->second_section_content   = $secondSectionContent;
-		$destinationPageSettings->third_section_content   = $thirdSectionContent;
-		$destinationPageSettings->third_section_button_text   = $thirdSectionButtonText;
-
-		// $aboutPageSettings->content   = $aboutContent;
-
-		//Header Main Image
-		if($request->hasFile('header_main_image')){
-			$headerMainImage = $postData['header_main_image'];
-			$mainImageName = 'header_main_image_'.time().'.'.$headerMainImage->getClientOriginalExtension();
-
-			// $destinationPath = url('/').'/home_page/header_assets/';
-			$Path = 'destination_page/assets/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$destinationPageSettings->header_main_image = $mainImageName;
-				}
-			}else{
-				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$destinationPageSettings->header_main_image = $mainImageName;
-				}
-			}
-		}
-
-		//Third Section Main Image
-		if($request->hasFile('third_section_main_image')){
-			$thirdSectionMainImage = $postData['third_section_main_image'];
-			$mainImageName = 'third_section_main_image_'.time().'.'.$thirdSectionMainImage->getClientOriginalExtension();
-
-			// $destinationPath = url('/').'/home_page/header_assets/';
-			$Path = 'destination_page/assets/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $thirdSectionMainImage->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$destinationPageSettings->third_section_main_image = $mainImageName;
-				}
-			}else{
-				$saveFile = $thirdSectionMainImage->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$destinationPageSettings->third_section_main_image = $mainImageName;
-				}
-			}
-		}
-
-
-		$destinationPageSettings->save();
-
-		\Session::flash('success_message', trans('admin.success_update'));
-
-		return redirect('panel/admin/destination-page-settings');
-
-
-	}
-
-	public function suggestCityPageSettings() {
-
-		$suggestCityPageSettings = SuggestCityPageSettings::first();
-		// dd($destinationPageSettings);
-
-		return view('admin.suggest-city-page',compact('suggestCityPageSettings'));
-
-	}//<--- END METHOD
-
-	public function saveSuggestCityPageSettings(Request $request){
-		$postData = $request->all();
-		// dd($postData);
-
-		//Header
-		$requestHeading	= $postData['request_heading'];
-		$requestMessage = $postData['request_message'];
-
-
-		// $aboutContent = $postData['content'];
-
-
-		$suggestCityPageSettings = SuggestCityPageSettings::first();
-
-		//Header Updating
-		$suggestCityPageSettings->request_heading	=	$requestHeading;
-		$suggestCityPageSettings->request_message   = 	$requestMessage;
-
-		//Header Main Image
-		if($request->hasFile('request_background_img')){
-			$headerMainImage = $postData['request_background_img'];
-			$mainImageName = 'request_background_img'.time().'.'.$headerMainImage->getClientOriginalExtension();
-
-			// $destinationPath = url('/').'/home_page/header_assets/';
-			$Path = 'suggest_a_city/assets/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$suggestCityPageSettings->request_background_img = $mainImageName;
-				}
-			}else{
-				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$suggestCityPageSettings->request_background_img = $mainImageName;
-				}
-			}
-		}
-
-		//request_thankyou_background_img
-		if($request->hasFile('request_thankyou_background_img')){
-			$thankyouBackgroundImg = $postData['request_thankyou_background_img'];
-			$mainImageName = 'request_thankyou_background_img'.time().'.'.$thankyouBackgroundImg->getClientOriginalExtension();
-
-			// $destinationPath = url('/').'/home_page/header_assets/';
-			$Path = 'suggest_a_city/assets/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $thankyouBackgroundImg->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$suggestCityPageSettings->request_thankyou_background_img = $mainImageName;
-				}
-			}else{
-				$saveFile = $thankyouBackgroundImg->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$suggestCityPageSettings->request_thankyou_background_img = $mainImageName;
-				}
-			}
-		}
-
-
-
-
-		$suggestCityPageSettings->save();
-
-		\Session::flash('success_message', trans('admin.success_update'));
-
-		return redirect('panel/admin/suggest-city-page-settings');
-
-
-	}
-
-	public function faqPageSettings() {
-
-		$faqPageSettings = FaqPageSettings::first();
-		// dd($faqPageSettings);
-
-		return view('admin.faq-page',compact('faqPageSettings'));
-
-	}//<--- END METHOD
-
-	public function saveFaqPageSettings(Request $request)
-	{
-		$postData = $request->all();
-		//Header
-		$headerHeading = $postData['header_heading'];
-		$headerDescription = $postData['header_description'];
-
-
-		// $aboutContent = $postData['content'];
-
-		// var_dump($sectionContent2Description1);
-		// die;
-		$faqPageSettings = FaqPageSettings::first();
-
-		//Header Updating
-		$faqPageSettings->header_heading   = $headerHeading;
-		$faqPageSettings->header_description   = $headerDescription;
-
-
-		// $faqPageSettings->content   = $aboutContent;
-
-		//Header Main Image
-		if($request->hasFile('header_main_image')){
-			$headerMainImage = $postData['header_main_image'];
-			$mainImageName = 'header_main_image_'.time().'.'.$headerMainImage->getClientOriginalExtension();
-
-			// $destinationPath = url('/').'/home_page/header_assets/';
-			$Path = 'faq_page/header_assets/';
-			$destinationPath = public_path($Path);
-
-			if (!file_exists($destinationPath)) {
-				// path does not exist
-				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$faqPageSettings->header_main_image = $mainImageName;
-				}
-			}else{
-				$saveFile = $headerMainImage->move($destinationPath, $mainImageName);
-				if($saveFile){
-					$faqPageSettings->header_main_image = $mainImageName;
-				}
-			}
-		}
-
-
-
-		$faqPageSettings->save();
-
-		\Session::flash('success_message', trans('admin.success_update'));
-
-		return redirect('panel/admin/faq-page-settings');
-
-
-	}
-
-	public function requestSuggestCountryCity()
-	{
-		$getRequestsSuggestCountryCity = RequestSuggestCountryCity::get();
-		// dd($getRequestsSuggestCountryCity);
-
-		// return redirect('admin.request-suggest-country-city-list', compact('getRequestsSuggestCountryCity'));
-		return view('admin.request-suggest-country-city-list', compact('getRequestsSuggestCountryCity'));
-	}
-
-	// START
-	public function photoshootType() {
-
-		// $data      = Cities::select('cities.*','country.country_name','state.state_name')->join('country','country.id','=','cities.country_id')->join('state', 'state.id','=', 'cities.state_id')->get();
-		$data      = PhotoshootType::get();
-
-
-		return view('admin.photoshoot-type')->withData($data);
-
-	}//<--- END METHOD
-
-	public function addPhotoshootType() {
-
-		$getUserTypes = Types::orderBy('type_name')->get();
-
-		return view('admin.add-photoshoot-type', compact('getUserTypes'));
-
-	}//<--- END METHOD
-
-	public function storePhotoshootType(Request $request) {
-
-	  $temp            = 'temp/'; // Temp
-	  $path            = 'img-photoshoot_type/'; // Path General
-
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
-
-		$rules = array(
-            'photoshoot_name'        => 'required'
+        $data->fill($input)->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return back();
+    }//<--- End Method
+
+    // Cms SITE CONTENT
+    public function homePageSettings()
+    {
+
+        $homePageSettings = HomePageSettings::first();
+        // dd($homePageSettings);
+
+        return view('admin.home-page', compact('homePageSettings'));
+
+    }//<--- END METHOD
+
+    public function saveHomePageSettings(Request $request)
+    {
+        $postData = $request->all();
+        // dd($postData);
+
+        //Header
+        $headerHeading = $postData['header_heading'];
+        $headerDescription = $postData['header_description'];
+
+        //Section1
+        $section1Heading = $postData['section1_heading'];
+        $section1Description = $postData['section1_description'];
+        $section1ButtonText = $postData['section1_button_text'];
+        $section1ButtonLink = $postData['section1_button_link'];
+
+        //Section1
+        $section2Heading = $postData['section2_heading'];
+        $section2Description = $postData['section2_description'];
+        $section2ButtonText = $postData['section2_button_text'];
+        $section2ButtonLink = $postData['section2_button_link'];
+
+        //Section3
+        $section3Heading = $postData['section3_heading'];
+        $section3Description = $postData['section3_description'];
+        $section3ButtonText = $postData['section3_button_text'];
+        $section3ButtonLink = $postData['section3_button_link'];
+
+        //Section4
+        $section4Heading = $postData['section4_heading'];
+        $section4Description = $postData['section4_description'];
+        $section4ButtonText = $postData['section4_button_text'];
+        $section4ButtonLink = $postData['section4_button_link'];
+
+        // //Footer1
+        // $footer1Heading = $postData['footer1_heading'];
+        // $footer1Description = $postData['footer1_description'];
+        // $footer1ButtonText = $postData['footer1_button_text'];
+        // $footer1ButtonLink = $postData['footer1_button_link'];
+
+        // //Footer2
+        // $footer2Heading = $postData['footer2_heading'];
+        // $footer2Description = $postData['footer2_description'];
+        // $footer2ButtonText = $postData['footer2_button_text'];
+        // $footer2ButtonLink = $postData['footer2_button_link'];
+
+        $homePageSettings = HomePageSettings::first();
+
+        //Header Updating
+        $homePageSettings->header_heading = $headerHeading;
+        $homePageSettings->header_description = $headerDescription;
+
+        //Header Main Image
+        if ($request->hasFile('header_main_image')) {
+            $headerMainImage = $postData['header_main_image'];
+            $mainImageName = 'header_main_image_' . time() . '.' . $headerMainImage->getClientOriginalExtension();
+
+            // $destinationPath = url('/').'/home_page/header_assets/';
+            $Path = 'home_page/header_assets/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $headerMainImage->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $homePageSettings->header_main_image = $mainImageName;
+                }
+            } else {
+                $saveFile = $headerMainImage->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $homePageSettings->header_main_image = $mainImageName;
+                }
+            }
+        }
+
+        //Header Image
+        // if($request->hasFile('header_image')){
+        // 	$headerImage = $postData['header_image'];
+        // 	$imageName = 'header_image_'.time().'.'.$headerImage->getClientOriginalExtension();
+
+        // 	// $destinationPath = url('/').'/home_page/header_assets/';
+        // 	$Path = 'home_page/header_assets/';
+        // 	$destinationPath = public_path($Path);
+
+        // 	if (!file_exists($destinationPath)) {
+        // 		// path does not exist
+        // 		$saveFile = $headerImage->move($destinationPath, $imageName);
+        // 		if($saveFile){
+        // 			$homePageSettings->header_image = $imageName;
+        // 		}
+        // 	}else{
+        // 		$saveFile = $headerImage->move($destinationPath, $imageName);
+        // 		if($saveFile){
+        // 			$homePageSettings->header_image = $imageName;
+        // 		}
+        // 	}
+        // }
+
+        //Section1 Updating
+        $homePageSettings->section1_heading = $section1Heading;
+        $homePageSettings->section1_description = $section1Description;
+        $homePageSettings->section1_button_text = $section1ButtonText;
+        $homePageSettings->section1_button_link = $section1ButtonLink;
+
+        //Section1 Image
+        if ($request->hasFile('section1_image')) {
+            $section1Image = $postData['section1_image'];
+            $imageName = 'section1_image_' . time() . '.' . $section1Image->getClientOriginalExtension();
+
+            // $destinationPath = url('/').'/home_page/header_assets/';
+            $Path = 'home_page/sections_assets/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $section1Image->move($destinationPath, $imageName);
+                if ($saveFile) {
+                    $homePageSettings->section1_image = $imageName;
+                }
+            } else {
+                $saveFile = $section1Image->move($destinationPath, $imageName);
+                if ($saveFile) {
+                    $homePageSettings->section1_image = $imageName;
+                }
+            }
+        }
+
+        //Section2 Updating
+        $homePageSettings->section2_heading = $section2Heading;
+        $homePageSettings->section2_description = $section2Description;
+        $homePageSettings->section2_button_text = $section2ButtonText;
+        $homePageSettings->section2_button_link = $section2ButtonLink;
+
+        //Section2 Image
+        if ($request->hasFile('section2_image')) {
+            $section2Image = $postData['section2_image'];
+            $imageName = 'section2_image_' . time() . '.' . $section2Image->getClientOriginalExtension();
+
+            // $destinationPath = url('/').'/home_page/header_assets/';
+            $Path = 'home_page/sections_assets/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $section2Image->move($destinationPath, $imageName);
+                if ($saveFile) {
+                    $homePageSettings->section2_image = $imageName;
+                }
+            } else {
+                $saveFile = $section2Image->move($destinationPath, $imageName);
+                if ($saveFile) {
+                    $homePageSettings->section2_image = $imageName;
+                }
+            }
+        }
+
+        //Section3 Updating
+        $homePageSettings->section3_heading = $section3Heading;
+        $homePageSettings->section3_description = $section3Description;
+        $homePageSettings->section3_button_text = $section3ButtonText;
+        $homePageSettings->section3_button_link = $section3ButtonLink;
+
+        //Section3 Image
+        if ($request->hasFile('section3_image')) {
+            $section3Image = $postData['section3_image'];
+            $imageName = 'section3_image_' . time() . '.' . $section3Image->getClientOriginalExtension();
+
+            // $destinationPath = url('/').'/home_page/header_assets/';
+            $Path = 'home_page/sections_assets/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $section3Image->move($destinationPath, $imageName);
+                if ($saveFile) {
+                    $homePageSettings->section3_image = $imageName;
+                }
+            } else {
+                $saveFile = $section3Image->move($destinationPath, $imageName);
+                if ($saveFile) {
+                    $homePageSettings->section3_image = $imageName;
+                }
+            }
+        }
+
+        //Section4 Updating
+        $homePageSettings->section4_heading = $section4Heading;
+        $homePageSettings->section4_description = $section4Description;
+        $homePageSettings->section4_button_text = $section4ButtonText;
+        $homePageSettings->section4_button_link = $section4ButtonLink;
+
+        //Section4 Image
+        if ($request->hasFile('section4_image')) {
+            $section4Image = $postData['section4_image'];
+            $imageName = 'section4_image_' . time() . '.' . $section4Image->getClientOriginalExtension();
+
+            // $destinationPath = url('/').'/home_page/header_assets/';
+            $Path = 'home_page/sections_assets/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $section4Image->move($destinationPath, $imageName);
+                if ($saveFile) {
+                    $homePageSettings->section4_image = $imageName;
+                }
+            } else {
+                $saveFile = $section4Image->move($destinationPath, $imageName);
+                if ($saveFile) {
+                    $homePageSettings->section4_image = $imageName;
+                }
+            }
+        }
+
+
+        // //Footer1 Updating
+        // $homePageSettings->footer1_heading   = $footer1Heading;
+        // $homePageSettings->footer1_description   = $footer1Description;
+        // $homePageSettings->footer1_button_text   = $footer1ButtonText;
+        // $homePageSettings->footer1_button_link   = $footer1ButtonLink;
+
+        // //Footer1 Image
+        // if($request->hasFile('footer1_image')){
+        // 	$footer1Image = $postData['footer1_image'];
+        // 	$imageName = 'footer1_image_'.time().'.'.$footer1Image->getClientOriginalExtension();
+
+        // 	// $destinationPath = url('/').'/home_page/header_assets/';
+        // 	$Path = 'home_page/footer_assets/';
+        // 	$destinationPath = public_path($Path);
+
+        // 	if (!file_exists($destinationPath)) {
+        // 		// path does not exist
+        // 		$saveFile = $footer1Image->move($destinationPath, $imageName);
+        // 		if($saveFile){
+        // 			$homePageSettings->footer1_image = $imageName;
+        // 		}
+        // 	}else{
+        // 		$saveFile = $footer1Image->move($destinationPath, $imageName);
+        // 		if($saveFile){
+        // 			$homePageSettings->footer1_image = $imageName;
+        // 		}
+        // 	}
+        // }
+
+        // //Footer2 Updating
+        // $homePageSettings->footer2_heading   = $footer2Heading;
+        // $homePageSettings->footer2_description   = $footer2Description;
+        // $homePageSettings->footer2_button_text   = $footer2ButtonText;
+        // $homePageSettings->footer2_button_link   = $footer2ButtonLink;
+
+        // //Footer2 Image
+        // if($request->hasFile('footer2_image')){
+        // 	$footer2Image = $postData['footer2_image'];
+        // 	$imageName = 'footer2_image_'.time().'.'.$footer2Image->getClientOriginalExtension();
+
+        // 	// $destinationPath = url('/').'/home_page/header_assets/';
+        // 	$Path = 'home_page/footer_assets/';
+        // 	$destinationPath = public_path($Path);
+
+        // 	if (!file_exists($destinationPath)) {
+        // 		// path does not exist
+        // 		$saveFile = $footer2Image->move($destinationPath, $imageName);
+        // 		if($saveFile){
+        // 			$homePageSettings->footer2_image = $imageName;
+        // 		}
+        // 	}else{
+        // 		$saveFile = $footer2Image->move($destinationPath, $imageName);
+        // 		if($saveFile){
+        // 			$homePageSettings->footer2_image = $imageName;
+        // 		}
+        // 	}
+        // }
+
+
+        $homePageSettings->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return redirect('panel/admin/home-page-settings');
+
+
+    }
+
+    public function aboutPageSettings()
+    {
+
+        $aboutPageSettings = AboutPageSettings::first();
+        // dd($homePageSettings);
+
+        return view('admin.about-page', compact('aboutPageSettings'));
+
+    }//<--- END METHOD
+
+    public function saveAboutPageSettings(Request $request)
+    {
+        $postData = $request->all();
+        // dd($postData);
+
+        //Header
+        $headerHeading = $postData['header_heading'];
+        $headerDescription = $postData['header_description'];
+        $sectionHeader1 = $postData['section_header_1'];
+        $sectionDescription1 = $postData['section_description_1'];
+        $sectionHeader2 = $postData['section_header_2'];
+        $sectionDescription2 = $postData['section_description_2'];
+        $sectionHeader3 = $postData['section_header_3'];
+        $sectionDescription3 = $postData['section_description_3'];
+        $sectionHeader4 = $postData['section_header_4'];
+        $sectionDescription4 = $postData['section_description_4'];
+        $sectionHeader5 = $postData['section_header_5'];
+        $sectionDescription5 = $postData['section_description_5'];
+
+        // $aboutContent = $postData['content'];
+
+
+        $aboutPageSettings = AboutPageSettings::first();
+
+        //Header Updating
+        $aboutPageSettings->header_heading = $headerHeading;
+        $aboutPageSettings->header_description = $headerDescription;
+        $aboutPageSettings->section_header_1 = $sectionHeader1;
+        $aboutPageSettings->section_description_1 = $sectionDescription1;
+        $aboutPageSettings->section_header_2 = $sectionHeader2;
+        $aboutPageSettings->section_description_2 = $sectionDescription2;
+        $aboutPageSettings->section_header_3 = $sectionHeader3;
+        $aboutPageSettings->section_description_3 = $sectionDescription3;
+        $aboutPageSettings->section_header_4 = $sectionHeader4;
+        $aboutPageSettings->section_description_4 = $sectionDescription4;
+        $aboutPageSettings->section_header_5 = $sectionHeader5;
+        $aboutPageSettings->section_description_5 = $sectionDescription5;
+
+        // $aboutPageSettings->content   = $aboutContent;
+
+        //Header Main Image
+        if ($request->hasFile('header_main_image')) {
+            $headerMainImage = $postData['header_main_image'];
+            $mainImageName = 'header_main_image_' . time() . '.' . $headerMainImage->getClientOriginalExtension();
+
+            // $destinationPath = url('/').'/home_page/header_assets/';
+            $Path = 'about_page/header_assets/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $headerMainImage->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $aboutPageSettings->header_main_image = $mainImageName;
+                }
+            } else {
+                $saveFile = $headerMainImage->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $aboutPageSettings->header_main_image = $mainImageName;
+                }
+            }
+        }
+
+
+        $aboutPageSettings->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return redirect('panel/admin/about-page-settings');
+
+
+    }
+
+    public function licensePageSettings()
+    {
+
+        $licensePageSettings = LicensePageSettings::first();
+        // dd($licensePageSettings);
+
+        return view('admin.license-page', compact('licensePageSettings'));
+
+    }//<--- END METHOD
+
+    public function saveLicensePageSettings(Request $request)
+    {
+        $postData = $request->all();
+        //Header
+        $headerHeading = $postData['header_heading'];
+        $headerDescription = $postData['header_description'];
+        $sectionHeader1 = $postData['section_1_heading'];
+        $sectionDescription1 = $postData['section_1_description'];
+        $sectionContent1 = $postData['section_1_content'];
+        $sectionHeader2 = $postData['section_2_heading'];
+        $sectionDescription2 = $postData['section_2_description'];
+        $sectionContent2Header1 = $postData['section_2_content_1_header'];
+        $sectionContent2Header2 = $postData['section_2_content_2_header'];
+        $sectionContent2Header3 = $postData['section_2_content_3_header'];
+        $sectionContent2Header4 = $postData['section_2_content_4_header'];
+        $sectionContent2Description1 = $postData['section_2_content_1_description'];
+        $sectionContent2Description2 = $postData['section_2_content_2_description'];
+        $sectionContent2Description3 = $postData['section_2_content_3_description'];
+        $sectionContent2Description4 = $postData['section_2_content_4_description'];
+        $sectionHeader3 = $postData['section_3_heading'];
+        $sectionDescription3 = $postData['section_3_description'];
+        $sectionContent3 = $postData['section_3_content'];
+
+        // $aboutContent = $postData['content'];
+
+        // var_dump($sectionContent2Description1);
+        // die;
+        $licensePageSettings = LicensePageSettings::first();
+
+        //Header Updating
+        $licensePageSettings->header_heading = $headerHeading;
+        $licensePageSettings->header_description = $headerDescription;
+        $licensePageSettings->section_1_heading = $sectionHeader1;
+        $licensePageSettings->section_1_description = $sectionDescription1;
+        $licensePageSettings->section_1_content = $sectionContent1;
+        $licensePageSettings->section_2_heading = $sectionHeader2;
+        $licensePageSettings->section_2_description = $sectionDescription2;
+        $licensePageSettings->section_2_content_1_header = $sectionContent2Header1;
+        $licensePageSettings->section_2_content_2_header = $sectionContent2Header2;
+        $licensePageSettings->section_2_content_3_header = $sectionContent2Header3;
+        $licensePageSettings->section_2_content_4_header = $sectionContent2Header4;
+        $licensePageSettings->section_2_content_1_description = $sectionContent2Description1;
+        $licensePageSettings->section_2_content_2_description = $sectionContent2Description2;
+        $licensePageSettings->section_2_content_3_description = $sectionContent2Description3;
+        $licensePageSettings->section_2_content_4_description = $sectionContent2Description4;
+        $licensePageSettings->section_3_heading = $sectionHeader3;
+        $licensePageSettings->section_3_description = $sectionDescription3;
+        $licensePageSettings->section_3_content = $sectionContent3;
+
+        // $licensePageSettings->content   = $aboutContent;
+
+        //Header Main Image
+        if ($request->hasFile('header_main_image')) {
+            $headerMainImage = $postData['header_main_image'];
+            $mainImageName = 'header_main_image_' . time() . '.' . $headerMainImage->getClientOriginalExtension();
+
+            // $destinationPath = url('/').'/home_page/header_assets/';
+            $Path = 'license_page/header_assets/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $headerMainImage->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $licensePageSettings->header_main_image = $mainImageName;
+                }
+            } else {
+                $saveFile = $headerMainImage->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $licensePageSettings->header_main_image = $mainImageName;
+                }
+            }
+        }
+
+        //Section_2_content_1_image
+        if ($request->hasFile('section_2_content_1_image')) {
+            $Section2Content1Image = $postData['section_2_content_1_image'];
+            $Section2Content1ImageName = 'section_2_content_1_image_' . time() . '.' . $Section2Content1Image->getClientOriginalExtension();
+
+            // $destinationPath = url('/').'/home_page/header_assets/';
+            $Path = 'license_page/section_2_content/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $Section2Content1Image->move($destinationPath, $Section2Content1ImageName);
+                if ($saveFile) {
+                    $licensePageSettings->section_2_content_1_image = $Section2Content1ImageName;
+                }
+            } else {
+                $saveFile = $Section2Content1Image->move($destinationPath, $Section2Content1ImageName);
+                if ($saveFile) {
+                    $licensePageSettings->section_2_content_1_image = $Section2Content1ImageName;
+                }
+            }
+        }
+
+        //Section_2_content_2_image
+        if ($request->hasFile('section_2_content_2_image')) {
+            $Section2Content2Image = $postData['section_2_content_2_image'];
+            $Section2Content2ImageName = 'section_2_content_2_image_' . time() . '.' . $Section2Content2Image->getClientOriginalExtension();
+
+            // $destinationPath = url('/').'/home_page/header_assets/';
+            $Path = 'license_page/section_2_content/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $Section2Content2Image->move($destinationPath, $Section2Content2ImageName);
+                if ($saveFile) {
+                    $licensePageSettings->section_2_content_2_image = $Section2Content2ImageName;
+                }
+            } else {
+                $saveFile = $Section2Content2Image->move($destinationPath, $Section2Content2ImageName);
+                if ($saveFile) {
+                    $licensePageSettings->section_2_content_2_image = $Section2Content2ImageName;
+                }
+            }
+        }
+
+        //Section_2_content_3_image
+        if ($request->hasFile('section_2_content_3_image')) {
+            $Section2Content3Image = $postData['section_2_content_3_image'];
+            $Section2Content3ImageName = 'section_2_content_3_image_' . time() . '.' . $Section2Content3Image->getClientOriginalExtension();
+
+            // $destinationPath = url('/').'/home_page/header_assets/';
+            $Path = 'license_page/section_2_content/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $Section2Content3Image->move($destinationPath, $Section2Content3ImageName);
+                if ($saveFile) {
+                    $licensePageSettings->section_2_content_3_image = $Section2Content3ImageName;
+                }
+            } else {
+                $saveFile = $Section2Content3Image->move($destinationPath, $Section2Content3ImageName);
+                if ($saveFile) {
+                    $licensePageSettings->section_2_content_3_image = $Section2Content3ImageName;
+                }
+            }
+        }
+
+        //Section_2_content_4_image
+        if ($request->hasFile('section_2_content_4_image')) {
+            $Section2Content4Image = $postData['section_2_content_4_image'];
+            $Section2Content4ImageName = 'section_2_content_4_image_' . time() . '.' . $Section2Content4Image->getClientOriginalExtension();
+
+            // $destinationPath = url('/').'/home_page/header_assets/';
+            $Path = 'license_page/section_2_content/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $Section2Content4Image->move($destinationPath, $Section2Content4ImageName);
+                if ($saveFile) {
+                    $licensePageSettings->section_2_content_4_image = $Section2Content4ImageName;
+                }
+            } else {
+                $saveFile = $Section2Content4Image->move($destinationPath, $Section2Content4ImageName);
+                if ($saveFile) {
+                    $licensePageSettings->section_2_content_4_image = $Section2Content4ImageName;
+                }
+            }
+        }
+
+        $licensePageSettings->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return redirect('panel/admin/license-page-settings');
+
+
+    }
+
+    //use guide page settings
+    public function useGuidePageSettings()
+    {
+
+        $useGuidePageSettings = UseGuidePageSettings::first();
+        return view('admin.use-guide-page', compact('useGuidePageSettings'));
+
+    }
+
+    public function saveUseGuidePageSettings(Request $request)
+    {
+        $postData = $request->all();
+        // dd($postData);die;
+
+        //Header
+        $headerHeading = $postData['header_heading'];
+        $headerDescription = $postData['header_description'];
+        $sectionHeader = $postData['section_header'];
+        $sectionDescription = $postData['section_description'];
+        $linkYoutobeVideo = $postData['link_youtube_video'];
+
+        $useGuidePageSettings = UseGuidePageSettings::first();
+
+        //Header Updating
+        $useGuidePageSettings->header_heading = $headerHeading;
+        $useGuidePageSettings->header_description = $headerDescription;
+        $useGuidePageSettings->section_header = $sectionHeader;
+        $useGuidePageSettings->section_description = $sectionDescription;
+        $useGuidePageSettings->link_youtube_video = $linkYoutobeVideo;
+
+        //Header Main Image
+        if ($request->hasFile('header_main_image')) {
+            $headerMainImage = $postData['header_main_image'];
+            $mainImageName = 'header_main_image_' . time() . '.' . $headerMainImage->getClientOriginalExtension();
+            $Path = 'use_guide_page/header_assets/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $headerMainImage->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $useGuidePageSettings->header_main_image = $mainImageName;
+                }
+            } else {
+                $saveFile = $headerMainImage->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $useGuidePageSettings->header_main_image = $mainImageName;
+                }
+            }
+        }
+
+        $useGuidePageSettings->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return redirect('panel/admin/use-guide-page-settings');
+    }
+
+
+    public function imprintPageSettings()
+    {
+
+        $imprintPageSettings = ImprintPageSettings::first();
+        // dd($imprintPageSettings);
+
+        return view('admin.imprint-page', compact('imprintPageSettings'));
+
+    }//<--- END METHOD
+
+    public function saveImprintPageSettings(Request $request)
+    {
+        $postData = $request->all();
+        //Content
+        $imprintContent = $postData['content'];
+
+        $imprintPageSettings = ImprintPageSettings::first();
+
+        //Content Updating
+        $imprintPageSettings->content = $imprintContent;
+
+
+        $imprintPageSettings->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return redirect('panel/admin/imprint-page-settings');
+
+
+    }
+
+    public function privacyPolicyPageSettings()
+    {
+
+        $privacyPolicyPageSettings = PrivacyPolicyPageSettings::first();
+        // dd($imprintPageSettings);
+
+        return view('admin.privacy-policy-page', compact('privacyPolicyPageSettings'));
+
+    }//<--- END METHOD
+
+    public function savePrivacyPolicyPageSettings(Request $request)
+    {
+        $postData = $request->all();
+        //Content
+        $privacyPolicyContent = $postData['content'];
+
+        $privacyPolicyPageSettings = PrivacyPolicyPageSettings::first();
+
+        //Content Updating
+        $privacyPolicyPageSettings->content = $privacyPolicyContent;
+
+
+        $privacyPolicyPageSettings->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return redirect('panel/admin/privacy-policy-page-settings');
+
+
+    }
+
+    public function termsPageSettings()
+    {
+
+        $termsPageSettings = TermsPageSettings::first();
+        // dd($imprintPageSettings);
+
+        return view('admin.terms-page', compact('termsPageSettings'));
+
+    }//<--- END METHOD
+
+    public function saveTermsPageSettings(Request $request)
+    {
+        $postData = $request->all();
+        //Content
+        $termsContent = $postData['content'];
+
+        $termsPageSettings = TermsPageSettings::first();
+
+        //Content Updating
+        $termsPageSettings->content = $termsContent;
+
+
+        $termsPageSettings->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return redirect('panel/admin/terms-page-settings');
+
+
+    }
+
+    public function destinationPageSettings()
+    {
+
+        $destinationPageSettings = DestinationPageSettings::first();
+        // dd($destinationPageSettings);
+
+        return view('admin.destination-page', compact('destinationPageSettings'));
+
+    }//<--- END METHOD
+
+    public function saveDestinationPageSettings(Request $request)
+    {
+        $postData = $request->all();
+        // dd($postData);
+
+        //Header
+        $title = $postData['title'];
+        $headerHeading = $postData['header_heading'];
+        $headerDescription = $postData['header_description'];
+        $firstSectionHeading = $postData['first_section_heading'];
+        $secondSectionHeading = $postData['second_section_heading'];
+        $secondSectionContent = $postData['second_section_content'];
+        $thirdSectionContent = $postData['third_section_content'];
+        $thirdSectionButtonText = $postData['third_section_button_text'];
+
+
+        // $aboutContent = $postData['content'];
+
+
+        $destinationPageSettings = DestinationPageSettings::first();
+
+        //Header Updating
+        $destinationPageSettings->title = $title;
+        $destinationPageSettings->header_heading = $headerHeading;
+        $destinationPageSettings->header_description = $headerDescription;
+        $destinationPageSettings->first_section_header = $firstSectionHeading;
+        $destinationPageSettings->second_section_header = $secondSectionHeading;
+        $destinationPageSettings->second_section_content = $secondSectionContent;
+        $destinationPageSettings->third_section_content = $thirdSectionContent;
+        $destinationPageSettings->third_section_button_text = $thirdSectionButtonText;
+
+        // $aboutPageSettings->content   = $aboutContent;
+
+        //Header Main Image
+        if ($request->hasFile('header_main_image')) {
+            $headerMainImage = $postData['header_main_image'];
+            $mainImageName = 'header_main_image_' . time() . '.' . $headerMainImage->getClientOriginalExtension();
+
+            // $destinationPath = url('/').'/home_page/header_assets/';
+            $Path = 'destination_page/assets/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $headerMainImage->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $destinationPageSettings->header_main_image = $mainImageName;
+                }
+            } else {
+                $saveFile = $headerMainImage->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $destinationPageSettings->header_main_image = $mainImageName;
+                }
+            }
+        }
+
+        //Third Section Main Image
+        if ($request->hasFile('third_section_main_image')) {
+            $thirdSectionMainImage = $postData['third_section_main_image'];
+            $mainImageName = 'third_section_main_image_' . time() . '.' . $thirdSectionMainImage->getClientOriginalExtension();
+
+            // $destinationPath = url('/').'/home_page/header_assets/';
+            $Path = 'destination_page/assets/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $thirdSectionMainImage->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $destinationPageSettings->third_section_main_image = $mainImageName;
+                }
+            } else {
+                $saveFile = $thirdSectionMainImage->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $destinationPageSettings->third_section_main_image = $mainImageName;
+                }
+            }
+        }
+
+
+        $destinationPageSettings->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return redirect('panel/admin/destination-page-settings');
+
+
+    }
+
+    public function suggestCityPageSettings()
+    {
+
+        $suggestCityPageSettings = SuggestCityPageSettings::first();
+        // dd($destinationPageSettings);
+
+        return view('admin.suggest-city-page', compact('suggestCityPageSettings'));
+
+    }//<--- END METHOD
+
+    public function saveSuggestCityPageSettings(Request $request)
+    {
+        $postData = $request->all();
+        // dd($postData);
+
+        //Header
+        $requestHeading = $postData['request_heading'];
+        $requestMessage = $postData['request_message'];
+
+
+        // $aboutContent = $postData['content'];
+
+
+        $suggestCityPageSettings = SuggestCityPageSettings::first();
+
+        //Header Updating
+        $suggestCityPageSettings->request_heading = $requestHeading;
+        $suggestCityPageSettings->request_message = $requestMessage;
+
+        //Header Main Image
+        if ($request->hasFile('request_background_img')) {
+            $headerMainImage = $postData['request_background_img'];
+            $mainImageName = 'request_background_img' . time() . '.' . $headerMainImage->getClientOriginalExtension();
+
+            // $destinationPath = url('/').'/home_page/header_assets/';
+            $Path = 'suggest_a_city/assets/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $headerMainImage->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $suggestCityPageSettings->request_background_img = $mainImageName;
+                }
+            } else {
+                $saveFile = $headerMainImage->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $suggestCityPageSettings->request_background_img = $mainImageName;
+                }
+            }
+        }
+
+        //request_thankyou_background_img
+        if ($request->hasFile('request_thankyou_background_img')) {
+            $thankyouBackgroundImg = $postData['request_thankyou_background_img'];
+            $mainImageName = 'request_thankyou_background_img' . time() . '.' . $thankyouBackgroundImg->getClientOriginalExtension();
+
+            // $destinationPath = url('/').'/home_page/header_assets/';
+            $Path = 'suggest_a_city/assets/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $thankyouBackgroundImg->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $suggestCityPageSettings->request_thankyou_background_img = $mainImageName;
+                }
+            } else {
+                $saveFile = $thankyouBackgroundImg->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $suggestCityPageSettings->request_thankyou_background_img = $mainImageName;
+                }
+            }
+        }
+
+
+        $suggestCityPageSettings->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return redirect('panel/admin/suggest-city-page-settings');
+
+
+    }
+
+    public function faqPageSettings()
+    {
+
+        $faqPageSettings = FaqPageSettings::first();
+        // dd($faqPageSettings);
+
+        return view('admin.faq-page', compact('faqPageSettings'));
+
+    }//<--- END METHOD
+
+    public function saveFaqPageSettings(Request $request)
+    {
+        $postData = $request->all();
+        //Header
+        $headerHeading = $postData['header_heading'];
+        $headerDescription = $postData['header_description'];
+
+
+        // $aboutContent = $postData['content'];
+
+        // var_dump($sectionContent2Description1);
+        // die;
+        $faqPageSettings = FaqPageSettings::first();
+
+        //Header Updating
+        $faqPageSettings->header_heading = $headerHeading;
+        $faqPageSettings->header_description = $headerDescription;
+
+
+        // $faqPageSettings->content   = $aboutContent;
+
+        //Header Main Image
+        if ($request->hasFile('header_main_image')) {
+            $headerMainImage = $postData['header_main_image'];
+            $mainImageName = 'header_main_image_' . time() . '.' . $headerMainImage->getClientOriginalExtension();
+
+            // $destinationPath = url('/').'/home_page/header_assets/';
+            $Path = 'faq_page/header_assets/';
+            $destinationPath = public_path($Path);
+
+            if (!file_exists($destinationPath)) {
+                // path does not exist
+                $saveFile = $headerMainImage->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $faqPageSettings->header_main_image = $mainImageName;
+                }
+            } else {
+                $saveFile = $headerMainImage->move($destinationPath, $mainImageName);
+                if ($saveFile) {
+                    $faqPageSettings->header_main_image = $mainImageName;
+                }
+            }
+        }
+
+
+        $faqPageSettings->save();
+
+        \Session::flash('success_message', trans('admin.success_update'));
+
+        return redirect('panel/admin/faq-page-settings');
+
+
+    }
+
+    public function requestSuggestCountryCity()
+    {
+        $getRequestsSuggestCountryCity = RequestSuggestCountryCity::get();
+        // dd($getRequestsSuggestCountryCity);
+
+        // return redirect('admin.request-suggest-country-city-list', compact('getRequestsSuggestCountryCity'));
+        return view('admin.request-suggest-country-city-list', compact('getRequestsSuggestCountryCity'));
+    }
+
+    // START
+    public function photoshootType()
+    {
+
+        // $data      = Cities::select('cities.*','country.country_name','state.state_name')->join('country','country.id','=','cities.country_id')->join('state', 'state.id','=', 'cities.state_id')->get();
+        $data = PhotoshootType::get();
+
+
+        return view('admin.photoshoot-type')->withData($data);
+
+    }//<--- END METHOD
+
+    public function addPhotoshootType()
+    {
+
+        $getUserTypes = Types::orderBy('type_name')->get();
+
+        return view('admin.add-photoshoot-type', compact('getUserTypes'));
+
+    }//<--- END METHOD
+
+    public function storePhotoshootType(Request $request)
+    {
+
+        $temp = 'temp/'; // Temp
+        $path = 'img-photoshoot_type/'; // Path General
+
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
+
+        $rules = array(
+            'photoshoot_name' => 'required'
         );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-		//======= City Image
-		if( $request->hasFile('photoshoot_icon_img') )	{
-			$photoshoot_name 		= $request->photoshoot_name;
-			$photoshootImageName 	= str_replace(' ', '', $photoshoot_name);
-			$extension 				= $request->file('photoshoot_icon_img')->getClientOriginalExtension();
-			$file      				= $photoshootImageName.'.'.$extension;
+        //======= City Image
+        if ($request->hasFile('photoshoot_icon_img')) {
+            $photoshoot_name = $request->photoshoot_name;
+            $photoshootImageName = str_replace(' ', '', $photoshoot_name);
+            $extension = $request->file('photoshoot_icon_img')->getClientOriginalExtension();
+            $file = $photoshootImageName . '.' . $extension;
 
-			if($request->file('photoshoot_icon_img')->move($temp, $file) ) {
-				\File::copy($temp.$file, $path.$file);
-				\File::delete($temp.$file);
-			}// End File
-		} // HasFile
+            if ($request->file('photoshoot_icon_img')->move($temp, $file)) {
+                \File::copy($temp . $file, $path . $file);
+                \File::delete($temp . $file);
+            }// End File
+        } // HasFile
 
-		$sql              		 			= New PhotoshootType();
-		$sql->photoshoot_name    			= trim($request->photoshoot_name);
-		$sql->types_id						= $request->userType;
-		$sql->mode       		 			= $request->mode;
-		if($request->hasFile('photoshoot_icon_img')){
-			$sql->photoshoot_icon_img    	= $file;
-		}
-		$sql->save();
+        $sql = new PhotoshootType();
+        $sql->photoshoot_name = trim($request->photoshoot_name);
+        $sql->types_id = $request->userType;
+        $sql->mode = $request->mode;
+        if ($request->hasFile('photoshoot_icon_img')) {
+            $sql->photoshoot_icon_img = $file;
+        }
+        $sql->save();
 
-		\Session::flash('success_message', trans('admin.success_add_photoshoot'));
+        \Session::flash('success_message', trans('admin.success_add_photoshoot'));
 
-    	return redirect('panel/admin/photoshoot-type');
+        return redirect('panel/admin/photoshoot-type');
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function editPhotoshootType($id) {
+    public function editPhotoshootType($id)
+    {
 
-		$photoshootType        = PhotoshootType::find( $id );
+        $photoshootType = PhotoshootType::find($id);
 
-		$getUserTypes = Types::orderBy('type_name')->get();
+        $getUserTypes = Types::orderBy('type_name')->get();
 
-		return view('admin.edit-photoshoot-type',compact('photoshootType', 'getUserTypes'));
+        return view('admin.edit-photoshoot-type', compact('photoshootType', 'getUserTypes'));
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function updatePhotoshootType( Request $request ) {
+    public function updatePhotoshootType(Request $request)
+    {
 
 
-		$photoshootType  = PhotoshootType::find( $request->id );
+        $photoshootType = PhotoshootType::find($request->id);
 
-		$temp            = 'temp/'; // Temp
-	    $path            = 'img-photoshoot_type/'; // Path General
+        $temp = 'temp/'; // Temp
+        $path = 'img-photoshoot_type/'; // Path General
 
-	    if( !isset($photoshootType) ) {
-			return redirect('panel/admin/photoshoot-type');
-		}
+        if (!isset($photoshootType)) {
+            return redirect('panel/admin/photoshoot-type');
+        }
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-		$rules = array(
-            'photoshoot_name'        => 'required'
-	     );
-
-		$this->validate($request, $rules);
-
-		//======= City Image
-		if( $request->hasFile('photoshoot_icon_img') )	{
-			$photoshoot_name 		= $request->photoshoot_name;
-			$photoshootImageName 	= str_replace(' ', '', $photoshoot_name);
-			$extension 				= $request->file('photoshoot_icon_img')->getClientOriginalExtension();
-			$file      				= $photoshootImageName.'.'.$extension;
-			// print_r($file);
-			// print_r($request->hasFile('photoshoot_icon_img'));
-			// die;
-			if($request->file('photoshoot_icon_img')->move($temp, $file) ) {
-				\File::copy($temp.$file, $path.$file);
-				\File::delete($temp.$file);
-			}// End File
-		} // HasFile
-
-		// UPDATE CATEGORY
-		$photoshootType->photoshoot_name   			= $request->photoshoot_name;
-		$photoshootType->types_id					= $request->userType;
-		if($request->hasFile('photoshoot_icon_img')){
-
-			$photoshootType->photoshoot_icon_img    = $file;
-		}
-		$photoshootType->mode        				= $request->mode;
-		$photoshootType->save();
-
-		\Session::flash('success_message', trans('misc.success_update'));
-
-    	return redirect('panel/admin/photoshoot-type');
-
-	}//<--- END METHOD
-
-	public function deletePhotoshootType($id){
-
-		$photoshootType        = PhotoshootType::find( $id );
-		$thumbnail          = 'img-photoshoot_type/'.$photoshootType->photoshoot_icon_img; // Path General
-
-		if(!isset($photoshootType)) {
-			return redirect('panel/admin/photoshoot-type');
-		} else {
-
-			// Delete Category
-			$photoshootType->delete();
-
-			// Delete City Image
-			if ( \File::exists($thumbnail) ) {
-				\File::delete($thumbnail);
-			}
-
-			return redirect('panel/admin/photoshoot-type');
-		}
-	}//<--- END METHOD
-
-	// START
-	public function timeDay() {
-
-		$data      = TimeDay::get();
-		return view('admin.time-day')->withData($data);
-
-	}//<--- END METHOD
-
-	public function addTimeDay() {
-
-		return view('admin.add-time-day');
-
-	}//<--- END METHOD
-
-	public function storeTimeDay(Request $request) {
-
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
-
-		$rules = array(
-            'time_of_day'        => 'required'
+        $rules = array(
+            'photoshoot_name' => 'required'
         );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-		$sql              		 			= New TimeDay();
-		$sql->time_of_day    			= trim($request->time_of_day);
-		$sql->short_description    			= $request->short_description;
-		$sql->mode       		 			= $request->mode;
-		$sql->save();
+        //======= City Image
+        if ($request->hasFile('photoshoot_icon_img')) {
+            $photoshoot_name = $request->photoshoot_name;
+            $photoshootImageName = str_replace(' ', '', $photoshoot_name);
+            $extension = $request->file('photoshoot_icon_img')->getClientOriginalExtension();
+            $file = $photoshootImageName . '.' . $extension;
+            // print_r($file);
+            // print_r($request->hasFile('photoshoot_icon_img'));
+            // die;
+            if ($request->file('photoshoot_icon_img')->move($temp, $file)) {
+                \File::copy($temp . $file, $path . $file);
+                \File::delete($temp . $file);
+            }// End File
+        } // HasFile
 
-		\Session::flash('success_message', trans('admin.success_add_timeday'));
+        // UPDATE CATEGORY
+        $photoshootType->photoshoot_name = $request->photoshoot_name;
+        $photoshootType->types_id = $request->userType;
+        if ($request->hasFile('photoshoot_icon_img')) {
 
-    	return redirect('panel/admin/time-day');
+            $photoshootType->photoshoot_icon_img = $file;
+        }
+        $photoshootType->mode = $request->mode;
+        $photoshootType->save();
 
-	}//<--- END METHOD
+        \Session::flash('success_message', trans('misc.success_update'));
 
-	public function editTimeDay($id) {
+        return redirect('panel/admin/photoshoot-type');
 
-		$timeDay        = TimeDay::find( $id );
+    }//<--- END METHOD
 
-		return view('admin.edit-time-day',compact('timeDay'));
+    public function deletePhotoshootType($id)
+    {
 
-	}//<--- END METHOD
+        $photoshootType = PhotoshootType::find($id);
+        $thumbnail = 'img-photoshoot_type/' . $photoshootType->photoshoot_icon_img; // Path General
 
-	public function updateTimeDay( Request $request ) {
+        if (!isset($photoshootType)) {
+            return redirect('panel/admin/photoshoot-type');
+        } else {
 
+            // Delete Category
+            $photoshootType->delete();
 
-		$timeDay  = TimeDay::find( $request->id );
+            // Delete City Image
+            if (\File::exists($thumbnail)) {
+                \File::delete($thumbnail);
+            }
 
-	    if( !isset($timeDay) ) {
-			return redirect('panel/admin/time-day');
-		}
+            return redirect('panel/admin/photoshoot-type');
+        }
+    }//<--- END METHOD
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+    // START
+    public function timeDay()
+    {
 
-		$rules = array(
-            'time_of_day'        => 'required'
-	     );
+        $data = TimeDay::get();
+        return view('admin.time-day')->withData($data);
 
-		$this->validate($request, $rules);
+    }//<--- END METHOD
 
-		// UPDATE CATEGORY
-		$timeDay->time_of_day   			= $request->time_of_day;
-		$timeDay->short_description   		= $request->short_description;
-		$timeDay->mode        				= $request->mode;
-		$timeDay->save();
+    public function addTimeDay()
+    {
 
-		\Session::flash('success_message', trans('misc.success_update'));
+        return view('admin.add-time-day');
 
-    	return redirect('panel/admin/time-day');
+    }//<--- END METHOD
 
-	}//<--- END METHOD
+    public function storeTimeDay(Request $request)
+    {
 
-	public function deleteTimeDay($id){
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-		$timeDay        = TimeDay::find( $id );
-
-		if(!isset($timeDay)) {
-			return redirect('panel/admin/time-day');
-		} else {
-
-			// Delete Category
-			$timeDay->delete();
-
-			return redirect('panel/admin/time-day');
-		}
-	}//<--- END METHOD
-
-	// START
-	public function tripReason() {
-
-		$data      = TripReason::get();
-		return view('admin.trip-reason')->withData($data);
-
-	}//<--- END METHOD
-
-	public function addTripReason() {
-
-		return view('admin.add-trip-reason');
-
-	}//<--- END METHOD
-
-	public function storeTripReason(Request $request) {
-
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
-
-		$rules = array(
-            'trip_reason_name'        => 'required'
+        $rules = array(
+            'time_of_day' => 'required'
         );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-		$sql              		 			= New TripReason();
-		$sql->trip_reason_name    			= trim($request->trip_reason_name);
-		$sql->mode       		 			= $request->mode;
-		$sql->save();
+        $sql = new TimeDay();
+        $sql->time_of_day = trim($request->time_of_day);
+        $sql->short_description = $request->short_description;
+        $sql->mode = $request->mode;
+        $sql->save();
 
-		\Session::flash('success_message', trans('admin.success_add_tripreason'));
+        \Session::flash('success_message', trans('admin.success_add_timeday'));
 
-    	return redirect('panel/admin/trip-reason');
+        return redirect('panel/admin/time-day');
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function editTripReason($id) {
+    public function editTimeDay($id)
+    {
 
-		$tripReason        = TripReason::find( $id );
+        $timeDay = TimeDay::find($id);
 
-		return view('admin.edit-trip-reason',compact('tripReason'));
+        return view('admin.edit-time-day', compact('timeDay'));
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function updateTripReason( Request $request ) {
+    public function updateTimeDay(Request $request)
+    {
 
 
-		$tripReason  = TripReason::find( $request->id );
+        $timeDay = TimeDay::find($request->id);
 
-	    if( !isset($tripReason) ) {
-			return redirect('panel/admin/trip-reason');
-		}
+        if (!isset($timeDay)) {
+            return redirect('panel/admin/time-day');
+        }
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-		$rules = array(
-            'trip_reason_name'        => 'required'
-	     );
+        $rules = array(
+            'time_of_day' => 'required'
+        );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-		// UPDATE CATEGORY
-		$tripReason->trip_reason_name   		= $request->trip_reason_name;
-		$tripReason->mode        				= $request->mode;
-		$tripReason->save();
+        // UPDATE CATEGORY
+        $timeDay->time_of_day = $request->time_of_day;
+        $timeDay->short_description = $request->short_description;
+        $timeDay->mode = $request->mode;
+        $timeDay->save();
 
-		\Session::flash('success_message', trans('misc.success_update'));
+        \Session::flash('success_message', trans('misc.success_update'));
 
-    	return redirect('panel/admin/trip-reason');
+        return redirect('panel/admin/time-day');
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function deleteTripReason($id){
+    public function deleteTimeDay($id)
+    {
 
-		$tripReason        = TripReason::find( $id );
+        $timeDay = TimeDay::find($id);
 
-		if(!isset($tripReason)) {
-			return redirect('panel/admin/trip-reason');
-		} else {
+        if (!isset($timeDay)) {
+            return redirect('panel/admin/time-day');
+        } else {
 
-			// Delete Category
-			$tripReason->delete();
+            // Delete Category
+            $timeDay->delete();
 
-			return redirect('panel/admin/trip-reason');
-		}
-	}//<--- END METHOD
+            return redirect('panel/admin/time-day');
+        }
+    }//<--- END METHOD
 
-	// START
-	public function Package() {
+    // START
+    public function tripReason()
+    {
 
-		$data      = Package::get();
-		return view('admin.package')->withData($data);
+        $data = TripReason::get();
+        return view('admin.trip-reason')->withData($data);
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function addPackage() {
+    public function addTripReason()
+    {
 
-		return view('admin.add-package');
+        return view('admin.add-trip-reason');
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function storePackage(Request $request) {
+    public function storeTripReason(Request $request)
+    {
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-		$rules = array(
+        $rules = array(
+            'trip_reason_name' => 'required'
+        );
+
+        $this->validate($request, $rules);
+
+        $sql = new TripReason();
+        $sql->trip_reason_name = trim($request->trip_reason_name);
+        $sql->mode = $request->mode;
+        $sql->save();
+
+        \Session::flash('success_message', trans('admin.success_add_tripreason'));
+
+        return redirect('panel/admin/trip-reason');
+
+    }//<--- END METHOD
+
+    public function editTripReason($id)
+    {
+
+        $tripReason = TripReason::find($id);
+
+        return view('admin.edit-trip-reason', compact('tripReason'));
+
+    }//<--- END METHOD
+
+    public function updateTripReason(Request $request)
+    {
+
+
+        $tripReason = TripReason::find($request->id);
+
+        if (!isset($tripReason)) {
+            return redirect('panel/admin/trip-reason');
+        }
+
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
+
+        $rules = array(
+            'trip_reason_name' => 'required'
+        );
+
+        $this->validate($request, $rules);
+
+        // UPDATE CATEGORY
+        $tripReason->trip_reason_name = $request->trip_reason_name;
+        $tripReason->mode = $request->mode;
+        $tripReason->save();
+
+        \Session::flash('success_message', trans('misc.success_update'));
+
+        return redirect('panel/admin/trip-reason');
+
+    }//<--- END METHOD
+
+    public function deleteTripReason($id)
+    {
+
+        $tripReason = TripReason::find($id);
+
+        if (!isset($tripReason)) {
+            return redirect('panel/admin/trip-reason');
+        } else {
+
+            // Delete Category
+            $tripReason->delete();
+
+            return redirect('panel/admin/trip-reason');
+        }
+    }//<--- END METHOD
+
+    // START
+    public function Package()
+    {
+
+        $data = Package::get();
+        return view('admin.package')->withData($data);
+
+    }//<--- END METHOD
+
+    public function addPackage()
+    {
+
+        return view('admin.add-package');
+
+    }//<--- END METHOD
+
+    public function storePackage(Request $request)
+    {
+
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
+
+        $rules = array(
             // 'hours'        		=> 'required',
-            'price'        		=> 'required',
-            'number_of_photos'  => 'required'
+            'price' => 'required',
+            'number_of_photos' => 'required'
         );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-		$sql              		= New Package();
-		$sql->hours    			= $request->hours;
-		$sql->minutes    		= $request->minutes;
-		$sql->price    			= $request->price;
-		$sql->number_of_photos  = $request->number_of_photos;
-		$sql->mode       		= $request->mode;
-		$sql->save();
+        $sql = new Package();
+        $sql->hours = $request->hours;
+        $sql->minutes = $request->minutes;
+        $sql->price = $request->price;
+        $sql->number_of_photos = $request->number_of_photos;
+        $sql->mode = $request->mode;
+        $sql->save();
 
-		\Session::flash('success_message', trans('admin.success_add_package'));
+        \Session::flash('success_message', trans('admin.success_add_package'));
 
-    	return redirect('panel/admin/package');
+        return redirect('panel/admin/package');
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function editPackage($id) {
+    public function editPackage($id)
+    {
 
-		$package        = Package::find( $id );
+        $package = Package::find($id);
 
-		return view('admin.edit-package',compact('package'));
+        return view('admin.edit-package', compact('package'));
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function updatePackage( Request $request ) {
+    public function updatePackage(Request $request)
+    {
 
 
-		$package  = Package::find( $request->id );
+        $package = Package::find($request->id);
 
-	    if( !isset($package) ) {
-			return redirect('panel/admin/package');
-		}
+        if (!isset($package)) {
+            return redirect('panel/admin/package');
+        }
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-		$rules = array(
+        $rules = array(
             // 'hours'        		=> 'required',
-            'price'        		=> 'required',
-            'number_of_photos'  => 'required'
-	     );
-
-		$this->validate($request, $rules);
-
-		// UPDATE CATEGORY
-
-		$package->hours    			= $request->hours;
-		$package->minutes    		= $request->minutes;
-		$package->price    			= $request->price;
-		$package->number_of_photos  = $request->number_of_photos;
-		$package->mode        		= $request->mode;
-		$package->save();
-
-		\Session::flash('success_message', trans('misc.success_update'));
-
-    	return redirect('panel/admin/package');
-
-	}//<--- END METHOD
-
-	public function deletePackage($id){
-
-		$package        = Package::find( $id );
-
-		if(!isset($package)) {
-			return redirect('panel/admin/package');
-		} else {
-
-			// Delete Category
-			$package->delete();
-
-			return redirect('panel/admin/package');
-		}
-	}//<--- END METHOD
-
-	// START
-	public function preferredStylePhoto() {
-
-		$data      = PreferredStylePhoto::get();
-		return view('admin.preferred-style-photo')->withData($data);
-
-	}//<--- END METHOD
-
-	public function addPreferredStylePhoto() {
-
-		return view('admin.add-preferred-style-photo');
-
-	}//<--- END METHOD
-
-	public function storePreferredStylePhoto(Request $request) {
-
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
-
-		$rules = array(
-            'name'        => 'required'
+            'price' => 'required',
+            'number_of_photos' => 'required'
         );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-		$sql      	= New PreferredStylePhoto();
-		$sql->name	= trim($request->name);
-		$sql->mode	= $request->mode;
-		$sql->save();
+        // UPDATE CATEGORY
 
-		\Session::flash('success_message', trans('admin.success_add_preferred_style_photo'));
+        $package->hours = $request->hours;
+        $package->minutes = $request->minutes;
+        $package->price = $request->price;
+        $package->number_of_photos = $request->number_of_photos;
+        $package->mode = $request->mode;
+        $package->save();
 
-    	return redirect('panel/admin/preferred-style-photo');
+        \Session::flash('success_message', trans('misc.success_update'));
 
-	}//<--- END METHOD
+        return redirect('panel/admin/package');
 
-	public function editPreferredStylePhoto($id) {
+    }//<--- END METHOD
 
-		$preferredStylePhoto        = PreferredStylePhoto::find( $id );
+    public function deletePackage($id)
+    {
 
-		return view('admin.edit-preferred-style-photo',compact('preferredStylePhoto'));
+        $package = Package::find($id);
 
-	}//<--- END METHOD
+        if (!isset($package)) {
+            return redirect('panel/admin/package');
+        } else {
 
-	public function updatePreferredStylePhoto( Request $request ) {
+            // Delete Category
+            $package->delete();
 
+            return redirect('panel/admin/package');
+        }
+    }//<--- END METHOD
 
-		$preferredStylePhoto  = PreferredStylePhoto::find( $request->id );
+    // START
+    public function preferredStylePhoto()
+    {
 
-	    if( !isset($preferredStylePhoto) ) {
-			return redirect('panel/admin/preferred-style-photo');
-		}
+        $data = PreferredStylePhoto::get();
+        return view('admin.preferred-style-photo')->withData($data);
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+    }//<--- END METHOD
 
-		$rules = array(
-            'name'        => 'required'
-	     );
+    public function addPreferredStylePhoto()
+    {
 
-		$this->validate($request, $rules);
+        return view('admin.add-preferred-style-photo');
 
-		// UPDATE CATEGORY
-		$preferredStylePhoto->name  = $request->name;
-		$preferredStylePhoto->mode  = $request->mode;
-		$preferredStylePhoto->save();
+    }//<--- END METHOD
 
-		\Session::flash('success_message', trans('misc.success_update'));
+    public function storePreferredStylePhoto(Request $request)
+    {
 
-    	return redirect('panel/admin/preferred-style-photo');
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-	}//<--- END METHOD
-
-	public function deletePreferredStylePhoto($id){
-
-		$preferredStylePhoto        = PreferredStylePhoto::find( $id );
-
-		if(!isset($preferredStylePhoto)) {
-			return redirect('panel/admin/preferred-style-photo');
-		} else {
-
-			// Delete Category
-			$preferredStylePhoto->delete();
-
-			return redirect('panel/admin/preferred-style-photo');
-		}
-	}//<--- END METHOD
-
-	// START
-	public function levelOfDirection() {
-
-		$data      = LevelOfDirection::get();
-		return view('admin.level-of-direction')->withData($data);
-
-	}//<--- END METHOD
-
-	public function addLevelOfDirection() {
-
-		return view('admin.add-level-of-direction');
-
-	}//<--- END METHOD
-
-	public function storeLevelOfDirection(Request $request) {
-
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
-
-		$rules = array(
-            'name'        => 'required'
+        $rules = array(
+            'name' => 'required'
         );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-		$sql      	= New LevelOfDirection();
-		$sql->name	= trim($request->name);
-		$sql->mode	= $request->mode;
-		$sql->save();
+        $sql = new PreferredStylePhoto();
+        $sql->name = trim($request->name);
+        $sql->mode = $request->mode;
+        $sql->save();
 
-		\Session::flash('success_message', trans('admin.success_add_level_of_direction'));
+        \Session::flash('success_message', trans('admin.success_add_preferred_style_photo'));
 
-    	return redirect('panel/admin/level-of-direction');
+        return redirect('panel/admin/preferred-style-photo');
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function editLevelOfDirection($id) {
+    public function editPreferredStylePhoto($id)
+    {
 
-		$levelOfDirection        = LevelOfDirection::find( $id );
+        $preferredStylePhoto = PreferredStylePhoto::find($id);
 
-		return view('admin.edit-level-of-direction',compact('levelOfDirection'));
+        return view('admin.edit-preferred-style-photo', compact('preferredStylePhoto'));
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function updateLevelOfDirection( Request $request ) {
+    public function updatePreferredStylePhoto(Request $request)
+    {
 
 
-		$levelOfDirection  = LevelOfDirection::find( $request->id );
+        $preferredStylePhoto = PreferredStylePhoto::find($request->id);
 
-	    if( !isset($preferredStylePhoto) ) {
-			return redirect('panel/admin/level-of-direction');
-		}
+        if (!isset($preferredStylePhoto)) {
+            return redirect('panel/admin/preferred-style-photo');
+        }
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-		$rules = array(
-            'name'        => 'required'
-	     );
-
-		$this->validate($request, $rules);
-
-		// UPDATE CATEGORY
-		$levelOfDirection->name  = $request->name;
-		$levelOfDirection->mode  = $request->mode;
-		$levelOfDirection->save();
-
-		\Session::flash('success_message', trans('misc.success_update'));
-
-    	return redirect('panel/admin/level-of-direction');
-
-	}//<--- END METHOD
-
-	public function deleteLevelOfDirection($id){
-
-		$levelOfDirection        = LevelOfDirection::find( $id );
-
-		if(!isset($levelOfDirection)) {
-			return redirect('panel/admin/level-of-direction');
-		} else {
-
-			// Delete Category
-			$levelOfDirection->delete();
-
-			return redirect('panel/admin/level-of-direction');
-		}
-	}//<--- END METHOD
-
-	// START Music Type
-	public function musicType() {
-
-		$data      = MusicType::where('is_deleted','!=', '1')->where('parent_id','=','0')->get();
-		return view('admin.music-type')->withData($data);
-
-	}//<--- END METHOD
-
-	public function addMusicType() {
-
-		return view('admin.add-music-type');
-
-	}//<--- END METHOD
-
-	public function storeMusicType(Request $request) {
-
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
-
-		$rules = array(
-            'music_type'        => 'required'
+        $rules = array(
+            'name' => 'required'
         );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-		$currentDate = date('Y-m-d HH:i:s a');
+        // UPDATE CATEGORY
+        $preferredStylePhoto->name = $request->name;
+        $preferredStylePhoto->mode = $request->mode;
+        $preferredStylePhoto->save();
 
-		$sql      	= New MusicType();
-		$sql->music_type	= trim($request->music_type);
-		$sql->created_date	= $currentDate;
-		$sql->save();
+        \Session::flash('success_message', trans('misc.success_update'));
 
-		\Session::flash('success_message', trans('admin.success_add_music_type'));
+        return redirect('panel/admin/preferred-style-photo');
 
-    	return redirect('panel/admin/music-type');
+    }//<--- END METHOD
 
-	}//<--- END METHOD
+    public function deletePreferredStylePhoto($id)
+    {
 
-	public function editMusicType($id) {
+        $preferredStylePhoto = PreferredStylePhoto::find($id);
 
-		$musicType        = MusicType::find( $id );
+        if (!isset($preferredStylePhoto)) {
+            return redirect('panel/admin/preferred-style-photo');
+        } else {
 
-		return view('admin.edit-music-type',compact('musicType'));
+            // Delete Category
+            $preferredStylePhoto->delete();
 
-	}//<--- END METHOD
+            return redirect('panel/admin/preferred-style-photo');
+        }
+    }//<--- END METHOD
 
-	public function updateMusicType( Request $request ) {
+    // START
+    public function levelOfDirection()
+    {
 
+        $data = LevelOfDirection::get();
+        return view('admin.level-of-direction')->withData($data);
 
-		$musicType  = MusicType::find( $request->id );
+    }//<--- END METHOD
 
-	    // if( !isset($preferredStylePhoto) ) {
-		// 	return redirect('panel/admin/level-of-direction');
-		// }
+    public function addLevelOfDirection()
+    {
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+        return view('admin.add-level-of-direction');
 
-		$rules = array(
-            'music_type'        => 'required'
-	     );
+    }//<--- END METHOD
 
-		$this->validate($request, $rules);
+    public function storeLevelOfDirection(Request $request)
+    {
 
-		// UPDATE CATEGORY
-		$musicType->music_type  = $request->music_type;
-		$musicType->save();
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-		\Session::flash('success_message', trans('misc.success_update'));
-
-    	return redirect('panel/admin/music-type');
-
-	}//<--- END METHOD
-
-	public function deleteMusicType($id){
-
-		$musicType        = MusicType::find( $id );
-
-		if(!isset($musicType)) {
-			return redirect('panel/admin/music-type');
-		} else {
-
-			// Delete Category
-			$musicType->is_deleted = '1';
-			$musicType->save();
-
-			return redirect('panel/admin/music-type');
-		}
-	}//<--- END METHOD
-	//End Music Type
-
-	// START Music Sub Type
-	public function musicSubType() {
-
-		$data      = MusicType::select('music_types.id AS subTypeId','music_types.music_type AS subTypeName', 'parentType.music_type AS parentTypeName')->join('music_types AS parentType', 'parentType.id','=', 'music_types.parent_id')->where('music_types.is_deleted','!=', '1')->where('music_types.parent_id','!=','0')->get();
-		// var_dump($data);
-		// die;
-		return view('admin.music-sub-type')->withData($data);
-
-	}//<--- END METHOD
-
-	public function addMusicSubType() {
-
-		$musicTypeData = MusicType::where('parent_id','=', '0')->where('is_deleted','!=', '1')->get();
-		return view('admin.add-music-sub-type', compact('musicTypeData'));
-
-	}//<--- END METHOD
-
-	public function storeMusicSubType(Request $request) {
-
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
-
-		$rules = array(
-            'music_type'        => 'required',
-			'parent_id' 		=> 'required'
+        $rules = array(
+            'name' => 'required'
         );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-		$currentDate = date('Y-m-d HH:i:s a');
+        $sql = new LevelOfDirection();
+        $sql->name = trim($request->name);
+        $sql->mode = $request->mode;
+        $sql->save();
 
-		$sql      	= New MusicType();
-		$sql->music_type	= trim($request->music_type);
-		$sql->parent_id	= $request->parent_id;
-		$sql->created_date	= $currentDate;
-		$sql->save();
+        \Session::flash('success_message', trans('admin.success_add_level_of_direction'));
 
-		\Session::flash('success_message', trans('admin.success_add_music_type'));
+        return redirect('panel/admin/level-of-direction');
 
-    	return redirect('panel/admin/music-sub-type');
+    }//<--- END METHOD
 
-	}//<--- END METHOD
+    public function editLevelOfDirection($id)
+    {
 
-	public function editMusicSubType($id) {
+        $levelOfDirection = LevelOfDirection::find($id);
 
-		$musicType        = MusicType::find( $id );
+        return view('admin.edit-level-of-direction', compact('levelOfDirection'));
 
-		$parentMusicTypeData = MusicType::where('parent_id','=', '0')->where('is_deleted','!=', '1')->get();
+    }//<--- END METHOD
 
-		return view('admin.edit-music-sub-type',compact('musicType','parentMusicTypeData'));
-
-	}//<--- END METHOD
-
-	public function updateMusicSubType( Request $request ) {
+    public function updateLevelOfDirection(Request $request)
+    {
 
 
-		$musicType  = MusicType::find( $request->id );
+        $levelOfDirection = LevelOfDirection::find($request->id);
 
-	    // if( !isset($preferredStylePhoto) ) {
-		// 	return redirect('panel/admin/level-of-direction');
-		// }
+        if (!isset($preferredStylePhoto)) {
+            return redirect('panel/admin/level-of-direction');
+        }
 
-		Validator::extend('ascii_only', function($attribute, $value, $parameters){
-    		return !preg_match('/[^x00-x7F\-]/i', $value);
-		});
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-		$rules = array(
-            'music_type'        => 'required',
-			'parent_id'			=> 'required'
-	     );
+        $rules = array(
+            'name' => 'required'
+        );
 
-		$this->validate($request, $rules);
+        $this->validate($request, $rules);
 
-		// UPDATE CATEGORY
-		$musicType->music_type  = $request->music_type;
-		$musicType->parent_id  = $request->parent_id;
-		$musicType->save();
+        // UPDATE CATEGORY
+        $levelOfDirection->name = $request->name;
+        $levelOfDirection->mode = $request->mode;
+        $levelOfDirection->save();
 
-		\Session::flash('success_message', trans('misc.success_update'));
+        \Session::flash('success_message', trans('misc.success_update'));
 
-    	return redirect('panel/admin/music-type');
+        return redirect('panel/admin/level-of-direction');
 
-	}//<--- END METHOD
+    }//<--- END METHOD
 
-	public function deleteMusicSubType($id){
+    public function deleteLevelOfDirection($id)
+    {
 
-		$musicType        = MusicType::find( $id );
+        $levelOfDirection = LevelOfDirection::find($id);
 
-		if(!isset($musicType)) {
-			return redirect('panel/admin/music-sub-type');
-		} else {
+        if (!isset($levelOfDirection)) {
+            return redirect('panel/admin/level-of-direction');
+        } else {
 
-			// Delete Category
-			$musicType->is_deleted = '1';
-			$musicType->save();
+            // Delete Category
+            $levelOfDirection->delete();
 
-			return redirect('panel/admin/music-sub-type');
-		}
-	}//<--- END METHOD
-	//End Music Sub Type
+            return redirect('panel/admin/level-of-direction');
+        }
+    }//<--- END METHOD
 
-	public function bookingPendingRequests(){
-		$getPendingBookingRequests =  Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities','cities.id','=','bookings.city_id')->join('users AS userArtist','userArtist.id','=','bookings.artist_id')->join('users AS userCustomer','userCustomer.id','=','bookings.customer_id')->where('bookings.status', '=', 'pending')->orderBy('requested_date','ASC')->get();
-		return view('admin.bookings-pending-requests', ['data' => $getPendingBookingRequests]);
-	}
+    // START Music Type
+    public function musicType()
+    {
 
-	public function bookingPendingRequestsDetails($shootId){
-		$getBookingPendingDetails = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities','cities.id','=','bookings.city_id')->join('users AS userArtist','userArtist.id','=','bookings.artist_id')->join('users AS userCustomer','userCustomer.id','=','bookings.customer_id')->where('bookings.id', '=', $shootId)->first();
-    	return view('admin.bookings-pending-details', ['data' => $getBookingPendingDetails]);
-	}
+        $data = MusicType::where('is_deleted', '!=', '1')->where('parent_id', '=', '0')->get();
+        return view('admin.music-type')->withData($data);
 
-	public function bookingRejectedRequests(){
-		$getRejectedBookingRequests =  Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities','cities.id','=','bookings.city_id')->join('users AS userArtist','userArtist.id','=','bookings.artist_id')->join('users AS userCustomer','userCustomer.id','=','bookings.customer_id')->where('bookings.status', '=', 'rejected')->orderBy('requested_date','ASC')->get();
-		return view('admin.bookings-rejected-requests', ['data' => $getRejectedBookingRequests]);
-	}
+    }//<--- END METHOD
 
-	public function bookingRejectedRequestsDetails($shootId){
-		$getBookingRejectedDetails = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities','cities.id','=','bookings.city_id')->join('users AS userArtist','userArtist.id','=','bookings.artist_id')->join('users AS userCustomer','userCustomer.id','=','bookings.customer_id')->where('bookings.id', '=', $shootId)->first();
-    	return view('admin.bookings-rejected-details', ['data' => $getBookingRejectedDetails]);
-	}
+    public function addMusicType()
+    {
 
-	public function bookingCancelledRequests(){
-		$getCencelledBookingRequests =  Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities','cities.id','=','bookings.city_id')->join('users AS userArtist','userArtist.id','=','bookings.artist_id')->join('users AS userCustomer','userCustomer.id','=','bookings.customer_id')->where('bookings.status', '=', 'cancelled')->orderBy('requested_date','ASC')->get();
-		return view('admin.bookings-cancelled-requests', ['data' => $getCencelledBookingRequests]);
-	}
+        return view('admin.add-music-type');
 
-	public function bookingCancelledRequestsDetails($shootId){
-		$getBookingCancelledDetails = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities','cities.id','=','bookings.city_id')->join('users AS userArtist','userArtist.id','=','bookings.artist_id')->join('users AS userCustomer','userCustomer.id','=','bookings.customer_id')->where('bookings.id', '=', $shootId)->first();
-    	return view('admin.bookings-cancelled-details', ['data' => $getBookingCancelledDetails]);
-	}
+    }//<--- END METHOD
 
-	public function bookingApprovedRequests(){
-		$getApprovedBookingRequests =  Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities','cities.id','=','bookings.city_id')->join('users AS userArtist','userArtist.id','=','bookings.artist_id')->join('users AS userCustomer','userCustomer.id','=','bookings.customer_id')->where('bookings.status', '=', 'approved')->orderBy('requested_date','ASC')->get();
-		return view('admin.bookings-approved-requests', ['data' => $getApprovedBookingRequests]);
-	}
+    public function storeMusicType(Request $request)
+    {
 
-	public function bookingApprovedRequestsDetails($shootId){
-		$getBookingApprovedDetails = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities','cities.id','=','bookings.city_id')->join('users AS userArtist','userArtist.id','=','bookings.artist_id')->join('users AS userCustomer','userCustomer.id','=','bookings.customer_id')->where('bookings.id', '=', $shootId)->first();
-    	return view('admin.bookings-approved-details', ['data' => $getBookingApprovedDetails]);
-	}
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
 
-	public function bookingCompletedRequests(){
-		$getCompletedBookingRequests =  Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities','cities.id','=','bookings.city_id')->join('users AS userArtist','userArtist.id','=','bookings.artist_id')->join('users AS userCustomer','userCustomer.id','=','bookings.customer_id')->where('bookings.status', '=', 'completed')->orderBy('requested_date','ASC')->get();
-		return view('admin.bookings-completed-requests', ['data' => $getCompletedBookingRequests]);
-	}
+        $rules = array(
+            'music_type' => 'required'
+        );
 
-	public function bookingCompletedRequestsDetails($shootId){
-		$getBookingCompletedDetails = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities','cities.id','=','bookings.city_id')->join('users AS userArtist','userArtist.id','=','bookings.artist_id')->join('users AS userCustomer','userCustomer.id','=','bookings.customer_id')->where('bookings.id', '=', $shootId)->first();
-    	return view('admin.bookings-completed-details', ['data' => $getBookingCompletedDetails]);
-	}
+        $this->validate($request, $rules);
 
-	public function getPaymentDetails($shootId)
-	{
-	    $getBookingDetailsForPayment = Booking::select('bookings.*', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('users AS userArtist','userArtist.id','=','bookings.artist_id')->join('users AS userCustomer','userCustomer.id','=','bookings.customer_id')->where('bookings.id', '=', $shootId)->first();
-	    return view('admin.bookings-completed-payment-details', ['data' => $getBookingDetailsForPayment]);
-	}
+        $currentDate = date('Y-m-d HH:i:s a');
+
+        $sql = new MusicType();
+        $sql->music_type = trim($request->music_type);
+        $sql->created_date = $currentDate;
+        $sql->save();
+
+        \Session::flash('success_message', trans('admin.success_add_music_type'));
+
+        return redirect('panel/admin/music-type');
+
+    }//<--- END METHOD
+
+    public function editMusicType($id)
+    {
+
+        $musicType = MusicType::find($id);
+
+        return view('admin.edit-music-type', compact('musicType'));
+
+    }//<--- END METHOD
+
+    public function updateMusicType(Request $request)
+    {
+
+
+        $musicType = MusicType::find($request->id);
+
+        // if( !isset($preferredStylePhoto) ) {
+        // 	return redirect('panel/admin/level-of-direction');
+        // }
+
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
+
+        $rules = array(
+            'music_type' => 'required'
+        );
+
+        $this->validate($request, $rules);
+
+        // UPDATE CATEGORY
+        $musicType->music_type = $request->music_type;
+        $musicType->save();
+
+        \Session::flash('success_message', trans('misc.success_update'));
+
+        return redirect('panel/admin/music-type');
+
+    }//<--- END METHOD
+
+    public function deleteMusicType($id)
+    {
+
+        $musicType = MusicType::find($id);
+
+        if (!isset($musicType)) {
+            return redirect('panel/admin/music-type');
+        } else {
+
+            // Delete Category
+            $musicType->is_deleted = '1';
+            $musicType->save();
+
+            return redirect('panel/admin/music-type');
+        }
+    }//<--- END METHOD
+    //End Music Type
+
+    // START Music Sub Type
+    public function musicSubType()
+    {
+
+        $data = MusicType::select('music_types.id AS subTypeId', 'music_types.music_type AS subTypeName', 'parentType.music_type AS parentTypeName')->join('music_types AS parentType', 'parentType.id', '=', 'music_types.parent_id')->where('music_types.is_deleted', '!=', '1')->where('music_types.parent_id', '!=', '0')->get();
+        // var_dump($data);
+        // die;
+        return view('admin.music-sub-type')->withData($data);
+
+    }//<--- END METHOD
+
+    public function addMusicSubType()
+    {
+
+        $musicTypeData = MusicType::where('parent_id', '=', '0')->where('is_deleted', '!=', '1')->get();
+        return view('admin.add-music-sub-type', compact('musicTypeData'));
+
+    }//<--- END METHOD
+
+    public function storeMusicSubType(Request $request)
+    {
+
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
+
+        $rules = array(
+            'music_type' => 'required',
+            'parent_id' => 'required'
+        );
+
+        $this->validate($request, $rules);
+
+        $currentDate = date('Y-m-d HH:i:s a');
+
+        $sql = new MusicType();
+        $sql->music_type = trim($request->music_type);
+        $sql->parent_id = $request->parent_id;
+        $sql->created_date = $currentDate;
+        $sql->save();
+
+        \Session::flash('success_message', trans('admin.success_add_music_type'));
+
+        return redirect('panel/admin/music-sub-type');
+
+    }//<--- END METHOD
+
+    public function editMusicSubType($id)
+    {
+
+        $musicType = MusicType::find($id);
+
+        $parentMusicTypeData = MusicType::where('parent_id', '=', '0')->where('is_deleted', '!=', '1')->get();
+
+        return view('admin.edit-music-sub-type', compact('musicType', 'parentMusicTypeData'));
+
+    }//<--- END METHOD
+
+    public function updateMusicSubType(Request $request)
+    {
+
+
+        $musicType = MusicType::find($request->id);
+
+        // if( !isset($preferredStylePhoto) ) {
+        // 	return redirect('panel/admin/level-of-direction');
+        // }
+
+        Validator::extend('ascii_only', function ($attribute, $value, $parameters) {
+            return !preg_match('/[^x00-x7F\-]/i', $value);
+        });
+
+        $rules = array(
+            'music_type' => 'required',
+            'parent_id' => 'required'
+        );
+
+        $this->validate($request, $rules);
+
+        // UPDATE CATEGORY
+        $musicType->music_type = $request->music_type;
+        $musicType->parent_id = $request->parent_id;
+        $musicType->save();
+
+        \Session::flash('success_message', trans('misc.success_update'));
+
+        return redirect('panel/admin/music-type');
+
+    }//<--- END METHOD
+
+    public function deleteMusicSubType($id)
+    {
+
+        $musicType = MusicType::find($id);
+
+        if (!isset($musicType)) {
+            return redirect('panel/admin/music-sub-type');
+        } else {
+
+            // Delete Category
+            $musicType->is_deleted = '1';
+            $musicType->save();
+
+            return redirect('panel/admin/music-sub-type');
+        }
+    }//<--- END METHOD
+
+    //End Music Sub Type
+
+    public function bookingPendingRequests()
+    {
+        $getPendingBookingRequests = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities', 'cities.id', '=', 'bookings.city_id')->join('users AS userArtist', 'userArtist.id', '=', 'bookings.artist_id')->join('users AS userCustomer', 'userCustomer.id', '=', 'bookings.customer_id')->where('bookings.status', '=', 'pending')->orderBy('requested_date', 'ASC')->get();
+        return view('admin.bookings-pending-requests', ['data' => $getPendingBookingRequests]);
+    }
+
+    public function bookingPendingRequestsDetails($shootId)
+    {
+        $getBookingPendingDetails = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities', 'cities.id', '=', 'bookings.city_id')->join('users AS userArtist', 'userArtist.id', '=', 'bookings.artist_id')->join('users AS userCustomer', 'userCustomer.id', '=', 'bookings.customer_id')->where('bookings.id', '=', $shootId)->first();
+        return view('admin.bookings-pending-details', ['data' => $getBookingPendingDetails]);
+    }
+
+    public function bookingRejectedRequests()
+    {
+        $getRejectedBookingRequests = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities', 'cities.id', '=', 'bookings.city_id')->join('users AS userArtist', 'userArtist.id', '=', 'bookings.artist_id')->join('users AS userCustomer', 'userCustomer.id', '=', 'bookings.customer_id')->where('bookings.status', '=', 'rejected')->orderBy('requested_date', 'ASC')->get();
+        return view('admin.bookings-rejected-requests', ['data' => $getRejectedBookingRequests]);
+    }
+
+    public function bookingRejectedRequestsDetails($shootId)
+    {
+        $getBookingRejectedDetails = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities', 'cities.id', '=', 'bookings.city_id')->join('users AS userArtist', 'userArtist.id', '=', 'bookings.artist_id')->join('users AS userCustomer', 'userCustomer.id', '=', 'bookings.customer_id')->where('bookings.id', '=', $shootId)->first();
+        return view('admin.bookings-rejected-details', ['data' => $getBookingRejectedDetails]);
+    }
+
+    public function bookingCancelledRequests()
+    {
+        $getCencelledBookingRequests = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities', 'cities.id', '=', 'bookings.city_id')->join('users AS userArtist', 'userArtist.id', '=', 'bookings.artist_id')->join('users AS userCustomer', 'userCustomer.id', '=', 'bookings.customer_id')->where('bookings.status', '=', 'cancelled')->orderBy('requested_date', 'ASC')->get();
+        return view('admin.bookings-cancelled-requests', ['data' => $getCencelledBookingRequests]);
+    }
+
+    public function bookingCancelledRequestsDetails($shootId)
+    {
+        $getBookingCancelledDetails = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities', 'cities.id', '=', 'bookings.city_id')->join('users AS userArtist', 'userArtist.id', '=', 'bookings.artist_id')->join('users AS userCustomer', 'userCustomer.id', '=', 'bookings.customer_id')->where('bookings.id', '=', $shootId)->first();
+        return view('admin.bookings-cancelled-details', ['data' => $getBookingCancelledDetails]);
+    }
+
+    public function bookingApprovedRequests()
+    {
+        $getApprovedBookingRequests = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities', 'cities.id', '=', 'bookings.city_id')->join('users AS userArtist', 'userArtist.id', '=', 'bookings.artist_id')->join('users AS userCustomer', 'userCustomer.id', '=', 'bookings.customer_id')->where('bookings.status', '=', 'approved')->orderBy('requested_date', 'ASC')->get();
+        return view('admin.bookings-approved-requests', ['data' => $getApprovedBookingRequests]);
+    }
+
+    public function bookingApprovedRequestsDetails($shootId)
+    {
+        $getBookingApprovedDetails = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities', 'cities.id', '=', 'bookings.city_id')->join('users AS userArtist', 'userArtist.id', '=', 'bookings.artist_id')->join('users AS userCustomer', 'userCustomer.id', '=', 'bookings.customer_id')->where('bookings.id', '=', $shootId)->first();
+        return view('admin.bookings-approved-details', ['data' => $getBookingApprovedDetails]);
+    }
+
+    public function bookingCompletedRequests()
+    {
+        $getCompletedBookingRequests = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities', 'cities.id', '=', 'bookings.city_id')->join('users AS userArtist', 'userArtist.id', '=', 'bookings.artist_id')->join('users AS userCustomer', 'userCustomer.id', '=', 'bookings.customer_id')->where('bookings.status', '=', 'completed')->orderBy('requested_date', 'ASC')->get();
+        return view('admin.bookings-completed-requests', ['data' => $getCompletedBookingRequests]);
+    }
+
+    public function bookingCompletedRequestsDetails($shootId)
+    {
+        $getBookingCompletedDetails = Booking::select('bookings.*', 'cities.country_id as CountryId', 'cities.city_name', 'cities.description', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('cities', 'cities.id', '=', 'bookings.city_id')->join('users AS userArtist', 'userArtist.id', '=', 'bookings.artist_id')->join('users AS userCustomer', 'userCustomer.id', '=', 'bookings.customer_id')->where('bookings.id', '=', $shootId)->first();
+        return view('admin.bookings-completed-details', ['data' => $getBookingCompletedDetails]);
+    }
+
+    public function getPaymentDetails($shootId)
+    {
+        $getBookingDetailsForPayment = Booking::select('bookings.*', 'userCustomer.username AS UserName', 'userCustomer.name AS User_Name', 'userArtist.username AS UserNameArtist', 'userArtist.name AS User_Name_Artist')->join('users AS userArtist', 'userArtist.id', '=', 'bookings.artist_id')->join('users AS userCustomer', 'userCustomer.id', '=', 'bookings.customer_id')->where('bookings.id', '=', $shootId)->first();
+        return view('admin.bookings-completed-payment-details', ['data' => $getBookingDetailsForPayment]);
+    }
 
 }
