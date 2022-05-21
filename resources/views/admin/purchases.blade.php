@@ -113,7 +113,7 @@
                                                    target="_blank">{{$purchase_username}} <i
                                                         class="fa fa-external-link-square"></i></a></td>
                                             <td>{{ $purchase_email }}</td>
-                                            <td>{{ $type }}</td>
+                                            <td>{{ $type ?? 'invalid type' }}</td>
                                             <td>{{$license}}</td>
                                             <td>{{ App\Helper::amountFormat($purchase->price) }}</td>
                                             <td>{{ App\Helper::amountFormatDecimal($purchase->earning_net_admin) }}</td>
