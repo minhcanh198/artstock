@@ -218,25 +218,23 @@ $stat_revenue_month = App\Models\Purchases::leftJoin('images', function ($join) 
 
                                 <ul class="products-list product-list-in-box">
                                     @foreach( $_purchases->take(5)->get() as $purchase )
-                                        @if($purchase->user())
-                                            <li class="item">
-                                                <div class="product-img">
-                                                    <img loading="lazy"
-                                                         src="{{ url('uploads/thumbnail',$purchase->images()->thumbnail) }}"
-                                                         style="height: auto !important;"/>
-                                                </div>
-                                                <div class="product-info">
-                                                    <a href="{{ url('photo',$purchase->images_id) }}" target="_blank"
-                                                       class="product-title">{{ $purchase->images()->title }}
-                                                        <span
-                                                            class="label label-success pull-right">{{App\Helper::amountFormat($purchase->price)}}</span>
-                                                    </a>
-                                                    <span class="product-description">
-												 {{ trans('misc.buyer') }} {{ $purchase->user()->username }} / {{ date('d M, Y', strtotime($purchase->date)) }}
+                                        <li class="item">
+                                            <div class="product-img">
+                                                <img loading="lazy"
+                                                     src="{{ url('uploads/thumbnail',$purchase->images()->thumbnail) }}"
+                                                     style="height: auto !important;"/>
+                                            </div>
+                                            <div class="product-info">
+                                                <a href="{{ url('photo',$purchase->images_id) }}" target="_blank"
+                                                   class="product-title">{{ $purchase->images()->title }}
+                                                    <span
+                                                        class="label label-success pull-right">{{App\Helper::amountFormat($purchase->price)}}</span>
+                                                </a>
+                                                <span class="product-description">
+												 {{ trans('misc.buyer') }} {{ $purchase->user->username }} / {{ date('d M, Y', strtotime($purchase->date)) }}
 											 </span>
-                                                </div>
-                                            </li><!-- /.item -->
-                                        @endif
+                                            </div>
+                                        </li><!-- /.item -->
                                     @endforeach
                                 </ul>
                             </div><!-- /.box-body -->
@@ -358,9 +356,10 @@ $stat_revenue_month = App\Models\Purchases::leftJoin('images', function ($join) 
 
                     $date = date('Y-m-d', strtotime('today - ' . $i . ' days'));
 
-                    $_purchases = App\Models\Purchases::leftJoin('images', function ($join) {
-                        $join->on('purchases.images_id', '=', 'images.id');
-                    })
+                    $_purchases = App\Models\Purchases::has('user')
+                        ->leftJoin('images', function ($join) {
+                            $join->on('purchases.images_id', '=', 'images.id');
+                        })
                         ->where('images.user_id', Auth::user()->id)
                         ->whereRaw("DATE(purchases.date) = '" . $date . "'")->count();
 
