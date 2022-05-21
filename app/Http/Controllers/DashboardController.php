@@ -1167,7 +1167,7 @@ class DashboardController extends Controller
         }
 
         return view('dashboard.photos', ['data' => $data, 'query' => $query, 'sort' => $sort]);
-    }//<--- End Method
+    }
 
     public function delete_photo(Request $request)
     {
@@ -1252,16 +1252,17 @@ class DashboardController extends Controller
 
     public function sales()
     {
-        $data = Purchases::leftJoin('images', function ($join) {
-            $join->on('purchases.images_id', '=', 'images.id');
-        })
+        $data = Purchases::has('user')
+            ->leftJoin('images', function ($join) {
+                $join->on('purchases.images_id', '=', 'images.id');
+            })
             ->where('images.user_id', Auth::user()->id)
             ->select('purchases.*')
             ->orderBy('purchases.id', 'DESC')
             ->paginate(30);
 
         return view('dashboard.sales')->withData($data);
-    }//<--- End Method
+    }
 
     public function purchases()
     {
@@ -1270,7 +1271,7 @@ class DashboardController extends Controller
             ->paginate(30);
 
         return view('dashboard.purchases')->withData($data);
-    }//<--- End Method
+    }
 
     public function deposits()
     {
@@ -1278,7 +1279,7 @@ class DashboardController extends Controller
         $data = Deposits::whereUserId(Auth::user()->id)->orderBy('id', 'desc')->paginate(30);
 
         return view('dashboard.deposits-history')->withData($data);
-    }//<--- End Method
+    }
 
     // Add Funds
     public function addFunds()
@@ -1287,7 +1288,7 @@ class DashboardController extends Controller
         $_stripe = PaymentGateways::where('id', 2)->where('enabled', '1')->select('key')->first();
 
         return view('dashboard.add-funds')->with(['_stripe' => $_stripe]);
-    }//<--- End Method
+    }
 
     public function showWithdrawal()
     {
@@ -1295,7 +1296,7 @@ class DashboardController extends Controller
         $data = Withdrawals::whereUserId(Auth::user()->id)->paginate(20);
         return view('dashboard.withdrawals')->withData($data);
 
-    }//<--- End Method
+    }
 
     public function withdrawal()
     {
@@ -1338,7 +1339,7 @@ class DashboardController extends Controller
 
         return redirect('user/dashboard/withdrawals');
 
-    }//<--- End Method
+    }
 
     public function withdrawalConfigure()
     {
@@ -1384,7 +1385,7 @@ class DashboardController extends Controller
             return redirect('user/dashboard/withdrawals/configure');
         }
 
-    }//<--- End Method
+    }
 
     public function withdrawalDelete()
     {
@@ -1405,12 +1406,12 @@ class DashboardController extends Controller
 
         }// Isset withdrawal
 
-    }//<--- End Method
+    }
 
     // withdrawals configure view
     public function withdrawalsConfigureView()
     {
         return view('dashboard.withdrawals-configure');
-    }//<--- End Method
+    }
 
 }
