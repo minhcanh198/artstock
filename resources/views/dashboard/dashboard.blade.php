@@ -217,7 +217,6 @@ $stat_revenue_month = App\Models\Purchases::leftJoin('images', function ($join) 
                             <div class="box-body">
 
                                 <ul class="products-list product-list-in-box">
-
                                     @foreach( $_purchases->take(5)->get() as $purchase )
                                         @if($purchase->user())
                                             <li class="item">
