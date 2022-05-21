@@ -28,7 +28,7 @@ $totalAnimation = App\Models\Images::where('is_type', '=', 'image')
     ->where('extension', 'gif')
     ->count();
 
-$users = App\Models\User::orderBy('id', 'DESC')->take(8)->get();
+$users = App\Models\User::orderBy('id', 'DESC')->take(5)->get();
 
 // Statistics of the month
 
@@ -212,7 +212,6 @@ $stat_revenue_month = App\Models\Purchases::whereMonth('date', date('m'))
 
             <div class="row">
                 <div class="col-md-6">
-                    <!-- USERS LIST -->
                     <div class="box box-danger">
                         <div class="box-header with-border">
                             <h3 class="box-title">{{ trans('admin.latest_members') }}</h3>
@@ -269,7 +268,7 @@ $stat_revenue_month = App\Models\Purchases::whereMonth('date', date('m'))
                                class="uppercase">{{ trans('admin.view_all_members') }}</a>
                         </div><!-- /.box-footer -->
 
-                    </div><!--/.box -->
+                    </div>
                 </div>
 
                 <div class="col-md-6">
@@ -321,6 +320,79 @@ $stat_revenue_month = App\Models\Purchases::whereMonth('date', date('m'))
                             <div class="box-footer text-center">
                                 <a href="{{ url('panel/admin/images') }}"
                                    class="uppercase">{{ trans('admin.view_all_images') }}</a>
+                            </div><!-- /.box-footer -->
+
+                        @else
+                            <div class="box-body">
+                                <h5>{{ trans('admin.no_result') }}</h5>
+                            </div><!-- /.box-body -->
+
+                        @endif
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">{{ trans('admin.latest_audios') }}</h3>
+                            <div class="box-tools pull-right">
+                            </div>
+                        </div><!-- /.box-header -->
+
+                        @if( $totalAudio != 0 )
+                            <div class="box-body">
+
+                                <ul class="products-list product-list-in-box">
+
+                                    @foreach( $audios as $audio )
+                                        <?php
+                                        switch ($audio->status) {
+                                            case 'active':
+                                                $color_status = 'success';
+                                                $txt_status = trans('misc.active');
+                                                break;
+
+                                            case 'pending':
+                                                $color_status = 'warning';
+                                                $txt_status = trans('misc.pending');
+                                                break;
+
+                                        }
+                                        ?>
+                                        <li class="item">
+                                            <div class="audio-info col-md-4">
+                                                <a href="{{ url('video', $audio->id ) }}/{{str_slug($audio->title)}}"
+                                                   target="_blank" class="product-title">{{ $audio->title }}
+                                                    <span
+                                                        class="label label-{{ $color_status }} pull-right">{{ $txt_status }}</span>
+                                                </a>
+                                                <span class="product-description">
+                        {{ trans('misc.by') }} {{ '@'.$audio->user()->username }} / {{ App\Helper::formatDate($audio->date) }}
+                      </span>
+                                            </div>
+                                            <div class="product-img col-md-8">
+                                                <audio controls="">
+                                                    <source
+                                                        src="{{asset('uploads/audio/large/'.$audio->thumbnail)}}"
+                                                        type="audio/mpeg"
+
+                                                    >
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </div>
+
+                                        </li><!-- /.item -->
+                                    @endforeach
+                                </ul>
+                            </div><!-- /.box-body -->
+
+                            <div class="box-footer text-center">
+                                <a href="{{ url('panel/admin/videos') }}"
+                                   class="uppercase">{{ trans('admin.view_all_audios') }}</a>
                             </div><!-- /.box-footer -->
 
                         @else
@@ -397,7 +469,8 @@ $stat_revenue_month = App\Models\Purchases::whereMonth('date', date('m'))
 
                     </div>
                 </div>
-
+            </div>
+            <div class="row">
                 <div class="col-md-6">
                     <div class="box box-primary">
                         <div class="box-header with-border">
@@ -459,78 +532,7 @@ $stat_revenue_month = App\Models\Purchases::whereMonth('date', date('m'))
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">{{ trans('admin.latest_audios') }}</h3>
-                            <div class="box-tools pull-right">
-                            </div>
-                        </div><!-- /.box-header -->
-
-                        @if( $totalAudio != 0 )
-                            <div class="box-body">
-
-                                <ul class="products-list product-list-in-box">
-
-                                    @foreach( $audios as $audio )
-                                        <?php
-                                        switch ($audio->status) {
-                                            case 'active':
-                                                $color_status = 'success';
-                                                $txt_status = trans('misc.active');
-                                                break;
-
-                                            case 'pending':
-                                                $color_status = 'warning';
-                                                $txt_status = trans('misc.pending');
-                                                break;
-
-                                        }
-                                        ?>
-                                        <li class="item">
-                                            <div class="audio-info col-md-4">
-                                                <a href="{{ url('video', $audio->id ) }}/{{str_slug($audio->title)}}"
-                                                   target="_blank" class="product-title">{{ $audio->title }}
-                                                    <span
-                                                        class="label label-{{ $color_status }} pull-right">{{ $txt_status }}</span>
-                                                </a>
-                                                <span class="product-description">
-                        {{ trans('misc.by') }} {{ '@'.$audio->user()->username }} / {{ App\Helper::formatDate($audio->date) }}
-                      </span>
-                                            </div>
-                                            <div class="product-img col-md-8">
-                                                <audio controls="">
-                                                    <source
-                                                        src="{{asset('uploads/audio/large/'.$audio->thumbnail)}}"
-                                                        type="audio/mpeg"
-
-                                                    >
-                                                    Your browser does not support the audio element.
-                                                </audio>
-                                            </div>
-
-                                        </li><!-- /.item -->
-                                    @endforeach
-                                </ul>
-                            </div><!-- /.box-body -->
-
-                            <div class="box-footer text-center">
-                                <a href="{{ url('panel/admin/videos') }}"
-                                   class="uppercase">{{ trans('admin.view_all_audios') }}</a>
-                            </div><!-- /.box-footer -->
-
-                        @else
-                            <div class="box-body">
-                                <h5>{{ trans('admin.no_result') }}</h5>
-                            </div><!-- /.box-body -->
-
-                        @endif
-
-                    </div>
-                </div>
-
-
-            </div><!-- ./row -->
+            </div>
 
             <!-- Your Page Content Here -->
 
