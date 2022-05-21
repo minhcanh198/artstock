@@ -38,18 +38,16 @@ class DashboardController extends Controller
         $this->request = $request;
     }
 
-    // Dashboard
     public function dashboard()
     {
         return view('dashboard.dashboard');
-    }//<--- End Method
+    }
 
     public function myBookings()
     {
         $getBookingsList = Booking::where('artist_id', '=', Auth::user()->id)
             ->orderBy('requested_date', 'ASC')
             ->get();
-        // dd($getBookingsList);
         return view('dashboard.bookings', ['data' => $getBookingsList]);
     }
 
