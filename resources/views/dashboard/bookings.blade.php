@@ -305,7 +305,7 @@
                                             @php
                                                 $getUserName = \App\Models\User::where('id','=',$shoots->customer_id)->first();
                                             @endphp
-                                            <td>{{ $getUserName->username }}</td>
+                                            <td>{{ $getUserName ? $getUserName->username : 'N/A' }}</td>
 
                                             <td>{{ App\Helper::formatDate($shoots->requested_date) }}
                                                 - {{ $shoots->requested_time }} (preferred)
