@@ -40,7 +40,40 @@ class DashboardController extends Controller
 
     public function dashboard()
     {
-        return view('dashboard.dashboard');
+        $images = Images::whereUserId(Auth::User()->id)->orderBy('id', 'DESC')->take(5)->get();
+        $total_images = Images::whereUserId(Auth::User()->id)->count();
+
+        $videos = Images::where('is_type', '=', 'video')
+            ->orderBy('id', 'DESC')
+            ->take(5)
+            ->get();
+        $total_videos = Images::where('is_type', '=', 'video')->count();
+
+        $audios = Images::where('is_type', '=', 'audio')
+            ->orderBy('id', 'DESC')
+            ->take(5)
+            ->get();
+        $totalAudio = Images::where('is_type', '=', 'audio')->count();
+
+        $animations = Images::where('is_type', '=', 'image')
+            ->where('extension', 'gif')
+            ->orderBy('id', 'DESC')
+            ->take(5)
+            ->get();
+        $totalAnimation = Images::where('is_type', '=', 'image')
+            ->where('extension', 'gif')
+            ->count();
+
+        return view('dashboard.dashboard')->with([
+            'images' => $images,
+            'total_images' => $total_images,
+            'videos' => $videos,
+            'total_videos' => $total_videos,
+            'audios' => $audios,
+            'totalAudio' => $totalAudio,
+            'animations' => $animations,
+            'totalAnimation' => $totalAnimation
+        ]);
     }
 
     public function myBookings()

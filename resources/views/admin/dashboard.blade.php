@@ -420,7 +420,7 @@ $stat_revenue_month = App\Models\Purchases::whereMonth('date', date('m'))
 
                                     @foreach( $videos as $video )
                                         <?php
-                                        switch ($image->status) {
+                                        switch ($video->status) {
                                             case 'active':
                                                 $color_status = 'success';
                                                 $txt_status = trans('misc.active');

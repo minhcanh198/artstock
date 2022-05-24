@@ -2,11 +2,6 @@
 
 // Images
 $authUser = App\Models\Images::whereUserId(1)->get();
-
-// Total
-$total_images = App\Models\Images::whereUserId(Auth::User()->id)->count();
-$images = App\Models\Images::whereUserId(Auth::User()->id)->orderBy('id', 'DESC')->take(5)->get();
-
 $_purchases = App\Models\Purchases::has('user')
     ->leftJoin('images', function ($join) {
         $join->on('purchases.images_id', '=', 'images.id');
@@ -327,6 +322,204 @@ $stat_revenue_month = App\Models\Purchases::leftJoin('images', function ($join) 
 
 
             </div><!-- ./row -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">{{ trans('admin.latest_videos') }}</h3>
+                            <div class="box-tools pull-right">
+                            </div>
+                        </div><!-- /.box-header -->
+
+                        @if( $total_videos != 0 )
+                            <div class="box-body">
+
+                                <ul class="products-list product-list-in-box">
+
+                                    @foreach( $videos as $video )
+                                        <?php
+                                        switch ($video->status) {
+                                            case 'active':
+                                                $color_status = 'success';
+                                                $txt_status = trans('misc.active');
+                                                break;
+
+                                            case 'pending':
+                                                $color_status = 'warning';
+                                                $txt_status = trans('misc.pending');
+                                                break;
+
+                                        }
+                                        $explodeVideoThumbnail = explode(".", $video->thumbnail)[0] . '.png';
+                                        ?>
+                                        <li class="item">
+                                            <div class="product-img">
+                                                <img loading="lazy"
+                                                     src="{{ asset('uploads/video/screen_shot/').'/screen-shot-'.$explodeVideoThumbnail }}"
+                                                     style="height: auto !important;"/>
+                                            </div>
+                                            <div class="product-info">
+                                                <a href="{{ url('video', $video->id ) }}/{{str_slug($video->title)}}"
+                                                   target="_blank" class="product-title">{{ $video->title }}
+                                                    <span
+                                                        class="label label-{{ $color_status }} pull-right">{{ $txt_status }}</span>
+                                                </a>
+                                                <span class="product-description">
+                        {{ trans('misc.by') }} {{ '@'.$video->user()->username }} / {{ App\Helper::formatDate($video->date) }}
+                      </span>
+                                            </div>
+                                        </li><!-- /.item -->
+                                    @endforeach
+                                </ul>
+                            </div><!-- /.box-body -->
+
+                            <div class="box-footer text-center">
+                                <a href="{{ url('panel/admin/videos') }}"
+                                   class="uppercase">{{ trans('admin.view_all_videos') }}</a>
+                            </div><!-- /.box-footer -->
+
+                        @else
+                            <div class="box-body">
+                                <h5>{{ trans('admin.no_result') }}</h5>
+                            </div><!-- /.box-body -->
+
+                        @endif
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">{{ trans('admin.latest_anime') }}</h3>
+                            <div class="box-tools pull-right"></div>
+                        </div><!-- /.box-header -->
+
+                        @if( $totalAnimation != 0 )
+                            <div class="box-body">
+                                <ul class="products-list product-list-in-box">
+
+                                    @foreach( $animations as $anime )
+                                        <?php
+                                        switch ($anime->status) {
+                                            case 'active':
+                                                $color_status = 'success';
+                                                $txt_status = trans('misc.active');
+                                                break;
+
+                                            case 'pending':
+                                                $color_status = 'warning';
+                                                $txt_status = trans('misc.pending');
+                                                break;
+                                        }
+                                        ?>
+                                        <li class="item">
+                                            <div class="product-img">
+                                                <img loading="lazy"
+                                                     src="{{ asset('uploads/thumbnail/').'/'.$anime->thumbnail }}"
+                                                     style="height: auto !important;"/>
+                                            </div>
+                                            <div class="product-info">
+                                                <a href="{{ url('photo') }}/{{$anime->id}}" target="_blank"
+                                                   class="product-title">{{ $anime->title }}
+                                                    <span
+                                                        class="label label-{{ $color_status }} pull-right">{{ $txt_status }}</span>
+                                                </a>
+                                                <span class="product-description">
+                            {{ trans('misc.by') }} {{ '@'.$anime->user()->username }} / {{ App\Helper::formatDate($anime->date) }}
+                          </span>
+                                            </div>
+                                        </li><!-- /.item -->
+                                    @endforeach
+                                </ul>
+                            </div><!-- /.box-body -->
+
+                            <div class="box-footer text-center">
+                                <a href="{{ url('panel/admin/images') }}"
+                                   class="uppercase">{{ trans('admin.view_all_anime') }}</a>
+                            </div><!-- /.box-footer -->
+
+                        @else
+                            <div class="box-body">
+                                <h5>{{ trans('admin.no_result') }}</h5>
+                            </div><!-- /.box-body -->
+
+                        @endif
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">{{ trans('admin.latest_audios') }}</h3>
+                            <div class="box-tools pull-right">
+                            </div>
+                        </div><!-- /.box-header -->
+
+                        @if( $totalAudio != 0 )
+                            <div class="box-body">
+
+                                <ul class="products-list product-list-in-box">
+
+                                    @foreach( $audios as $audio )
+                                        <?php
+                                        switch ($audio->status) {
+                                            case 'active':
+                                                $color_status = 'success';
+                                                $txt_status = trans('misc.active');
+                                                break;
+
+                                            case 'pending':
+                                                $color_status = 'warning';
+                                                $txt_status = trans('misc.pending');
+                                                break;
+
+                                        }
+                                        ?>
+                                        <li class="item">
+                                            <div class="audio-info col-md-4">
+                                                <a href="{{ url('video', $audio->id ) }}/{{str_slug($audio->title)}}"
+                                                   target="_blank" class="product-title">{{ $audio->title }}
+                                                    <span
+                                                        class="label label-{{ $color_status }} pull-right">{{ $txt_status }}</span>
+                                                </a>
+                                                <span class="product-description">
+                        {{ trans('misc.by') }} {{ '@'.$audio->user()->username }} / {{ App\Helper::formatDate($audio->date) }}
+                      </span>
+                                            </div>
+                                            <div class="product-img col-md-8">
+                                                <audio controls="">
+                                                    <source
+                                                        src="{{asset('uploads/audio/large/'.$audio->thumbnail)}}"
+                                                        type="audio/mpeg"
+
+                                                    >
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </div>
+
+                                        </li><!-- /.item -->
+                                    @endforeach
+                                </ul>
+                            </div><!-- /.box-body -->
+
+                            <div class="box-footer text-center">
+                                <a href="{{ url('panel/admin/videos') }}"
+                                   class="uppercase">{{ trans('admin.view_all_audios') }}</a>
+                            </div><!-- /.box-footer -->
+
+                        @else
+                            <div class="box-body">
+                                <h5>{{ trans('admin.no_result') }}</h5>
+                            </div><!-- /.box-body -->
+
+                        @endif
+
+                    </div>
+                </div>
+
+            </div>
 
             <!-- Your Page Content Here -->
 
