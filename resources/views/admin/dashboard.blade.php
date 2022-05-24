@@ -269,17 +269,16 @@ $stat_revenue_month = App\Models\Purchases::whereMonth('date', date('m'))
                         </div><!-- /.box-footer -->
 
                     </div>
-                </div>
-
-                <div class="col-md-6">
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title">{{ trans('admin.latest_images') }}</h3>
-                            <div class="box-tools pull-right"></div>
+                            <h3 class="box-title">@lang('misc.recent_photos')</h3>
+                            <div class="box-tools pull-right">
+                            </div>
                         </div><!-- /.box-header -->
 
                         @if( $total_images != 0 )
                             <div class="box-body">
+
                                 <ul class="products-list product-list-in-box">
 
                                     @foreach( $images as $image )
@@ -292,25 +291,30 @@ $stat_revenue_month = App\Models\Purchases::whereMonth('date', date('m'))
 
                                             case 'pending':
                                                 $color_status = 'warning';
-                                                $txt_status = trans('misc.pending');
+                                                $txt_status = trans('admin.pending');
                                                 break;
+                                        }
+
+                                        if ($image->finalized == 1) {
+                                            $color_status = 'default';
+                                            $txt_status = trans('misc.finalized');
                                         }
                                         ?>
                                         <li class="item">
                                             <div class="product-img">
                                                 <img loading="lazy"
-                                                     src="{{ asset('uploads/thumbnail/').'/'.$image->thumbnail }}"
+                                                     src="{{ url('uploads/thumbnail',$image->thumbnail) }}"
                                                      style="height: auto !important;"/>
                                             </div>
                                             <div class="product-info">
-                                                <a href="{{ url('photo') }}/{{$image->id}}" target="_blank"
+                                                <a href="{{ url('photo',$image->id) }}" target="_blank"
                                                    class="product-title">{{ $image->title }}
                                                     <span
                                                         class="label label-{{ $color_status }} pull-right">{{ $txt_status }}</span>
                                                 </a>
                                                 <span class="product-description">
-                            {{ trans('misc.by') }} {{ '@'.$image->user()->username }} / {{ App\Helper::formatDate($image->date) }}
-                          </span>
+                          {{ date('d M, Y', strtotime($image->date)) }}
+                        </span>
                                             </div>
                                         </li><!-- /.item -->
                                     @endforeach
@@ -318,8 +322,8 @@ $stat_revenue_month = App\Models\Purchases::whereMonth('date', date('m'))
                             </div><!-- /.box-body -->
 
                             <div class="box-footer text-center">
-                                <a href="{{ url('panel/admin/images') }}"
-                                   class="uppercase">{{ trans('admin.view_all_images') }}</a>
+                                <a href="{{ url('user/dashboard/photos') }}"
+                                   class="uppercase">{{ trans('misc.view_all') }}</a>
                             </div><!-- /.box-footer -->
 
                         @else
@@ -330,12 +334,6 @@ $stat_revenue_month = App\Models\Purchases::whereMonth('date', date('m'))
                         @endif
 
                     </div>
-                </div>
-
-
-            </div>
-            <div class="row">
-                <div class="col-md-6">
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <h3 class="box-title">{{ trans('admin.latest_audios') }}</h3>
@@ -403,8 +401,8 @@ $stat_revenue_month = App\Models\Purchases::whereMonth('date', date('m'))
                         @endif
 
                     </div>
-                </div>
 
+                </div>
                 <div class="col-md-6">
                     <div class="box box-primary">
                         <div class="box-header with-border">
@@ -468,10 +466,6 @@ $stat_revenue_month = App\Models\Purchases::whereMonth('date', date('m'))
                         @endif
 
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <h3 class="box-title">{{ trans('admin.latest_anime') }}</h3>
@@ -531,11 +525,7 @@ $stat_revenue_month = App\Models\Purchases::whereMonth('date', date('m'))
 
                     </div>
                 </div>
-
             </div>
-
-            <!-- Your Page Content Here -->
-
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 @endsection

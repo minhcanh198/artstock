@@ -197,10 +197,7 @@ $stat_revenue_month = App\Models\Purchases::leftJoin('images', function ($join) 
                 </section>
 
             </div><!-- ./row -->
-
             <div class="row">
-
-
                 <div class="col-md-6">
                     <div class="box box-primary">
                         <div class="box-header with-border">
@@ -249,10 +246,6 @@ $stat_revenue_month = App\Models\Purchases::leftJoin('images', function ($join) 
                         @endif
 
                     </div>
-                </div>
-
-
-                <div class="col-md-6">
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <h3 class="box-title">@lang('misc.recent_photos')</h3>
@@ -318,138 +311,6 @@ $stat_revenue_month = App\Models\Purchases::leftJoin('images', function ($join) 
                         @endif
 
                     </div>
-                </div>
-
-
-            </div><!-- ./row -->
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">{{ trans('admin.latest_videos') }}</h3>
-                            <div class="box-tools pull-right">
-                            </div>
-                        </div><!-- /.box-header -->
-
-                        @if( $total_videos != 0 )
-                            <div class="box-body">
-
-                                <ul class="products-list product-list-in-box">
-
-                                    @foreach( $videos as $video )
-                                        <?php
-                                        switch ($video->status) {
-                                            case 'active':
-                                                $color_status = 'success';
-                                                $txt_status = trans('misc.active');
-                                                break;
-
-                                            case 'pending':
-                                                $color_status = 'warning';
-                                                $txt_status = trans('misc.pending');
-                                                break;
-
-                                        }
-                                        $explodeVideoThumbnail = explode(".", $video->thumbnail)[0] . '.png';
-                                        ?>
-                                        <li class="item">
-                                            <div class="product-img">
-                                                <img loading="lazy"
-                                                     src="{{ asset('uploads/video/screen_shot/').'/screen-shot-'.$explodeVideoThumbnail }}"
-                                                     style="height: auto !important;"/>
-                                            </div>
-                                            <div class="product-info">
-                                                <a href="{{ url('video', $video->id ) }}/{{str_slug($video->title)}}"
-                                                   target="_blank" class="product-title">{{ $video->title }}
-                                                    <span
-                                                        class="label label-{{ $color_status }} pull-right">{{ $txt_status }}</span>
-                                                </a>
-                                                <span class="product-description">
-                        {{ trans('misc.by') }} {{ '@'.$video->user()->username }} / {{ App\Helper::formatDate($video->date) }}
-                      </span>
-                                            </div>
-                                        </li><!-- /.item -->
-                                    @endforeach
-                                </ul>
-                            </div><!-- /.box-body -->
-
-                            <div class="box-footer text-center">
-                                <a href="{{ url('panel/admin/videos') }}"
-                                   class="uppercase">{{ trans('admin.view_all_videos') }}</a>
-                            </div><!-- /.box-footer -->
-
-                        @else
-                            <div class="box-body">
-                                <h5>{{ trans('admin.no_result') }}</h5>
-                            </div><!-- /.box-body -->
-
-                        @endif
-
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">{{ trans('admin.latest_anime') }}</h3>
-                            <div class="box-tools pull-right"></div>
-                        </div><!-- /.box-header -->
-
-                        @if( $totalAnimation != 0 )
-                            <div class="box-body">
-                                <ul class="products-list product-list-in-box">
-
-                                    @foreach( $animations as $anime )
-                                        <?php
-                                        switch ($anime->status) {
-                                            case 'active':
-                                                $color_status = 'success';
-                                                $txt_status = trans('misc.active');
-                                                break;
-
-                                            case 'pending':
-                                                $color_status = 'warning';
-                                                $txt_status = trans('misc.pending');
-                                                break;
-                                        }
-                                        ?>
-                                        <li class="item">
-                                            <div class="product-img">
-                                                <img loading="lazy"
-                                                     src="{{ asset('uploads/thumbnail/').'/'.$anime->thumbnail }}"
-                                                     style="height: auto !important;"/>
-                                            </div>
-                                            <div class="product-info">
-                                                <a href="{{ url('photo') }}/{{$anime->id}}" target="_blank"
-                                                   class="product-title">{{ $anime->title }}
-                                                    <span
-                                                        class="label label-{{ $color_status }} pull-right">{{ $txt_status }}</span>
-                                                </a>
-                                                <span class="product-description">
-                            {{ trans('misc.by') }} {{ '@'.$anime->user()->username }} / {{ App\Helper::formatDate($anime->date) }}
-                          </span>
-                                            </div>
-                                        </li><!-- /.item -->
-                                    @endforeach
-                                </ul>
-                            </div><!-- /.box-body -->
-
-                            <div class="box-footer text-center">
-                                <a href="{{ url('panel/admin/images') }}"
-                                   class="uppercase">{{ trans('admin.view_all_anime') }}</a>
-                            </div><!-- /.box-footer -->
-
-                        @else
-                            <div class="box-body">
-                                <h5>{{ trans('admin.no_result') }}</h5>
-                            </div><!-- /.box-body -->
-
-                        @endif
-
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <h3 class="box-title">{{ trans('admin.latest_audios') }}</h3>
@@ -517,10 +378,131 @@ $stat_revenue_month = App\Models\Purchases::leftJoin('images', function ($join) 
                         @endif
 
                     </div>
+
                 </div>
+                <div class="col-md-6">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">{{ trans('admin.latest_videos') }}</h3>
+                            <div class="box-tools pull-right">
+                            </div>
+                        </div><!-- /.box-header -->
 
+                        @if( $total_videos != 0 )
+                            <div class="box-body">
+
+                                <ul class="products-list product-list-in-box">
+
+                                    @foreach( $videos as $video )
+                                        <?php
+                                        switch ($video->status) {
+                                            case 'active':
+                                                $color_status = 'success';
+                                                $txt_status = trans('misc.active');
+                                                break;
+
+                                            case 'pending':
+                                                $color_status = 'warning';
+                                                $txt_status = trans('misc.pending');
+                                                break;
+
+                                        }
+                                        $explodeVideoThumbnail = explode(".", $video->thumbnail)[0] . '.png';
+                                        ?>
+                                        <li class="item">
+                                            <div class="product-img">
+                                                <img loading="lazy"
+                                                     src="{{ asset('uploads/video/screen_shot/').'/screen-shot-'.$explodeVideoThumbnail }}"
+                                                     style="height: auto !important;"/>
+                                            </div>
+                                            <div class="product-info">
+                                                <a href="{{ url('video', $video->id ) }}/{{str_slug($video->title)}}"
+                                                   target="_blank" class="product-title">{{ $video->title }}
+                                                    <span
+                                                        class="label label-{{ $color_status }} pull-right">{{ $txt_status }}</span>
+                                                </a>
+                                                <span class="product-description">
+                        {{ trans('misc.by') }} {{ '@'.$video->user()->username }} / {{ App\Helper::formatDate($video->date) }}
+                      </span>
+                                            </div>
+                                        </li><!-- /.item -->
+                                    @endforeach
+                                </ul>
+                            </div><!-- /.box-body -->
+
+                            <div class="box-footer text-center">
+                                <a href="{{ url('panel/admin/videos') }}"
+                                   class="uppercase">{{ trans('admin.view_all_videos') }}</a>
+                            </div><!-- /.box-footer -->
+
+                        @else
+                            <div class="box-body">
+                                <h5>{{ trans('admin.no_result') }}</h5>
+                            </div><!-- /.box-body -->
+
+                        @endif
+
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">{{ trans('admin.latest_anime') }}</h3>
+                            <div class="box-tools pull-right"></div>
+                        </div><!-- /.box-header -->
+
+                        @if( $totalAnimation != 0 )
+                            <div class="box-body">
+                                <ul class="products-list product-list-in-box">
+
+                                    @foreach( $animations as $anime )
+                                        <?php
+                                        switch ($anime->status) {
+                                            case 'active':
+                                                $color_status = 'success';
+                                                $txt_status = trans('misc.active');
+                                                break;
+
+                                            case 'pending':
+                                                $color_status = 'warning';
+                                                $txt_status = trans('misc.pending');
+                                                break;
+                                        }
+                                        ?>
+                                        <li class="item">
+                                            <div class="product-img">
+                                                <img loading="lazy"
+                                                     src="{{ asset('uploads/thumbnail/').'/'.$anime->thumbnail }}"
+                                                     style="height: auto !important;"/>
+                                            </div>
+                                            <div class="product-info">
+                                                <a href="{{ url('photo') }}/{{$anime->id}}" target="_blank"
+                                                   class="product-title">{{ $anime->title }}
+                                                    <span
+                                                        class="label label-{{ $color_status }} pull-right">{{ $txt_status }}</span>
+                                                </a>
+                                                <span class="product-description">
+                            {{ trans('misc.by') }} {{ '@'.$anime->user()->username }} / {{ App\Helper::formatDate($anime->date) }}
+                          </span>
+                                            </div>
+                                        </li><!-- /.item -->
+                                    @endforeach
+                                </ul>
+                            </div><!-- /.box-body -->
+
+                            <div class="box-footer text-center">
+                                <a href="{{ url('panel/admin/images') }}"
+                                   class="uppercase">{{ trans('admin.view_all_anime') }}</a>
+                            </div><!-- /.box-footer -->
+
+                        @else
+                            <div class="box-body">
+                                <h5>{{ trans('admin.no_result') }}</h5>
+                            </div><!-- /.box-body -->
+
+                        @endif
+
+                    </div>
+                </div>
             </div>
-
             <!-- Your Page Content Here -->
 
         </section><!-- /.content -->
