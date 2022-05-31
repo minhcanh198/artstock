@@ -706,10 +706,12 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
                                                     <input class="no-show" name="payment_option" type="radio"
                                                            value="stripe" checked>
                                                     <span class="input-sm"
-                                                          style="width: 95%; float: left; position: absolute; padding: 0 10px; height: auto; margin-top: -4px;">
-                      <span class="label label-payment-icon label-default myicon-right"><i
-                              class="fab fa-stripe"></i></span>
-                    </span>
+                                                          style="width: 95%; float: left; position: absolute; padding: 0 10px; height: 20px;">
+                                                      <span class="label label-payment-icon label-default myicon-right">
+                                                          <i class="fab fa-stripe"></i>
+                                                      </span>
+                                                        Stripe
+                                                    </span>
                                                 </label>
                                             </div>
                                             <div class="radio margin-bottom-15 payment-panel-box">
@@ -719,8 +721,11 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
                                                            value="paypal">
                                                     <span class="input-sm"
                                                           style="width: 95%; float: left; position: absolute; padding: 0 10px; height: auto; margin-top: -4px;">
-                      <span class="label label-payment-icon label-default myicon-right"><i class="fab fa-cc-paypal"></i></span>
-                    </span>
+                                                      <span class="label label-payment-icon label-default myicon-right">
+                                                          <i class="fab fa-cc-paypal"></i>
+                                                      </span>
+                                                        Paypal
+                                                    </span>
                                                 </label>
                                             </div>
                                         </div>
