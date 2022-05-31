@@ -723,15 +723,6 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
                     </span>
                                                 </label>
                                             </div>
-                                            <!--<div class="radio margin-bottom-15 payment-panel-box">
-                                              <label class="padding-zero paymentOption" data-type="wallet" data-amount="">
-                                              <input class="no-show" name="payment_option" type="radio" value="wallet">
-                                              <span class="input-sm" style="width: 95%; float: left; position: absolute; padding: 0 10px; height: auto; margin-top: -4px;">
-                                                <span class="label label-payment-icon label-default myicon-right"><i class="fas fa-wallet"></i></span>
-                                              </span>
-                                            </label>
-                                          </div>-->
-
                                         </div>
                                         <style>
                                             /* Payment radio css */
@@ -1602,7 +1593,7 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
                     key:         "{{env('STRIPE_KEY')}}",
             amount:      strMoney*100,
             name:        "{{$response->title}}",
-            image:       "https://projects.hexawebstudio.com/darquise-nantel/img/favicon.png",
+            image:       "https://play-lh.googleusercontent.com/2PS6w7uBztfuMys5fgodNkTwTOE6bLVB2cJYbu5GHlARAK36FzO5bUfMDP9cEJk__cE",
             description: "{{$response->description}}",
             panelLabel:  'Pay',
             close: $button.prop("disabled", true)
@@ -1616,7 +1607,7 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
 
         var handler = StripeCheckout.configure({
             key: '{{env("STRIPE_KEY")}}',
-            image: 'https://projects.hexawebstudio.com/darquise-nantel/img/favicon.png',
+            image: 'https://play-lh.googleusercontent.com/2PS6w7uBztfuMys5fgodNkTwTOE6bLVB2cJYbu5GHlARAK36FzO5bUfMDP9cEJk__cE',
             locale: 'auto',
             token: function (token) {
                 // You can access the token ID with `token.id`.

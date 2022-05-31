@@ -1244,10 +1244,6 @@ class ImagesController extends Controller
      */
     public function show($id, $slug = null)
     {
-        // echo '<pre>';
-        // print_r($id);
-        // die;
-
         $response = Images::findOrFail($id);
 
         if (Auth::check() && $response->user_id != Auth::user()->id && $response->status == 'pending' && Auth::user()->role != 'admin') {
@@ -1319,7 +1315,7 @@ class ImagesController extends Controller
             }
 
         }//<--------- * Visits * ---------->
-        $showPayment =  User::where('id', $response->user_id)->where('paypal_account', '!=', '')->first() ? true : false;
+        $showPayment = User::where('id', $response->user_id)->where('paypal_account', '!=', '')->first() ? true : false;
         $response->showPayment = $showPayment;
         return view('images.show')->withResponse($response);
 
@@ -1948,7 +1944,7 @@ class ImagesController extends Controller
                 }]
             }';
 //        dd($json);
-        $body= json_decode(
+        $body = json_decode(
             $json,
             true);
         $request->body = $body;
@@ -1957,8 +1953,7 @@ class ImagesController extends Controller
         print "Status: {$response->result->batch_header->batch_status}\n";
         print "Batch ID: {$response->result->batch_header->payout_batch_id}\n";
         print "Links:\n";
-        foreach($response->result->links as $link)
-        {
+        foreach ($response->result->links as $link) {
             print "\t{$link->rel}: {$link->href}\tCall Type: {$link->method}\n";
         }
         echo json_encode($response->result, JSON_PRETTY_PRINT), "\n";
