@@ -38,6 +38,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // dd(config('mail.password'));
         $homePageData = HomePageSettings::first();
         $categories = Categories::where('mode', 'on')->orderBy('name')->paginate(12);
 
