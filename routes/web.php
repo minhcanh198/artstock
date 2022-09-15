@@ -258,7 +258,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     //<---- Upload
     Route::get('upload/image', function () {
-
         if (Auth::user()->authorized_to_upload == 'yes') {
             return view('images.upload');
         } else {
