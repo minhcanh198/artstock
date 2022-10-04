@@ -334,6 +334,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Route::post('upload','ImagesController@create');
     Route::post('upload/image', 'ImagesController@imageUpload');
+    // Route::post('upload/image', function () {
+    //     dd(1122323);
+    // });
 
     Route::post('upload/video', 'ImagesController@videoUpload');
 
