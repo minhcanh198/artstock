@@ -342,7 +342,7 @@ class ImagesController extends Controller
 
     public function imageUpload(Request $request)
     {
-        dd(get_extension_funcs("gd"));
+        // dd(get_extension_funcs("gd"));
         if (Auth::guest()) {
             return response()->json([
                 'session_null' => true,
