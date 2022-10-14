@@ -16,8 +16,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        dump(phpinfo());
-        dd("max file size", ini_get('upload_max_filesize'));
+        // dump(phpinfo());
+        // dd("max file size", ini_get('upload_max_filesize'));
     }
 
     /**
