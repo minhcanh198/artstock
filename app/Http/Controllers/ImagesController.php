@@ -67,7 +67,6 @@ class ImagesController extends Controller
         if ($id == null) {
             return Validator::make($data, [
                 'photo' => 'required|mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=' . $dimensions[0] . ',min_height=' . $dimensions[1] . '|max:' . $this->settings->file_size_allowed . '',
-                'photo' => 'required|mimes:jpg,gif,png,jpe,jpeg',
                 'title' => 'required|min:3|max:50',
                 'description' => 'min:2|max:' . $this->settings->description_length . '',
                 'tags' => 'required',
