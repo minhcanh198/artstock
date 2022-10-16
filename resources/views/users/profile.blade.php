@@ -112,7 +112,7 @@ if (Auth::check()) {
 
             <div class="center-block text-center profile-user-over">
                 <div class="text-center">
-                    <a href="{{ url($user->username) }}">
+                    <a href="{{ url($user->username) }}" class="w-100 d-flex justify-content-center">
                         <img loading="lazy" src="{{ asset('avatar').'/'.$user->avatar }}" width="150" height="150"
                              class="img-circle border-avatar-profile avatarUser"/>
                     </a>
