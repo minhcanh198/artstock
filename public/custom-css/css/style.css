@@ -1579,6 +1579,12 @@ audio::-webkit-media-controls-panel {
 
 .img-circle {
     border-radius: 50%;
+    object-fit: cover;
+}
+
+.img-object-center{
+    object-fit: cover;
+    object-position: center;
 }
 
 .new2 .arrow-up:before {
