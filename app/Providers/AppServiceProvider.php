@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\ServiceProvider;
 use URL;
 
@@ -16,8 +17,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // dump(phpinfo());
-        // dd("max file size", ini_get('upload_max_filesize'));
     }
 
     /**
@@ -27,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // dd(Hash::make("silverben98@gmail.com"));
+
         if (config('app.env') === 'production') {
             URL::forceScheme('https');
         }

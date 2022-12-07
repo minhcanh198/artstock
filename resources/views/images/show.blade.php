@@ -239,9 +239,13 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
 
                 <div class="text-center margin-bottom-20">
                     <div
-
                         style="margin: 0 auto; background: url('{{asset('img/pixel.gif')}}') repeat center center; max-width:{{App\Helper::getWidth('uploads/preview/'.$response->preview )}}px; max-height: {{App\Helper::getHeight('uploads/preview/'.$response->preview)}}px">
-                        <a data-fancybox href="{{url('uploads/preview',$response->preview)}}">
+                        <a data-fancybox href="{{url('uploads/preview',$response->preview)}}"
+                           data-price={{$response->price}}
+                           data-id={{$response->id}}
+                           data-type={{$response->is_type}}
+                           data-slug={{$response->title}}
+                        >
                             <img class="img-responsive img-rounded" style="display: inline-block;"
                                  src="{{url('uploads/preview',$response->preview)}}"/>
                         </a>
@@ -576,19 +580,6 @@ $comments_sql = $response->comments()->where('status', '1')->orderBy('date', 'de
 
                                 </dd>
                             </div><!-- form-group -->
-
-                            <!-- btn-free -->
-                            <!-- <button type="submit" class="btn btn-success btn-lg btn-block dropdown-toggle" id="downloadBtn"> -->
-
-                            <!--<div class="radio margin-bottom-15">-->
-                            <!--          <label class="padding-zero">-->
-                            <!--              <input id="popular_sort" class="">-->
-                            <!--              <span class="input-sm" style="width: 95%; float: left; position: absolute; padding: 0 10px; height: auto">-->
-                            <!--                  <span class="label label-default myicon-right"></span>-->
-                            <!--                  <span class="pull-right"></span>-->
-                            <!--              </span>-->
-                            <!--          </label>-->
-                            <!--      </div>-->
 
                             <button type="submit" class="btn btn-success btn-lg btn-block " id="downloadBtn">
                                 <i class="fa fa-cloud-download myicon-right"></i> {{trans('misc.download')}}

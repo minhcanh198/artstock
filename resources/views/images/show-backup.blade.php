@@ -38,9 +38,6 @@ if (Auth::check()) {
     $collections = App\Models\Collections::where('user_id', Auth::user()->id)->orderBy('id', 'asc')->get();
 
 }//<<<<---- *** END AUTH ***
-
-//  dd($response->stock);
-
 // All Images resolutions
 $stockImages = $response->stock;
 // dd($stockImages);

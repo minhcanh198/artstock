@@ -1418,7 +1418,7 @@ if (Auth::check()) {
                     var fileTitle = $(that).attr('data-title');
                     var fileDesc = $(that).attr('data-description');
                     var filePrice = $(that).attr('data-price');
-                    var fileType = $(that).attr('data-typee');
+                    var fileType = $(that).attr('data-type');
                     var slug = $(that).attr('data-slug');
                     if (fileType == "image") {
                         fileType = "photo";
@@ -1433,7 +1433,6 @@ if (Auth::check()) {
 
                     console.log("Price of element clicked is: " + filePrice);
 
-                    //$(".fancybox-toolbar").prepend('<form action="{{url('instant_buy')}}" method="post"><input type="hidden" name="_token" value="{{ csrf_token() }}" /><input type="hidden" name="fileId" value="'+fileId+'"><input type="hidden" name="fileTitle" value="'+fileTitle+'"><input type="hidden" name="fileDesc" value="'+fileDesc+'"><input type="hidden" name="filePrice" value="'+filePrice+'"><button id="buy_button" class="btn btn-success btn-buy instantBuyBtn">$'+filePrice+' Buy</button></form>');
                     $(".fancybox-toolbar").prepend('<a href="' + fileUrl + '" id="buy_button" class="btn btn-success btn-buy instantBuyBtn">$' + filePrice + ' Buy</a>');
                     $('.fancybox-toolbar').prepend('<button id="rotate_button" class="fancybox-button" title="Rotate Image"><i class="fa fa-repeat"></i></button>');
 

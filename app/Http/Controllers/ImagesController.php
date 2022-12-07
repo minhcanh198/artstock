@@ -1316,6 +1316,7 @@ class ImagesController extends Controller
         }//<--------- * Visits * ---------->
         $showPayment = User::where('id', $response->user_id)->where('paypal_account', '!=', '')->first() ? true : false;
         $response->showPayment = $showPayment;
+        // dd($response);
         return view('images.show')->withResponse($response);
 
     }//<--- End Method
